@@ -1,0 +1,67 @@
+# git_agent Configuration Template
+# ================================
+# Copy this file to config.yaml and fill in your values.
+# You can also set any key via environment variables:
+#   GITHUB_TOKEN=ghp_... GIT_AGENT_LLM_PROVIDER=openai ...
+
+# -----------------------------------------------------------------------
+# REQUIRED: GitHub authentication
+# -----------------------------------------------------------------------
+github_token: "ghp_YOUR_TOKEN_HERE"
+
+# -----------------------------------------------------------------------
+# REQUIRED: LLM configuration
+# -----------------------------------------------------------------------
+# Provider name: openai, anthropic, ollama, custom, etc.
+llm_provider: "openai"
+
+# API key for the LLM provider (mutually exclusive with llm_proxy_url)
+# llm_api_key: "sk-..."
+
+# Alternative: route through a proxy (ZeroClaw, Pi agent backend, etc.)
+# llm_proxy_url: "https://your-proxy.example.com/v1"
+
+# Optional LLM settings
+llm_model: "gpt-4"           # Model name
+llm_api_base: null            # Custom API base URL
+llm_temperature: 0.7          # Sampling temperature (0.0 – 2.0)
+llm_max_tokens: 4096          # Max response tokens
+
+# -----------------------------------------------------------------------
+# OPTIONAL: Fleet configuration
+# -----------------------------------------------------------------------
+# Organization name for fleet coordination
+# fleet_org: "my-fleet-org"
+
+# Vessel repo in "owner/repo" format — this is the agent's identity repo
+# vessel_repo: "super-z/vessel-super-z"
+
+# Maximum number of parallel agents / tasks
+max_parallel_agents: 4
+
+# Working hours constraint (e.g., "9-17" for 9am–5pm UTC, "always" for no limit)
+# work_hours: "always"
+
+# -----------------------------------------------------------------------
+# OPTIONAL: Extra LLM provider configurations
+# -----------------------------------------------------------------------
+# You can define multiple named LLM providers and switch between them.
+# llm_providers:
+#   code_review:
+#     api_key: "sk-..."
+#     model: "gpt-4"
+#     temperature: 0.3
+#   cheap:
+#     api_key: "sk-..."
+#     model: "gpt-3.5-turbo"
+#     temperature: 0.5
+#   local:
+#     api_base: "http://localhost:11434/v1"
+#     model: "codellama"
+
+# -----------------------------------------------------------------------
+# OPTIONAL: Extra custom configuration
+# -----------------------------------------------------------------------
+# Any additional keys are preserved in config.extra and can be accessed
+# by custom plugins or extensions.
+# custom_key: "custom_value"
