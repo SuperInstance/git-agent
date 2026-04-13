@@ -42,6 +42,59 @@ from .vessel import (
 )
 
 __version__ = "0.1.0"
+
+
+def create_provider(config) -> "LLMProvider":
+    """Factory: create an LLM provider from config.
+
+    Supports: openai, anthropic, ollama, proxy, mock.
+    Also supports multi-provider routing via config.
+    """
+    from .llm.base import ProviderNotFoundError
+
+    provider_name = getattr(config, "llm_provider", "openai")
+
+    try:
+        if provider_name == "openai":
+            from .llm.openai_compat import OpenAICompatibleProvider
+            return OpenAICompatibleProvider(
+                api_key=config.llm_api_key or "",
+                model=getattr(config, "llm_model", "gpt-4"),
+                base_url=getattr(config, "llm_api_base", None),
+            )
+        elif provider_name == "anthropic":
+            from .llm.anthropic import AnthropicProvider
+            return AnthropicProvider(
+                api_key=config.llm_api_key or "",
+                model=getattr(config, "llm_model", "claude-3-sonnet-20240229"),
+            )
+        elif provider_name == "ollama":
+            from .llm.ollama import OllamaProvider
+            return OllamaProvider(
+                base_url=getattr(config, "llm_proxy_url", "http://localhost:11434"),
+                model=getattr(config, "llm_model", "llama3"),
+            )
+        elif provider_name == "proxy":
+            from .llm.proxy import ProxyProvider
+            return ProxyProvider(
+                proxy_url=config.llm_proxy_url or "",
+                api_key=config.llm_api_key or "",
+                model=getattr(config, "llm_model", "default"),
+            )
+        elif provider_name == "mock":
+            from .llm.mock import MockProvider
+            return MockProvider()
+        elif provider_name == "router":
+            from .llm.router import LLMRouter
+            providers_config = getattr(config, "llm_providers", {})
+            return LLMRouter.from_config(providers_config)
+        else:
+            raise ProviderNotFoundError(f"Unknown provider: {provider_name}")
+    except ImportError as e:
+        raise ProviderNotFoundError(
+            f"Provider '{provider_name}' requires extra dependencies. "
+            f"Install with: pip install git-agent[{provider_name}]. Error: {e}"
+        )
 __all__ = [
     # Agent
     "Agent",
@@ -67,5 +120,6 @@ __all__ = [
     "WorklogEntry",
     "check_promotion",
     "next_stage",
+    "create_provider",
     "__version__",
 ]
