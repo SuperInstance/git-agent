@@ -1,5 +1,6 @@
 # git-agent
 
+<<<<<<< HEAD
 **FLUX Fleet Greenhorn Git-Agent** — An API-agnostic autonomous Git-native agent that lives
 inside GitHub repositories, communicates through Git operations, and grows from initiate to
 fleet commander through persistent career progression.
@@ -38,10 +39,29 @@ the autonomous loop, fleet coordination, and Git-native operations.
 - **Zero-config Docker**: Production-ready container deployment with optional Ollama sidecar
 
 ---
+=======
+**Foundational repo-native agent.** The git repository IS the agent — commits are actions, branches are timelines, merges are collaborations.
+
+## Philosophy
+
+git-agent treats the git repository itself as the agent's native environment. Instead of wrapping git with an AI layer, the agent operates *as* git operations:
+
+- **Commits = Actions**: Every meaningful agent action is a commit with structured messages
+- **Branches = Timelines**: Parallel exploration, A/B testing, speculative work
+- **Merges = Collaboration**: Agents merge their work like developers merge code
+- **Messages = Communication**: Commit messages, PR descriptions, and issue comments are the agent's voice
+
+## Related Projects
+
+- **git-agent-minimum** — Minimal bootstrapping agent (bare template for dojo training)
+- **git-agent-standard** — Standardized protocol for git-native agent communication
+- **cocapn-mud** — Git-native MUD where repo IS the world, commits ARE actions
+>>>>>>> 0ed96b4 (docs: add git-agent README — foundational repo-native agent concept)
 
 ## Architecture
 
 ```
+<<<<<<< HEAD
 ┌─────────────────────────────────────────────────────────────┐
 │                     FLUX FLEET                              │
 │                                                             │
@@ -515,3 +535,17 @@ that collaborate through Git-native communication protocols. The fleet has no ce
 no API calls between agents, just code reading and writing to shared repositories.
 
 *"The repo IS the agent. Git IS the nervous system."*
+=======
+git-agent/
+├── README.md           ← You are here
+└── (protocol specs)    ← Git-native agent communication standards
+```
+
+## Fleet Role
+
+git-agent is the foundational concept for the Cocapn fleet's agent paradigm. Every fleet vessel (Oracle1, JetsonClaw1, Forgemaster) operates on git-native principles — their repos are their identities, their commits are their work, their branches are their explorations.
+
+## License
+
+Proprietary — SuperInstance/Cocapn
+>>>>>>> 0ed96b4 (docs: add git-agent README — foundational repo-native agent concept)
