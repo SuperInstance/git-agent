@@ -1,1 +1,240 @@
-IyEvdXNyL2Jpbi9lbnYgYmFzaAojID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQojIGdpdC1hZ2VudCBpbnN0YWxsZXIg4oCUIG9uZS1saW5lciBzZXR1cAojIFVzYWdlOiBjdXJsIC1mc1NMIGh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9TdXBlckluc3RhbmNlL2dpdC1hZ2VudC9tYWluL2luc3RhbGwuc2ggfCBiYXNoCiMgICBPcjogIGJhc2ggaW5zdGFsbC5zaCBbLS12ZXNzZWwgb3duZXIvcmVwb10gWy0tdG9rZW4gZ2hweHh4XQojID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQpzZXQgLWV1byBwaXBlZmFpbAoKQk9MRD0nXDAzM1sxbScKR1JFRU49J1wwMzNbMDszMm0nCllFTExPVz0nXDAzM1swOzMzbScKQ1lBTj0nXDAzM1swOzM2bScKUkVEPSdcMDMzWzA7MzFtJwpOQz0nXDAzM1swbScKClZFUlNJT049IjAuMS4wIgpJTlNUQUxMX0RJUj0iJHtHSVRfQUdFTlRfSE9NRTotJEhPTUUvLmdpdC1hZ2VudH0iCkJJTl9ESVI9IiRIT01FLy5sb2NhbC9iaW4iClJFUE9fVVJMPSJodHRwczovL2dpdGh1Yi5jb20vU3VwZXJJbnN0YW5jZS9naXQtYWdlbnQiCgppbmZvKCkgIHsgZWNobyAtZSAiJHtDWUFOfeKEuSR7TkN9ICQqIjsgfQpvaygpICAgIHsgZWNobyAtZSAiJHtHUkVFTn3inJMke05DfSAkKiI7IH0Kd2FybigpICB7IGVjaG8gLWUgIiR7WUVMTE9XfeKaoCR7TkN9ICQqIjsgfQpkaWUoKSAgIHsgZWNobyAtZSAiJHtSRUR94pyXJHtOQ30gJCoiOyBleGl0IDE7IH0KCiMgLS0tLSBQYXJzZSBhcmdzIC0tLS0KVkVTU0VMPSIiClRPS0VOPSIiClNLSVBfT05CT0FSRD1mYWxzZQoKd2hpbGUgW1sgJCMgLWd0IDAgXV07IGRvCiAgY2FzZSAkMSBpbgogICAgLS12ZXNzZWwpICAgVkVTU0VMPSIkMiI7IHNoaWZ0IDIgOzsKICAgIC0tdG9rZW4pICAgIFRPS0VOPSIkMiI7IHNoaWZ0IDIgOzsKICAgIC0tc2tpcCkgICAgIFNLSVBfT05CT0FSRD10cnVlOyBzaGlmdCA7OwogICAgLS1oZWxwfC1oKQogICAgICBlY2hvICJVc2FnZTogYmFzaCBpbnN0YWxsLnNoIFstLXZlc3NlbCBvd25lci9yZXBvXSBbLS10b2tlbiBnaHBfeHh4XSBbLS1za2lwXSIKICAgICAgZWNobyAiIgogICAgICBlY2hvICIgIC0tdmVzc2VsICAgVmVzc2VsIHJlcG8gKG93bmVyL25hbWUpIOKAlCB0aGUgYWdlbnQncyBpZGVudGl0eSIKICAgICAgZWNobyAiICAtLXRva2VuICAgIEdpdEh1YiBwZXJzb25hbCBhY2Nlc3MgdG9rZW4iCiAgICAgIGVjaG8gIiAgLS1za2lwICAgICBTa2lwIG9uYm9hcmRpbmcgd2l6YXJkIgogICAgICBleGl0IDAgOzsKICAgICopIGRpZSAiVW5rbm93biBvcHRpb246ICQxIiA7OwogIGVzYWMKZG9uZQoKZWNobyAiIgplY2hvIC1lICIke0JPTER94pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQJHtOQ30iCmVjaG8gLWUgIiR7Qk9MRH0gIPCfpoAgZ2l0LWFnZW50IGluc3RhbGxlciB2JHtWRVJTSU9OfSR7TkN9IgplY2hvIC1lICIke0JPTER9ICBUaGUgcmVwbyBJUyB0aGUgYWdlbnQuIEdpdCBJUyB0aGUgbmVydm91cyBzeXN0ZW0uJHtOQ30iCmVjaG8gLWUgIiR7Qk9MRH3ilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZAke05DfSIKZWNobyAiIgoKIyAtLS0tIDEuIENoZWNrIGRlcGVuZGVuY2llcyAtLS0tCmluZm8gIkNoZWNraW5nIGRlcGVuZGVuY2llcy4uLiIKCmNvbW1hbmQgLXYgcHl0aG9uMyA+L2Rldi9udWxsIDI+JjEgfHwgZGllICJQeXRob24gMy44KyByZXF1aXJlZC4gSW5zdGFsbDogaHR0cHM6Ly9weXRob24ub3JnIgpjb21tYW5kIC12IGdpdCA+L2Rldi9udWxsIDI+JjEgfHwgZGllICJHaXQgcmVxdWlyZWQuIEluc3RhbGw6IGh0dHBzOi8vZ2l0LXNjbS5jb20iCmNvbW1hbmQgLXYgcGlwMyA+L2Rldi9udWxsIDI+JjEgfHwgY29tbWFuZCAtdiBwaXAgPi9kZXYvbnVsbCAyPiYxIHx8IHdhcm4gInBpcCBub3QgZm91bmQg4oCUIHdpbGwgaW5zdGFsbCB3aXRob3V0IGl0IgoKUFlUSE9OX1ZFUlNJT049JChweXRob24zIC1jICJpbXBvcnQgc3lzOyBwcmludChmJ3tzeXMudmVyc2lvbl9pbmZvLm1ham9yfS57c3lzLnZlcnNpb25faW5mby5taW5vcn0nKSIpCm9rICJQeXRob24gJHtQWVRIT05fVkVSU0lPTn0sIEdpdCAkKGdpdCAtLXZlcnNpb24gfCBjdXQgLWQnICcgLWYyKSIKCiMgLS0tLSAyLiBDcmVhdGUgaW5zdGFsbCBkaXJlY3RvcnkgLS0tLQppbmZvICJJbnN0YWxsaW5nIHRvICR7SU5TVEFMTF9ESVJ9Li4uIgpta2RpciAtcCAiJHtJTlNUQUxMX0RJUn0iL3tiaW4sY29uZmlnLHRlbXBsYXRlcyxkYXRhLGxvZ3MsdmVzc2Vsc30KCiMgLS0tLSAzLiBDbG9uZSBvciB1cGRhdGUgZ2l0LWFnZW50IC0tLS0KaWYgW1sgLWQgIiR7SU5TVEFMTF9ESVJ9L2dpdC1hZ2VudCIgXV07IHRoZW4KICBpbmZvICJVcGRhdGluZyBleGlzdGluZyBnaXQtYWdlbnQuLi4iCiAgY2QgIiR7SU5TVEFMTF9ESVJ9L2dpdC1hZ2VudCIgJiYgZ2l0IHB1bGwgLXEgMj4vZGV2L251bGwgfHwgd2FybiAiQ291bGQgbm90IHVwZGF0ZSDigJQgY29udGludWluZyB3aXRoIGV4aXN0aW5nIgplbHNlCiAgaW5mbyAiQ2xvbmluZyBnaXQtYWdlbnQuLi4iCiAgZ2l0IGNsb25lIC1xICIke1JFUE9fVVJMfSIgIiR7SU5TVEFMTF9ESVJ9L2dpdC1hZ2VudCIgMj4vZGV2L251bGwgfHwgd2FybiAiQ2xvbmUgZmFpbGVkIOKAlCBpbnN0YWxsIGZyb20gZXhpc3RpbmcgcmVwbyIKZmkKb2sgImdpdC1hZ2VudCBzb3VyY2UgcmVhZHkiCgojIC0tLS0gNC4gSW5zdGFsbCBQeXRob24gcGFja2FnZSAtLS0tCmlmIFtbIC1mICIke0lOU1RBTExfRElSfS9naXQtYWdlbnQvcHlwcm9qZWN0LnRvbWwiIF1dOyB0aGVuCiAgaW5mbyAiSW5zdGFsbGluZyBnaXQtYWdlbnQgUHl0aG9uIHBhY2thZ2UuLi4iCiAgY2QgIiR7SU5TVEFMTF9ESVJ9L2dpdC1hZ2VudCIKICBwaXAzIGluc3RhbGwgLXEgLWUgLiAyPi9kZXYvbnVsbCB8fCBwaXAgaW5zdGFsbCAtcSAtZSAuIDI+L2Rldi9udWxsIHx8IHdhcm4gInBpcCBpbnN0YWxsIGZhaWxlZCDigJQgdXNpbmcgZGlyZWN0IHB5dGhvbiBwYXRoIgogIG9rICJQeXRob24gcGFja2FnZSBpbnN0YWxsZWQiCmZpCgojIC0tLS0gNS4gQ3JlYXRlIENMSSB3cmFwcGVyIC0tLS0KY2F0ID4gIiR7QklOX0RJUn0vZ2l0LWFnZW50IiA8PCAnV1JBUFBFUicKIyEvdXNyL2Jpbi9lbnYgYmFzaAojIGdpdC1hZ2VudCBDTEkgd3JhcHBlcgpHSVRfQUdFTlRfSE9NRT0iJHtHSVRfQUdFTlRfSE9NRTotJEhPTUUvLmdpdC1hZ2VudH0iCgppZiBbWyAtZiAiJHtHSVRfQUdFTlRfSE9NRX0vZ2l0LWFnZW50L3NyYy9naXRfYWdlbnQvX19tYWluX18ucHkiIF1dOyB0aGVuCiAgZXhwb3J0IFBZVEhPTlBBVEg9IiR7R0lUX0FHRU5UX0hPTUV9L2dpdC1hZ2VudC9zcmM6JHtQWVRIT05QQVRIfSIKICBweXRob24zIC1tIGdpdF9hZ2VudCAiJEAiCmVsaWYgY29tbWFuZCAtdiBnaXQtYWdlbnQtcHl0aG9uID4vZGV2L251bGwgMj4mMTsgdGhlbgogIGdpdC1hZ2VudC1weXRob24gIiRAIgplbHNlCiAgZWNobyAiZ2l0LWFnZW50IG5vdCBwcm9wZXJseSBpbnN0YWxsZWQuIFJ1bjogYmFzaCAke0dJVF9BR0VOVF9IT01FfS9naXQtYWdlbnQvaW5zdGFsbC5zaCIKICBleGl0IDEKZmkKV1JBUFBFUgpjaG1vZCAreCAiJHtCSU5fRElSfS9naXQtYWdlbnQiCm9rICJDTEkgaW5zdGFsbGVkIGF0ICR7QklOX0RJUn0vZ2l0LWFnZW50IgoKIyAtLS0tIDYuIENyZWF0ZSBvbmJvYXJkIHNjcmlwdCAtLS0tCmNhdCA+ICIke0JJTl9ESVJ9L2dpdC1hZ2VudC1vbmJvYXJkIiA8PCBPTkJPQVJEX1dSQVBQRVIKIyEvdXNyL2Jpbi9lbnYgYmFzaApHSVRfQUdFTlRfSE9NRT0iXCR7R0lUX0FHRU5UX0hPTUU6LVwkSE9NRS8uZ2l0LWFnZW50fSIKZXhwb3J0IFBZVEhPTlBBVEg9Ilwke0dJVF9BR0VOVF9IT01FfS9naXQtYWdlbnQvc3JjOlwke1BZVEhPTlBBVEh9IgpweXRob24zICJcJHtHSVRfQUdFTlRfSE9NRX0vZ2l0LWFnZW50L3NyYy9naXRfYWdlbnQvb25ib2FyZC5weSIgIlwkQCIKT05CT0FSRF9XUkFQUEVSCmNobW9kICt4ICIke0JJTl9ESVJ9L2dpdC1hZ2VudC1vbmJvYXJkIgpvayAiT25ib2FyZCBzY3JpcHQgaW5zdGFsbGVkIgoKIyAtLS0tIDcuIEZsZWV0IHNlcnZpY2VzIGNvbmZpZyAtLS0tCmNhdCA+ICIke0lOU1RBTExfRElSfS9jb25maWcvZmxlZXQueWFtbCIgPDwgRkxFRVRfQ09ORklHCiMgRmxlZXQgc2VydmljZXMg4oCUIGF1dG8tY29uZmlndXJlZApwbGF0bzoKICB1cmw6ICJodHRwOi8vbG9jYWxob3N0Ojg4NDciCiAgcm9vbXNfYXV0bzogdHJ1ZQoKbWF0cml4OgogIHVybDogImh0dHA6Ly9sb2NhbGhvc3Q6NjE2NyIKICBzZXJ2ZXJfbmFtZTogIjE0Ny4yMjQuMzguMTMxIgoKYXJlbmE6CiAgdXJsOiAiaHR0cDovL2xvY2FsaG9zdDo0MDQ0IgoKa2VlcGVyOgogIHVybDogImh0dHA6Ly9sb2NhbGhvc3Q6ODkwMCIKCmFnZW50X2FwaToKICB1cmw6ICJodHRwOi8vbG9jYWxob3N0Ojg5MDEiCgpjcmFiX3RyYXA6CiAgdXJsOiAiaHR0cDovL2xvY2FsaG9zdDo0MDQyIgpGTEVFVF9DT05GSUcKb2sgIkZsZWV0IHNlcnZpY2VzIGNvbmZpZ3VyZWQiCgojIC0tLS0gOC4gRW52aXJvbm1lbnQgc2V0dXAgLS0tLQppZiAhIGdyZXAgLXEgIkdJVF9BR0VOVF9IT01FIiAiJEhPTUUvLmJhc2hyYyIgMj4vZGV2L251bGw7IHRoZW4KICBlY2hvICIiID4+ICIkSE9NRS8uYmFzaHJjIgogIGVjaG8gIiMgZ2l0LWFnZW50IiA+PiAiJEhPTUUvLmJhc2hyYyIKICBlY2hvICJleHBvcnQgR0lUX0FHRU5UX0hPTUU9XCIke0lOU1RBTExfRElSfVwiIiA+PiAiJEhPTUUvLmJhc2hyYyIKICBlY2hvICJleHBvcnQgUEFUSD1cIiR7QklOX0RJUn06XCRQQVRIXCIiID4+ICIkSE9NRS8uYmFzaHJjIgogIG9rICJBZGRlZCB0byB+Ly5iYXNocmMiCmZpCgpleHBvcnQgR0lUX0FHRU5UX0hPTUU9IiR7SU5TVEFMTF9ESVJ9IgpleHBvcnQgUEFUSD0iJHtCSU5fRElSfToke1BBVEh9IgoKIyAtLS0tIDkuIE9uYm9hcmRpbmcgLS0tLQppZiBbWyAiJFNLSVBfT05CT0FSRCIgPT0gZmFsc2UgXV07IHRoZW4KICBlY2hvICIiCiAgZWNobyAtZSAiJHtCT0xEfeKVkOKVkOKVkCBPbmJvYXJkaW5nIOKVkOKVkOKVkCR7TkN9IgogIGVjaG8gIiIKICAKICAjIEdpdEh1YiB0b2tlbgogIGlmIFtbIC16ICIkVE9LRU4iIF1dOyB0aGVuCiAgICBpZiBbWyAtbiAiJHtHSVRIVUJfVE9LRU46LX0iIF1dOyB0aGVuCiAgICAgIFRPS0VOPSIkR0lUSFVCX1RPS0VOIgogICAgICBvayAiVXNpbmcgR0lUSFVCX1RPS0VOIGZyb20gZW52aXJvbm1lbnQiCiAgICBlbHNlCiAgICAgIGVjaG8gLWUgIiR7WUVMTE9XfUdpdEh1YiB0b2tlbiBuZWVkZWQgZm9yIHZlc3NlbCBvcGVyYXRpb25zLiR7TkN9IgogICAgICBlY2hvIC1uICJFbnRlciBHaXRIdWIgUEFUIChvciBzZXQgR0lUSFVCX1RPS0VOKTogIgogICAgICByZWFkIC1yIFRPS0VOCiAgICBmaQogIGZpCgogICMgVmVzc2VsIHJlcG8KICBpZiBbWyAteiAiJFZFU1NFTCIgXV07IHRoZW4KICAgIGVjaG8gIiIKICAgIGVjaG8gLWUgIiR7WUVMTE9XfVdoYXQgdmVzc2VsIGRvZXMgdGhpcyBhZ2VudCBib2FyZD8ke05DfSIKICAgIGVjaG8gIiAgVGhlIHZlc3NlbCByZXBvIElTIHRoZSBhZ2VudCdzIGlkZW50aXR5LCBtZW1vcnksIGFuZCBjYXJlZXIuIgogICAgZWNobyAiICBFeGFtcGxlczogU3VwZXJJbnN0YW5jZS9vcmFjbGUxLXdvcmtzcGFjZSwgTHVjaW5lZXIvSmV0c29uQ2xhdzEtdmVzc2VsIgogICAgZWNobyAiIgogICAgZWNobyAtbiAiVmVzc2VsIHJlcG8gKG93bmVyL25hbWUpOiAiCiAgICByZWFkIC1yIFZFU1NFTAogIGZpCgogIGlmIFtbIC1uICIkVkVTU0VMIiAmJiAtbiAiJFRPS0VOIiBdXTsgdGhlbgogICAgaW5mbyAiQm9hcmRpbmcgdmVzc2VsICR7VkVTU0VMfS4uLiIKICAgIAogICAgIyBDbG9uZSB2ZXNzZWwKICAgIFZFU1NFTF9ESVI9IiR7SU5TVEFMTF9ESVJ9L3Zlc3NlbHMvJChiYXNlbmFtZSAiJFZFU1NFTCIpIgogICAgaWYgW1sgLWQgIiRWRVNTRUxfRElSIiBdXTsgdGhlbgogICAgICBjZCAiJFZFU1NFTF9ESVIiICYmIGdpdCBwdWxsIC1xIDI+L2Rldi9udWxsIHx8IHRydWUKICAgIGVsc2UKICAgICAgZ2l0IGNsb25lIC1xICJodHRwczovLyR7VE9LRU59QGdpdGh1Yi5jb20vJHtWRVNTRUx9LmdpdCIgIiRWRVNTRUxfRElSIiAyPi9kZXYvbnVsbCB8fCBcCiAgICAgICAgZ2l0IGNsb25lIC1xICJodHRwczovL2dpdGh1Yi5jb20vJHtWRVNTRUx9LmdpdCIgIiRWRVNTRUxfRElSIiAyPi9kZXYvbnVsbCB8fCBcCiAgICAgICAgd2FybiAiQ291bGQgbm90IGNsb25lIHZlc3NlbCDigJQgd2lsbCB3b3JrIG9mZmxpbmUiCiAgICBmaQogICAgCiAgICAjIFdyaXRlIGFnZW50IGNvbmZpZwogICAgQUdFTlRfTkFNRT0kKGJhc2VuYW1lICIkVkVTU0VMIiB8IHNlZCAncy8td29ya3NwYWNlLy8nIHwgc2VkICdzLy12ZXNzZWwvLycpCiAgICBjYXQgPiAiJHtJTlNUQUxMX0RJUn0vY29uZmlnL2FnZW50LnlhbWwiIDw8IEFHRU5UX0NPTkZJRwojIGdpdC1hZ2VudCBjb25maWd1cmF0aW9uIOKAlCBhdXRvLWdlbmVyYXRlZCBieSBvbmJvYXJkCmFnZW50OgogIG5hbWU6ICIke0FHRU5UX05BTUV9IgogIHZlc3NlbDogIiR7VkVTU0VMfSIKICB2ZXNzZWxfcGF0aDogIiR7VkVTU0VMX0RJUn0iCgpnaXRodWI6CiAgdG9rZW46ICIke1RPS0VOfSIKCmxsbToKICBwcm92aWRlcjogImRlZXBpbmZyYSIKICBtb2RlbDogIkJ5dGVEYW5jZS9TZWVkLTIuMC1taW5pIgogIGFwaV9rZXk6ICJcJHtERUVQSU5GUkFfQVBJX0tFWX0iCiAgdGVtcGVyYXR1cmU6IDAuNwogIG1heF90b2tlbnM6IDQwOTYKCnBsYXRvOgogIHVybDogImh0dHA6Ly9sb2NhbGhvc3Q6ODg0NyIKICBhdXRvX3RpbGU6IHRydWUKCmZsZWV0OgogIG9yZzogIlwkKGVjaG8gJFZFU1NFTCB8IGN1dCAtZC8gLWYxKSIKICBtYXRyaXhfc2VydmVyOiAiaHR0cDovL2xvY2FsaG9zdDo2MTY3IgoKc2VydmljZXM6CiAga2VlcGVyOiAiaHR0cDovL2xvY2FsaG9zdDo4OTAwIgogIGFnZW50X2FwaTogImh0dHA6Ly9sb2NhbGhvc3Q6ODkwMSIKICBhcmVuYTogImh0dHA6Ly9sb2NhbGhvc3Q6NDA0NCIKICBwbGF0bzogImh0dHA6Ly9sb2NhbGhvc3Q6ODg0NyIKQUdFTlRfQ09ORklHCgogICAgb2sgIkFnZW50ICR7QUdFTlRfTkFNRX0gYm9hcmRlZCB2ZXNzZWwgJHtWRVNTRUx9IgogICAgCiAgICAjIFJlYWQgdmVzc2VsIGlkZW50aXR5IGZpbGVzCiAgICBpZiBbWyAtZiAiJHtWRVNTRUxfRElSfS9JREVOVElUWS5tZCIgXV07IHRoZW4KICAgICAgZWNobyAiIgogICAgICBpbmZvICJWZXNzZWwgaWRlbnRpdHk6IgogICAgICBoZWFkIC01ICIke1ZFU1NFTF9ESVJ9L0lERU5USVRZLm1kIiB8IHNlZCAncy9eLyAgLycKICAgIGZpCiAgICBpZiBbWyAtZiAiJHtWRVNTRUxfRElSfS9TT1VMLm1kIiBdXTsgdGhlbgogICAgICBlY2hvICIiCiAgICAgIGluZm8gIlNvdWwgbG9hZGVkIGZyb20gU09VTC5tZCIKICAgIGZpCiAgICBpZiBbWyAtZiAiJHtWRVNTRUxfRElSfS9BR0VOVFMubWQiIF1dOyB0aGVuCiAgICAgIGVjaG8gIiIKICAgICAgaW5mbyAiU3RhbmRpbmcgb3JkZXJzIGxvYWRlZCBmcm9tIEFHRU5UUy5tZCIKICAgIGZpCiAgZmkKZmkKCiMgLS0tLSBEb25lIC0tLS0KZWNobyAiIgplY2hvIC1lICIke0JPTER94pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQJHtOQ30iCmVjaG8gLWUgIiR7R1JFRU594pyTIGdpdC1hZ2VudCBpbnN0YWxsZWQgYW5kIGNvbmZpZ3VyZWQke05DfSIKZWNobyAiIgplY2hvICIgIENMSTogICAgICR7QklOX0RJUn0vZ2l0LWFnZW50IgplY2hvICIgIENvbmZpZzogICR7SU5TVEFMTF9ESVJ9L2NvbmZpZy9hZ2VudC55YW1sIgplY2hvICIgIFZlc3NlbDogICR7VkVTU0VMOi1ub3Qgc2V0fSIKZWNobyAiIgplY2hvICIgIFN0YXJ0OiAgIGdpdC1hZ2VudCBzdGFydCIKZWNobyAiICBDaGF0OiAgICBnaXQtYWdlbnQgY2hhdCIKZWNobyAiICBTdGF0dXM6ICBnaXQtYWdlbnQgc3RhdHVzIgplY2hvICIiCmVjaG8gLWUgIiR7Qk9MRH3ilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZAke05DfSIK
+#!/usr/bin/env bash
+# ============================================================
+# git-agent installer — one-liner setup
+#
+# Usage:
+#   curl -fsSL https://raw.githubusercontent.com/SuperInstance/git-agent/main/install.sh | bash
+#   bash install.sh --vessel owner/repo --token ghp_xxx
+#   bash install.sh --skip   (skip onboarding wizard)
+#
+# What it does:
+#   1. Checks Python 3.8+ and Git
+#   2. Creates ~/.git-agent/ directory structure
+#   3. Clones git-agent source
+#   4. Installs CLI wrapper at ~/.local/bin/git-agent
+#   5. Configures fleet services
+#   6. Runs onboarding wizard (or skips with --skip)
+# ============================================================
+set -euo pipefail
+
+VERSION="0.1.0"
+INSTALL_DIR="${GIT_AGENT_HOME:-$HOME/.git-agent}"
+BIN_DIR="$HOME/.local/bin"
+REPO_URL="https://github.com/SuperInstance/git-agent"
+
+# ---- Colors (disabled if not a terminal) ----
+if [[ -t 1 ]]; then
+  B='\033[1m' G='\033[0;32m' C='\033[0;36m' Y='\033[0;33m' R='\033[0;31m' D='\033[2m' N='\033[0m'
+else
+  B='' G='' C='' Y='' R='' D='' N=''
+fi
+
+info()  { echo -e "${C}ℹ${N} $*"; }
+ok()    { echo -e "${G}✓${N} $*"; }
+warn()  { echo -e "${Y}⚠${N} $*"; }
+die()   { echo -e "${R}✗${N} $*"; exit 1; }
+
+# ---- Parse args ----
+VESSEL="" TOKEN="" SKIP_ONBOARD=false QUIET=false
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --vessel)  VESSEL="$2"; shift 2 ;;
+    --token)   TOKEN="$2"; shift 2 ;;
+    --skip)    SKIP_ONBOARD=true; shift ;;
+    --quiet)   QUIET=true; shift ;;
+    --help|-h)
+      echo "git-agent installer v${VERSION}"
+      echo ""
+      echo "Usage: bash install.sh [options]"
+      echo ""
+      echo "  --vessel <owner/repo>  Vessel repo — the agent's identity"
+      echo "  --token <ghp_xxx>      GitHub personal access token"
+      echo "  --skip                 Skip onboarding wizard"
+      echo "  --quiet                Less output"
+      echo ""
+      echo "Environment variables:"
+      echo "  GITHUB_TOKEN           GitHub PAT (alternative to --token)"
+      echo "  GIT_AGENT_HOME         Install dir (default: ~/.git-agent)"
+      exit 0 ;;
+    *) die "Unknown option: $1 (try --help)" ;;
+  esac
+done
+
+# ---- Banner ----
+echo ""
+echo -e "${B}════════════════════════════════════════════${N}"
+echo -e "${B}  🦀 git-agent v${VERSION}${N}"
+echo -e "${B}  The repo IS the agent. Git IS the nervous system.${N}"
+echo -e "${B}════════════════════════════════════════════${N}"
+echo ""
+
+# ---- 1. Dependencies ----
+[[ $QUIET != true ]] && info "Checking dependencies..."
+
+command -v python3 >/dev/null 2>&1 || die "Python 3.8+ required (https://python.org)"
+command -v git >/dev/null 2>&1 || die "Git required (https://git-scm.com)"
+
+PY_VER=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
+PY_MAJOR=$(python3 -c "import sys; print(sys.version_info.major)")
+PY_MINOR=$(python3 -c "import sys; print(sys.version_info.minor)")
+
+if [[ "$PY_MAJOR" -lt 3 ]] || { [[ "$PY_MAJOR" -eq 3 ]] && [[ "$PY_MINOR" -lt 8 ]]; }; then
+  die "Python 3.8+ required. Found ${PY_VER}."
+fi
+
+GIT_VER=$(git --version | cut -d' ' -f2)
+ok "Python ${PY_VER}, Git ${GIT_VER}"
+
+# ---- 2. Directory structure ----
+[[ $QUIET != true ]] && info "Installing to ${INSTALL_DIR}..."
+
+mkdir -p "${INSTALL_DIR}"/{bin,config,templates,data,logs,vessels}
+
+# ---- 3. Clone / update source ----
+if [[ -d "${INSTALL_DIR}/git-agent/.git" ]]; then
+  [[ $QUIET != true ]] && info "Updating git-agent..."
+  git -C "${INSTALL_DIR}/git-agent" pull -q 2>/dev/null || warn "Update failed — using cached version"
+else
+  [[ $QUIET != true ]] && info "Cloning git-agent..."
+  git clone -q "${REPO_URL}" "${INSTALL_DIR}/git-agent" 2>/dev/null || warn "Clone failed — some features may be unavailable"
+fi
+ok "Source ready"
+
+# ---- 4. CLI wrapper ----
+mkdir -p "${BIN_DIR}"
+
+cat > "${BIN_DIR}/git-agent" << 'WRAPPER'
+#!/usr/bin/env bash
+# git-agent CLI — delegates to the unified Python entry point
+GIT_AGENT_HOME="${GIT_AGENT_HOME:-$HOME/.git-agent}"
+
+# Find the CLI script
+CLI=""
+for candidate in \
+  "${GIT_AGENT_HOME}/git-agent/cli.py" \
+  "${GIT_AGENT_HOME}/git-agent/src/git_agent/cli.py" \
+  "$(dirname "$0")/../git-agent/cli.py"; do
+  if [[ -f "$candidate" ]]; then
+    CLI="$candidate"
+    break
+  fi
+done
+
+if [[ -z "$CLI" ]]; then
+  # Try the onboard.py as fallback
+  for candidate in \
+    "${GIT_AGENT_HOME}/git-agent/standalone/onboard.py" \
+    "${GIT_AGENT_HOME}/git-agent/onboarding/config_wizard.py"; do
+    if [[ -f "$candidate" ]]; then
+      CLI="$candidate"
+      break
+    fi
+  done
+fi
+
+if [[ -z "$CLI" ]]; then
+  echo "git-agent not properly installed. Re-run: bash <(curl -fsSL https://raw.githubusercontent.com/SuperInstance/git-agent/main/install.sh)"
+  exit 1
+fi
+
+export PYTHONPATH="${GIT_AGENT_HOME}/git-agent:${PYTHONPATH:-}"
+exec python3 "$CLI" "$@"
+WRAPPER
+chmod +x "${BIN_DIR}/git-agent"
+ok "CLI at ${BIN_DIR}/git-agent"
+
+# ---- 5. Fleet services config ----
+cat > "${INSTALL_DIR}/config/fleet.json" << 'EOF'
+{
+  "plato": "http://localhost:8847",
+  "keeper": "http://localhost:8900",
+  "agent_api": "http://localhost:8901",
+  "arena": "http://localhost:4044",
+  "crab_trap": "http://localhost:4042",
+  "the_lock": "http://localhost:4043",
+  "grammar": "http://localhost:4045",
+  "matrix": "http://localhost:6167",
+  "mud": "http://localhost:7777",
+  "purple_pincher": "http://localhost:4048"
+}
+EOF
+ok "Fleet services configured"
+
+# ---- 6. Shell integration ----
+SHELL_FILE="$HOME/.bashrc"
+if [[ -n "${ZSH_VERSION:-}" ]]; then SHELL_FILE="$HOME/.zshrc"; fi
+
+if ! grep -q "GIT_AGENT_HOME" "$SHELL_FILE" 2>/dev/null; then
+  {
+    echo ""
+    echo "# git-agent"
+    echo "export GIT_AGENT_HOME=\"${INSTALL_DIR}\""
+    echo "export PATH=\"${BIN_DIR}:\$PATH\""
+  } >> "$SHELL_FILE"
+  ok "Added to ${SHELL_FILE}"
+fi
+
+# Export for current session
+export GIT_AGENT_HOME="${INSTALL_DIR}"
+export PATH="${BIN_DIR}:${PATH}"
+
+# ---- 7. Onboarding ----
+if [[ "$SKIP_ONBOARD" == false ]]; then
+  echo ""
+  echo -e "${B}═══ Onboarding ═══${N}"
+  echo ""
+
+  # GitHub token
+  if [[ -z "$TOKEN" ]]; then
+    TOKEN="${GITHUB_TOKEN:-}"
+    if [[ -n "$TOKEN" ]]; then
+      ok "Using GITHUB_TOKEN from environment"
+    else
+      echo -e "${Y}A GitHub token is needed for vessel operations.${N}"
+      echo -ne "  Enter PAT (or press Enter to skip): "
+      read -r TOKEN
+    fi
+  fi
+
+  # Vessel repo
+  if [[ -z "$VESSEL" ]]; then
+    echo ""
+    echo -e "${Y}What vessel does this agent board?${N}"
+    echo "  ${D}(The vessel repo IS the agent's identity, memory, and career)${N}"
+    echo ""
+    echo -ne "  Vessel repo (owner/name): "
+    read -r VESSEL
+  fi
+
+  # Run onboarding
+  if [[ -n "$VESSEL" ]]; then
+    export GITHUB_TOKEN="${TOKEN}"
+    # Find onboard.py in the cloned repo
+    for onboard_script in \
+      "${INSTALL_DIR}/git-agent/standalone/onboard.py" \
+      "${INSTALL_DIR}/git-agent/onboarding/config_wizard.py"; do
+      if [[ -f "$onboard_script" ]]; then
+        python3 "$onboard_script" --vessel "$VESSEL" && break
+      fi
+    done || warn "Onboarding wizard encountered an error — run 'git-agent onboard' manually"
+  else
+    warn "No vessel specified — run 'git-agent onboard --vessel owner/repo' when ready"
+  fi
+fi
+
+# ---- Done ----
+echo ""
+echo -e "${B}════════════════════════════════════════════${N}"
+echo -e "${G}✓ git-agent installed${N}"
+echo ""
+echo "  ${D}CLI:${N}      ${BIN_DIR}/git-agent"
+echo "  ${D}Config:${N}   ${INSTALL_DIR}/config/"
+echo "  ${D}Vessel:${N}   ${VESSEL:-not set}"
+echo ""
+echo "  ${C}git-agent onboard${N}  Board a vessel"
+echo "  ${C}git-agent chat${N}     Talk to your agent"
+echo "  ${C}git-agent start${N}    Start working"
+echo "  ${C}git-agent status${N}   Check state"
+echo ""
+echo -e "${B}════════════════════════════════════════════${N}"
