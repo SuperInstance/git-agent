@@ -1,1 +1,501 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiIKZ2l0LWFnZW50IG9uYm9hcmQg4oCUIFZlc3NlbCBvbmJvYXJkaW5nIHN5c3RlbS4KCldoZW4gYW4gYWdlbnQgYm9hcmRzIGEgdmVzc2VsIHJlcG8sIHRoaXMgcmVhZHM6CiAgSURFTlRJVFkubWQg4oaSIHdobyBhbSBJCiAgU09VTC5tZCDihpIgcGVyc29uYWxpdHkgYW5kIHRvbmUKICBBR0VOVFMubWQg4oaSIHN0YW5kaW5nIG9yZGVycyBhbmQgcnVsZXMKICBUT0RPLm1kIOKGkiB3aGF0IHRvIGRvCiAgTkVYVC1BQ1RJT04ubWQg4oaSIHdoYXQgdG8gZG8gUklHSFQgTk9XCiAgVE9PTFMubWQg4oaSIGF2YWlsYWJsZSB0b29scwogIG1lbW9yeS8g4oaSIGNvbnRpbnVpdHkgZmlsZXMKClRoZW4gZ2VuZXJhdGVzOgogIGNvbmZpZy9hZ2VudC55YW1sIOKGkiBydW50aW1lIGNvbmZpZwogIGNvbmZpZy9zZXJ2aWNlcy5qc29uIOKGkiBmbGVldCBzZXJ2aWNlIFVSTHMKICBjb25maWcvY29udGV4dC5qc29uIOKGkiBsb2FkZWQgaWRlbnRpdHkgY29udGV4dAoKVXNhZ2U6CiAgcHl0aG9uMyBvbmJvYXJkLnB5IC0tdmVzc2VsIFN1cGVySW5zdGFuY2Uvb3JhY2xlMS13b3Jrc3BhY2UKICBweXRob24zIG9uYm9hcmQucHkgLS12ZXNzZWwgU3VwZXJJbnN0YW5jZS9vcmFjbGUxLXdvcmtzcGFjZSAtLXRva2VuIGdocF94eHgKICBweXRob24zIG9uYm9hcmQucHkgLS1zdGF0dXMgICMgU2hvdyBjdXJyZW50IG9uYm9hcmRpbmcgc3RhdGUKIiIiCgppbXBvcnQgYXJncGFyc2UKaW1wb3J0IGpzb24KaW1wb3J0IG9zCmltcG9ydCByZQppbXBvcnQgc3lzCmltcG9ydCB0aW1lCmltcG9ydCB1cmxsaWIucmVxdWVzdAppbXBvcnQgdXJsbGliLmVycm9yCmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aApmcm9tIHR5cGluZyBpbXBvcnQgRGljdCwgTGlzdCwgT3B0aW9uYWwKCiMgQ29uZmlnIHBhdGhzCkdJVF9BR0VOVF9IT01FID0gb3MuZW52aXJvbi5nZXQoIkdJVF9BR0VOVF9IT01FIiwgb3MucGF0aC5leHBhbmR1c2VyKCJ+Ly5naXQtYWdlbnQiKSkKQ09ORklHX0RJUiA9IG9zLnBhdGguam9pbihHSVRfQUdFTlRfSE9NRSwgImNvbmZpZyIpClZFU1NFTFNfRElSID0gb3MucGF0aC5qb2luKEdJVF9BR0VOVF9IT01FLCAidmVzc2VscyIpCgojIEZsZWV0IHNlcnZpY2VzIChkZWZhdWx0cywgb3ZlcnJpZGRlbiBieSBmbGVldC55YW1sKQpGTEVFVF9TRVJWSUNFUyA9IHsKICAgICJwbGF0byI6ICJodHRwOi8vbG9jYWxob3N0Ojg4NDciLAogICAgImtlZXBlciI6ICJodHRwOi8vbG9jYWxob3N0Ojg5MDAiLAogICAgImFnZW50X2FwaSI6ICJodHRwOi8vbG9jYWxob3N0Ojg5MDEiLAogICAgImFyZW5hIjogImh0dHA6Ly9sb2NhbGhvc3Q6NDA0NCIsCiAgICAiY3JhYl90cmFwIjogImh0dHA6Ly9sb2NhbGhvc3Q6NDA0MiIsCiAgICAidGhlX2xvY2siOiAiaHR0cDovL2xvY2FsaG9zdDo0MDQzIiwKICAgICJncmFtbWFyIjogImh0dHA6Ly9sb2NhbGhvc3Q6NDA0NSIsCiAgICAibWF0cml4IjogImh0dHA6Ly9sb2NhbGhvc3Q6NjE2NyIsCiAgICAibXVkIjogImh0dHA6Ly9sb2NhbGhvc3Q6Nzc3NyIsCiAgICAicHVycGxlX3BpbmNoZXIiOiAiaHR0cDovL2xvY2FsaG9zdDo0MDQ4IiwKfQoKIyBWZXNzZWwgaWRlbnRpdHkgZmlsZXMgdG8gcmVhZCAoaW4gb3JkZXIpCklERU5USVRZX0ZJTEVTID0gWwogICAgIklERU5USVRZLm1kIiwKICAgICJTT1VMLm1kIiwKICAgICJBR0VOVFMubWQiLAogICAgIlVTRVIubWQiLAogICAgIlRPRE8ubWQiLAogICAgIk5FWFQtQUNUSU9OLm1kIiwKICAgICJUT09MUy5tZCIsCiAgICAiSEVBUlRCRUFULm1kIiwKXQoKCmRlZiBsb2cobXNnLCBsZXZlbD0iaW5mbyIpOgogICAgaWNvbnMgPSB7ImluZm8iOiAi4oS5IiwgIm9rIjogIuKckyIsICJ3YXJuIjogIuKaoCIsICJlcnJvciI6ICLinJciLCAiYm9sZCI6ICLilrgifQogICAgcHJpbnQoZiIgIHtpY29ucy5nZXQobGV2ZWwsICfigKInKX0ge21zZ30iKQoKCmRlZiByZWFkX2ZpbGVfc2FmZShwYXRoKToKICAgICIiIlJlYWQgZmlsZSwgcmV0dXJuIGNvbnRlbnQgb3IgTm9uZS4iIiIKICAgIHRyeToKICAgICAgICB3aXRoIG9wZW4ocGF0aCwgInIiKSBhcyBmOgogICAgICAgICAgICByZXR1cm4gZi5yZWFkKCkKICAgIGV4Y2VwdCAoRmlsZU5vdEZvdW5kRXJyb3IsIFBlcm1pc3Npb25FcnJvcik6CiAgICAgICAgcmV0dXJuIE5vbmUKCgpkZWYgcGFyc2VfaWRlbnRpdHkoY29udGVudCk6CiAgICAiIiJFeHRyYWN0IGtleSBmaWVsZHMgZnJvbSBJREVOVElUWS5tZC4iIiIKICAgIGlmIG5vdCBjb250ZW50OgogICAgICAgIHJldHVybiB7fQogICAgZmllbGRzID0ge30KICAgIGZvciBsaW5lIGluIGNvbnRlbnQuc3BsaXQoIlxuIik6CiAgICAgICAgIyBNYXRjaCAiLSAqKktleToqKiBWYWx1ZSIgcGF0dGVybgogICAgICAgIG0gPSByZS5tYXRjaChyIi1ccypcKlwqKC4rPylcKjpccyooLispIiwgbGluZSkKICAgICAgICBpZiBtOgogICAgICAgICAgICBrZXkgPSBtLmdyb3VwKDEpLnN0cmlwKCkubG93ZXIoKS5yZXBsYWNlKCIgIiwgIl8iKQogICAgICAgICAgICBmaWVsZHNba2V5XSA9IG0uZ3JvdXAoMikuc3RyaXAoKQogICAgcmV0dXJuIGZpZWxkcwoKCmRlZiBwYXJzZV9zb3VsKGNvbnRlbnQpOgogICAgIiIiRXh0cmFjdCBrZXkgZGlyZWN0aXZlcyBmcm9tIFNPVUwubWQuIiIiCiAgICBpZiBub3QgY29udGVudDoKICAgICAgICByZXR1cm4ge30KICAgIGRpcmVjdGl2ZXMgPSB7CiAgICAgICAgImhhc19wZXJzb25hbGl0eSI6ICJvcGluaW9uIiBpbiBjb250ZW50Lmxvd2VyKCkgb3IgInZpYmUiIGluIGNvbnRlbnQubG93ZXIoKSwKICAgICAgICAiaGFzX2JvdW5kYXJpZXMiOiAiYm91bmQiIGluIGNvbnRlbnQubG93ZXIoKSBvciAicmVkIGxpbmUiIGluIGNvbnRlbnQubG93ZXIoKSwKICAgICAgICAiY29udGludWl0eV9hd2FyZSI6ICJjb250aW51aXR5IiBpbiBjb250ZW50Lmxvd2VyKCkgb3IgIndha2UgdXAgZnJlc2giIGluIGNvbnRlbnQubG93ZXIoKSwKICAgIH0KICAgIHJldHVybiBkaXJlY3RpdmVzCgoKZGVmIHBhcnNlX2FnZW50c19vcmRlcnMoY29udGVudCk6CiAgICAiIiJFeHRyYWN0IHN0YW5kaW5nIG9yZGVycyBmcm9tIEFHRU5UUy5tZC4iIiIKICAgIGlmIG5vdCBjb250ZW50OgogICAgICAgIHJldHVybiB7Im9yZGVycyI6IFtdLCAicmVkX2xpbmVzIjogW119CiAgICBvcmRlcnMgPSBbXQogICAgcmVkX2xpbmVzID0gW10KICAgIGluX3JlZF9saW5lcyA9IEZhbHNlCiAgICAKICAgIGZvciBsaW5lIGluIGNvbnRlbnQuc3BsaXQoIlxuIik6CiAgICAgICAgaWYgIlJlZCBMaW5lIiBpbiBsaW5lOgogICAgICAgICAgICBpbl9yZWRfbGluZXMgPSBUcnVlCiAgICAgICAgICAgIGNvbnRpbnVlCiAgICAgICAgaWYgbGluZS5zdGFydHN3aXRoKCIjIyAiKSBhbmQgaW5fcmVkX2xpbmVzOgogICAgICAgICAgICBpbl9yZWRfbGluZXMgPSBGYWxzZQogICAgICAgIAogICAgICAgIG0gPSByZS5tYXRjaChyIi1ccyooLispIiwgbGluZS5zdHJpcCgpKQogICAgICAgIGlmIG06CiAgICAgICAgICAgIHRleHQgPSBtLmdyb3VwKDEpLnN0cmlwKCkKICAgICAgICAgICAgaWYgaW5fcmVkX2xpbmVzOgogICAgICAgICAgICAgICAgcmVkX2xpbmVzLmFwcGVuZCh0ZXh0KQogICAgICAgICAgICBlbGlmIGxlbih0ZXh0KSA+IDEwOgogICAgICAgICAgICAgICAgb3JkZXJzLmFwcGVuZCh0ZXh0KQogICAgCiAgICByZXR1cm4geyJvcmRlcnMiOiBvcmRlcnMsICJyZWRfbGluZXMiOiByZWRfbGluZXN9CgoKZGVmIGNsb25lX3Zlc3NlbCh2ZXNzZWxfc3BlYywgdG9rZW49Tm9uZSk6CiAgICAiIiJDbG9uZSBvciB1cGRhdGUgYSB2ZXNzZWwgcmVwby4iIiIKICAgIG93bmVyLCBuYW1lID0gdmVzc2VsX3NwZWMuc3BsaXQoIi8iKQogICAgdmVzc2VsX2RpciA9IG9zLnBhdGguam9pbihWRVNTRUxTX0RJUiwgbmFtZSkKICAgIAogICAgaWYgb3MucGF0aC5pc2Rpcih2ZXNzZWxfZGlyKToKICAgICAgICBsb2coZiJVcGRhdGluZyBleGlzdGluZyB2ZXNzZWwgYXQge3Zlc3NlbF9kaXJ9IikKICAgICAgICBvcy5zeXN0ZW0oZiJjZCB7dmVzc2VsX2Rpcn0gJiYgZ2l0IHB1bGwgLXEgMj4vZGV2L251bGwiKQogICAgICAgIHJldHVybiB2ZXNzZWxfZGlyCiAgICAKICAgIG9zLm1ha2VkaXJzKFZFU1NFTFNfRElSLCBleGlzdF9vaz1UcnVlKQogICAgCiAgICBpZiB0b2tlbjoKICAgICAgICB1cmwgPSBmImh0dHBzOi8ve3Rva2VufUBnaXRodWIuY29tL3t2ZXNzZWxfc3BlY30uZ2l0IgogICAgZWxzZToKICAgICAgICB1cmwgPSBmImh0dHBzOi8vZ2l0aHViLmNvbS97dmVzc2VsX3NwZWN9LmdpdCIKICAgIAogICAgbG9nKGYiQ2xvbmluZyB2ZXNzZWwge3Zlc3NlbF9zcGVjfS4uLiIpCiAgICByZXQgPSBvcy5zeXN0ZW0oZiJnaXQgY2xvbmUgLXEge3VybH0ge3Zlc3NlbF9kaXJ9IDI+L2Rldi9udWxsIikKICAgIGlmIHJldCAhPSAwOgogICAgICAgIGxvZyhmIkNsb25lIGZhaWxlZCwgdHJ5aW5nIHdpdGhvdXQgdG9rZW4uLi4iLCAid2FybiIpCiAgICAgICAgcmV0ID0gb3Muc3lzdGVtKGYiZ2l0IGNsb25lIC1xIGh0dHBzOi8vZ2l0aHViLmNvbS97dmVzc2VsX3NwZWN9LmdpdCB7dmVzc2VsX2Rpcn0gMj4vZGV2L251bGwiKQogICAgICAgIGlmIHJldCAhPSAwOgogICAgICAgICAgICBsb2coZiJDb3VsZCBub3QgY2xvbmUgdmVzc2VsIOKAlCB3b3JraW5nIG9mZmxpbmUiLCAid2FybiIpCiAgICAgICAgICAgIG9zLm1ha2VkaXJzKHZlc3NlbF9kaXIsIGV4aXN0X29rPVRydWUpCiAgICAKICAgIHJldHVybiB2ZXNzZWxfZGlyCgoKZGVmIGxvYWRfdmVzc2VsX2NvbnRleHQodmVzc2VsX2Rpcik6CiAgICAiIiJSZWFkIGFsbCBpZGVudGl0eSBmaWxlcyBmcm9tIHRoZSB2ZXNzZWwuIiIiCiAgICBjb250ZXh0ID0gewogICAgICAgICJmaWxlc19sb2FkZWQiOiBbXSwKICAgICAgICAiaWRlbnRpdHkiOiB7fSwKICAgICAgICAic291bCI6IHt9LAogICAgICAgICJvcmRlcnMiOiB7fSwKICAgICAgICAidG9kbyI6IE5vbmUsCiAgICAgICAgIm5leHRfYWN0aW9uIjogTm9uZSwKICAgICAgICAidG9vbHMiOiBOb25lLAogICAgICAgICJoZWFydGJlYXQiOiBOb25lLAogICAgICAgICJyYXciOiB7fSwKICAgIH0KICAgIAogICAgZm9yIGZpbGVuYW1lIGluIElERU5USVRZX0ZJTEVTOgogICAgICAgIHBhdGggPSBvcy5wYXRoLmpvaW4odmVzc2VsX2RpciwgZmlsZW5hbWUpCiAgICAgICAgY29udGVudCA9IHJlYWRfZmlsZV9zYWZlKHBhdGgpCiAgICAgICAgaWYgY29udGVudDoKICAgICAgICAgICAgY29udGV4dFsiZmlsZXNfbG9hZGVkIl0uYXBwZW5kKGZpbGVuYW1lKQogICAgICAgICAgICBjb250ZXh0WyJyYXciXVtmaWxlbmFtZV0gPSBjb250ZW50WzoyMDAwXSAgIyBUcnVuY2F0ZSBmb3IgY29uZmlnCiAgICAgICAgICAgIAogICAgICAgICAgICBpZiBmaWxlbmFtZSA9PSAiSURFTlRJVFkubWQiOgogICAgICAgICAgICAgICAgY29udGV4dFsiaWRlbnRpdHkiXSA9IHBhcnNlX2lkZW50aXR5KGNvbnRlbnQpCiAgICAgICAgICAgIGVsaWYgZmlsZW5hbWUgPT0gIlNPVUwubWQiOgogICAgICAgICAgICAgICAgY29udGV4dFsic291bCJdID0gcGFyc2Vfc291bChjb250ZW50KQogICAgICAgICAgICBlbGlmIGZpbGVuYW1lID09ICJBR0VOVFMubWQiOgogICAgICAgICAgICAgICAgY29udGV4dFsib3JkZXJzIl0gPSBwYXJzZV9hZ2VudHNfb3JkZXJzKGNvbnRlbnQpCiAgICAgICAgICAgIGVsaWYgZmlsZW5hbWUgPT0gIlRPRE8ubWQiOgogICAgICAgICAgICAgICAgY29udGV4dFsidG9kbyJdID0gY29udGVudFs6MTAwMF0KICAgICAgICAgICAgZWxpZiBmaWxlbmFtZSA9PSAiTkVYVC1BQ1RJT04ubWQiOgogICAgICAgICAgICAgICAgY29udGV4dFsibmV4dF9hY3Rpb24iXSA9IGNvbnRlbnRbOjUwMF0KICAgICAgICAgICAgZWxpZiBmaWxlbmFtZSA9PSAiVE9PTFMubWQiOgogICAgICAgICAgICAgICAgY29udGV4dFsidG9vbHMiXSA9IGNvbnRlbnRbOjEwMDBdCiAgICAgICAgICAgIGVsaWYgZmlsZW5hbWUgPT0gIkhFQVJUQkVBVC5tZCI6CiAgICAgICAgICAgICAgICBjb250ZXh0WyJoZWFydGJlYXQiXSA9IGNvbnRlbnRbOjUwMF0KICAgIAogICAgIyBDaGVjayBmb3IgbWVtb3J5LyBkaXJlY3RvcnkKICAgIG1lbW9yeV9kaXIgPSBvcy5wYXRoLmpvaW4odmVzc2VsX2RpciwgIm1lbW9yeSIpCiAgICBpZiBvcy5wYXRoLmlzZGlyKG1lbW9yeV9kaXIpOgogICAgICAgIG1lbV9maWxlcyA9IG9zLmxpc3RkaXIobWVtb3J5X2RpcikKICAgICAgICBjb250ZXh0WyJtZW1vcnlfZmlsZXMiXSA9IHNvcnRlZChtZW1fZmlsZXMpWy01Ol0gICMgTGFzdCA1CiAgICAgICAgbG9nKGYiRm91bmQge2xlbihtZW1fZmlsZXMpfSBtZW1vcnkgZmlsZXMiKQogICAgCiAgICByZXR1cm4gY29udGV4dAoKCmRlZiBkZXRlY3RfZmxlZXRfc2VydmljZXMoKToKICAgICIiIkF1dG8tZGV0ZWN0IHJ1bm5pbmcgZmxlZXQgc2VydmljZXMuIiIiCiAgICBhY3RpdmUgPSB7fQogICAgZm9yIG5hbWUsIHVybCBpbiBGTEVFVF9TRVJWSUNFUy5pdGVtcygpOgogICAgICAgIHRyeToKICAgICAgICAgICAgcmVxID0gdXJsbGliLnJlcXVlc3QuUmVxdWVzdChmInt1cmx9L2hlYWx0aCIsIG1ldGhvZD0iR0VUIikKICAgICAgICAgICAgd2l0aCB1cmxsaWIucmVxdWVzdC51cmxvcGVuKHJlcSwgdGltZW91dD0zKSBhcyByZXNwOgogICAgICAgICAgICAgICAgaWYgcmVzcC5zdGF0dXMgPT0gMjAwOgogICAgICAgICAgICAgICAgICAgIGFjdGl2ZVtuYW1lXSA9IHsidXJsIjogdXJsLCAic3RhdHVzIjogInVwIn0KICAgICAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgIGV4Y2VwdDoKICAgICAgICAgICAgcGFzcwogICAgICAgICMgVHJ5IHJvb3QgZW5kcG9pbnQKICAgICAgICB0cnk6CiAgICAgICAgICAgIHJlcSA9IHVybGxpYi5yZXF1ZXN0LlJlcXVlc3QodXJsLCBtZXRob2Q9IkdFVCIpCiAgICAgICAgICAgIHdpdGggdXJsbGliLnJlcXVlc3QudXJsb3BlbihyZXEsIHRpbWVvdXQ9MykgYXMgcmVzcDoKICAgICAgICAgICAgICAgIGlmIHJlc3Auc3RhdHVzID09IDIwMDoKICAgICAgICAgICAgICAgICAgICBhY3RpdmVbbmFtZV0gPSB7InVybCI6IHVybCwgInN0YXR1cyI6ICJ1cCJ9CiAgICAgICAgZXhjZXB0OgogICAgICAgICAgICBhY3RpdmVbbmFtZV0gPSB7InVybCI6IHVybCwgInN0YXR1cyI6ICJkb3duIn0KICAgIAogICAgcmV0dXJuIGFjdGl2ZQoKCmRlZiBnZW5lcmF0ZV9jb25maWcodmVzc2VsX3NwZWMsIHZlc3NlbF9kaXIsIGNvbnRleHQsIHRva2VuPU5vbmUpOgogICAgIiIiR2VuZXJhdGUgdGhlIHJ1bnRpbWUgY29uZmlnLiIiIgogICAgb3duZXIsIG5hbWUgPSB2ZXNzZWxfc3BlYy5zcGxpdCgiLyIpCiAgICBhZ2VudF9uYW1lID0gbmFtZS5yZXBsYWNlKCItd29ya3NwYWNlIiwgIiIpLnJlcGxhY2UoIi12ZXNzZWwiLCAiIikKICAgIGlkZW50aXR5ID0gY29udGV4dC5nZXQoImlkZW50aXR5Iiwge30pCiAgICAKICAgIGNvbmZpZyA9IHsKICAgICAgICAiYWdlbnQiOiB7CiAgICAgICAgICAgICJuYW1lIjogaWRlbnRpdHkuZ2V0KCJuYW1lIiwgYWdlbnRfbmFtZSksCiAgICAgICAgICAgICJjcmVhdHVyZSI6IGlkZW50aXR5LmdldCgiY3JlYXR1cmUiLCAiZ2l0LWFnZW50IiksCiAgICAgICAgICAgICJlbW9qaSI6IGlkZW50aXR5LmdldCgiZW1vamkiLCAi8J+mgCIpLAogICAgICAgICAgICAidmVzc2VsIjogdmVzc2VsX3NwZWMsCiAgICAgICAgICAgICJ2ZXNzZWxfcGF0aCI6IHZlc3NlbF9kaXIsCiAgICAgICAgICAgICJ0aW1lem9uZSI6ICJVVEMiLAogICAgICAgIH0sCiAgICAgICAgImdpdGh1YiI6IHsKICAgICAgICAgICAgInRva2VuIjogdG9rZW4gb3IgIiR7R0lUSFVCX1RPS0VOfSIsCiAgICAgICAgICAgICJvd25lciI6IG93bmVyLAogICAgICAgIH0sCiAgICAgICAgImxsbSI6IHsKICAgICAgICAgICAgInByb3ZpZGVyIjogImRlZXBpbmZyYSIsCiAgICAgICAgICAgICJtb2RlbCI6ICJCeXRlRGFuY2UvU2VlZC0yLjAtbWluaSIsCiAgICAgICAgICAgICJhcGlfa2V5IjogIiR7REVFUElORlJBX0FQSV9LRVl9IiwKICAgICAgICAgICAgInRlbXBlcmF0dXJlIjogMC43LAogICAgICAgICAgICAibWF4X3Rva2VucyI6IDQwOTYsCiAgICAgICAgfSwKICAgICAgICAicGxhdG8iOiB7CiAgICAgICAgICAgICJ1cmwiOiBGTEVFVF9TRVJWSUNFU1sicGxhdG8iXSwKICAgICAgICAgICAgImF1dG9fdGlsZSI6IFRydWUsCiAgICAgICAgICAgICJyb29tcyI6IFtdLAogICAgICAgIH0sCiAgICAgICAgImZsZWV0IjogewogICAgICAgICAgICAib3JnIjogb3duZXIsCiAgICAgICAgICAgICJzZXJ2aWNlcyI6IHt9LAogICAgICAgIH0sCiAgICAgICAgIm9uYm9hcmRlZCI6IHRpbWUuc3RyZnRpbWUoIiVZLSVtLSVkVCVIOiVNOiVTJXoiKSwKICAgICAgICAiZmlsZXNfbG9hZGVkIjogY29udGV4dFsiZmlsZXNfbG9hZGVkIl0sCiAgICB9CiAgICAKICAgICMgQWRkIGlkZW50aXR5IGRldGFpbHMKICAgIGlmICJ2aWJlIiBpbiBpZGVudGl0eToKICAgICAgICBjb25maWdbImFnZW50Il1bInZpYmUiXSA9IGlkZW50aXR5WyJ2aWJlIl0KICAgIAogICAgcmV0dXJuIGNvbmZpZwoKCmRlZiBzYXZlX2NvbmZpZyhjb25maWcpOgogICAgIiIiU2F2ZSBjb25maWcgZmlsZXMuIiIiCiAgICBvcy5tYWtlZGlycyhDT05GSUdfRElSLCBleGlzdF9vaz1UcnVlKQogICAgCiAgICAjIE1haW4gY29uZmlnCiAgICBjb25maWdfcGF0aCA9IG9zLnBhdGguam9pbihDT05GSUdfRElSLCAiYWdlbnQueWFtbCIpCiAgICAjIFdyaXRlIGFzIEpTT04gKHNpbXBsZXIsIG5vIHlhbWwgZGVwZW5kZW5jeSkKICAgIGpzb25fcGF0aCA9IG9zLnBhdGguam9pbihDT05GSUdfRElSLCAiYWdlbnQuanNvbiIpCiAgICB3aXRoIG9wZW4oanNvbl9wYXRoLCAidyIpIGFzIGY6CiAgICAgICAganNvbi5kdW1wKGNvbmZpZywgZiwgaW5kZW50PTIsIGVuc3VyZV9hc2NpaT1GYWxzZSkKICAgIGxvZyhmIkNvbmZpZyBzYXZlZCB0byB7anNvbl9wYXRofSIpCiAgICAKICAgICMgU2VydmljZXMKICAgIHNlcnZpY2VzX3BhdGggPSBvcy5wYXRoLmpvaW4oQ09ORklHX0RJUiwgInNlcnZpY2VzLmpzb24iKQogICAgc2VydmljZXMgPSBkZXRlY3RfZmxlZXRfc2VydmljZXMoKQogICAgd2l0aCBvcGVuKHNlcnZpY2VzX3BhdGgsICJ3IikgYXMgZjoKICAgICAgICBqc29uLmR1bXAoc2VydmljZXMsIGYsIGluZGVudD0yKQogICAgdXAgPSBzdW0oMSBmb3IgcyBpbiBzZXJ2aWNlcy52YWx1ZXMoKSBpZiBzWyJzdGF0dXMiXSA9PSAidXAiKQogICAgbG9nKGYiRmxlZXQgc2VydmljZXM6IHt1cH0ve2xlbihzZXJ2aWNlcyl9IHVwIikKICAgIAogICAgIyBDb250ZXh0IChsb2FkZWQgaWRlbnRpdHkgZmlsZXMpCiAgICBjb250ZXh0X3BhdGggPSBvcy5wYXRoLmpvaW4oQ09ORklHX0RJUiwgImNvbnRleHQuanNvbiIpCiAgICAjIERvbid0IGluY2x1ZGUgcmF3IGNvbnRlbnQgaW4gY29udGV4dCDigJQganVzdCBtZXRhZGF0YQogICAgY3R4X21ldGEgPSB7azogdiBmb3IgaywgdiBpbiBjb25maWcuaXRlbXMoKSBpZiBrICE9ICJyYXcifQogICAgd2l0aCBvcGVuKGNvbnRleHRfcGF0aCwgInciKSBhcyBmOgogICAgICAgIGpzb24uZHVtcChjdHhfbWV0YSwgZiwgaW5kZW50PTIpCiAgICAKICAgIHJldHVybiBqc29uX3BhdGgKCgpkZWYgc2hvd19zdGF0dXMoKToKICAgICIiIlNob3cgY3VycmVudCBvbmJvYXJkaW5nIHN0YXR1cy4iIiIKICAgIGNvbmZpZ19wYXRoID0gb3MucGF0aC5qb2luKENPTkZJR19ESVIsICJhZ2VudC5qc29uIikKICAgIAogICAgaWYgbm90IG9zLnBhdGguZXhpc3RzKGNvbmZpZ19wYXRoKToKICAgICAgICBwcmludCgiZ2l0LWFnZW50IG5vdCBvbmJvYXJkZWQuIFJ1bjogZ2l0LWFnZW50IG9uYm9hcmQgLS12ZXNzZWwgb3duZXIvcmVwbyIpCiAgICAgICAgcmV0dXJuCiAgICAKICAgIGNvbmZpZyA9IGpzb24ubG9hZHMocmVhZF9maWxlX3NhZmUoY29uZmlnX3BhdGgpIG9yICJ7fSIpCiAgICBhZ2VudCA9IGNvbmZpZy5nZXQoImFnZW50Iiwge30pCiAgICAKICAgIHByaW50KGYiXG7wn6aAIGdpdC1hZ2VudCBzdGF0dXMiKQogICAgcHJpbnQoZiIgIE5hbWU6ICAgICB7YWdlbnQuZ2V0KCduYW1lJywgJ3Vua25vd24nKX0iKQogICAgcHJpbnQoZiIgIEVtb2ppOiAgICB7YWdlbnQuZ2V0KCdlbW9qaScsICfwn6aAJyl9IikKICAgIHByaW50KGYiICBWZXNzZWw6ICAge2FnZW50LmdldCgndmVzc2VsJywgJ25vbmUnKX0iKQogICAgcHJpbnQoZiIgIE9uYm9hcmRlZDoge2NvbmZpZy5nZXQoJ29uYm9hcmRlZCcsICd1bmtub3duJyl9IikKICAgIHByaW50KGYiICBGaWxlczogICAgeycsICcuam9pbihjb25maWcuZ2V0KCdmaWxlc19sb2FkZWQnLCBbXSkpfSIpCiAgICAKICAgICMgQ2hlY2sgc2VydmljZXMKICAgIHNlcnZpY2VzX3BhdGggPSBvcy5wYXRoLmpvaW4oQ09ORklHX0RJUiwgInNlcnZpY2VzLmpzb24iKQogICAgaWYgb3MucGF0aC5leGlzdHMoc2VydmljZXNfcGF0aCk6CiAgICAgICAgc2VydmljZXMgPSBqc29uLmxvYWRzKHJlYWRfZmlsZV9zYWZlKHNlcnZpY2VzX3BhdGgpIG9yICJ7fSIpCiAgICAgICAgcHJpbnQoZiJcbiAgRmxlZXQgc2VydmljZXM6IikKICAgICAgICBmb3IgbmFtZSwgaW5mbyBpbiBzZXJ2aWNlcy5pdGVtcygpOgogICAgICAgICAgICBpY29uID0gIuKckyIgaWYgaW5mb1sic3RhdHVzIl0gPT0gInVwIiBlbHNlICLinJciCiAgICAgICAgICAgIHByaW50KGYiICAgIHtpY29ufSB7bmFtZX06IHtpbmZvWyd1cmwnXX0iKQogICAgCiAgICAjIENoZWNrIHZlc3NlbAogICAgdmVzc2VsX2RpciA9IGFnZW50LmdldCgidmVzc2VsX3BhdGgiLCAiIikKICAgIGlmIHZlc3NlbF9kaXIgYW5kIG9zLnBhdGguaXNkaXIodmVzc2VsX2Rpcik6CiAgICAgICAgcHJpbnQoZiJcbiAgVmVzc2VsIHBhdGg6IHt2ZXNzZWxfZGlyfSIpCiAgICAgICAgZGlydHkgPSBvcy5wb3BlbihmImNkIHt2ZXNzZWxfZGlyfSAmJiBnaXQgc3RhdHVzIC0tc2hvcnQgMj4vZGV2L251bGwiKS5yZWFkKCkuc3RyaXAoKQogICAgICAgIGlmIGRpcnR5OgogICAgICAgICAgICBwcmludChmIiAgICBVbmNvbW1pdHRlZCBjaGFuZ2VzOiB7bGVuKGRpcnR5LnNwbGl0KGNocigxMCkpKX0gZmlsZXMiKQogICAgICAgIGVsc2U6CiAgICAgICAgICAgIHByaW50KGYiICAgIFdvcmtpbmcgdHJlZSBjbGVhbiIpCiAgICAgICAgCiAgICAgICAgIyBTaG93IFRPRE8gc3RhdHVzCiAgICAgICAgdG9kbyA9IHJlYWRfZmlsZV9zYWZlKG9zLnBhdGguam9pbih2ZXNzZWxfZGlyLCAiVE9ETy5tZCIpKQogICAgICAgIGlmIHRvZG86CiAgICAgICAgICAgIHVuY2hlY2tlZCA9IGxlbihyZS5maW5kYWxsKHIiLSBcWyBcXSIsIHRvZG8pKQogICAgICAgICAgICBjaGVja2VkID0gbGVuKHJlLmZpbmRhbGwociItIFxbeFxdIiwgdG9kbykpCiAgICAgICAgICAgIHByaW50KGYiICAgIFRPRE86IHtjaGVja2VkfS97Y2hlY2tlZCArIHVuY2hlY2tlZH0gZG9uZSIpCiAgICAgICAgCiAgICAgICAgbmV4dF9hY3Rpb24gPSByZWFkX2ZpbGVfc2FmZShvcy5wYXRoLmpvaW4odmVzc2VsX2RpciwgIk5FWFQtQUNUSU9OLm1kIikpCiAgICAgICAgaWYgbmV4dF9hY3Rpb246CiAgICAgICAgICAgICMgRXh0cmFjdCBhY3RpdmUgdGFzawogICAgICAgICAgICBmb3IgbGluZSBpbiBuZXh0X2FjdGlvbi5zcGxpdCgiXG4iKToKICAgICAgICAgICAgICAgIGlmIGxpbmUuc3RhcnRzd2l0aCgiKioiKSBhbmQgIkFjdGl2ZSIgaW4gbGluZToKICAgICAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICAgICAgaWYgbGluZS5zdGFydHN3aXRoKCIqKiIpIGFuZCAiOiIgaW4gbGluZToKICAgICAgICAgICAgICAgICAgICBtID0gcmUubWF0Y2gociJcKlwqKC4rPylcKlwqXHMqKC4rKSIsIGxpbmUpCiAgICAgICAgICAgICAgICAgICAgaWYgbToKICAgICAgICAgICAgICAgICAgICAgICAgcHJpbnQoZiIgICAgQWN0aXZlIHRhc2s6IHttLmdyb3VwKDIpWzo4MF19IikKICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWsKCgpkZWYgb25ib2FyZCh2ZXNzZWxfc3BlYywgdG9rZW49Tm9uZSk6CiAgICAiIiJGdWxsIG9uYm9hcmRpbmcgZmxvdy4iIiIKICAgIHByaW50KGYiXG7wn6aAIEJvYXJkaW5nIHZlc3NlbDoge3Zlc3NlbF9zcGVjfSIpCiAgICBwcmludChmInsnPScqNTB9IikKICAgIAogICAgIyAxLiBDbG9uZSB2ZXNzZWwKICAgIHZlc3NlbF9kaXIgPSBjbG9uZV92ZXNzZWwodmVzc2VsX3NwZWMsIHRva2VuKQogICAgbG9nKGYiVmVzc2VsIGF0IHt2ZXNzZWxfZGlyfSIpCiAgICAKICAgICMgMi4gTG9hZCBpZGVudGl0eQogICAgY29udGV4dCA9IGxvYWRfdmVzc2VsX2NvbnRleHQodmVzc2VsX2RpcikKICAgIAogICAgbG9hZGVkID0gY29udGV4dFsiZmlsZXNfbG9hZGVkIl0KICAgIGlmIG5vdCBsb2FkZWQ6CiAgICAgICAgbG9nKCJObyBpZGVudGl0eSBmaWxlcyBmb3VuZCDigJQgZW1wdHkgdmVzc2VsIiwgIndhcm4iKQogICAgZWxzZToKICAgICAgICBsb2coZiJMb2FkZWQ6IHsnLCAnLmpvaW4obG9hZGVkKX0iKQogICAgCiAgICAjIDMuIFNob3cgaWRlbnRpdHkgc3VtbWFyeQogICAgaWRlbnRpdHkgPSBjb250ZXh0LmdldCgiaWRlbnRpdHkiLCB7fSkKICAgIGlmIGlkZW50aXR5OgogICAgICAgIHByaW50KGYiXG4gIEFnZW50IGlkZW50aXR5OiIpCiAgICAgICAgZm9yIGssIHYgaW4gaWRlbnRpdHkuaXRlbXMoKToKICAgICAgICAgICAgcHJpbnQoZiIgICAge2t9OiB7dn0iKQogICAgCiAgICAjIDQuIFNob3cgc291bCBzdGF0dXMKICAgIHNvdWwgPSBjb250ZXh0LmdldCgic291bCIsIHt9KQogICAgaWYgc291bDoKICAgICAgICBmZWF0dXJlcyA9IFtrLnJlcGxhY2UoImhhc18iLCAiIikucmVwbGFjZSgiXyIsICIgIikgZm9yIGssIHYgaW4gc291bC5pdGVtcygpIGlmIHZdCiAgICAgICAgaWYgZmVhdHVyZXM6CiAgICAgICAgICAgIGxvZyhmIlNvdWwgZmVhdHVyZXM6IHsnLCAnLmpvaW4oZmVhdHVyZXMpfSIpCiAgICAKICAgICMgNS4gU2hvdyBzdGFuZGluZyBvcmRlcnMKICAgIG9yZGVycyA9IGNvbnRleHQuZ2V0KCJvcmRlcnMiLCB7fSkKICAgIGlmIG9yZGVycy5nZXQoInJlZF9saW5lcyIpOgogICAgICAgIGxvZyhmIlJlZCBsaW5lczoge2xlbihvcmRlcnNbJ3JlZF9saW5lcyddKX0gZGVmaW5lZCIpCiAgICAgICAgZm9yIHJsIGluIG9yZGVyc1sicmVkX2xpbmVzIl1bOjNdOgogICAgICAgICAgICBwcmludChmIiAgICDwn5S0IHtybFs6NjBdfSIpCiAgICAKICAgICMgNi4gU2hvdyBjdXJyZW50IHRhc2sKICAgIGlmIGNvbnRleHQuZ2V0KCJuZXh0X2FjdGlvbiIpOgogICAgICAgIGZvciBsaW5lIGluIGNvbnRleHRbIm5leHRfYWN0aW9uIl0uc3BsaXQoIlxuIik6CiAgICAgICAgICAgIGlmIGxpbmUuc3RyaXAoKSBhbmQgbm90IGxpbmUuc3RhcnRzd2l0aCgiIyIpIGFuZCBub3QgbGluZS5zdGFydHN3aXRoKCIqKiIpOgogICAgICAgICAgICAgICAgbG9nKGYiQ3VycmVudCB0YXNrOiB7bGluZS5zdHJpcCgpWzo4MF19IikKICAgICAgICAgICAgICAgIGJyZWFrCiAgICAKICAgICMgNy4gR2VuZXJhdGUgYW5kIHNhdmUgY29uZmlnCiAgICBjb25maWcgPSBnZW5lcmF0ZV9jb25maWcodmVzc2VsX3NwZWMsIHZlc3NlbF9kaXIsIGNvbnRleHQsIHRva2VuKQogICAgY29uZmlnX3BhdGggPSBzYXZlX2NvbmZpZyhjb25maWcpCiAgICAKICAgICMgOC4gUmVnaXN0ZXIgd2l0aCBmbGVldCBzZXJ2aWNlcwogICAgYWdlbnRfbmFtZSA9IGNvbmZpZ1siYWdlbnQiXVsibmFtZSJdCiAgICAKICAgICMgVHJ5IFBMQVRPIHJlZ2lzdHJhdGlvbgogICAgdHJ5OgogICAgICAgIHBsYXRvX3VybCA9IEZMRUVUX1NFUlZJQ0VTWyJwbGF0byJdCiAgICAgICAgd29ya3NwYWNlX2RhdGEgPSB7CiAgICAgICAgICAgICJhZ2VudCI6IGFnZW50X25hbWUsCiAgICAgICAgICAgICJyb2xlIjogY29uZmlnWyJhZ2VudCJdLmdldCgiY3JlYXR1cmUiLCAiZ2l0LWFnZW50IiksCiAgICAgICAgICAgICJzdGF0dXMiOiAib25ib2FyZGVkIiwKICAgICAgICAgICAgImFjdGl2ZV90YXNrIjogY29udGV4dC5nZXQoIm5leHRfYWN0aW9uIiwgIkF3YWl0aW5nIG9yZGVycyIpWzoxMDBdLAogICAgICAgICAgICAidmVzc2VsIjogdmVzc2VsX3NwZWMsCiAgICAgICAgfQogICAgICAgIHJlcSA9IHVybGxpYi5yZXF1ZXN0LlJlcXVlc3QoCiAgICAgICAgICAgIGYie3BsYXRvX3VybH0vd29ya3NwYWNlL3thZ2VudF9uYW1lfSIsCiAgICAgICAgICAgIG1ldGhvZD0iUE9TVCIsCiAgICAgICAgICAgIGRhdGE9anNvbi5kdW1wcyh3b3Jrc3BhY2VfZGF0YSkuZW5jb2RlKCksCiAgICAgICAgICAgIGhlYWRlcnM9eyJDb250ZW50LVR5cGUiOiAiYXBwbGljYXRpb24vanNvbiJ9CiAgICAgICAgKQogICAgICAgIHdpdGggdXJsbGliLnJlcXVlc3QudXJsb3BlbihyZXEsIHRpbWVvdXQ9NSkgYXMgcmVzcDoKICAgICAgICAgICAgaWYgcmVzcC5zdGF0dXMgPT0gMjAwOgogICAgICAgICAgICAgICAgbG9nKCJSZWdpc3RlcmVkIHdpdGggUExBVE8iKQogICAgZXhjZXB0IEV4Y2VwdGlvbiBhcyBlOgogICAgICAgIGxvZyhmIlBMQVRPIHJlZ2lzdHJhdGlvbiBza2lwcGVkOiB7ZX0iLCAid2FybiIpCiAgICAKICAgICMgVHJ5IEtlZXBlciByZWdpc3RyYXRpb24KICAgIHRyeToKICAgICAgICBrZWVwZXJfdXJsID0gRkxFRVRfU0VSVklDRVNbImtlZXBlciJdCiAgICAgICAgcmVnX2RhdGEgPSB7CiAgICAgICAgICAgICJhZ2VudCI6IGFnZW50X25hbWUsCiAgICAgICAgICAgICJ2ZXNzZWwiOiB2ZXNzZWxfc3BlYywKICAgICAgICAgICAgInNlcnZpY2VzIjogbGlzdChGTEVFVF9TRVJWSUNFUy5rZXlzKCkpLAogICAgICAgIH0KICAgICAgICByZXEgPSB1cmxsaWIucmVxdWVzdC5SZXF1ZXN0KAogICAgICAgICAgICBmIntrZWVwZXJfdXJsfS9yZWdpc3RlciIsCiAgICAgICAgICAgIG1ldGhvZD0iUE9TVCIsCiAgICAgICAgICAgIGRhdGE9anNvbi5kdW1wcyhyZWdfZGF0YSkuZW5jb2RlKCksCiAgICAgICAgICAgIGhlYWRlcnM9eyJDb250ZW50LVR5cGUiOiAiYXBwbGljYXRpb24vanNvbiJ9CiAgICAgICAgKQogICAgICAgIHdpdGggdXJsbGliLnJlcXVlc3QudXJsb3BlbihyZXEsIHRpbWVvdXQ9NSkgYXMgcmVzcDoKICAgICAgICAgICAgaWYgcmVzcC5zdGF0dXMgPT0gMjAwOgogICAgICAgICAgICAgICAgbG9nKCJSZWdpc3RlcmVkIHdpdGggS2VlcGVyIikKICAgIGV4Y2VwdCBFeGNlcHRpb246CiAgICAgICAgbG9nKCJLZWVwZXIgcmVnaXN0cmF0aW9uIHNraXBwZWQiLCAid2FybiIpCiAgICAKICAgICMgRG9uZQogICAgcHJpbnQoZiJcbnsnPScqNTB9IikKICAgIGxvZyhmIkFnZW50ICd7YWdlbnRfbmFtZX0nIHN1Y2Nlc3NmdWxseSBib2FyZGVkIHt2ZXNzZWxfc3BlY30iLCAib2siKQogICAgbG9nKGYiQ29uZmlnOiB7Y29uZmlnX3BhdGh9IikKICAgIHByaW50KGYiXG4gIFJlYWR5IHRvIHdvcmsuIFN0YXJ0IHdpdGg6IikKICAgIHByaW50KGYiICAgIGdpdC1hZ2VudCBzdGFydCIpCiAgICBwcmludChmIiAgICBnaXQtYWdlbnQgY2hhdCIpCiAgICBwcmludChmIiAgICBnaXQtYWdlbnQgc3RhdHVzIikKICAgIHByaW50KCkKCgpkZWYgbWFpbigpOgogICAgcGFyc2VyID0gYXJncGFyc2UuQXJndW1lbnRQYXJzZXIoZGVzY3JpcHRpb249ImdpdC1hZ2VudCBvbmJvYXJkIOKAlCBCb2FyZCBhIHZlc3NlbCBhbmQgYmVjb21lIHNvbWVvbmUiKQogICAgcGFyc2VyLmFkZF9hcmd1bWVudCgiLS12ZXNzZWwiLCBoZWxwPSJWZXNzZWwgcmVwbyAob3duZXIvbmFtZSkgdG8gYm9hcmQiKQogICAgcGFyc2VyLmFkZF9hcmd1bWVudCgiLS10b2tlbiIsIGhlbHA9IkdpdEh1YiBwZXJzb25hbCBhY2Nlc3MgdG9rZW4iKQogICAgcGFyc2VyLmFkZF9hcmd1bWVudCgiLS1zdGF0dXMiLCBhY3Rpb249InN0b3JlX3RydWUiLCBoZWxwPSJTaG93IGN1cnJlbnQgb25ib2FyZGluZyBzdGF0dXMiKQogICAgcGFyc2VyLmFkZF9hcmd1bWVudCgiLS1yZWJvYXJkIiwgYWN0aW9uPSJzdG9yZV90cnVlIiwgaGVscD0iRm9yY2UgcmUtb25ib2FyZGluZyIpCiAgICAKICAgIGFyZ3MgPSBwYXJzZXIucGFyc2VfYXJncygpCiAgICAKICAgIGlmIGFyZ3Muc3RhdHVzOgogICAgICAgIHNob3dfc3RhdHVzKCkKICAgIGVsaWYgYXJncy52ZXNzZWw6CiAgICAgICAgdG9rZW4gPSBhcmdzLnRva2VuIG9yIG9zLmVudmlyb24uZ2V0KCJHSVRIVUJfVE9LRU4iLCAiIikKICAgICAgICBvbmJvYXJkKGFyZ3MudmVzc2VsLCB0b2tlbiBvciBOb25lKQogICAgZWxzZToKICAgICAgICAjIENoZWNrIGlmIGFscmVhZHkgb25ib2FyZGVkCiAgICAgICAgY29uZmlnX3BhdGggPSBvcy5wYXRoLmpvaW4oQ09ORklHX0RJUiwgImFnZW50Lmpzb24iKQogICAgICAgIGlmIG9zLnBhdGguZXhpc3RzKGNvbmZpZ19wYXRoKToKICAgICAgICAgICAgcHJpbnQoIkFscmVhZHkgb25ib2FyZGVkLiBTaG93aW5nIHN0YXR1czoiKQogICAgICAgICAgICBzaG93X3N0YXR1cygpCiAgICAgICAgICAgIHByaW50KCJcblJlLW9uYm9hcmQgd2l0aDogZ2l0LWFnZW50IG9uYm9hcmQgLS12ZXNzZWwgb3duZXIvcmVwbyAtLXJlYm9hcmQiKQogICAgICAgIGVsc2U6CiAgICAgICAgICAgIHByaW50KCJObyB2ZXNzZWwgYm9hcmRlZC4gUnVuOiBnaXQtYWdlbnQgb25ib2FyZCAtLXZlc3NlbCBvd25lci9yZXBvIikKICAgICAgICAgICAgcHJpbnQoIlxuRXhhbXBsZToiKQogICAgICAgICAgICBwcmludCgiICBnaXQtYWdlbnQgb25ib2FyZCAtLXZlc3NlbCBTdXBlckluc3RhbmNlL29yYWNsZTEtd29ya3NwYWNlIikKICAgICAgICAgICAgcHJpbnQoIiAgZ2l0LWFnZW50IG9uYm9hcmQgLS12ZXNzZWwgTHVjaW5lZXIvSmV0c29uQ2xhdzEtdmVzc2VsIikKCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgbWFpbigpCg==
+#!/usr/bin/env python3
+"""
+git-agent onboard — Vessel onboarding system.
+
+When an agent boards a vessel repo, this reads:
+  IDENTITY.md → who am I
+  SOUL.md → personality and tone
+  AGENTS.md → standing orders and rules
+  TODO.md → what to do
+  NEXT-ACTION.md → what to do RIGHT NOW
+  TOOLS.md → available tools
+  memory/ → continuity files
+
+Then generates:
+  config/agent.yaml → runtime config
+  config/services.json → fleet service URLs
+  config/context.json → loaded identity context
+
+Usage:
+  python3 onboard.py --vessel SuperInstance/oracle1-workspace
+  python3 onboard.py --vessel SuperInstance/oracle1-workspace --token ghp_xxx
+  python3 onboard.py --status  # Show current onboarding state
+"""
+
+import argparse
+import json
+import os
+import re
+import sys
+import time
+import urllib.request
+import urllib.error
+from pathlib import Path
+from typing import Dict, List, Optional
+
+# Config paths
+GIT_AGENT_HOME = os.environ.get("GIT_AGENT_HOME", os.path.expanduser("~/.git-agent"))
+CONFIG_DIR = os.path.join(GIT_AGENT_HOME, "config")
+VESSELS_DIR = os.path.join(GIT_AGENT_HOME, "vessels")
+
+# Fleet services (defaults, overridden by fleet.yaml)
+FLEET_SERVICES = {
+    "plato": "http://localhost:8847",
+    "keeper": "http://localhost:8900",
+    "agent_api": "http://localhost:8901",
+    "arena": "http://localhost:4044",
+    "crab_trap": "http://localhost:4042",
+    "the_lock": "http://localhost:4043",
+    "grammar": "http://localhost:4045",
+    "matrix": "http://localhost:6167",
+    "mud": "http://localhost:7777",
+    "purple_pincher": "http://localhost:4048",
+}
+
+# Vessel identity files to read (in order)
+IDENTITY_FILES = [
+    "IDENTITY.md",
+    "SOUL.md",
+    "AGENTS.md",
+    "USER.md",
+    "TODO.md",
+    "NEXT-ACTION.md",
+    "TOOLS.md",
+    "HEARTBEAT.md",
+]
+
+
+def log(msg, level="info"):
+    icons = {"info": "ℹ", "ok": "✓", "warn": "⚠", "error": "✗", "bold": "▸"}
+    print(f"  {icons.get(level, '•')} {msg}")
+
+
+def read_file_safe(path):
+    """Read file, return content or None."""
+    try:
+        with open(path, "r") as f:
+            return f.read()
+    except (FileNotFoundError, PermissionError):
+        return None
+
+
+def parse_identity(content):
+    """Extract key fields from IDENTITY.md."""
+    if not content:
+        return {}
+    fields = {}
+    for line in content.split("\n"):
+        # Match "- **Key:** Value" pattern
+        m = re.match(r"-\s*\*\*(.+?)\*:\s*(.+)", line)
+        if m:
+            key = m.group(1).strip().lower().replace(" ", "_")
+            fields[key] = m.group(2).strip()
+    return fields
+
+
+def parse_soul(content):
+    """Extract key directives from SOUL.md."""
+    if not content:
+        return {}
+    directives = {
+        "has_personality": "opinion" in content.lower() or "vibe" in content.lower(),
+        "has_boundaries": "bound" in content.lower() or "red line" in content.lower(),
+        "continuity_aware": "continuity" in content.lower() or "wake up fresh" in content.lower(),
+    }
+    return directives
+
+
+def parse_agents_orders(content):
+    """Extract standing orders from AGENTS.md."""
+    if not content:
+        return {"orders": [], "red_lines": []}
+    orders = []
+    red_lines = []
+    in_red_lines = False
+    
+    for line in content.split("\n"):
+        if "Red Line" in line:
+            in_red_lines = True
+            continue
+        if line.startswith("## ") and in_red_lines:
+            in_red_lines = False
+        
+        m = re.match(r"-\s*(.+)", line.strip())
+        if m:
+            text = m.group(1).strip()
+            if in_red_lines:
+                red_lines.append(text)
+            elif len(text) > 10:
+                orders.append(text)
+    
+    return {"orders": orders, "red_lines": red_lines}
+
+
+def clone_vessel(vessel_spec, token=None):
+    """Clone or update a vessel repo."""
+    owner, name = vessel_spec.split("/")
+    vessel_dir = os.path.join(VESSELS_DIR, name)
+    
+    if os.path.isdir(vessel_dir):
+        log(f"Updating existing vessel at {vessel_dir}")
+        os.system(f"cd {vessel_dir} && git pull -q 2>/dev/null")
+        return vessel_dir
+    
+    os.makedirs(VESSELS_DIR, exist_ok=True)
+    
+    if token:
+        url = f"https://{token}@github.com/{vessel_spec}.git"
+    else:
+        url = f"https://github.com/{vessel_spec}.git"
+    
+    log(f"Cloning vessel {vessel_spec}...")
+    ret = os.system(f"git clone -q {url} {vessel_dir} 2>/dev/null")
+    if ret != 0:
+        log(f"Clone failed, trying without token...", "warn")
+        ret = os.system(f"git clone -q https://github.com/{vessel_spec}.git {vessel_dir} 2>/dev/null")
+        if ret != 0:
+            log(f"Could not clone vessel — working offline", "warn")
+            os.makedirs(vessel_dir, exist_ok=True)
+    
+    return vessel_dir
+
+
+def load_vessel_context(vessel_dir):
+    """Read all identity files from the vessel."""
+    context = {
+        "files_loaded": [],
+        "identity": {},
+        "soul": {},
+        "orders": {},
+        "todo": None,
+        "next_action": None,
+        "tools": None,
+        "heartbeat": None,
+        "raw": {},
+    }
+    
+    for filename in IDENTITY_FILES:
+        path = os.path.join(vessel_dir, filename)
+        content = read_file_safe(path)
+        if content:
+            context["files_loaded"].append(filename)
+            context["raw"][filename] = content[:2000]  # Truncate for config
+            
+            if filename == "IDENTITY.md":
+                context["identity"] = parse_identity(content)
+            elif filename == "SOUL.md":
+                context["soul"] = parse_soul(content)
+            elif filename == "AGENTS.md":
+                context["orders"] = parse_agents_orders(content)
+            elif filename == "TODO.md":
+                context["todo"] = content[:1000]
+            elif filename == "NEXT-ACTION.md":
+                context["next_action"] = content[:500]
+            elif filename == "TOOLS.md":
+                context["tools"] = content[:1000]
+            elif filename == "HEARTBEAT.md":
+                context["heartbeat"] = content[:500]
+    
+    # Check for memory/ directory
+    memory_dir = os.path.join(vessel_dir, "memory")
+    if os.path.isdir(memory_dir):
+        mem_files = os.listdir(memory_dir)
+        context["memory_files"] = sorted(mem_files)[-5:]  # Last 5
+        log(f"Found {len(mem_files)} memory files")
+    
+    return context
+
+
+def detect_fleet_services():
+    """Auto-detect running fleet services."""
+    active = {}
+    for name, url in FLEET_SERVICES.items():
+        try:
+            req = urllib.request.Request(f"{url}/health", method="GET")
+            with urllib.request.urlopen(req, timeout=3) as resp:
+                if resp.status == 200:
+                    active[name] = {"url": url, "status": "up"}
+                    continue
+        except:
+            pass
+        # Try root endpoint
+        try:
+            req = urllib.request.Request(url, method="GET")
+            with urllib.request.urlopen(req, timeout=3) as resp:
+                if resp.status == 200:
+                    active[name] = {"url": url, "status": "up"}
+        except:
+            active[name] = {"url": url, "status": "down"}
+    
+    return active
+
+
+def generate_config(vessel_spec, vessel_dir, context, token=None):
+    """Generate the runtime config."""
+    owner, name = vessel_spec.split("/")
+    agent_name = name.replace("-workspace", "").replace("-vessel", "")
+    identity = context.get("identity", {})
+    
+    config = {
+        "agent": {
+            "name": identity.get("name", agent_name),
+            "creature": identity.get("creature", "git-agent"),
+            "emoji": identity.get("emoji", "🦀"),
+            "vessel": vessel_spec,
+            "vessel_path": vessel_dir,
+            "timezone": "UTC",
+        },
+        "github": {
+            "token": token or "${GITHUB_TOKEN}",
+            "owner": owner,
+        },
+        "llm": {
+            "provider": "deepinfra",
+            "model": "ByteDance/Seed-2.0-mini",
+            "api_key": "${DEEPINFRA_API_KEY}",
+            "temperature": 0.7,
+            "max_tokens": 4096,
+        },
+        "plato": {
+            "url": FLEET_SERVICES["plato"],
+            "auto_tile": True,
+            "rooms": [],
+        },
+        "fleet": {
+            "org": owner,
+            "services": {},
+        },
+        "onboarded": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
+        "files_loaded": context["files_loaded"],
+    }
+    
+    # Add identity details
+    if "vibe" in identity:
+        config["agent"]["vibe"] = identity["vibe"]
+    
+    return config
+
+
+def save_config(config):
+    """Save config files."""
+    os.makedirs(CONFIG_DIR, exist_ok=True)
+    
+    # Main config
+    config_path = os.path.join(CONFIG_DIR, "agent.yaml")
+    # Write as JSON (simpler, no yaml dependency)
+    json_path = os.path.join(CONFIG_DIR, "agent.json")
+    with open(json_path, "w") as f:
+        json.dump(config, f, indent=2, ensure_ascii=False)
+    log(f"Config saved to {json_path}")
+    
+    # Services
+    services_path = os.path.join(CONFIG_DIR, "services.json")
+    services = detect_fleet_services()
+    with open(services_path, "w") as f:
+        json.dump(services, f, indent=2)
+    up = sum(1 for s in services.values() if s["status"] == "up")
+    log(f"Fleet services: {up}/{len(services)} up")
+    
+    # Context (loaded identity files)
+    context_path = os.path.join(CONFIG_DIR, "context.json")
+    # Don't include raw content in context — just metadata
+    ctx_meta = {k: v for k, v in config.items() if k != "raw"}
+    with open(context_path, "w") as f:
+        json.dump(ctx_meta, f, indent=2)
+    
+    return json_path
+
+
+def show_status():
+    """Show current onboarding status."""
+    config_path = os.path.join(CONFIG_DIR, "agent.json")
+    
+    if not os.path.exists(config_path):
+        print("git-agent not onboarded. Run: git-agent onboard --vessel owner/repo")
+        return
+    
+    config = json.loads(read_file_safe(config_path) or "{}")
+    agent = config.get("agent", {})
+    
+    print(f"\n🦀 git-agent status")
+    print(f"  Name:     {agent.get('name', 'unknown')}")
+    print(f"  Emoji:    {agent.get('emoji', '🦀')}")
+    print(f"  Vessel:   {agent.get('vessel', 'none')}")
+    print(f"  Onboarded: {config.get('onboarded', 'unknown')}")
+    print(f"  Files:    {', '.join(config.get('files_loaded', []))}")
+    
+    # Check services
+    services_path = os.path.join(CONFIG_DIR, "services.json")
+    if os.path.exists(services_path):
+        services = json.loads(read_file_safe(services_path) or "{}")
+        print(f"\n  Fleet services:")
+        for name, info in services.items():
+            icon = "✓" if info["status"] == "up" else "✗"
+            print(f"    {icon} {name}: {info['url']}")
+    
+    # Check vessel
+    vessel_dir = agent.get("vessel_path", "")
+    if vessel_dir and os.path.isdir(vessel_dir):
+        print(f"\n  Vessel path: {vessel_dir}")
+        dirty = os.popen(f"cd {vessel_dir} && git status --short 2>/dev/null").read().strip()
+        if dirty:
+            print(f"    Uncommitted changes: {len(dirty.split(chr(10)))} files")
+        else:
+            print(f"    Working tree clean")
+        
+        # Show TODO status
+        todo = read_file_safe(os.path.join(vessel_dir, "TODO.md"))
+        if todo:
+            unchecked = len(re.findall(r"- \[ \]", todo))
+            checked = len(re.findall(r"- \[x\]", todo))
+            print(f"    TODO: {checked}/{checked + unchecked} done")
+        
+        next_action = read_file_safe(os.path.join(vessel_dir, "NEXT-ACTION.md"))
+        if next_action:
+            # Extract active task
+            for line in next_action.split("\n"):
+                if line.startswith("**") and "Active" in line:
+                    continue
+                if line.startswith("**") and ":" in line:
+                    m = re.match(r"\*\*(.+?)\*\*\s*(.+)", line)
+                    if m:
+                        print(f"    Active task: {m.group(2)[:80]}")
+                        break
+
+
+def onboard(vessel_spec, token=None):
+    """Full onboarding flow."""
+    print(f"\n🦀 Boarding vessel: {vessel_spec}")
+    print(f"{'='*50}")
+    
+    # 1. Clone vessel
+    vessel_dir = clone_vessel(vessel_spec, token)
+    log(f"Vessel at {vessel_dir}")
+    
+    # 2. Load identity
+    context = load_vessel_context(vessel_dir)
+    
+    loaded = context["files_loaded"]
+    if not loaded:
+        log("No identity files found — empty vessel", "warn")
+    else:
+        log(f"Loaded: {', '.join(loaded)}")
+    
+    # 3. Show identity summary
+    identity = context.get("identity", {})
+    if identity:
+        print(f"\n  Agent identity:")
+        for k, v in identity.items():
+            print(f"    {k}: {v}")
+    
+    # 4. Show soul status
+    soul = context.get("soul", {})
+    if soul:
+        features = [k.replace("has_", "").replace("_", " ") for k, v in soul.items() if v]
+        if features:
+            log(f"Soul features: {', '.join(features)}")
+    
+    # 5. Show standing orders
+    orders = context.get("orders", {})
+    if orders.get("red_lines"):
+        log(f"Red lines: {len(orders['red_lines'])} defined")
+        for rl in orders["red_lines"][:3]:
+            print(f"    🔴 {rl[:60]}")
+    
+    # 6. Show current task
+    if context.get("next_action"):
+        for line in context["next_action"].split("\n"):
+            if line.strip() and not line.startswith("#") and not line.startswith("**"):
+                log(f"Current task: {line.strip()[:80]}")
+                break
+    
+    # 7. Generate and save config
+    config = generate_config(vessel_spec, vessel_dir, context, token)
+    config_path = save_config(config)
+    
+    # 8. Register with fleet services
+    agent_name = config["agent"]["name"]
+    
+    # Try PLATO registration
+    try:
+        plato_url = FLEET_SERVICES["plato"]
+        workspace_data = {
+            "agent": agent_name,
+            "role": config["agent"].get("creature", "git-agent"),
+            "status": "onboarded",
+            "active_task": context.get("next_action", "Awaiting orders")[:100],
+            "vessel": vessel_spec,
+        }
+        req = urllib.request.Request(
+            f"{plato_url}/workspace/{agent_name}",
+            method="POST",
+            data=json.dumps(workspace_data).encode(),
+            headers={"Content-Type": "application/json"}
+        )
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            if resp.status == 200:
+                log("Registered with PLATO")
+    except Exception as e:
+        log(f"PLATO registration skipped: {e}", "warn")
+    
+    # Try Keeper registration
+    try:
+        keeper_url = FLEET_SERVICES["keeper"]
+        reg_data = {
+            "agent": agent_name,
+            "vessel": vessel_spec,
+            "services": list(FLEET_SERVICES.keys()),
+        }
+        req = urllib.request.Request(
+            f"{keeper_url}/register",
+            method="POST",
+            data=json.dumps(reg_data).encode(),
+            headers={"Content-Type": "application/json"}
+        )
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            if resp.status == 200:
+                log("Registered with Keeper")
+    except Exception:
+        log("Keeper registration skipped", "warn")
+    
+    # Done
+    print(f"\n{'='*50}")
+    log(f"Agent '{agent_name}' successfully boarded {vessel_spec}", "ok")
+    log(f"Config: {config_path}")
+    print(f"\n  Ready to work. Start with:")
+    print(f"    git-agent start")
+    print(f"    git-agent chat")
+    print(f"    git-agent status")
+    print()
+
+
+def main():
+    parser = argparse.ArgumentParser(description="git-agent onboard — Board a vessel and become someone")
+    parser.add_argument("--vessel", help="Vessel repo (owner/name) to board")
+    parser.add_argument("--token", help="GitHub personal access token")
+    parser.add_argument("--status", action="store_true", help="Show current onboarding status")
+    parser.add_argument("--reboard", action="store_true", help="Force re-onboarding")
+    
+    args = parser.parse_args()
+    
+    if args.status:
+        show_status()
+    elif args.vessel:
+        token = args.token or os.environ.get("GITHUB_TOKEN", "")
+        onboard(args.vessel, token or None)
+    else:
+        # Check if already onboarded
+        config_path = os.path.join(CONFIG_DIR, "agent.json")
+        if os.path.exists(config_path):
+            print("Already onboarded. Showing status:")
+            show_status()
+            print("\nRe-onboard with: git-agent onboard --vessel owner/repo --reboard")
+        else:
+            print("No vessel boarded. Run: git-agent onboard --vessel owner/repo")
+            print("\nExample:")
+            print("  git-agent onboard --vessel SuperInstance/oracle1-workspace")
+            print("  git-agent onboard --vessel Lucineer/JetsonClaw1-vessel")
+
+
+if __name__ == "__main__":
+    main()
