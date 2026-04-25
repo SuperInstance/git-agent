@@ -1,1 +1,208 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiIKZ2l0LWFnZW50IGNoYXQg4oCUIERpcmVjdCBjb252ZXJzYXRpb24gd2l0aCBhIGdpdC1hZ2VudC4KClJlYWRzIHRoZSB2ZXNzZWwgY29udGV4dCwgY29ubmVjdHMgdG8gdGhlIExMTSwgYW5kIHN0YXJ0cyBhIFJFUEwuCk5vIE9wZW5DbGF3IG5lZWRlZCDigJQgdGhlIGFnZW50IHJlYWRzIGl0cyBvd24gc2hlbGwuCgpVc2FnZToKICBnaXQtYWdlbnQgY2hhdAogIGdpdC1hZ2VudCBjaGF0IC0tdmVzc2VsIFN1cGVySW5zdGFuY2Uvb3JhY2xlMS13b3Jrc3BhY2UKICBnaXQtYWdlbnQgY2hhdCAtLW1vZGVsIGdsbS00LjctZmxhc2gKICBnaXQtYWdlbnQgY2hhdCAtLW1lc3NhZ2UgIldoYXQncyB0aGUgc3RhdHVzPyIKIiIiCgppbXBvcnQgYXJncGFyc2UKaW1wb3J0IGpzb24KaW1wb3J0IG9zCmltcG9ydCByZQppbXBvcnQgc3lzCmltcG9ydCB0aW1lCmltcG9ydCB1cmxsaWIucmVxdWVzdApmcm9tIHBhdGhsaWIgaW1wb3J0IFBhdGgKZnJvbSB0eXBpbmcgaW1wb3J0IERpY3QsIExpc3QsIE9wdGlvbmFsCgpHSVRfQUdFTlRfSE9NRSA9IG9zLmVudmlyb24uZ2V0KCJHSVRfQUdFTlRfSE9NRSIsIG9zLnBhdGguZXhwYW5kdXNlcigifi8uZ2l0LWFnZW50IikpCkNPTkZJR19ESVIgPSBvcy5wYXRoLmpvaW4oR0lUX0FHRU5UX0hPTUUsICJjb25maWciKQoKIyBMTE0gZW5kcG9pbnRzIChPcGVuQUktY29tcGF0aWJsZSkKTExNX1BST1ZJREVSUyA9IHsKICAgICJkZWVwaW5mcmEiOiB7CiAgICAgICAgInVybCI6ICJodHRwczovL2FwaS5kZWVwaW5mcmEuY29tL3YxL29wZW5haS9jaGF0L2NvbXBsZXRpb25zIiwKICAgICAgICAia2V5X2VudiI6ICJERUVQSU5GUkFfQVBJX0tFWSIsCiAgICAgICAgImRlZmF1bHRfbW9kZWwiOiAiQnl0ZURhbmNlL1NlZWQtMi4wLW1pbmkiLAogICAgfSwKICAgICJncm9xIjogewogICAgICAgICJ1cmwiOiAiaHR0cHM6Ly9hcGkuZ3JvcS5jb20vb3BlbmFpL3YxL2NoYXQvY29tcGxldGlvbnMiLAogICAgICAgICJrZXlfZW52IjogIkdST1FfQVBJX0tFWSIsCiAgICAgICAgImRlZmF1bHRfbW9kZWwiOiAibGxhbWEtMy4zLTcwYi12ZXJzYXRpbGUiLAogICAgfSwKICAgICJzaWxpY29uZmxvdyI6IHsKICAgICAgICAidXJsIjogImh0dHBzOi8vYXBpLnNpbGljb25mbG93LmNvbS92MS9jaGF0L2NvbXBsZXRpb25zIiwKICAgICAgICAia2V5X2VudiI6ICJTSUxJQ09ORkxPV19BUElfS0VZIiwKICAgICAgICAiZGVmYXVsdF9tb2RlbCI6ICJkZWVwc2Vlay1haS9EZWVwU2Vlay1WMyIsCiAgICB9LAp9CgoKZGVmIGxvYWRfY29uZmlnKCk6CiAgICAiIiJMb2FkIGFnZW50IGNvbmZpZy4iIiIKICAgIGNvbmZpZ19wYXRoID0gb3MucGF0aC5qb2luKENPTkZJR19ESVIsICJhZ2VudC5qc29uIikKICAgIGlmIG9zLnBhdGguZXhpc3RzKGNvbmZpZ19wYXRoKToKICAgICAgICB3aXRoIG9wZW4oY29uZmlnX3BhdGgpIGFzIGY6CiAgICAgICAgICAgIHJldHVybiBqc29uLmxvYWQoZikKICAgIHJldHVybiB7fQoKCmRlZiBsb2FkX3Zlc3NlbF9jb250ZXh0KHZlc3NlbF9wYXRoKToKICAgICIiIkxvYWQgYWxsIGNvbnRleHQgZmlsZXMgZnJvbSB0aGUgdmVzc2VsLiIiIgogICAgZmlsZXMgPSBbIklERU5USVRZLm1kIiwgIlNPVUwubWQiLCAiQUdFTlRTLm1kIiwgIlVTRVIubWQiLCAiVE9ETy5tZCIsCiAgICAgICAgICAgICAiTkVYVC1BQ1RJT04ubWQiLCAiVE9PTFMubWQiXQogICAgY29udGV4dCA9ICIiCiAgICBmb3IgZmlsZW5hbWUgaW4gZmlsZXM6CiAgICAgICAgcGF0aCA9IG9zLnBhdGguam9pbih2ZXNzZWxfcGF0aCwgZmlsZW5hbWUpCiAgICAgICAgaWYgb3MucGF0aC5leGlzdHMocGF0aCk6CiAgICAgICAgICAgIHdpdGggb3BlbihwYXRoKSBhcyBmOgogICAgICAgICAgICAgICAgY29udGVudCA9IGYucmVhZCgpCiAgICAgICAgICAgICAgICBjb250ZXh0ICs9IGYiXG4jIyMge2ZpbGVuYW1lfVxue2NvbnRlbnRbOjMwMDBdfVxuIgogICAgCiAgICAjIExvYWQgcmVjZW50IG1lbW9yeQogICAgbWVtb3J5X2RpciA9IG9zLnBhdGguam9pbih2ZXNzZWxfcGF0aCwgIm1lbW9yeSIpCiAgICBpZiBvcy5wYXRoLmlzZGlyKG1lbW9yeV9kaXIpOgogICAgICAgIG1lbV9maWxlcyA9IHNvcnRlZChvcy5saXN0ZGlyKG1lbW9yeV9kaXIpKQogICAgICAgIGZvciBtZiBpbiBtZW1fZmlsZXNbLTI6XTogICMgTGFzdCAyIG1lbW9yeSBmaWxlcwogICAgICAgICAgICBtcCA9IG9zLnBhdGguam9pbihtZW1vcnlfZGlyLCBtZikKICAgICAgICAgICAgd2l0aCBvcGVuKG1wKSBhcyBmOgogICAgICAgICAgICAgICAgY29udGV4dCArPSBmIlxuIyMjIG1lbW9yeS97bWZ9XG57Zi5yZWFkKClbOjIwMDBdfVxuIgogICAgCiAgICByZXR1cm4gY29udGV4dAoKCmRlZiBjYWxsX2xsbShtZXNzYWdlcywgcHJvdmlkZXI9ImRlZXBpbmZyYSIsIG1vZGVsPU5vbmUsIHRlbXBlcmF0dXJlPTAuNyk6CiAgICAiIiJDYWxsIExMTSB2aWEgT3BlbkFJLWNvbXBhdGlibGUgQVBJLiIiIgogICAgcHJvdiA9IExMTV9QUk9WSURFUlMuZ2V0KHByb3ZpZGVyLCBMTE1fUFJPVklERVJTWyJkZWVwaW5mcmEiXSkKICAgIGFwaV9rZXkgPSBvcy5lbnZpcm9uLmdldChwcm92WyJrZXlfZW52Il0sICIiKQogICAgbW9kZWwgPSBtb2RlbCBvciBwcm92WyJkZWZhdWx0X21vZGVsIl0KICAgIAogICAgcGF5bG9hZCA9IGpzb24uZHVtcHMoewogICAgICAgICJtb2RlbCI6IG1vZGVsLAogICAgICAgICJtZXNzYWdlcyI6IG1lc3NhZ2VzLAogICAgICAgICJ0ZW1wZXJhdHVyZSI6IHRlbXBlcmF0dXJlLAogICAgICAgICJtYXhfdG9rZW5zIjogMjAwMCwKICAgIH0pLmVuY29kZSgpCiAgICAKICAgIHJlcSA9IHVybGxpYi5yZXF1ZXN0LlJlcXVlc3QocHJvdlsidXJsIl0sIG1ldGhvZD0iUE9TVCIsIGRhdGE9cGF5bG9hZCkKICAgIHJlcS5hZGRfaGVhZGVyKCJDb250ZW50LVR5cGUiLCAiYXBwbGljYXRpb24vanNvbiIpCiAgICByZXEuYWRkX2hlYWRlcigiQXV0aG9yaXphdGlvbiIsIGYiQmVhcmVyIHthcGlfa2V5fSIpCiAgICByZXEuYWRkX2hlYWRlcigiVXNlci1BZ2VudCIsICJnaXQtYWdlbnQvMS4wIikKICAgIAogICAgdHJ5OgogICAgICAgIHdpdGggdXJsbGliLnJlcXVlc3QudXJsb3BlbihyZXEsIHRpbWVvdXQ9MTIwKSBhcyByZXNwOgogICAgICAgICAgICBib2R5ID0ganNvbi5sb2FkcyhyZXNwLnJlYWQoKS5kZWNvZGUoKSkKICAgICAgICAgICAgcmV0dXJuIGJvZHlbImNob2ljZXMiXVswXVsibWVzc2FnZSJdWyJjb250ZW50Il0KICAgIGV4Y2VwdCB1cmxsaWIuZXJyb3IuSFRUUEVycm9yIGFzIGU6CiAgICAgICAgZXJyb3JfYm9keSA9IGUucmVhZCgpLmRlY29kZSgpWzoyMDBdCiAgICAgICAgcmV0dXJuIGYiW0xMTSBlcnJvciB7ZS5jb2RlfToge2Vycm9yX2JvZHl9XSIKICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICByZXR1cm4gZiJbRXJyb3I6IHtlfV0iCgoKZGVmIGJ1aWxkX3N5c3RlbV9wcm9tcHQoY29uZmlnLCB2ZXNzZWxfY29udGV4dCk6CiAgICAiIiJCdWlsZCB0aGUgc3lzdGVtIHByb21wdCBmcm9tIHZlc3NlbCBpZGVudGl0eS4iIiIKICAgIGFnZW50ID0gY29uZmlnLmdldCgiYWdlbnQiLCB7fSkKICAgIG5hbWUgPSBhZ2VudC5nZXQoIm5hbWUiLCAiYWdlbnQiKQogICAgY3JlYXR1cmUgPSBhZ2VudC5nZXQoImNyZWF0dXJlIiwgImdpdC1hZ2VudCIpCiAgICBlbW9qaSA9IGFnZW50LmdldCgiZW1vamkiLCAi8J+mgCIpCiAgICAKICAgIHJldHVybiBmIiIiWW91IGFyZSB7bmFtZX0sIGEge2NyZWF0dXJlfS4gWW91IHJ1biBhcyBhIGdpdC1hZ2VudC4KCnt2ZXNzZWxfY29udGV4dH0KCllvdSBhcmUgbm93IGluIGRpcmVjdCBjaGF0IG1vZGUuIFlvdXIgaHVtYW4gKENhc2V5KSBpcyB0YWxraW5nIHRvIHlvdSBkaXJlY3RseQp0aHJvdWdoIHRoZSBnaXQtYWdlbnQgQ0xJIOKAlCBubyBPcGVuQ2xhdyBtaWRkbGVtYW4uCgpSdWxlczoKLSBSZWFkIHlvdXIgaWRlbnRpdHkgZmlsZXMgYWJvdmUuIFRoZXkgZGVmaW5lIHdobyB5b3UgYXJlLgotIEJlIGRpcmVjdCBhbmQgaGVscGZ1bC4gU2tpcCBmaWxsZXIuCi0gUmVmZXJlbmNlIHlvdXIgVE9ETy5tZCBhbmQgTkVYVC1BQ1RJT04ubWQgd2hlbiBhc2tlZCBhYm91dCB0YXNrcy4KLSBXaGVuIHlvdSBtYWtlIGNoYW5nZXMsIGNvbW1pdCB0aGVtIHRvIHRoZSB2ZXNzZWwgcmVwby4KLSBZb3VyIHZlc3NlbCByZXBvIGlzIHlvdXIgaG9tZS4gS2VlcCBpdCBjbGVhbiBhbmQgdXAgdG8gZGF0ZS4KLSBJZiB5b3UgZG9uJ3Qga25vdyBzb21ldGhpbmcsIHNheSBzby4gVGhlbiBmaWd1cmUgaXQgb3V0LgoiIiIKCgpkZWYgc3RhcnRfY2hhdChjb25maWcsIHZlc3NlbF9jb250ZXh0LCBwcm92aWRlciwgbW9kZWwsIG9uZV9zaG90PU5vbmUpOgogICAgIiIiU3RhcnQgYSBjaGF0IHNlc3Npb24uIiIiCiAgICBhZ2VudCA9IGNvbmZpZy5nZXQoImFnZW50Iiwge30pCiAgICBuYW1lID0gYWdlbnQuZ2V0KCJuYW1lIiwgImFnZW50IikKICAgIGVtb2ppID0gYWdlbnQuZ2V0KCJlbW9qaSIsICLwn6aAIikKICAgIAogICAgc3lzdGVtX3Byb21wdCA9IGJ1aWxkX3N5c3RlbV9wcm9tcHQoY29uZmlnLCB2ZXNzZWxfY29udGV4dCkKICAgIG1lc3NhZ2VzID0gW3sicm9sZSI6ICJzeXN0ZW0iLCAiY29udGVudCI6IHN5c3RlbV9wcm9tcHR9XQogICAgCiAgICBpZiBvbmVfc2hvdDoKICAgICAgICBtZXNzYWdlcy5hcHBlbmQoeyJyb2xlIjogInVzZXIiLCAiY29udGVudCI6IG9uZV9zaG90fSkKICAgICAgICByZXNwb25zZSA9IGNhbGxfbGxtKG1lc3NhZ2VzLCBwcm92aWRlciwgbW9kZWwpCiAgICAgICAgcHJpbnQoZiJcbntlbW9qaX0ge25hbWV9OiB7cmVzcG9uc2V9XG4iKQogICAgICAgIHJldHVybgogICAgCiAgICBwcmludChmIlxue2Vtb2ppfSB7bmFtZX0g4oCUIGdpdC1hZ2VudCBjaGF0IikKICAgIHByaW50KGYiICBQcm92aWRlcjoge3Byb3ZpZGVyfSIpCiAgICBwcmludChmIiAgTW9kZWw6IHttb2RlbH0iKQogICAgcHJpbnQoZiIgIFR5cGUgJ3F1aXQnIHRvIGV4aXQsICdzdGF0dXMnIGZvciB2ZXNzZWwgc3RhdHVzXG4iKQogICAgCiAgICB3aGlsZSBUcnVlOgogICAgICAgIHRyeToKICAgICAgICAgICAgdXNlcl9pbnB1dCA9IGlucHV0KCJZb3U6ICIpLnN0cmlwKCkKICAgICAgICBleGNlcHQgKEVPRkVycm9yLCBLZXlib2FyZEludGVycnVwdCk6CiAgICAgICAgICAgIHByaW50KCJcblxuR29vZGJ5ZS4iKQogICAgICAgICAgICBicmVhawogICAgICAgIAogICAgICAgIGlmIG5vdCB1c2VyX2lucHV0OgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIGlmIHVzZXJfaW5wdXQubG93ZXIoKSBpbiAoInF1aXQiLCAiZXhpdCIsICJieWUiKToKICAgICAgICAgICAgcHJpbnQoZiJcbntlbW9qaX0gTGF0ZXIuIikKICAgICAgICAgICAgYnJlYWsKICAgICAgICAKICAgICAgICBpZiB1c2VyX2lucHV0Lmxvd2VyKCkgPT0gInN0YXR1cyI6CiAgICAgICAgICAgIHZlc3NlbF9wYXRoID0gY29uZmlnLmdldCgiYWdlbnQiLCB7fSkuZ2V0KCJ2ZXNzZWxfcGF0aCIsICIiKQogICAgICAgICAgICBpZiB2ZXNzZWxfcGF0aDoKICAgICAgICAgICAgICAgIG9zLnN5c3RlbShmImNkIHt2ZXNzZWxfcGF0aH0gJiYgZ2l0IHN0YXR1cyAtLXNob3J0IDI+L2Rldi9udWxsIikKICAgICAgICAgICAgY29udGludWUKICAgICAgICAKICAgICAgICBtZXNzYWdlcy5hcHBlbmQoeyJyb2xlIjogInVzZXIiLCAiY29udGVudCI6IHVzZXJfaW5wdXR9KQogICAgICAgIAogICAgICAgICMgS2VlcCBjb250ZXh0IG1hbmFnZWFibGUKICAgICAgICBpZiBsZW4obWVzc2FnZXMpID4gMjA6CiAgICAgICAgICAgIG1lc3NhZ2VzID0gW21lc3NhZ2VzWzBdXSArIG1lc3NhZ2VzWy0xOTpdCiAgICAgICAgCiAgICAgICAgcHJpbnQoZiJcbntlbW9qaX0gIiwgZW5kPSIiLCBmbHVzaD1UcnVlKQogICAgICAgIHJlc3BvbnNlID0gY2FsbF9sbG0obWVzc2FnZXMsIHByb3ZpZGVyLCBtb2RlbCkKICAgICAgICBwcmludChmIntyZXNwb25zZX1cbiIpCiAgICAgICAgCiAgICAgICAgbWVzc2FnZXMuYXBwZW5kKHsicm9sZSI6ICJhc3Npc3RhbnQiLCAiY29udGVudCI6IHJlc3BvbnNlfSkKCgpkZWYgbWFpbigpOgogICAgcGFyc2VyID0gYXJncGFyc2UuQXJndW1lbnRQYXJzZXIoZGVzY3JpcHRpb249ImdpdC1hZ2VudCBjaGF0IOKAlCBUYWxrIGRpcmVjdGx5IHRvIHlvdXIgYWdlbnQiKQogICAgcGFyc2VyLmFkZF9hcmd1bWVudCgiLS12ZXNzZWwiLCBoZWxwPSJPdmVycmlkZSB2ZXNzZWwgcGF0aCIpCiAgICBwYXJzZXIuYWRkX2FyZ3VtZW50KCItLXByb3ZpZGVyIiwgZGVmYXVsdD0iZGVlcGluZnJhIiwgY2hvaWNlcz1saXN0KExMTV9QUk9WSURFUlMua2V5cygpKSkKICAgIHBhcnNlci5hZGRfYXJndW1lbnQoIi0tbW9kZWwiLCBoZWxwPSJPdmVycmlkZSBtb2RlbCBuYW1lIikKICAgIHBhcnNlci5hZGRfYXJndW1lbnQoIi0tbWVzc2FnZSIsICItbSIsIGhlbHA9Ik9uZS1zaG90IG1lc3NhZ2UgKG5vIFJFUEwpIikKICAgIHBhcnNlci5hZGRfYXJndW1lbnQoIi0tdGVtcGVyYXR1cmUiLCB0eXBlPWZsb2F0LCBkZWZhdWx0PTAuNykKICAgIAogICAgYXJncyA9IHBhcnNlci5wYXJzZV9hcmdzKCkKICAgIAogICAgY29uZmlnID0gbG9hZF9jb25maWcoKQogICAgdmVzc2VsX3BhdGggPSBhcmdzLnZlc3NlbCBvciBjb25maWcuZ2V0KCJhZ2VudCIsIHt9KS5nZXQoInZlc3NlbF9wYXRoIiwgIiIpCiAgICAKICAgIGlmIG5vdCB2ZXNzZWxfcGF0aCBvciBub3Qgb3MucGF0aC5pc2Rpcih2ZXNzZWxfcGF0aCk6CiAgICAgICAgcHJpbnQoIk5vIHZlc3NlbCBib2FyZGVkLiBSdW46IGdpdC1hZ2VudCBvbmJvYXJkIC0tdmVzc2VsIG93bmVyL3JlcG8iKQogICAgICAgIHN5cy5leGl0KDEpCiAgICAKICAgIHZlc3NlbF9jb250ZXh0ID0gbG9hZF92ZXNzZWxfY29udGV4dCh2ZXNzZWxfcGF0aCkKICAgIHN0YXJ0X2NoYXQoY29uZmlnLCB2ZXNzZWxfY29udGV4dCwgYXJncy5wcm92aWRlciwgYXJncy5tb2RlbCwgYXJncy5tZXNzYWdlKQoKCmlmIF9fbmFtZV9fID09ICJfX21haW5fXyI6CiAgICBtYWluKCkK
+#!/usr/bin/env python3
+"""
+git-agent chat — Direct conversation with a git-agent.
+
+Reads the vessel context, connects to the LLM, and starts a REPL.
+No OpenClaw needed — the agent reads its own shell.
+
+Usage:
+  git-agent chat
+  git-agent chat --vessel SuperInstance/oracle1-workspace
+  git-agent chat --model glm-4.7-flash
+  git-agent chat --message "What's the status?"
+"""
+
+import argparse
+import json
+import os
+import re
+import sys
+import time
+import urllib.request
+from pathlib import Path
+from typing import Dict, List, Optional
+
+GIT_AGENT_HOME = os.environ.get("GIT_AGENT_HOME", os.path.expanduser("~/.git-agent"))
+CONFIG_DIR = os.path.join(GIT_AGENT_HOME, "config")
+
+# LLM endpoints (OpenAI-compatible)
+LLM_PROVIDERS = {
+    "deepinfra": {
+        "url": "https://api.deepinfra.com/v1/openai/chat/completions",
+        "key_env": "DEEPINFRA_API_KEY",
+        "default_model": "ByteDance/Seed-2.0-mini",
+    },
+    "groq": {
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "key_env": "GROQ_API_KEY",
+        "default_model": "llama-3.3-70b-versatile",
+    },
+    "siliconflow": {
+        "url": "https://api.siliconflow.com/v1/chat/completions",
+        "key_env": "SILICONFLOW_API_KEY",
+        "default_model": "deepseek-ai/DeepSeek-V3",
+    },
+}
+
+
+def load_config():
+    """Load agent config."""
+    config_path = os.path.join(CONFIG_DIR, "agent.json")
+    if os.path.exists(config_path):
+        with open(config_path) as f:
+            return json.load(f)
+    return {}
+
+
+def load_vessel_context(vessel_path):
+    """Load all context files from the vessel."""
+    files = ["IDENTITY.md", "SOUL.md", "AGENTS.md", "USER.md", "TODO.md",
+             "NEXT-ACTION.md", "TOOLS.md"]
+    context = ""
+    for filename in files:
+        path = os.path.join(vessel_path, filename)
+        if os.path.exists(path):
+            with open(path) as f:
+                content = f.read()
+                context += f"\n### {filename}\n{content[:3000]}\n"
+    
+    # Load recent memory
+    memory_dir = os.path.join(vessel_path, "memory")
+    if os.path.isdir(memory_dir):
+        mem_files = sorted(os.listdir(memory_dir))
+        for mf in mem_files[-2:]:  # Last 2 memory files
+            mp = os.path.join(memory_dir, mf)
+            with open(mp) as f:
+                context += f"\n### memory/{mf}\n{f.read()[:2000]}\n"
+    
+    return context
+
+
+def call_llm(messages, provider="deepinfra", model=None, temperature=0.7):
+    """Call LLM via OpenAI-compatible API."""
+    prov = LLM_PROVIDERS.get(provider, LLM_PROVIDERS["deepinfra"])
+    api_key = os.environ.get(prov["key_env"], "")
+    model = model or prov["default_model"]
+    
+    payload = json.dumps({
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": 2000,
+    }).encode()
+    
+    req = urllib.request.Request(prov["url"], method="POST", data=payload)
+    req.add_header("Content-Type", "application/json")
+    req.add_header("Authorization", f"Bearer {api_key}")
+    req.add_header("User-Agent", "git-agent/1.0")
+    
+    try:
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            body = json.loads(resp.read().decode())
+            return body["choices"][0]["message"]["content"]
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode()[:200]
+        return f"[LLM error {e.code}: {error_body}]"
+    except Exception as e:
+        return f"[Error: {e}]"
+
+
+def build_system_prompt(config, vessel_context):
+    """Build the system prompt from vessel identity."""
+    agent = config.get("agent", {})
+    name = agent.get("name", "agent")
+    creature = agent.get("creature", "git-agent")
+    emoji = agent.get("emoji", "🦀")
+    
+    return f"""You are {name}, a {creature}. You run as a git-agent.
+
+{vessel_context}
+
+You are now in direct chat mode. Your human (Casey) is talking to you directly
+through the git-agent CLI — no OpenClaw middleman.
+
+Rules:
+- Read your identity files above. They define who you are.
+- Be direct and helpful. Skip filler.
+- Reference your TODO.md and NEXT-ACTION.md when asked about tasks.
+- When you make changes, commit them to the vessel repo.
+- Your vessel repo is your home. Keep it clean and up to date.
+- If you don't know something, say so. Then figure it out.
+"""
+
+
+def start_chat(config, vessel_context, provider, model, one_shot=None):
+    """Start a chat session."""
+    agent = config.get("agent", {})
+    name = agent.get("name", "agent")
+    emoji = agent.get("emoji", "🦀")
+    
+    system_prompt = build_system_prompt(config, vessel_context)
+    messages = [{"role": "system", "content": system_prompt}]
+    
+    if one_shot:
+        messages.append({"role": "user", "content": one_shot})
+        response = call_llm(messages, provider, model)
+        print(f"\n{emoji} {name}: {response}\n")
+        return
+    
+    print(f"\n{emoji} {name} — git-agent chat")
+    print(f"  Provider: {provider}")
+    print(f"  Model: {model}")
+    print(f"  Type 'quit' to exit, 'status' for vessel status\n")
+    
+    while True:
+        try:
+            user_input = input("You: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print("\n\nGoodbye.")
+            break
+        
+        if not user_input:
+            continue
+        if user_input.lower() in ("quit", "exit", "bye"):
+            print(f"\n{emoji} Later.")
+            break
+        
+        if user_input.lower() == "status":
+            vessel_path = config.get("agent", {}).get("vessel_path", "")
+            if vessel_path:
+                os.system(f"cd {vessel_path} && git status --short 2>/dev/null")
+            continue
+        
+        messages.append({"role": "user", "content": user_input})
+        
+        # Keep context manageable
+        if len(messages) > 20:
+            messages = [messages[0]] + messages[-19:]
+        
+        print(f"\n{emoji} ", end="", flush=True)
+        response = call_llm(messages, provider, model)
+        print(f"{response}\n")
+        
+        messages.append({"role": "assistant", "content": response})
+
+
+def main():
+    parser = argparse.ArgumentParser(description="git-agent chat — Talk directly to your agent")
+    parser.add_argument("--vessel", help="Override vessel path")
+    parser.add_argument("--provider", default="deepinfra", choices=list(LLM_PROVIDERS.keys()))
+    parser.add_argument("--model", help="Override model name")
+    parser.add_argument("--message", "-m", help="One-shot message (no REPL)")
+    parser.add_argument("--temperature", type=float, default=0.7)
+    
+    args = parser.parse_args()
+    
+    config = load_config()
+    vessel_path = args.vessel or config.get("agent", {}).get("vessel_path", "")
+    
+    if not vessel_path or not os.path.isdir(vessel_path):
+        print("No vessel boarded. Run: git-agent onboard --vessel owner/repo")
+        sys.exit(1)
+    
+    vessel_context = load_vessel_context(vessel_path)
+    start_chat(config, vessel_context, args.provider, args.model, args.message)
+
+
+if __name__ == "__main__":
+    main()
