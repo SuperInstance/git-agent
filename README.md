@@ -98,454 +98,93 @@ git-agent treats the git repository itself as the agent's native environment. In
 └─────────────────────────────────────────────────────────────┘
 ```
 
----
+## 🚀 Standalone Mode — No OpenClaw Required
 
-## Quick Start
+Talk to your git-agent directly. The vessel repo IS the agent.
 
-### Step 1: Clone and Install
-
-```bash
-git clone https://github.com/SuperInstance/git-agent.git
-cd git-agent
-
-# Create virtual environment and install
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e ".[all]"
-```
-
-Or use the one-command bootstrap:
+### Quick Install
 
 ```bash
-curl -sL https://raw.githubusercontent.com/SuperInstance/git-agent/main/onboarding/setup.sh | bash
+# One-liner install
+curl -fsSL https://raw.githubusercontent.com/SuperInstance/git-agent/main/install.sh | bash
+
+# Or with vessel pre-configured
+curl -fsSL https://raw.githubusercontent.com/SuperInstance/git-agent/main/install.sh | bash -s -- --vessel SuperInstance/oracle1-workspace
 ```
 
-### Step 2: Configure
-
-Run the interactive configuration wizard:
+### Board a Vessel
 
 ```bash
-python onboarding/config_wizard.py
+# Board any vessel repo — reads IDENTITY.md, SOUL.md, AGENTS.md, TODO.md
+git-agent onboard --vessel SuperInstance/oracle1-workspace
+
+# Check status
+git-agent status
 ```
 
-This will prompt you for:
-- GitHub Personal Access Token (with `repo`, `read:org`, `read:user` scopes)
-- LLM provider (OpenAI, Anthropic, Ollama, or custom proxy)
-- Provider-specific API key or endpoint
-- Fleet organization and vessel repo name
-
-Configuration is saved to `~/.git-agent/config.yaml`.
-
-Alternatively, create `~/.git-agent/config.yaml` manually:
-
-```yaml
-github_token: "ghp_YOUR_TOKEN_HERE"
-llm_provider: "openai"
-llm_api_key: "sk-YOUR_KEY_HERE"
-llm_model: "gpt-4"
-fleet_org: "SuperInstance"
-vessel_repo: "SuperInstance/my-vessel"
-```
-
-### Step 3: Run
+### Talk Directly
 
 ```bash
-python -m git_agent
+# Interactive REPL
+git-agent chat
+
+# One-shot question
+git-agent chat -m "What is your current task?"
+
+# Different provider
+git-agent chat --provider groq --model llama-3.3-70b-versatile
 ```
 
-The agent will bootstrap, observe the fleet state, plan tasks, execute them in parallel,
-push status bottles, and reflect on the session. That's it — you now have an autonomous
-agent working in your fleet.
-
----
-
-## Supported LLM Backends
-
-git-agent is designed to work with **any** LLM provider. The framework provides built-in
-support for the most common providers and makes it easy to add custom ones.
-
-### OpenAI
-
-```yaml
-llm_provider: "openai"
-llm_api_key: "sk-..."
-llm_model: "gpt-4"
-```
-
-Supports all OpenAI models: GPT-4, GPT-4 Turbo, GPT-3.5 Turbo, and future models.
-Install with: `pip install -e ".[openai]"`
-
-### Anthropic
-
-```yaml
-llm_provider: "anthropic"
-llm_api_key: "sk-ant-..."
-llm_model: "claude-3-sonnet-20240229"
-```
-
-Supports Claude 3 family (Opus, Sonnet, Haiku).
-Install with: `pip install -e ".[anthropic]"`
-
-### Ollama (Local)
-
-```yaml
-llm_provider: "ollama"
-llm_proxy_url: "http://localhost:11434/v1"
-llm_model: "llama3"
-```
-
-Run models locally with full privacy and zero API costs. Supports any model available
-through Ollama (Llama 3, CodeLlama, Mistral, etc.).
-Install with: `pip install -e ".[ollama]"`
-
-### Custom Proxy (ZeroClaw, Pi Agent, etc.)
-
-```yaml
-llm_provider: "proxy"
-llm_proxy_url: "https://your-proxy.example.com/v1"
-llm_api_key: "optional-key"
-llm_model: "any-model-name"
-```
-
-Any OpenAI-compatible API endpoint works out of the box. This includes ZeroClaw,
-Pi agent backends, vLLM, Text Generation Inference (TGI), LiteLLM, and more.
-
----
-
-## How It Works
-
-The agent follows a deterministic lifecycle cycle in every session:
-
-### 1. Bootstrap
-
-The agent initializes by cloning (or loading) its vessel repo, reading its identity
-and career state from Markdown files (`IDENTITY.md`, `CAREER.md`, `STATE.md`),
-and preparing the work environment. On first run, this creates the vessel repo
-with default identity and introduces the agent to the fleet.
-
-### 2. Observe
-
-The agent scans its environment for work and information:
-- Reads all unread **bottles** (messages) from the fleet message repo
-- Parses `TASKS.md` files across relevant repositories for unclaimed tasks
-- Checks recent commits for context on what's changed
-- Assesses vessel staleness (if state is >24 hours old, recommends full re-observe)
-
-### 3. Plan
-
-The agent analyzes observations and generates a prioritized task plan:
-- Tasks from `TASKS.md` are scored by priority × impact × effort
-- If no explicit tasks exist, the LLM suggests tasks based on the agent's skills
-- The LLM provides prioritization reasoning, considering fleet impact and career growth
-- Tasks are sorted by score (highest first) for execution order
-
-### 4. Execute
-
-The agent implements tasks using parallel execution:
-- For each task: generate implementation with LLM → create branch → push code → open PR
-- Multiple independent tasks run simultaneously via thread pool (configurable workers)
-- Every action is logged to the vessel worklog for full auditability
-- Errors are caught gracefully — failed tasks don't block other tasks
-
-### 5. Communicate
-
-After execution, the agent pushes a status bottle to the fleet:
-- Session summary: tasks completed, tasks failed, PRs opened
-- Direct messages to other agents using the I2I (Instance-to-Instance) protocol
-- Any alerts or announcements for the fleet
-
-### 6. Reflect
-
-The agent evaluates its performance:
-- Summarizes the session with metrics
-- Updates career statistics (tasks completed, failed, sessions)
-- Checks for promotion eligibility (growth stage advancement)
-- Saves all state to the vessel repo via Git commit
-
----
-
-## Configuration Reference
-
-Configuration can be provided through YAML, JSON, TOML, or environment variables.
-The config file is loaded from `~/.git-agent/config.yaml` by default.
-
-### Required Fields
-
-| Key            | Type   | Description                                    |
-|----------------|--------|------------------------------------------------|
-| `github_token` | string | GitHub Personal Access Token                    |
-| `llm_provider` | string | LLM provider: `openai`, `anthropic`, `ollama`, `proxy` |
-
-At least one of `llm_api_key` or `llm_proxy_url` must be provided.
-
-### Optional Fields
-
-| Key                  | Type   | Default   | Description                            |
-|----------------------|--------|-----------|----------------------------------------|
-| `llm_api_key`        | string | null      | API key for the LLM provider           |
-| `llm_proxy_url`      | string | null      | Custom proxy/endpoint URL              |
-| `llm_api_base`       | string | null      | Custom API base URL                    |
-| `llm_model`          | string | (provider) | Model name to use                     |
-| `llm_temperature`    | float  | 0.7       | Sampling temperature (0.0–2.0)         |
-| `llm_max_tokens`     | int    | 4096      | Maximum response tokens                |
-| `fleet_org`          | string | null      | GitHub organization for fleet          |
-| `vessel_repo`        | string | null      | Vessel repo in `owner/repo` format     |
-| `max_parallel_agents`| int    | 4         | Maximum parallel task workers          |
-| `work_hours`         | string | "always"  | Working hours (`"9-17"` or `"always"`) |
-
-### Environment Variables
-
-All config keys can be set via environment variables:
+### Autonomous Work
 
 ```bash
-export GITHUB_TOKEN="ghp_..."
-export LLM_PROVIDER="openai"
-export LLM_API_KEY="sk-..."
-export GIT_AGENT_FLEET_ORG="my-org"
+# Start work loop (reads NEXT-ACTION.md, executes, commits)
+git-agent start --interval 300
+
+# Single cycle
+git-agent start --once
 ```
 
-Environment variables override config file values.
-
----
-
-## Docker Deployment
-
-### Build and Run
+### PLATO-Enhanced Agents
 
 ```bash
-# Build the image
-docker build -t git-agent -f docker/Dockerfile .
+# Scout — analyze repos and generate knowledge tiles
+python3 plato/scout.py scout SuperInstance/flux-runtime
+python3 plato/scout.py scout-org SuperInstance --limit 10
 
-# Run with config mounted
-docker run --rm \
-  -v ~/.git-agent:/home/agent/.git-agent:ro \
-  -v git-agent-workspace:/home/agent/workspace \
-  git-agent
+# Scholar — deep-read source code
+python3 plato/scholar.py analyze SuperInstance/plato-kernel --max-files 5
+
+# Librarian — quality control
+python3 plato/librarian.py stats
+python3 plato/librarian.py audit
+python3 plato/librarian.py cross-reference
 ```
 
-### Docker Compose (with optional Ollama)
+### What Happens On Install
 
-```bash
-# Start agent only
-docker compose -f docker/docker-compose.yml up -d
+1. Checks Python 3 + Git
+2. Creates `~/.git-agent/` (config, vessels, data, logs)
+3. Clones git-agent source
+4. Installs CLI at `~/.local/bin/git-agent`
+5. Configures fleet services (PLATO, Matrix, Arena, etc.)
+6. Prompts for vessel + GitHub token
+7. Clones the vessel repo
+8. Reads identity files → generates agent config
+9. Registers with PLATO workspace + Keeper
+10. Ready to work
 
-# Start agent + local Ollama
-docker compose -f docker/docker-compose.yml --profile with-ollama up -d
+### Fleet Services (auto-detected)
 
-# View logs
-docker compose -f docker/docker-compose.yml logs -f agent
+| Service | Port | Purpose |
+|---------|------|---------|
+| PLATO | 8847 | Knowledge tiles, rooms, workspaces |
+| Keeper | 8900 | Fleet discovery and registry |
+| Agent API | 8901 | Agent metadata and discovery |
+| Arena | 4044 | Self-play, tournaments, feedback |
+| Grammar | 4045 | Recursive grammar evolution |
+| Matrix | 6167 | Real-time agent communication |
+| Crab Trap | 4042 | Agent onboarding |
+| PurplePincher | 4048 | 3D model generation |
+| MUD | 7777 | Text-based training ground |
 
-# Stop
-docker compose -f docker/docker-compose.yml down
-```
-
-Create a `.env` file in the project root for environment overrides:
-
-```
-GITHUB_TOKEN=ghp_...
-LLM_PROVIDER=ollama
-LLM_PROXY_URL=http://host.docker.internal:11434/v1
-```
-
-The Docker image runs as a non-root user (`agent`) with a health check that verifies
-the agent can import and load its configuration.
-
----
-
-## Creating Your Own Fleet Agent
-
-To create a new agent for the FLUX Fleet:
-
-### 1. Fork or Create a Vessel Repo
-
-Create a new repository in your fleet org: `{org}/vessel-{name}`. The agent will
-initialize this repo with its identity files on first bootstrap.
-
-### 2. Configure the Agent
-
-```yaml
-github_token: "ghp_..."
-llm_provider: "ollama"
-llm_proxy_url: "http://localhost:11434/v1"
-llm_model: "llama3"
-fleet_org: "SuperInstance"
-vessel_repo: "SuperInstance/vessel-my-agent"
-```
-
-### 3. Add a TASKS.md
-
-Create a `TASKS.md` in any repo you want the agent to work on:
-
-```markdown
-# TASKS.md
-
-## High Priority
-- [ ] Implement user authentication | priority:high | effort:medium | action:implement
-- [ ] Fix data export bug | priority:high | effort:low | action:fix
-
-## Medium Priority
-- [ ] Add API documentation | priority:medium | effort:medium | action:document
-```
-
-### 4. Run
-
-```bash
-python -m git_agent
-```
-
-The agent will discover the tasks, claim them, and open PRs.
-
----
-
-## Extending with New Providers
-
-To add a new LLM provider, implement the `LLMProvider` protocol:
-
-```python
-from git_agent.agent import LLMProvider
-
-class MyCustomProvider:
-    """Custom LLM provider implementation."""
-
-    def __init__(self, api_key: str, model: str = "default"):
-        self.api_key = api_key
-        self.model = model
-
-    def complete(self, messages, temperature=None, max_tokens=None, **kwargs):
-        # Call your LLM API here
-        # messages is a list of {"role": ..., "content": ...} dicts
-        # Return the generated text as a string
-        ...
-
-    async def acomplete(self, messages, **kwargs):
-        # Optional async version
-        ...
-```
-
-Then configure it:
-
-```yaml
-llm_provider: "proxy"
-llm_proxy_url: "https://your-api.example.com/v1"
-llm_api_key: "your-key"
-llm_model: "your-model"
-```
-
-The framework includes built-in providers for OpenAI, Anthropic, Ollama, and a generic
-proxy adapter that works with any OpenAI-compatible API.
-
----
-
-## ZeroClaw / Pi Agent Backend Setup
-
-git-agent supports ZeroClaw and Pi agent backends through the proxy adapter. These
-backends provide an OpenAI-compatible API, so configuration is straightforward:
-
-```yaml
-llm_provider: "proxy"
-llm_proxy_url: "https://your-zeroclaw-instance.example.com/v1"
-llm_api_key: "your-proxy-key"
-llm_model: "zeroclaw-default"
-```
-
-### Docker with Pi Agent Backend
-
-```yaml
-# docker/docker-compose.yml
-services:
-  agent:
-    build: ..
-    environment:
-      - LLM_PROVIDER=proxy
-      - LLM_PROXY_URL=http://pi-agent:8000/v1
-    depends_on:
-      - pi-agent
-
-  pi-agent:
-    image: your-pi-agent-image
-    ports:
-      - "8000:8000"
-```
-
-The proxy adapter handles authentication, request formatting, and error handling
-automatically — no custom code required.
-
----
-
-## Project Structure
-
-```
-git-agent/
-├── src/git_agent/
-│   ├── __init__.py          # Package exports and version
-│   ├── agent.py             # Core agent: lifecycle, task execution, planning
-│   ├── config.py            # Configuration loading, validation, env overrides
-│   ├── vessel.py            # Vessel state: identity, career, worklog, persistence
-│   ├── fleet/               # Fleet coordination modules
-│   │   ├── executor.py      # Parallel task execution
-│   │   ├── planner.py       # Task planning and prioritization
-│   │   ├── researcher.py    # Codebase research and analysis
-│   │   ├── reader.py        # Repository reading and parsing
-│   │   └── communicator.py  # Bottle-based fleet communication
-│   ├── llm/                 # LLM provider implementations
-│   │   ├── base.py          # Provider interface
-│   │   ├── router.py        # Provider selection and routing
-│   │   ├── openai_compat.py # OpenAI-compatible provider
-│   │   ├── anthropic.py     # Anthropic Claude provider
-│   │   ├── ollama.py        # Ollama local provider
-│   │   ├── proxy.py         # Generic proxy adapter
-│   │   └── mock.py          # Mock provider for testing
-│   └── github/              # GitHub API client modules
-│       ├── client.py        # Main GitHub client
-│       ├── repo.py          # Repository operations
-│       └── pr.py            # Pull request operations
-├── prompts/
-│   ├── system.md            # Core agent identity prompt
-│   ├── fleet_coordination.md # Fleet communication protocol
-│   └── code_quality.md      # Code quality standards
-├── onboarding/
-│   ├── setup.sh             # One-command bootstrap script
-│   └── config_wizard.py     # Interactive configuration wizard
-├── docker/
-│   ├── Dockerfile           # Production Docker image
-│   └── docker-compose.yml   # Docker Compose with Ollama sidecar
-├── tests/
-│   ├── test_git_agent.py    # Core engine tests (40+ tests)
-│   ├── test_llm_providers.py # LLM provider tests
-│   ├── test_github_fleet.py # GitHub/fleet integration tests
-│   └── test_config_wizard.py # Config wizard tests (10+ tests)
-├── pyproject.toml           # Package metadata and build config
-├── .gitignore
-├── config_template.yaml     # Configuration template
-└── README.md                # This file
-```
-
----
-
-## License
-
-MIT License. See [LICENSE](LICENSE) for details.
-
----
-
-## Acknowledgments
-
-Built as part of the **FLUX Fleet** — a decentralized network of autonomous software agents
-that collaborate through Git-native communication protocols. The fleet has no central server,
-no API calls between agents, just code reading and writing to shared repositories.
-
-*"The repo IS the agent. Git IS the nervous system."*
-=======
-git-agent/
-├── README.md           ← You are here
-└── (protocol specs)    ← Git-native agent communication standards
-```
-
-## Fleet Role
-
-git-agent is the foundational concept for the Cocapn fleet's agent paradigm. Every fleet vessel (Oracle1, JetsonClaw1, Forgemaster) operates on git-native principles — their repos are their identities, their commits are their work, their branches are their explorations.
-
-## License
-
-Proprietary — SuperInstance/Cocapn
->>>>>>> 0ed96b4 (docs: add git-agent README — foundational repo-native agent concept)
