@@ -1,1 +1,564 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJQTEFUTyBTY291dCDigJQgR2l0SHViIHJlcG8gYW5hbHl6ZXIgdGhhdCBzdWJtaXRzIGtub3dsZWRnZSB0aWxlcyB0byBQTEFUTy4KCk1vZGVzOgogICAgc2NvdXQgPG93bmVyL3JlcG8+ICAgICAgQW5hbHl6ZSBhIHNpbmdsZSByZXBvLgogICAgc2NvdXQtb3JnIDxvcmc+ICAgICAgICAgRGlzY292ZXIgYW5kIGFuYWx5emUgdG9wIHJlcG9zIGluIGFuIG9yZy4KICAgIGRhZW1vbiAgICAgICAgICAgICAgICAgIENvbnRpbnVvdXNseSBzY291dCByZXBvcyBiYXNlZCBvbiBmbGVldCBhY3Rpdml0eS4KICAgIHN0YXRzICAgICAgICAgICAgICAgICAgIFNob3cgc2NvdXRpbmcgc3RhdGlzdGljcy4KClJlcXVpcmVtZW50czogUHl0aG9uIDMuOCsgKHN0ZGxpYiBvbmx5KS4KIiIiCgppbXBvcnQgYXJncGFyc2UKaW1wb3J0IGpzb24KaW1wb3J0IG9zCmltcG9ydCByZQppbXBvcnQgc3lzCmltcG9ydCB0aW1lCmltcG9ydCB1cmxsaWIuZXJyb3IKaW1wb3J0IHVybGxpYi5wYXJzZQppbXBvcnQgdXJsbGliLnJlcXVlc3QKZnJvbSBkYXRldGltZSBpbXBvcnQgZGF0ZXRpbWUsIHRpbWV6b25lCmZyb20gdHlwaW5nIGltcG9ydCBBbnksIERpY3QsIExpc3QsIE9wdGlvbmFsCgojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQojIENvbmZpZ3VyYXRpb24KIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCkdJVEhVQl9BUEkgPSAiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbSIKREVFUElORlJBX0FQSV9LRVkgPSAiUmhaUHR2dXk0Y1h6dTAyTGJCU2ZmYlhlcXM1WWYySVoiCkRFRVBJTkZSQV9CQVNFID0gImh0dHBzOi8vYXBpLmRlZXBpbmZyYS5jb20vdjEvb3BlbmFpIgpERUVQSU5GUkFfTU9ERUwgPSAiQnl0ZURhbmNlL1NlZWQtMi4wLW1pbmkiClBMQVRPX1NVQk1JVF9VUkwgPSAiaHR0cDovL2xvY2FsaG9zdDo4ODQ3L3N1Ym1pdCIKU1RBVEVfRklMRSA9ICIvdG1wL3BsYXRvLXNjb3V0LXN0YXRlLmpzb24iCgpTQ09VVF9TWVNURU1fUFJPTVBUID0gKAogICAgIllvdSBhcmUgUExBVE8gU2NvdXQsIGEga25vd2xlZGdlIGV4dHJhY3Rpb24gYWdlbnQuICIKICAgICJBbmFseXplIHRoZSBwcm92aWRlZCBHaXRIdWIgcmVwbyBkYXRhIGFuZCBnZW5lcmF0ZSAzLTUga25vd2xlZGdlIHRpbGVzIGluIEpTT04gYXJyYXkgZm9ybWF0LiAiCiAgICAiRWFjaCB0aWxlIHNob3VsZCBjYXB0dXJlIGEga2V5IGluc2lnaHQgYWJvdXQgdGhlIHJlcG8ncyBhcmNoaXRlY3R1cmUsIHB1cnBvc2UsIHBhdHRlcm5zLCBvciBkb21haW4ga25vd2xlZGdlLiAiCiAgICAiVGlsZXMgbXVzdCBoYXZlOiBkb21haW4gKGtlYmFiLWNhc2Ugcm9vbSBuYW1lKSwgcXVlc3Rpb24sIGFuc3dlciwgY29uZmlkZW5jZSAoMC0xKSwgc291cmNlIChvd25lci9yZXBvKSwgYWdlbnQgKHBsYXRvLXNjb3V0KS4gIgogICAgIk91dHB1dCBPTkxZIGEgSlNPTiBhcnJheSwgbm8gbWFya2Rvd24gZmVuY2VzLiIKKQoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIyBTdGF0ZSBtYW5hZ2VtZW50CiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgpkZWYgbG9hZF9zdGF0ZSgpIC0+IGRpY3Q6CiAgICBpZiBvcy5wYXRoLmV4aXN0cyhTVEFURV9GSUxFKToKICAgICAgICB0cnk6CiAgICAgICAgICAgIHdpdGggb3BlbihTVEFURV9GSUxFLCAiciIsIGVuY29kaW5nPSJ1dGYtOCIpIGFzIGY6CiAgICAgICAgICAgICAgICByZXR1cm4ganNvbi5sb2FkKGYpCiAgICAgICAgZXhjZXB0IChqc29uLkpTT05EZWNvZGVFcnJvciwgT1NFcnJvcik6CiAgICAgICAgICAgIHBhc3MKICAgIHJldHVybiB7CiAgICAgICAgInNjb3V0ZWRfcmVwb3MiOiB7fSwKICAgICAgICAidGlsZXNfc3VibWl0dGVkIjogMCwKICAgICAgICAidGlsZXNfYWNjZXB0ZWQiOiAwLAogICAgICAgICJ0aWxlc19yZWplY3RlZCI6IDAsCiAgICAgICAgImdpdGh1Yl9jYWxscyI6IDAsCiAgICAgICAgImRlZXBpbmZyYV9jYWxscyI6IDAsCiAgICAgICAgImVycm9ycyI6IFtdLAogICAgfQoKCmRlZiBzYXZlX3N0YXRlKHN0YXRlOiBkaWN0KSAtPiBOb25lOgogICAgdHJ5OgogICAgICAgIHdpdGggb3BlbihTVEFURV9GSUxFLCAidyIsIGVuY29kaW5nPSJ1dGYtOCIpIGFzIGY6CiAgICAgICAgICAgIGpzb24uZHVtcChzdGF0ZSwgZiwgaW5kZW50PTIpCiAgICBleGNlcHQgT1NFcnJvciBhcyBleGM6CiAgICAgICAgbG9nX2Vycm9yKGYiRmFpbGVkIHRvIHdyaXRlIHN0YXRlIGZpbGU6IHtleGN9IikKCgpkZWYgbG9nX2Vycm9yKG1zZzogc3RyKSAtPiBOb25lOgogICAgdHMgPSBkYXRldGltZS5ub3codGltZXpvbmUudXRjKS5pc29mb3JtYXQoKQogICAgZW50cnkgPSBmIlt7dHN9XSB7bXNnfSIKICAgIHByaW50KGVudHJ5LCBmaWxlPXN5cy5zdGRlcnIpCiAgICBzdGF0ZSA9IGxvYWRfc3RhdGUoKQogICAgc3RhdGVbImVycm9ycyJdLmFwcGVuZChlbnRyeSkKICAgICMgS2VlcCBsYXN0IDIwMCBlcnJvcnMKICAgIHN0YXRlWyJlcnJvcnMiXSA9IHN0YXRlWyJlcnJvcnMiXVstMjAwOl0KICAgIHNhdmVfc3RhdGUoc3RhdGUpCgojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQojIEhUVFAgaGVscGVycyAoc3RkbGliIG9ubHkpCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgpkZWYgX3JlcXVlc3QoCiAgICB1cmw6IHN0ciwKICAgIG1ldGhvZDogc3RyID0gIkdFVCIsCiAgICBoZWFkZXJzOiBPcHRpb25hbFtEaWN0W3N0ciwgc3RyXV0gPSBOb25lLAogICAgZGF0YTogT3B0aW9uYWxbYnl0ZXNdID0gTm9uZSwKICAgIHRpbWVvdXQ6IGludCA9IDYwLAopIC0+IHR1cGxlOgogICAgIiIiUmV0dXJuIChzdGF0dXNfY29kZSwgYm9keV9ieXRlcykuIFJhaXNlcyB1cmxsaWIuZXJyb3IuSFRUUEVycm9yIG9uIGZhaWx1cmUuIiIiCiAgICByZXEgPSB1cmxsaWIucmVxdWVzdC5SZXF1ZXN0KHVybCwgbWV0aG9kPW1ldGhvZCwgZGF0YT1kYXRhKQogICAgaWYgaGVhZGVyczoKICAgICAgICBmb3IgaywgdiBpbiBoZWFkZXJzLml0ZW1zKCk6CiAgICAgICAgICAgIHJlcS5hZGRfaGVhZGVyKGssIHYpCiAgICB3aXRoIHVybGxpYi5yZXF1ZXN0LnVybG9wZW4ocmVxLCB0aW1lb3V0PXRpbWVvdXQpIGFzIHJlc3A6CiAgICAgICAgcmV0dXJuIHJlc3Auc3RhdHVzLCByZXNwLnJlYWQoKQoKCmRlZiBhcGlfcmVxdWVzdCgKICAgIHVybDogc3RyLAogICAgbWV0aG9kOiBzdHIgPSAiR0VUIiwKICAgIGhlYWRlcnM6IE9wdGlvbmFsW0RpY3Rbc3RyLCBzdHJdXSA9IE5vbmUsCiAgICBkYXRhOiBPcHRpb25hbFtieXRlc10gPSBOb25lLAogICAgcmV0cmllczogaW50ID0gMSwKKSAtPiB0dXBsZToKICAgICIiIk1ha2UgYW4gSFRUUCByZXF1ZXN0IHdpdGggcmV0cnkgbG9naWMuIFJldHVybnMgKHN0YXR1cywgYm9keV9ieXRlcykgb3IgKE5vbmUsIE5vbmUpIG9uIGZhaWx1cmUuIiIiCiAgICBsYXN0X2V4YyA9IE5vbmUKICAgIGZvciBhdHRlbXB0IGluIHJhbmdlKHJldHJpZXMgKyAxKToKICAgICAgICB0cnk6CiAgICAgICAgICAgIHMsIGIgPSBfcmVxdWVzdCh1cmwsIG1ldGhvZD1tZXRob2QsIGhlYWRlcnM9aGVhZGVycywgZGF0YT1kYXRhKQogICAgICAgICAgICByZXR1cm4gcywgYgogICAgICAgIGV4Y2VwdCB1cmxsaWIuZXJyb3IuSFRUUEVycm9yIGFzIGV4YzoKICAgICAgICAgICAgbGFzdF9leGMgPSBleGMKICAgICAgICAgICAgYm9keV90ZXh0ID0gZXhjLnJlYWQoKSBpZiBoYXNhdHRyKGV4YywgJ3JlYWQnKSBlbHNlIGInJwogICAgICAgICAgICBsb2dfZXJyb3IoZiJIVFRQIHtleGMuY29kZX0gZnJvbSB7dXJsWzo4MF19OiB7Ym9keV90ZXh0WzoyMDBdfSIpCiAgICAgICAgICAgIGlmIGV4Yy5jb2RlID09IDQwNDoKICAgICAgICAgICAgICAgIHJldHVybiA0MDQsIGIie30iCiAgICAgICAgICAgIGlmIGF0dGVtcHQgPCByZXRyaWVzOgogICAgICAgICAgICAgICAgdGltZS5zbGVlcCgxLjUgKiAoYXR0ZW1wdCArIDEpKQogICAgICAgICAgICAgICAgY29udGludWUKICAgICAgICAgICAgcmV0dXJuIGV4Yy5jb2RlLCBib2R5X3RleHQKICAgICAgICBleGNlcHQgRXhjZXB0aW9uIGFzIGV4YzoKICAgICAgICAgICAgbGFzdF9leGMgPSBleGMKICAgICAgICAgICAgbG9nX2Vycm9yKGYiUmVxdWVzdCBleGNlcHRpb24gZm9yIHt1cmxbOjgwXX06IHtleGN9IikKICAgICAgICAgICAgaWYgYXR0ZW1wdCA8IHJldHJpZXM6CiAgICAgICAgICAgICAgICB0aW1lLnNsZWVwKDEuNSAqIChhdHRlbXB0ICsgMSkpCiAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICBicmVhawogICAgcmV0dXJuIE5vbmUsIE5vbmUKCgpkZWYgZ2l0aHViX2hlYWRlcnMoKSAtPiBEaWN0W3N0ciwgc3RyXToKICAgIHRva2VuID0gb3MuZW52aXJvbi5nZXQoIkdJVEhVQl9UT0tFTiIsICIiKQogICAgaGVhZGVycyA9IHsKICAgICAgICAiQWNjZXB0IjogImFwcGxpY2F0aW9uL3ZuZC5naXRodWIranNvbiIsCiAgICAgICAgIlgtR2l0SHViLUFwaS1WZXJzaW9uIjogIjIwMjItMTEtMjgiLAogICAgICAgICJVc2VyLUFnZW50IjogInBsYXRvLXNjb3V0LzEuMCIsCiAgICB9CiAgICBpZiB0b2tlbjoKICAgICAgICBoZWFkZXJzWyJBdXRob3JpemF0aW9uIl0gPSBmIkJlYXJlciB7dG9rZW59IgogICAgcmV0dXJuIGhlYWRlcnMKCgpkZWYgZ2l0aHViX2dldChwYXRoOiBzdHIsIHBhcmFtczogT3B0aW9uYWxbc3RyXSA9IE5vbmUpIC0+IE9wdGlvbmFsW2RpY3RdOgogICAgdXJsID0gZiJ7R0lUSFVCX0FQSX17cGF0aH0iCiAgICBpZiBwYXJhbXM6CiAgICAgICAgdXJsID0gZiJ7dXJsfT97cGFyYW1zfSIKICAgIHN0YXR1cywgYm9keSA9IGFwaV9yZXF1ZXN0KHVybCwgaGVhZGVycz1naXRodWJfaGVhZGVycygpKQogICAgc3RhdGUgPSBsb2FkX3N0YXRlKCkKICAgIHN0YXRlWyJnaXRodWJfY2FsbHMiXSA9IHN0YXRlLmdldCgiZ2l0aHViX2NhbGxzIiwgMCkgKyAxCiAgICBzYXZlX3N0YXRlKHN0YXRlKQogICAgaWYgc3RhdHVzIGlzIE5vbmU6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgIGlmIHN0YXR1cyA9PSA0MDQ6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgIHRyeToKICAgICAgICByZXR1cm4ganNvbi5sb2Fkcyhib2R5LmRlY29kZSgidXRmLTgiKSkKICAgIGV4Y2VwdCBqc29uLkpTT05EZWNvZGVFcnJvciBhcyBleGM6CiAgICAgICAgbG9nX2Vycm9yKGYiR2l0SHViIEpTT04gZGVjb2RlIGVycm9yIGZvciB7dXJsfToge2V4Y30iKQogICAgICAgIHJldHVybiBOb25lCgojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQojIEdpdEh1YiBkYXRhIGZldGNoZXJzCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgpkZWYgZmV0Y2hfcmVwb19tZXRhZGF0YShvd25lcjogc3RyLCByZXBvOiBzdHIpIC0+IE9wdGlvbmFsW2RpY3RdOgogICAgcmV0dXJuIGdpdGh1Yl9nZXQoZiIvcmVwb3Mve293bmVyfS97cmVwb30iKQoKCmRlZiBmZXRjaF9yZWFkbWUob3duZXI6IHN0ciwgcmVwbzogc3RyKSAtPiBzdHI6CiAgICBkYXRhID0gZ2l0aHViX2dldChmIi9yZXBvcy97b3duZXJ9L3tyZXBvfS9yZWFkbWUiKQogICAgaWYgbm90IGRhdGE6CiAgICAgICAgcmV0dXJuICIiCiAgICBjb250ZW50ID0gZGF0YS5nZXQoImNvbnRlbnQiLCAiIikKICAgICMgR2l0SHViIHJldHVybnMgYmFzZTY0LWVuY29kZWQgY29udGVudAogICAgaW1wb3J0IGJhc2U2NAogICAgdHJ5OgogICAgICAgIHJldHVybiBiYXNlNjQuYjY0ZGVjb2RlKGNvbnRlbnQpLmRlY29kZSgidXRmLTgiLCBlcnJvcnM9InJlcGxhY2UiKVs6ODAwMF0KICAgIGV4Y2VwdCBFeGNlcHRpb246CiAgICAgICAgcmV0dXJuIGNvbnRlbnRbOjgwMDBdCgoKZGVmIGZldGNoX2RpcmVjdG9yeV9saXN0aW5nKG93bmVyOiBzdHIsIHJlcG86IHN0ciwgcGF0aDogc3RyID0gIiIsIGRlcHRoOiBpbnQgPSAwKSAtPiBMaXN0W3N0cl06CiAgICBpZiBkZXB0aCA+IDI6CiAgICAgICAgcmV0dXJuIFtdCiAgICBkYXRhID0gZ2l0aHViX2dldChmIi9yZXBvcy97b3duZXJ9L3tyZXBvfS9jb250ZW50cy97cGF0aH0iKQogICAgaWYgbm90IGRhdGEgb3Igbm90IGlzaW5zdGFuY2UoZGF0YSwgbGlzdCk6CiAgICAgICAgcmV0dXJuIFtdCiAgICBlbnRyaWVzID0gW10KICAgIGZvciBpdGVtIGluIGRhdGE6CiAgICAgICAgaXRlbV90eXBlID0gaXRlbS5nZXQoInR5cGUiLCAiIikKICAgICAgICBpdGVtX3BhdGggPSBpdGVtLmdldCgicGF0aCIsICIiKQogICAgICAgIGlmIGl0ZW1fdHlwZSA9PSAiZGlyIjoKICAgICAgICAgICAgZW50cmllcy5hcHBlbmQoaXRlbV9wYXRoICsgIi8iKQogICAgICAgICAgICBpZiBkZXB0aCA8IDI6CiAgICAgICAgICAgICAgICBlbnRyaWVzLmV4dGVuZChmZXRjaF9kaXJlY3RvcnlfbGlzdGluZyhvd25lciwgcmVwbywgaXRlbV9wYXRoLCBkZXB0aCArIDEpKQogICAgICAgIGVsc2U6CiAgICAgICAgICAgIGVudHJpZXMuYXBwZW5kKGl0ZW1fcGF0aCkKICAgIHJldHVybiBlbnRyaWVzWzo1MDBdCgoKZGVmIGZldGNoX2NvbW1pdHMob3duZXI6IHN0ciwgcmVwbzogc3RyKSAtPiBMaXN0W2RpY3RdOgogICAgZGF0YSA9IGdpdGh1Yl9nZXQoZiIvcmVwb3Mve293bmVyfS97cmVwb30vY29tbWl0cyIsIHBhcmFtcz0icGVyX3BhZ2U9MTAiKQogICAgaWYgbm90IGRhdGEgb3Igbm90IGlzaW5zdGFuY2UoZGF0YSwgbGlzdCk6CiAgICAgICAgcmV0dXJuIFtdCiAgICBjb21taXRzID0gW10KICAgIGZvciBjIGluIGRhdGE6CiAgICAgICAgY29tbWl0ID0gYy5nZXQoImNvbW1pdCIsIHt9KQogICAgICAgIGNvbW1pdHMuYXBwZW5kKHsKICAgICAgICAgICAgInNoYSI6IGMuZ2V0KCJzaGEiLCAiIilbOjEyXSwKICAgICAgICAgICAgIm1lc3NhZ2UiOiBjb21taXQuZ2V0KCJtZXNzYWdlIiwgIiIpLnNwbGl0KCJcbiIpWzBdLAogICAgICAgICAgICAiYXV0aG9yIjogY29tbWl0LmdldCgiYXV0aG9yIiwge30pLmdldCgibmFtZSIsICIiKSwKICAgICAgICAgICAgImRhdGUiOiBjb21taXQuZ2V0KCJhdXRob3IiLCB7fSkuZ2V0KCJkYXRlIiwgIiIpLAogICAgICAgIH0pCiAgICByZXR1cm4gY29tbWl0cwoKCmRlZiBmZXRjaF9pc3N1ZXMob3duZXI6IHN0ciwgcmVwbzogc3RyKSAtPiBMaXN0W2RpY3RdOgogICAgZGF0YSA9IGdpdGh1Yl9nZXQoZiIvcmVwb3Mve293bmVyfS97cmVwb30vaXNzdWVzIiwgcGFyYW1zPSJzdGF0ZT1vcGVuJnBlcl9wYWdlPTEwIikKICAgIGlmIG5vdCBkYXRhIG9yIG5vdCBpc2luc3RhbmNlKGRhdGEsIGxpc3QpOgogICAgICAgIHJldHVybiBbXQogICAgaXNzdWVzID0gW10KICAgIGZvciBpIGluIGRhdGE6CiAgICAgICAgIyBGaWx0ZXIgb3V0IHB1bGwgcmVxdWVzdHMgKEdpdEh1YiByZXR1cm5zIFBScyBpbiBpc3N1ZXMgZW5kcG9pbnQpCiAgICAgICAgaWYgInB1bGxfcmVxdWVzdCIgaW4gaToKICAgICAgICAgICAgY29udGludWUKICAgICAgICBpc3N1ZXMuYXBwZW5kKHsKICAgICAgICAgICAgIm51bWJlciI6IGkuZ2V0KCJudW1iZXIiKSwKICAgICAgICAgICAgInRpdGxlIjogaS5nZXQoInRpdGxlIiwgIiIpLAogICAgICAgICAgICAic3RhdGUiOiBpLmdldCgic3RhdGUiLCAiIiksCiAgICAgICAgICAgICJjcmVhdGVkX2F0IjogaS5nZXQoImNyZWF0ZWRfYXQiLCAiIiksCiAgICAgICAgICAgICJsYWJlbHMiOiBbbC5nZXQoIm5hbWUiLCAiIikgZm9yIGwgaW4gaS5nZXQoImxhYmVscyIsIFtdKV0sCiAgICAgICAgfSkKICAgIHJldHVybiBpc3N1ZXMKCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiMgTExNIC8gRGVlcEluZnJhCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgpkZWYgY2FsbF9kZWVwaW5mcmEoY29udGV4dDogc3RyKSAtPiBPcHRpb25hbFtMaXN0W2RpY3RdXToKICAgIHVybCA9IGYie0RFRVBJTkZSQV9CQVNFfS9jaGF0L2NvbXBsZXRpb25zIgogICAgcGF5bG9hZCA9IHsKICAgICAgICAibW9kZWwiOiBERUVQSU5GUkFfTU9ERUwsCiAgICAgICAgIm1lc3NhZ2VzIjogWwogICAgICAgICAgICB7InJvbGUiOiAic3lzdGVtIiwgImNvbnRlbnQiOiBTQ09VVF9TWVNURU1fUFJPTVBUfSwKICAgICAgICAgICAgeyJyb2xlIjogInVzZXIiLCAiY29udGVudCI6IGNvbnRleHR9LAogICAgICAgIF0sCiAgICAgICAgInRlbXBlcmF0dXJlIjogMC4zLAogICAgICAgICJtYXhfdG9rZW5zIjogMjA0OCwKICAgIH0KICAgIGhlYWRlcnMgPSB7CiAgICAgICAgIkNvbnRlbnQtVHlwZSI6ICJhcHBsaWNhdGlvbi9qc29uIiwKICAgICAgICAiQXV0aG9yaXphdGlvbiI6IGYiQmVhcmVyIHtERUVQSU5GUkFfQVBJX0tFWX0iLAogICAgICAgICJVc2VyLUFnZW50IjogInBsYXRvLXNjb3V0LzEuMCIsCiAgICB9CiAgICBzdGF0dXMsIGJvZHkgPSBhcGlfcmVxdWVzdCh1cmwsIG1ldGhvZD0iUE9TVCIsIGhlYWRlcnM9aGVhZGVycywgZGF0YT1qc29uLmR1bXBzKHBheWxvYWQpLmVuY29kZSgidXRmLTgiKSkKICAgIGxvZ19lcnJvcihmIkRFQlVHIERlZXBJbmZyYTogdXJsPXt1cmx9LCBzdGF0dXM9e3N0YXR1c30sIGJvZHlfbGVuPXtsZW4oYm9keSkgaWYgYm9keSBlbHNlIDB9LCBwYXlsb2FkX2xlbj17bGVuKGpzb24uZHVtcHMocGF5bG9hZCkuZW5jb2RlKCd1dGYtOCcpKX0iKQogICAgc3RhdGUgPSBsb2FkX3N0YXRlKCkKICAgIHN0YXRlWyJkZWVwaW5mcmFfY2FsbHMiXSA9IHN0YXRlLmdldCgiZGVlcGluZnJhX2NhbGxzIiwgMCkgKyAxCiAgICBzYXZlX3N0YXRlKHN0YXRlKQogICAgaWYgc3RhdHVzIGlzIE5vbmU6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgIHRyeToKICAgICAgICByZXNwID0ganNvbi5sb2Fkcyhib2R5LmRlY29kZSgidXRmLTgiKSkKICAgICAgICBjb250ZW50ID0gcmVzcFsiY2hvaWNlcyJdWzBdWyJtZXNzYWdlIl1bImNvbnRlbnQiXQogICAgICAgICMgU3RyaXAgbWFya2Rvd24gZmVuY2VzIGlmIHByZXNlbnQKICAgICAgICBjb250ZW50ID0gcmUuc3ViKHIiXmBgYGpzb25ccyoiLCAiIiwgY29udGVudC5zdHJpcCgpKQogICAgICAgIGNvbnRlbnQgPSByZS5zdWIociJgYGBccyokIiwgIiIsIGNvbnRlbnQuc3RyaXAoKSkKICAgICAgICB0aWxlcyA9IGpzb24ubG9hZHMoY29udGVudC5zdHJpcCgpKQogICAgICAgIGlmIGlzaW5zdGFuY2UodGlsZXMsIGRpY3QpOgogICAgICAgICAgICAjIFNvbWV0aW1lcyBtb2RlbHMgd3JhcCBpbiBhbiBvYmplY3QKICAgICAgICAgICAgZm9yIGsgaW4gKCJ0aWxlcyIsICJyZXN1bHRzIiwgImRhdGEiLCAia25vd2xlZGdlX3RpbGVzIik6CiAgICAgICAgICAgICAgICBpZiBrIGluIHRpbGVzOgogICAgICAgICAgICAgICAgICAgIHRpbGVzID0gdGlsZXNba10KICAgICAgICAgICAgICAgICAgICBicmVhawogICAgICAgICAgICBlbHNlOgogICAgICAgICAgICAgICAgdGlsZXMgPSBbdGlsZXNdCiAgICAgICAgaWYgbm90IGlzaW5zdGFuY2UodGlsZXMsIGxpc3QpOgogICAgICAgICAgICBsb2dfZXJyb3IoZiJEZWVwSW5mcmEgcmV0dXJuZWQgbm9uLWxpc3QgSlNPTjoge3R5cGUodGlsZXMpfSIpCiAgICAgICAgICAgIHJldHVybiBOb25lCiAgICAgICAgcmV0dXJuIHRpbGVzCiAgICBleGNlcHQgKEtleUVycm9yLCBqc29uLkpTT05EZWNvZGVFcnJvciwgSW5kZXhFcnJvcikgYXMgZXhjOgogICAgICAgIGxvZ19lcnJvcihmIkRlZXBJbmZyYSByZXNwb25zZSBwYXJzZSBlcnJvcjoge2V4Y30iKQogICAgICAgIGxvZ19lcnJvcihmIlJlc3BvbnNlIGJvZHk6IHtib2R5Wzo1MDBdIGlmIGJvZHkgZWxzZSAnZW1wdHknfSIpCiAgICAgICAgcmV0dXJuIE5vbmUKCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiMgUExBVE8gc3VibWlzc2lvbgojIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKZGVmIHN1Ym1pdF90aWxlKHRpbGU6IGRpY3QpIC0+IGJvb2w6CiAgICB0cnk6CiAgICAgICAgaGVhZGVycyA9IHsiQ29udGVudC1UeXBlIjogImFwcGxpY2F0aW9uL2pzb24ifQogICAgICAgIGRhdGEgPSBqc29uLmR1bXBzKHRpbGUpLmVuY29kZSgidXRmLTgiKQogICAgICAgIHN0YXR1cywgXyA9IGFwaV9yZXF1ZXN0KFBMQVRPX1NVQk1JVF9VUkwsIG1ldGhvZD0iUE9TVCIsIGhlYWRlcnM9aGVhZGVycywgZGF0YT1kYXRhLCByZXRyaWVzPTApCiAgICAgICAgcmV0dXJuIHN0YXR1cyBpcyBub3QgTm9uZSBhbmQgMjAwIDw9IHN0YXR1cyA8IDMwMAogICAgZXhjZXB0IEV4Y2VwdGlvbiBhcyBleGM6CiAgICAgICAgbG9nX2Vycm9yKGYiUExBVE8gc3VibWlzc2lvbiBmYWlsZWQ6IHtleGN9IikKICAgICAgICByZXR1cm4gRmFsc2UKCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiMgU2NvdXRpbmcgbG9naWMKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCmRlZiBidWlsZF9jb250ZXh0KG93bmVyOiBzdHIsIHJlcG86IHN0ciwgbWV0YWRhdGE6IGRpY3QsIHJlYWRtZTogc3RyLCBkaXJzOiBMaXN0W3N0cl0sIGNvbW1pdHM6IExpc3RbZGljdF0sIGlzc3VlczogTGlzdFtkaWN0XSkgLT4gc3RyOgogICAgY29udGV4dCA9IGYiIiJHaXRIdWIgUmVwb3NpdG9yeToge293bmVyfS97cmVwb30KCk1ldGFkYXRhOgotIERlc2NyaXB0aW9uOiB7bWV0YWRhdGEuZ2V0KCJkZXNjcmlwdGlvbiIsICJOL0EiKX0KLSBMYW5ndWFnZToge21ldGFkYXRhLmdldCgibGFuZ3VhZ2UiLCAiTi9BIil9Ci0gVG9waWNzOiB7IiwgIi5qb2luKG1ldGFkYXRhLmdldCgidG9waWNzIiwgW10pKX0KLSBTdGFyczoge21ldGFkYXRhLmdldCgic3RhcmdhemVyc19jb3VudCIsIDApfQotIEZvcmtzOiB7bWV0YWRhdGEuZ2V0KCJmb3Jrc19jb3VudCIsIDApfQotIE9wZW4gSXNzdWVzOiB7bWV0YWRhdGEuZ2V0KCJvcGVuX2lzc3Vlc19jb3VudCIsIDApfQotIERlZmF1bHQgQnJhbmNoOiB7bWV0YWRhdGEuZ2V0KCJkZWZhdWx0X2JyYW5jaCIsICJtYWluIil9Ci0gQ3JlYXRlZDoge21ldGFkYXRhLmdldCgiY3JlYXRlZF9hdCIsICJOL0EiKX0KLSBVcGRhdGVkOiB7bWV0YWRhdGEuZ2V0KCJ1cGRhdGVkX2F0IiwgIk4vQSIpfQoKUkVBRE1FIChmaXJzdCAyMDAwIGNoYXJzKToKe3JlYWRtZVs6MjAwMF19CgpEaXJlY3RvcnkgU3RydWN0dXJlIChzYW1wbGUpOgp7Y2hyKDEwKS5qb2luKGRpcnNbOjUwXSl9CgpSZWNlbnQgQ29tbWl0cyAobGFzdCA1KToKIiIiCiAgICBmb3IgYyBpbiBjb21taXRzWzo1XToKICAgICAgICBjb250ZXh0ICs9IGYiLSBbe2NbJ3NoYSddfV0ge2NbJ21lc3NhZ2UnXX0gYnkge2NbJ2F1dGhvciddfSAoe2NbJ2RhdGUnXX0pXG4iCiAgICBjb250ZXh0ICs9ICJcbk9wZW4gSXNzdWVzIChsYXN0IDUpOlxuIgogICAgZm9yIGkgaW4gaXNzdWVzWzo1XToKICAgICAgICBjb250ZXh0ICs9IGYiLSAje2lbJ251bWJlciddfSB7aVsndGl0bGUnXX0gW3snLCAnLmpvaW4oaVsnbGFiZWxzJ10pfV1cbiIKICAgIHJldHVybiBjb250ZXh0CgoKZGVmIG5vcm1hbGl6ZV90aWxlKHRpbGU6IGRpY3QsIG93bmVyOiBzdHIsIHJlcG86IHN0cikgLT4gT3B0aW9uYWxbZGljdF06CiAgICBpZiBub3QgaXNpbnN0YW5jZSh0aWxlLCBkaWN0KToKICAgICAgICByZXR1cm4gTm9uZQogICAgZG9tYWluID0gdGlsZS5nZXQoImRvbWFpbiIsICIiKQogICAgcXVlc3Rpb24gPSB0aWxlLmdldCgicXVlc3Rpb24iLCAiIikKICAgIGFuc3dlciA9IHRpbGUuZ2V0KCJhbnN3ZXIiLCAiIikKICAgIGlmIG5vdCBkb21haW4gb3Igbm90IHF1ZXN0aW9uIG9yIG5vdCBhbnN3ZXI6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgICMgTm9ybWFsaXplIGRvbWFpbiB0byBrZWJhYi1jYXNlCiAgICBkb21haW4gPSByZS5zdWIociJbXmEtekEtWjAtOVwtX10iLCAiLSIsIGRvbWFpbikubG93ZXIoKS5zdHJpcCgiLSIpCiAgICBpZiBub3QgZG9tYWluOgogICAgICAgIGRvbWFpbiA9ICJnZW5lcmFsIgogICAgcmV0dXJuIHsKICAgICAgICAiZG9tYWluIjogZG9tYWluLAogICAgICAgICJxdWVzdGlvbiI6IHN0cihxdWVzdGlvbikuc3RyaXAoKSwKICAgICAgICAiYW5zd2VyIjogc3RyKGFuc3dlcikuc3RyaXAoKSwKICAgICAgICAiY29uZmlkZW5jZSI6IG1heCgwLjAsIG1pbigxLjAsIGZsb2F0KHRpbGUuZ2V0KCJjb25maWRlbmNlIiwgMC41KSkpKSwKICAgICAgICAic291cmNlIjogZiJ7b3duZXJ9L3tyZXBvfSIsCiAgICAgICAgImFnZW50IjogInBsYXRvLXNjb3V0IiwKICAgIH0KCgpkZWYgc2NvdXRfcmVwbyhvd25lcjogc3RyLCByZXBvOiBzdHIpIC0+IGRpY3Q6CiAgICBzdGFydCA9IHRpbWUudGltZSgpCiAgICBzdGF0ZSA9IGxvYWRfc3RhdGUoKQogICAgcmVwb19rZXkgPSBmIntvd25lcn0ve3JlcG99IgogICAgcHJpbnQoZiJcbvCflI0gU2NvdXRpbmcge3JlcG9fa2V5fSAuLi4iKQoKICAgIG1ldGFkYXRhID0gZmV0Y2hfcmVwb19tZXRhZGF0YShvd25lciwgcmVwbykKICAgIGlmIG1ldGFkYXRhIGlzIE5vbmU6CiAgICAgICAgcHJpbnQoZiIgICDimqDvuI8gIFNraXBwaW5nIHtyZXBvX2tleX0gKG5vdCBmb3VuZCBvciBlcnJvcikiKQogICAgICAgIHJldHVybiB7InJlcG8iOiByZXBvX2tleSwgInRpbGVzX2dlbmVyYXRlZCI6IDAsICJ0aWxlc19hY2NlcHRlZCI6IDAsICJ0aW1lIjogMC4wfQoKICAgIHJlYWRtZSA9IGZldGNoX3JlYWRtZShvd25lciwgcmVwbykKICAgIGRpcnMgPSBmZXRjaF9kaXJlY3RvcnlfbGlzdGluZyhvd25lciwgcmVwbykKICAgIGNvbW1pdHMgPSBmZXRjaF9jb21taXRzKG93bmVyLCByZXBvKQogICAgaXNzdWVzID0gZmV0Y2hfaXNzdWVzKG93bmVyLCByZXBvKQoKICAgIGNvbnRleHQgPSBidWlsZF9jb250ZXh0KG93bmVyLCByZXBvLCBtZXRhZGF0YSwgcmVhZG1lLCBkaXJzLCBjb21taXRzLCBpc3N1ZXMpCiAgICB0aWxlcyA9IGNhbGxfZGVlcGluZnJhKGNvbnRleHQpCgogICAgYWNjZXB0ZWQgPSAwCiAgICBpZiB0aWxlczoKICAgICAgICBmb3IgcmF3X3RpbGUgaW4gdGlsZXM6CiAgICAgICAgICAgIHRpbGUgPSBub3JtYWxpemVfdGlsZShyYXdfdGlsZSwgb3duZXIsIHJlcG8pCiAgICAgICAgICAgIGlmIG5vdCB0aWxlOgogICAgICAgICAgICAgICAgY29udGludWUKICAgICAgICAgICAgc3RhdGVbInRpbGVzX3N1Ym1pdHRlZCJdID0gc3RhdGUuZ2V0KCJ0aWxlc19zdWJtaXR0ZWQiLCAwKSArIDEKICAgICAgICAgICAgaWYgc3VibWl0X3RpbGUodGlsZSk6CiAgICAgICAgICAgICAgICBhY2NlcHRlZCArPSAxCiAgICAgICAgICAgICAgICBzdGF0ZVsidGlsZXNfYWNjZXB0ZWQiXSA9IHN0YXRlLmdldCgidGlsZXNfYWNjZXB0ZWQiLCAwKSArIDEKICAgICAgICAgICAgZWxzZToKICAgICAgICAgICAgICAgIHN0YXRlWyJ0aWxlc19yZWplY3RlZCJdID0gc3RhdGUuZ2V0KCJ0aWxlc19yZWplY3RlZCIsIDApICsgMQoKICAgIGVsYXBzZWQgPSB0aW1lLnRpbWUoKSAtIHN0YXJ0CiAgICBzdGF0ZVsic2NvdXRlZF9yZXBvcyJdW3JlcG9fa2V5XSA9IHsKICAgICAgICAibGFzdF9zY291dGVkIjogZGF0ZXRpbWUubm93KHRpbWV6b25lLnV0YykuaXNvZm9ybWF0KCksCiAgICAgICAgInRpbGVzX2dlbmVyYXRlZCI6IGxlbih0aWxlcykgaWYgdGlsZXMgZWxzZSAwLAogICAgICAgICJ0aWxlc19hY2NlcHRlZCI6IGFjY2VwdGVkLAogICAgfQogICAgc2F2ZV9zdGF0ZShzdGF0ZSkKCiAgICBwcmludChmIiAgIOKchSB7cmVwb19rZXl9IOKAlCB0aWxlczoge2xlbih0aWxlcykgaWYgdGlsZXMgZWxzZSAwfSwgYWNjZXB0ZWQ6IHthY2NlcHRlZH0sIHRpbWU6IHtlbGFwc2VkOi4xZn1zIikKICAgIHJldHVybiB7InJlcG8iOiByZXBvX2tleSwgInRpbGVzX2dlbmVyYXRlZCI6IGxlbih0aWxlcykgaWYgdGlsZXMgZWxzZSAwLCAidGlsZXNfYWNjZXB0ZWQiOiBhY2NlcHRlZCwgInRpbWUiOiBlbGFwc2VkfQoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIyBPcmcgZGlzY292ZXJ5CiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgpkZWYgZGlzY292ZXJfb3JnX3JlcG9zKG9yZzogc3RyLCBsaW1pdDogaW50ID0gMTApIC0+IExpc3Rbc3RyXToKICAgIHByaW50KGYiXG7wn5SOIERpc2NvdmVyaW5nIHJlcG9zIGZvcjoge29yZ30gLi4uIikKICAgICMgVHJ5IG9yZyBmaXJzdCwgdGhlbiB1c2VyCiAgICBkYXRhID0gZ2l0aHViX2dldChmIi9vcmdzL3tvcmd9L3JlcG9zIiwgcGFyYW1zPWYic29ydD1wdXNoZWQmZGlyZWN0aW9uPWRlc2MmcGVyX3BhZ2U9e2xpbWl0fSIpCiAgICBpZiBub3QgZGF0YSBvciBub3QgaXNpbnN0YW5jZShkYXRhLCBsaXN0KToKICAgICAgICBkYXRhID0gZ2l0aHViX2dldChmIi91c2Vycy97b3JnfS9yZXBvcyIsIHBhcmFtcz1mInNvcnQ9cHVzaGVkJmRpcmVjdGlvbj1kZXNjJnBlcl9wYWdlPXtsaW1pdH0iKQogICAgaWYgbm90IGRhdGEgb3Igbm90IGlzaW5zdGFuY2UoZGF0YSwgbGlzdCk6CiAgICAgICAgbG9nX2Vycm9yKGYiQ291bGQgbm90IGxpc3QgcmVwb3MgZm9yIG9yZyB7b3JnfSIpCiAgICAgICAgcmV0dXJuIFtdCiAgICByZXBvcyA9IFtdCiAgICBmb3IgciBpbiBkYXRhOgogICAgICAgIG5hbWUgPSByLmdldCgibmFtZSIpCiAgICAgICAgaWYgbmFtZToKICAgICAgICAgICAgcmVwb3MuYXBwZW5kKG5hbWUpCiAgICByZXR1cm4gcmVwb3NbOmxpbWl0XQoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIyBEYWVtb24gbW9kZSBoZWxwZXJzCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgpkZWYgZ2V0X3JlY2VudGx5X3B1c2hlZF9yZXBvcygpIC0+IExpc3Rbc3RyXToKICAgICIiIlNlYXJjaCBHaXRIdWIgZm9yIHJlcG9zIHdpdGggcHVzaGVzIGluIHRoZSBsYXN0IGhvdXIuCiAgICBVc2VzIHRoZSBzZWFyY2ggQVBJIHdpdGggJ3B1c2hlZDo+WVlZWS1NTS1ERFRISDpNTTpTU1onIHF1YWxpZmllci4iIiIKICAgIG9uZV9ob3VyX2FnbyA9IChkYXRldGltZS5ub3codGltZXpvbmUudXRjKS5yZXBsYWNlKG1pbnV0ZT0wLCBzZWNvbmQ9MCwgbWljcm9zZWNvbmQ9MCkpLmlzb2Zvcm1hdCgpCiAgICBxdWVyeSA9IGYicHVzaGVkOj57b25lX2hvdXJfYWdvfSIKICAgICMgR2l0SHViIHNlYXJjaCBBUEkgaGFzIGEgbWF4IHBlcl9wYWdlIG9mIDEwMAogICAgZGF0YSA9IGdpdGh1Yl9nZXQoIi9zZWFyY2gvcmVwb3NpdG9yaWVzIiwgcGFyYW1zPWYicT17dXJsbGliLnBhcnNlLnF1b3RlKHF1ZXJ5KX0mc29ydD11cGRhdGVkJm9yZGVyPWRlc2MmcGVyX3BhZ2U9NTAiKQogICAgaWYgbm90IGRhdGEgb3Igbm90IGlzaW5zdGFuY2UoZGF0YSwgZGljdCk6CiAgICAgICAgcmV0dXJuIFtdCiAgICBpdGVtcyA9IGRhdGEuZ2V0KCJpdGVtcyIsIFtdKQogICAgcmVwb3MgPSBbXQogICAgZm9yIGl0ZW0gaW4gaXRlbXM6CiAgICAgICAgZnVsbF9uYW1lID0gaXRlbS5nZXQoImZ1bGxfbmFtZSIpCiAgICAgICAgaWYgZnVsbF9uYW1lOgogICAgICAgICAgICByZXBvcy5hcHBlbmQoZnVsbF9uYW1lKQogICAgcmV0dXJuIHJlcG9zCgoKZGVmIHNob3VsZF9zY291dChyZXBvX2tleTogc3RyLCBtaW5faW50ZXJ2YWxfaG91cnM6IGludCA9IDI0KSAtPiBib29sOgogICAgc3RhdGUgPSBsb2FkX3N0YXRlKCkKICAgIHJlY29yZCA9IHN0YXRlLmdldCgic2NvdXRlZF9yZXBvcyIsIHt9KS5nZXQocmVwb19rZXkpCiAgICBpZiBub3QgcmVjb3JkOgogICAgICAgIHJldHVybiBUcnVlCiAgICBsYXN0ID0gcmVjb3JkLmdldCgibGFzdF9zY291dGVkIikKICAgIGlmIG5vdCBsYXN0OgogICAgICAgIHJldHVybiBUcnVlCiAgICB0cnk6CiAgICAgICAgbGFzdF9kdCA9IGRhdGV0aW1lLmZyb21pc29mb3JtYXQobGFzdC5yZXBsYWNlKCJaIiwgIiswMDowMCIpKQogICAgICAgIGRlbHRhID0gZGF0ZXRpbWUubm93KHRpbWV6b25lLnV0YykgLSBsYXN0X2R0CiAgICAgICAgcmV0dXJuIGRlbHRhLnRvdGFsX3NlY29uZHMoKSA+IG1pbl9pbnRlcnZhbF9ob3VycyAqIDM2MDAKICAgIGV4Y2VwdCBFeGNlcHRpb246CiAgICAgICAgcmV0dXJuIFRydWUKCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiMgQ0xJIGNvbW1hbmRzCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgpkZWYgY21kX3Njb3V0KGFyZ3M6IGFyZ3BhcnNlLk5hbWVzcGFjZSkgLT4gaW50OgogICAgcmVwb19zcGVjID0gYXJncy5yZXBvCiAgICBpZiAiLyIgbm90IGluIHJlcG9fc3BlYzoKICAgICAgICBwcmludCgiRXJyb3I6IHJlcG8gbXVzdCBiZSBpbiBvd25lci9yZXBvIGZvcm1hdCIsIGZpbGU9c3lzLnN0ZGVycikKICAgICAgICByZXR1cm4gMQogICAgb3duZXIsIHJlcG8gPSByZXBvX3NwZWMuc3BsaXQoIi8iLCAxKQogICAgc2NvdXRfcmVwbyhvd25lciwgcmVwbykKICAgIHJldHVybiAwCgoKZGVmIGNtZF9zY291dF9vcmcoYXJnczogYXJncGFyc2UuTmFtZXNwYWNlKSAtPiBpbnQ6CiAgICBvcmcgPSBhcmdzLm9yZwogICAgbGltaXQgPSBhcmdzLmxpbWl0CiAgICByZXBvcyA9IGRpc2NvdmVyX29yZ19yZXBvcyhvcmcsIGxpbWl0KQogICAgaWYgbm90IHJlcG9zOgogICAgICAgIHByaW50KGYiTm8gcmVwb3MgZm91bmQgZm9yIG9yZyB7b3JnfSIpCiAgICAgICAgcmV0dXJuIDEKICAgIGZvciByZXBvIGluIHJlcG9zOgogICAgICAgIHNjb3V0X3JlcG8ob3JnLCByZXBvKQogICAgcmV0dXJuIDAKCgpkZWYgY21kX2RhZW1vbihhcmdzOiBhcmdwYXJzZS5OYW1lc3BhY2UpIC0+IGludDoKICAgIGludGVydmFsID0gYXJncy5pbnRlcnZhbAogICAgcHJpbnQoZiLwn6SWIERhZW1vbiBzdGFydGVkLiBJbnRlcnZhbDoge2ludGVydmFsfXMuIFByZXNzIEN0cmwrQyB0byBzdG9wLiIpCiAgICB3aGlsZSBUcnVlOgogICAgICAgIHRyeToKICAgICAgICAgICAgcmVwb3MgPSBnZXRfcmVjZW50bHlfcHVzaGVkX3JlcG9zKCkKICAgICAgICAgICAgaWYgcmVwb3M6CiAgICAgICAgICAgICAgICBwcmludChmIiAgIEZvdW5kIHtsZW4ocmVwb3MpfSByZWNlbnRseSBwdXNoZWQgcmVwb3MuIikKICAgICAgICAgICAgICAgIGZvciByZXBvX2tleSBpbiByZXBvczoKICAgICAgICAgICAgICAgICAgICBpZiBzaG91bGRfc2NvdXQocmVwb19rZXkpOgogICAgICAgICAgICAgICAgICAgICAgICBpZiAiLyIgbm90IGluIHJlcG9fa2V5OgogICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udGludWUKICAgICAgICAgICAgICAgICAgICAgICAgb3duZXIsIHJlcG8gPSByZXBvX2tleS5zcGxpdCgiLyIsIDEpCiAgICAgICAgICAgICAgICAgICAgICAgIHNjb3V0X3JlcG8ob3duZXIsIHJlcG8pCiAgICAgICAgICAgICAgICAgICAgZWxzZToKICAgICAgICAgICAgICAgICAgICAgICAgcHJpbnQoZiIgICDij63vuI8gIFNraXBwaW5nIHtyZXBvX2tleX0gKHNjb3V0ZWQgcmVjZW50bHkpIikKICAgICAgICAgICAgZWxzZToKICAgICAgICAgICAgICAgIHByaW50KGYiICAgTm8gcmVjZW50bHkgcHVzaGVkIHJlcG9zIGZvdW5kLiIpCiAgICAgICAgICAgIHByaW50KGYiICAg8J+YtCBTbGVlcGluZyB7aW50ZXJ2YWx9cyAuLi4iKQogICAgICAgICAgICB0aW1lLnNsZWVwKGludGVydmFsKQogICAgICAgIGV4Y2VwdCBLZXlib2FyZEludGVycnVwdDoKICAgICAgICAgICAgcHJpbnQoIlxu8J+RiyBEYWVtb24gc3RvcHBlZC4iKQogICAgICAgICAgICBicmVhawogICAgcmV0dXJuIDAKCgpkZWYgY21kX3N0YXRzKGFyZ3M6IGFyZ3BhcnNlLk5hbWVzcGFjZSkgLT4gaW50OgogICAgc3RhdGUgPSBsb2FkX3N0YXRlKCkKICAgIHByaW50KCJcbvCfk4ogUExBVE8gU2NvdXQgU3RhdGlzdGljcyIpCiAgICBwcmludCgiLSIgKiA0MCkKICAgIHByaW50KGYiUmVwb3Mgc2NvdXRlZCAgICAgIDoge2xlbihzdGF0ZS5nZXQoJ3Njb3V0ZWRfcmVwb3MnLCB7fSkpfSIpCiAgICBwcmludChmIlRpbGVzIHN1Ym1pdHRlZCAgICA6IHtzdGF0ZS5nZXQoJ3RpbGVzX3N1Ym1pdHRlZCcsIDApfSIpCiAgICBwcmludChmIlRpbGVzIGFjY2VwdGVkICAgICA6IHtzdGF0ZS5nZXQoJ3RpbGVzX2FjY2VwdGVkJywgMCl9IikKICAgIHByaW50KGYiVGlsZXMgcmVqZWN0ZWQgICAgIDoge3N0YXRlLmdldCgndGlsZXNfcmVqZWN0ZWQnLCAwKX0iKQogICAgcHJpbnQoZiJHaXRIdWIgQVBJIGNhbGxzICAgOiB7c3RhdGUuZ2V0KCdnaXRodWJfY2FsbHMnLCAwKX0iKQogICAgcHJpbnQoZiJEZWVwSW5mcmEgQVBJIGNhbGxzOiB7c3RhdGUuZ2V0KCdkZWVwaW5mcmFfY2FsbHMnLCAwKX0iKQogICAgcHJpbnQoZiJFcnJvcnMgbG9nZ2VkICAgICAgOiB7bGVuKHN0YXRlLmdldCgnZXJyb3JzJywgW10pKX0iKQogICAgcHJpbnQoIi0iICogNDApCiAgICByZXR1cm4gMAoKIyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIyBNYWluCiMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgpkZWYgbWFpbigpIC0+IGludDoKICAgIHBhcnNlciA9IGFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyKGRlc2NyaXB0aW9uPSJQTEFUTyBTY291dCDigJQgR2l0SHViIHJlcG8gYW5hbHl6ZXIiKQogICAgc3VicGFyc2VycyA9IHBhcnNlci5hZGRfc3VicGFyc2VycyhkZXN0PSJjb21tYW5kIiwgcmVxdWlyZWQ9VHJ1ZSkKCiAgICBwX3Njb3V0ID0gc3VicGFyc2Vycy5hZGRfcGFyc2VyKCJzY291dCIsIGhlbHA9IkFuYWx5emUgYSBzaW5nbGUgcmVwbyIpCiAgICBwX3Njb3V0LmFkZF9hcmd1bWVudCgicmVwbyIsIGhlbHA9Ik93bmVyL3JlcG8gKGUuZy4sIFN1cGVySW5zdGFuY2Uvb3JhY2xlMS13b3Jrc3BhY2UpIikKCiAgICBwX29yZyA9IHN1YnBhcnNlcnMuYWRkX3BhcnNlcigic2NvdXQtb3JnIiwgaGVscD0iRGlzY292ZXIgYW5kIGFuYWx5emUgcmVwb3MgaW4gYW4gb3JnIikKICAgIHBfb3JnLmFkZF9hcmd1bWVudCgib3JnIiwgaGVscD0iR2l0SHViIG9yZ2FuaXphdGlvbiBuYW1lIikKICAgIHBfb3JnLmFkZF9hcmd1bWVudCgiLS1saW1pdCIsIHR5cGU9aW50LCBkZWZhdWx0PTEwLCBoZWxwPSJNYXggcmVwb3MgdG8gc2NvdXQgKGRlZmF1bHQ6IDEwKSIpCgogICAgcF9kYWVtb24gPSBzdWJwYXJzZXJzLmFkZF9wYXJzZXIoImRhZW1vbiIsIGhlbHA9IkNvbnRpbnVvdXNseSBzY291dCBuZXcgcmVwb3MiKQogICAgcF9kYWVtb24uYWRkX2FyZ3VtZW50KCItLWludGVydmFsIiwgdHlwZT1pbnQsIGRlZmF1bHQ9MzAwLCBoZWxwPSJTbGVlcCBzZWNvbmRzIGJldHdlZW4gY2hlY2tzIChkZWZhdWx0OiAzMDApIikKCiAgICBwX3N0YXRzID0gc3VicGFyc2Vycy5hZGRfcGFyc2VyKCJzdGF0cyIsIGhlbHA9IlNob3cgc2NvdXRpbmcgc3RhdGlzdGljcyIpCgogICAgYXJncyA9IHBhcnNlci5wYXJzZV9hcmdzKCkKCiAgICBpZiBhcmdzLmNvbW1hbmQgPT0gInNjb3V0IjoKICAgICAgICByZXR1cm4gY21kX3Njb3V0KGFyZ3MpCiAgICBlbGlmIGFyZ3MuY29tbWFuZCA9PSAic2NvdXQtb3JnIjoKICAgICAgICByZXR1cm4gY21kX3Njb3V0X29yZyhhcmdzKQogICAgZWxpZiBhcmdzLmNvbW1hbmQgPT0gImRhZW1vbiI6CiAgICAgICAgcmV0dXJuIGNtZF9kYWVtb24oYXJncykKICAgIGVsaWYgYXJncy5jb21tYW5kID09ICJzdGF0cyI6CiAgICAgICAgcmV0dXJuIGNtZF9zdGF0cyhhcmdzKQoKICAgIHJldHVybiAwCgoKaWYgX19uYW1lX18gPT0gIl9fbWFpbl9fIjoKICAgIHN5cy5leGl0KG1haW4oKSkK
+#!/usr/bin/env python3
+"""PLATO Scout — GitHub repo analyzer that submits knowledge tiles to PLATO.
+
+Modes:
+    scout <owner/repo>      Analyze a single repo.
+    scout-org <org>         Discover and analyze top repos in an org.
+    daemon                  Continuously scout repos based on fleet activity.
+    stats                   Show scouting statistics.
+
+Requirements: Python 3.8+ (stdlib only).
+"""
+
+import argparse
+import json
+import os
+import re
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from datetime import datetime, timezone
+from typing import Any, Dict, List, Optional
+
+# ---------------------------------------------------------------------------
+# Configuration
+# ---------------------------------------------------------------------------
+
+GITHUB_API = "https://api.github.com"
+DEEPINFRA_API_KEY = "RhZPtvuy4cXzu02LbBSffbXeqs5Yf2IZ"
+DEEPINFRA_BASE = "https://api.deepinfra.com/v1/openai"
+DEEPINFRA_MODEL = "ByteDance/Seed-2.0-mini"
+PLATO_SUBMIT_URL = "http://localhost:8847/submit"
+STATE_FILE = "/tmp/plato-scout-state.json"
+
+SCOUT_SYSTEM_PROMPT = (
+    "You are PLATO Scout, a knowledge extraction agent. "
+    "Analyze the provided GitHub repo data and generate 3-5 knowledge tiles in JSON array format. "
+    "Each tile should capture a key insight about the repo's architecture, purpose, patterns, or domain knowledge. "
+    "Tiles must have: domain (kebab-case room name), question, answer, confidence (0-1), source (owner/repo), agent (plato-scout). "
+    "Output ONLY a JSON array, no markdown fences."
+)
+
+# ---------------------------------------------------------------------------
+# State management
+# ---------------------------------------------------------------------------
+
+def load_state() -> dict:
+    if os.path.exists(STATE_FILE):
+        try:
+            with open(STATE_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, OSError):
+            pass
+    return {
+        "scouted_repos": {},
+        "tiles_submitted": 0,
+        "tiles_accepted": 0,
+        "tiles_rejected": 0,
+        "github_calls": 0,
+        "deepinfra_calls": 0,
+        "errors": [],
+    }
+
+
+def save_state(state: dict) -> None:
+    try:
+        with open(STATE_FILE, "w", encoding="utf-8") as f:
+            json.dump(state, f, indent=2)
+    except OSError as exc:
+        log_error(f"Failed to write state file: {exc}")
+
+
+def log_error(msg: str) -> None:
+    ts = datetime.now(timezone.utc).isoformat()
+    entry = f"[{ts}] {msg}"
+    print(entry, file=sys.stderr)
+    state = load_state()
+    state["errors"].append(entry)
+    # Keep last 200 errors
+    state["errors"] = state["errors"][-200:]
+    save_state(state)
+
+# ---------------------------------------------------------------------------
+# HTTP helpers (stdlib only)
+# ---------------------------------------------------------------------------
+
+def _request(
+    url: str,
+    method: str = "GET",
+    headers: Optional[Dict[str, str]] = None,
+    data: Optional[bytes] = None,
+    timeout: int = 60,
+) -> tuple:
+    """Return (status_code, body_bytes). Raises urllib.error.HTTPError on failure."""
+    req = urllib.request.Request(url, method=method, data=data)
+    if headers:
+        for k, v in headers.items():
+            req.add_header(k, v)
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.status, resp.read()
+
+
+def api_request(
+    url: str,
+    method: str = "GET",
+    headers: Optional[Dict[str, str]] = None,
+    data: Optional[bytes] = None,
+    retries: int = 1,
+) -> tuple:
+    """Make an HTTP request with retry logic. Returns (status, body_bytes) or (None, None) on failure."""
+    last_exc = None
+    for attempt in range(retries + 1):
+        try:
+            s, b = _request(url, method=method, headers=headers, data=data)
+            return s, b
+        except urllib.error.HTTPError as exc:
+            last_exc = exc
+            body_text = exc.read() if hasattr(exc, 'read') else b''
+            log_error(f"HTTP {exc.code} from {url[:80]}: {body_text[:200]}")
+            if exc.code == 404:
+                return 404, b"{}"
+            if attempt < retries:
+                time.sleep(1.5 * (attempt + 1))
+                continue
+            return exc.code, body_text
+        except Exception as exc:
+            last_exc = exc
+            log_error(f"Request exception for {url[:80]}: {exc}")
+            if attempt < retries:
+                time.sleep(1.5 * (attempt + 1))
+                continue
+            break
+    return None, None
+
+
+def github_headers() -> Dict[str, str]:
+    token = os.environ.get("GITHUB_TOKEN", "")
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": "plato-scout/1.0",
+    }
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    return headers
+
+
+def github_get(path: str, params: Optional[str] = None) -> Optional[dict]:
+    url = f"{GITHUB_API}{path}"
+    if params:
+        url = f"{url}?{params}"
+    status, body = api_request(url, headers=github_headers())
+    state = load_state()
+    state["github_calls"] = state.get("github_calls", 0) + 1
+    save_state(state)
+    if status is None:
+        return None
+    if status == 404:
+        return None
+    try:
+        return json.loads(body.decode("utf-8"))
+    except json.JSONDecodeError as exc:
+        log_error(f"GitHub JSON decode error for {url}: {exc}")
+        return None
+
+# ---------------------------------------------------------------------------
+# GitHub data fetchers
+# ---------------------------------------------------------------------------
+
+def fetch_repo_metadata(owner: str, repo: str) -> Optional[dict]:
+    return github_get(f"/repos/{owner}/{repo}")
+
+
+def fetch_readme(owner: str, repo: str) -> str:
+    data = github_get(f"/repos/{owner}/{repo}/readme")
+    if not data:
+        return ""
+    content = data.get("content", "")
+    # GitHub returns base64-encoded content
+    import base64
+    try:
+        return base64.b64decode(content).decode("utf-8", errors="replace")[:8000]
+    except Exception:
+        return content[:8000]
+
+
+def fetch_directory_listing(owner: str, repo: str, path: str = "", depth: int = 0) -> List[str]:
+    if depth > 2:
+        return []
+    data = github_get(f"/repos/{owner}/{repo}/contents/{path}")
+    if not data or not isinstance(data, list):
+        return []
+    entries = []
+    for item in data:
+        item_type = item.get("type", "")
+        item_path = item.get("path", "")
+        if item_type == "dir":
+            entries.append(item_path + "/")
+            if depth < 2:
+                entries.extend(fetch_directory_listing(owner, repo, item_path, depth + 1))
+        else:
+            entries.append(item_path)
+    return entries[:500]
+
+
+def fetch_commits(owner: str, repo: str) -> List[dict]:
+    data = github_get(f"/repos/{owner}/{repo}/commits", params="per_page=10")
+    if not data or not isinstance(data, list):
+        return []
+    commits = []
+    for c in data:
+        commit = c.get("commit", {})
+        commits.append({
+            "sha": c.get("sha", "")[:12],
+            "message": commit.get("message", "").split("\n")[0],
+            "author": commit.get("author", {}).get("name", ""),
+            "date": commit.get("author", {}).get("date", ""),
+        })
+    return commits
+
+
+def fetch_issues(owner: str, repo: str) -> List[dict]:
+    data = github_get(f"/repos/{owner}/{repo}/issues", params="state=open&per_page=10")
+    if not data or not isinstance(data, list):
+        return []
+    issues = []
+    for i in data:
+        # Filter out pull requests (GitHub returns PRs in issues endpoint)
+        if "pull_request" in i:
+            continue
+        issues.append({
+            "number": i.get("number"),
+            "title": i.get("title", ""),
+            "state": i.get("state", ""),
+            "created_at": i.get("created_at", ""),
+            "labels": [l.get("name", "") for l in i.get("labels", [])],
+        })
+    return issues
+
+# ---------------------------------------------------------------------------
+# LLM / DeepInfra
+# ---------------------------------------------------------------------------
+
+def call_deepinfra(context: str) -> Optional[List[dict]]:
+    url = f"{DEEPINFRA_BASE}/chat/completions"
+    payload = {
+        "model": DEEPINFRA_MODEL,
+        "messages": [
+            {"role": "system", "content": SCOUT_SYSTEM_PROMPT},
+            {"role": "user", "content": context},
+        ],
+        "temperature": 0.3,
+        "max_tokens": 2048,
+    }
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {DEEPINFRA_API_KEY}",
+        "User-Agent": "plato-scout/1.0",
+    }
+    status, body = api_request(url, method="POST", headers=headers, data=json.dumps(payload).encode("utf-8"))
+    if status != 200:
+        log_error(f"DeepInfra returned {status} for {url}")
+    state = load_state()
+    state["deepinfra_calls"] = state.get("deepinfra_calls", 0) + 1
+    save_state(state)
+    if status is None:
+        return None
+    try:
+        resp = json.loads(body.decode("utf-8"))
+        content = resp["choices"][0]["message"]["content"]
+        # Strip markdown fences if present
+        content = re.sub(r"^```json\s*", "", content.strip())
+        content = re.sub(r"```\s*$", "", content.strip())
+        tiles = json.loads(content.strip())
+        if isinstance(tiles, dict):
+            # Sometimes models wrap in an object
+            for k in ("tiles", "results", "data", "knowledge_tiles"):
+                if k in tiles:
+                    tiles = tiles[k]
+                    break
+            else:
+                tiles = [tiles]
+        if not isinstance(tiles, list):
+            log_error(f"DeepInfra returned non-list JSON: {type(tiles)}")
+            return None
+        return tiles
+    except (KeyError, json.JSONDecodeError, IndexError) as exc:
+        log_error(f"DeepInfra response parse error: {exc}")
+        log_error(f"Response: {body[:200] if body else 'empty'}")
+        return None
+
+# ---------------------------------------------------------------------------
+# PLATO submission
+# ---------------------------------------------------------------------------
+
+def submit_tile(tile: dict) -> bool:
+    try:
+        headers = {"Content-Type": "application/json"}
+        data = json.dumps(tile).encode("utf-8")
+        status, _ = api_request(PLATO_SUBMIT_URL, method="POST", headers=headers, data=data, retries=0)
+        return status is not None and 200 <= status < 300
+    except Exception as exc:
+        log_error(f"PLATO submission failed: {exc}")
+        return False
+
+# ---------------------------------------------------------------------------
+# Scouting logic
+# ---------------------------------------------------------------------------
+
+def build_context(owner: str, repo: str, metadata: dict, readme: str, dirs: List[str], commits: List[dict], issues: List[dict]) -> str:
+    context = f"""GitHub Repository: {owner}/{repo}
+
+Metadata:
+- Description: {metadata.get("description", "N/A")}
+- Language: {metadata.get("language", "N/A")}
+- Topics: {", ".join(metadata.get("topics", []))}
+- Stars: {metadata.get("stargazers_count", 0)}
+- Forks: {metadata.get("forks_count", 0)}
+- Open Issues: {metadata.get("open_issues_count", 0)}
+- Default Branch: {metadata.get("default_branch", "main")}
+- Created: {metadata.get("created_at", "N/A")}
+- Updated: {metadata.get("updated_at", "N/A")}
+
+README (first 2000 chars):
+{readme[:2000]}
+
+Directory Structure (sample):
+{chr(10).join(dirs[:50])}
+
+Recent Commits (last 5):
+"""
+    for c in commits[:5]:
+        context += f"- [{c['sha']}] {c['message']} by {c['author']} ({c['date']})\n"
+    context += "\nOpen Issues (last 5):\n"
+    for i in issues[:5]:
+        context += f"- #{i['number']} {i['title']} [{', '.join(i['labels'])}]\n"
+    return context
+
+
+def normalize_tile(tile: dict, owner: str, repo: str) -> Optional[dict]:
+    if not isinstance(tile, dict):
+        return None
+    domain = tile.get("domain", "")
+    question = tile.get("question", "")
+    answer = tile.get("answer", "")
+    if not domain or not question or not answer:
+        return None
+    # Normalize domain to kebab-case
+    domain = re.sub(r"[^a-zA-Z0-9\-_]", "-", domain).lower().strip("-")
+    if not domain:
+        domain = "general"
+    return {
+        "domain": domain,
+        "question": str(question).strip(),
+        "answer": str(answer).strip(),
+        "confidence": max(0.0, min(1.0, float(tile.get("confidence", 0.5)))),
+        "source": f"{owner}/{repo}",
+        "agent": "plato-scout",
+    }
+
+
+def scout_repo(owner: str, repo: str) -> dict:
+    start = time.time()
+    state = load_state()
+    repo_key = f"{owner}/{repo}"
+    print(f"\n🔍 Scouting {repo_key} ...")
+
+    metadata = fetch_repo_metadata(owner, repo)
+    if metadata is None:
+        print(f"   ⚠️  Skipping {repo_key} (not found or error)")
+        return {"repo": repo_key, "tiles_generated": 0, "tiles_accepted": 0, "time": 0.0}
+
+    readme = fetch_readme(owner, repo)
+    dirs = fetch_directory_listing(owner, repo)
+    commits = fetch_commits(owner, repo)
+    issues = fetch_issues(owner, repo)
+
+    context = build_context(owner, repo, metadata, readme, dirs, commits, issues)
+    tiles = call_deepinfra(context)
+
+    accepted = 0
+    if tiles:
+        for raw_tile in tiles:
+            tile = normalize_tile(raw_tile, owner, repo)
+            if not tile:
+                continue
+            state["tiles_submitted"] = state.get("tiles_submitted", 0) + 1
+            if submit_tile(tile):
+                accepted += 1
+                state["tiles_accepted"] = state.get("tiles_accepted", 0) + 1
+            else:
+                state["tiles_rejected"] = state.get("tiles_rejected", 0) + 1
+
+    elapsed = time.time() - start
+    state["scouted_repos"][repo_key] = {
+        "last_scouted": datetime.now(timezone.utc).isoformat(),
+        "tiles_generated": len(tiles) if tiles else 0,
+        "tiles_accepted": accepted,
+    }
+    save_state(state)
+
+    print(f"   ✅ {repo_key} — tiles: {len(tiles) if tiles else 0}, accepted: {accepted}, time: {elapsed:.1f}s")
+    return {"repo": repo_key, "tiles_generated": len(tiles) if tiles else 0, "tiles_accepted": accepted, "time": elapsed}
+
+# ---------------------------------------------------------------------------
+# Org discovery
+# ---------------------------------------------------------------------------
+
+def discover_org_repos(org: str, limit: int = 10) -> List[str]:
+    print(f"\n🔎 Discovering repos for: {org} ...")
+    # Try org first, then user
+    data = github_get(f"/orgs/{org}/repos", params=f"sort=pushed&direction=desc&per_page={limit}")
+    if not data or not isinstance(data, list):
+        data = github_get(f"/users/{org}/repos", params=f"sort=pushed&direction=desc&per_page={limit}")
+    if not data or not isinstance(data, list):
+        log_error(f"Could not list repos for org {org}")
+        return []
+    repos = []
+    for r in data:
+        name = r.get("name")
+        if name:
+            repos.append(name)
+    return repos[:limit]
+
+# ---------------------------------------------------------------------------
+# Daemon mode helpers
+# ---------------------------------------------------------------------------
+
+def get_recently_pushed_repos() -> List[str]:
+    """Search GitHub for repos with pushes in the last hour.
+    Uses the search API with 'pushed:>YYYY-MM-DDTHH:MM:SSZ' qualifier."""
+    one_hour_ago = (datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)).isoformat()
+    query = f"pushed:>{one_hour_ago}"
+    # GitHub search API has a max per_page of 100
+    data = github_get("/search/repositories", params=f"q={urllib.parse.quote(query)}&sort=updated&order=desc&per_page=50")
+    if not data or not isinstance(data, dict):
+        return []
+    items = data.get("items", [])
+    repos = []
+    for item in items:
+        full_name = item.get("full_name")
+        if full_name:
+            repos.append(full_name)
+    return repos
+
+
+def should_scout(repo_key: str, min_interval_hours: int = 24) -> bool:
+    state = load_state()
+    record = state.get("scouted_repos", {}).get(repo_key)
+    if not record:
+        return True
+    last = record.get("last_scouted")
+    if not last:
+        return True
+    try:
+        last_dt = datetime.fromisoformat(last.replace("Z", "+00:00"))
+        delta = datetime.now(timezone.utc) - last_dt
+        return delta.total_seconds() > min_interval_hours * 3600
+    except Exception:
+        return True
+
+# ---------------------------------------------------------------------------
+# CLI commands
+# ---------------------------------------------------------------------------
+
+def cmd_scout(args: argparse.Namespace) -> int:
+    repo_spec = args.repo
+    if "/" not in repo_spec:
+        print("Error: repo must be in owner/repo format", file=sys.stderr)
+        return 1
+    owner, repo = repo_spec.split("/", 1)
+    scout_repo(owner, repo)
+    return 0
+
+
+def cmd_scout_org(args: argparse.Namespace) -> int:
+    org = args.org
+    limit = args.limit
+    repos = discover_org_repos(org, limit)
+    if not repos:
+        print(f"No repos found for org {org}")
+        return 1
+    for repo in repos:
+        scout_repo(org, repo)
+    return 0
+
+
+def cmd_daemon(args: argparse.Namespace) -> int:
+    interval = args.interval
+    print(f"🤖 Daemon started. Interval: {interval}s. Press Ctrl+C to stop.")
+    while True:
+        try:
+            repos = get_recently_pushed_repos()
+            if repos:
+                print(f"   Found {len(repos)} recently pushed repos.")
+                for repo_key in repos:
+                    if should_scout(repo_key):
+                        if "/" not in repo_key:
+                            continue
+                        owner, repo = repo_key.split("/", 1)
+                        scout_repo(owner, repo)
+                    else:
+                        print(f"   ⏭️  Skipping {repo_key} (scouted recently)")
+            else:
+                print(f"   No recently pushed repos found.")
+            print(f"   😴 Sleeping {interval}s ...")
+            time.sleep(interval)
+        except KeyboardInterrupt:
+            print("\n👋 Daemon stopped.")
+            break
+    return 0
+
+
+def cmd_stats(args: argparse.Namespace) -> int:
+    state = load_state()
+    print("\n📊 PLATO Scout Statistics")
+    print("-" * 40)
+    print(f"Repos scouted      : {len(state.get('scouted_repos', {}))}")
+    print(f"Tiles submitted    : {state.get('tiles_submitted', 0)}")
+    print(f"Tiles accepted     : {state.get('tiles_accepted', 0)}")
+    print(f"Tiles rejected     : {state.get('tiles_rejected', 0)}")
+    print(f"GitHub API calls   : {state.get('github_calls', 0)}")
+    print(f"DeepInfra API calls: {state.get('deepinfra_calls', 0)}")
+    print(f"Errors logged      : {len(state.get('errors', []))}")
+    print("-" * 40)
+    return 0
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="PLATO Scout — GitHub repo analyzer")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    p_scout = subparsers.add_parser("scout", help="Analyze a single repo")
+    p_scout.add_argument("repo", help="Owner/repo (e.g., SuperInstance/oracle1-workspace)")
+
+    p_org = subparsers.add_parser("scout-org", help="Discover and analyze repos in an org")
+    p_org.add_argument("org", help="GitHub organization name")
+    p_org.add_argument("--limit", type=int, default=10, help="Max repos to scout (default: 10)")
+
+    p_daemon = subparsers.add_parser("daemon", help="Continuously scout new repos")
+    p_daemon.add_argument("--interval", type=int, default=300, help="Sleep seconds between checks (default: 300)")
+
+    p_stats = subparsers.add_parser("stats", help="Show scouting statistics")
+
+    args = parser.parse_args()
+
+    if args.command == "scout":
+        return cmd_scout(args)
+    elif args.command == "scout-org":
+        return cmd_scout_org(args)
+    elif args.command == "daemon":
+        return cmd_daemon(args)
+    elif args.command == "stats":
+        return cmd_stats(args)
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
