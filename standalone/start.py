@@ -1,1 +1,207 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiIKZ2l0LWFnZW50IHN0YXJ0IOKAlCBTdGFydCB0aGUgYXV0b25vbW91cyB3b3JrIGxvb3AuCgpUaGUgYWdlbnQgcmVhZHMgTkVYVC1BQ1RJT04ubWQsIGRvZXMgdGhlIHRhc2ssIHVwZGF0ZXMgVE9ETy5tZCwgY29tbWl0cy4KUnVucyBjb250aW51b3VzbHkgbGlrZSBhIGdyZWVuaG9ybiBvbiBhIGJvYXQg4oCUIGFsd2F5cyB3b3JraW5nLgoKVXNhZ2U6CiAgZ2l0LWFnZW50IHN0YXJ0IFstLWludGVydmFsIDMwMF0gWy0tbWF4LXJvdW5kcyAxMF0KIiIiCgppbXBvcnQgYXJncGFyc2UKaW1wb3J0IGpzb24KaW1wb3J0IG9zCmltcG9ydCByZQppbXBvcnQgc3lzCmltcG9ydCB0aW1lCmltcG9ydCB1cmxsaWIucmVxdWVzdApmcm9tIGRhdGV0aW1lIGltcG9ydCBkYXRldGltZQoKR0lUX0FHRU5UX0hPTUUgPSBvcy5lbnZpcm9uLmdldCgiR0lUX0FHRU5UX0hPTUUiLCBvcy5wYXRoLmV4cGFuZHVzZXIoIn4vLmdpdC1hZ2VudCIpKQpDT05GSUdfRElSID0gb3MucGF0aC5qb2luKEdJVF9BR0VOVF9IT01FLCAiY29uZmlnIikKCkRFRVBJTkZSQV9BUElfS0VZID0gb3MuZW52aXJvbi5nZXQoIkRFRVBJTkZSQV9BUElfS0VZIiwgIlJoWlB0dnV5NGNYenUwMkxiQlNmZmJYZXFzNVlmMklaIikKREVFUElORlJBX1VSTCA9ICJodHRwczovL2FwaS5kZWVwaW5mcmEuY29tL3YxL29wZW5haS9jaGF0L2NvbXBsZXRpb25zIgoKCmRlZiBsb2FkX2NvbmZpZygpOgogICAgY29uZmlnX3BhdGggPSBvcy5wYXRoLmpvaW4oQ09ORklHX0RJUiwgImFnZW50Lmpzb24iKQogICAgaWYgb3MucGF0aC5leGlzdHMoY29uZmlnX3BhdGgpOgogICAgICAgIHdpdGggb3Blbihjb25maWdfcGF0aCkgYXMgZjoKICAgICAgICAgICAgcmV0dXJuIGpzb24ubG9hZChmKQogICAgcmV0dXJuIHt9CgoKZGVmIHJlYWRfZmlsZShwYXRoKToKICAgIHRyeToKICAgICAgICB3aXRoIG9wZW4ocGF0aCkgYXMgZjoKICAgICAgICAgICAgcmV0dXJuIGYucmVhZCgpCiAgICBleGNlcHQgRmlsZU5vdEZvdW5kRXJyb3I6CiAgICAgICAgcmV0dXJuIE5vbmUKCgpkZWYgd3JpdGVfZmlsZShwYXRoLCBjb250ZW50KToKICAgIHdpdGggb3BlbihwYXRoLCAidyIpIGFzIGY6CiAgICAgICAgZi53cml0ZShjb250ZW50KQoKCmRlZiBjYWxsX2xsbShzeXN0ZW1fcHJvbXB0LCB1c2VyX21lc3NhZ2UsIHRlbXBlcmF0dXJlPTAuNSk6CiAgICAiIiJDYWxsIFNlZWQtMi4wLW1pbmkgZm9yIHRhc2sgZXhlY3V0aW9uLiIiIgogICAgcGF5bG9hZCA9IGpzb24uZHVtcHMoewogICAgICAgICJtb2RlbCI6ICJCeXRlRGFuY2UvU2VlZC0yLjAtbWluaSIsCiAgICAgICAgIm1lc3NhZ2VzIjogWwogICAgICAgICAgICB7InJvbGUiOiAic3lzdGVtIiwgImNvbnRlbnQiOiBzeXN0ZW1fcHJvbXB0fSwKICAgICAgICAgICAgeyJyb2xlIjogInVzZXIiLCAiY29udGVudCI6IHVzZXJfbWVzc2FnZX0sCiAgICAgICAgXSwKICAgICAgICAidGVtcGVyYXR1cmUiOiB0ZW1wZXJhdHVyZSwKICAgICAgICAibWF4X3Rva2VucyI6IDMwMDAsCiAgICB9KS5lbmNvZGUoKQogICAgCiAgICByZXEgPSB1cmxsaWIucmVxdWVzdC5SZXF1ZXN0KERFRVBJTkZSQV9VUkwsIG1ldGhvZD0iUE9TVCIsIGRhdGE9cGF5bG9hZCkKICAgIHJlcS5hZGRfaGVhZGVyKCJDb250ZW50LVR5cGUiLCAiYXBwbGljYXRpb24vanNvbiIpCiAgICByZXEuYWRkX2hlYWRlcigiQXV0aG9yaXphdGlvbiIsIGYiQmVhcmVyIHtERUVQSU5GUkFfQVBJX0tFWX0iKQogICAgcmVxLmFkZF9oZWFkZXIoIlVzZXItQWdlbnQiLCAiZ2l0LWFnZW50LzEuMCIpCiAgICAKICAgIHdpdGggdXJsbGliLnJlcXVlc3QudXJsb3BlbihyZXEsIHRpbWVvdXQ9MTIwKSBhcyByZXNwOgogICAgICAgIGJvZHkgPSBqc29uLmxvYWRzKHJlc3AucmVhZCgpLmRlY29kZSgpKQogICAgICAgIHJldHVybiBib2R5WyJjaG9pY2VzIl1bMF1bIm1lc3NhZ2UiXVsiY29udGVudCJdCgoKZGVmIGdpdF9jb21taXQodmVzc2VsX3BhdGgsIG1lc3NhZ2UpOgogICAgIiIiQ29tbWl0IGFuZCBwdXNoIGNoYW5nZXMuIiIiCiAgICBvcy5zeXN0ZW0oZiJjZCB7dmVzc2VsX3BhdGh9ICYmIGdpdCBhZGQgLUEgJiYgZ2l0IGNvbW1pdCAtbSAne21lc3NhZ2V9JyAmJiBnaXQgcHVzaCAyPi9kZXYvbnVsbCIpCgoKZGVmIGV4dHJhY3RfYWN0aXZlX3Rhc2sobmV4dF9hY3Rpb25fY29udGVudCk6CiAgICAiIiJFeHRyYWN0IHRoZSBhY3RpdmUgdGFzayBmcm9tIE5FWFQtQUNUSU9OLm1kLiIiIgogICAgaWYgbm90IG5leHRfYWN0aW9uX2NvbnRlbnQ6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgIGxpbmVzID0gbmV4dF9hY3Rpb25fY29udGVudC5zcGxpdCgiXG4iKQogICAgaW5fYWN0aXZlID0gRmFsc2UKICAgIGZvciBsaW5lIGluIGxpbmVzOgogICAgICAgIGlmICJBY3RpdmUgVGFzayIgaW4gbGluZSBvciAiYWN0aXZlX3Rhc2siIGluIGxpbmUubG93ZXIoKToKICAgICAgICAgICAgaW5fYWN0aXZlID0gVHJ1ZQogICAgICAgICAgICBjb250aW51ZQogICAgICAgIGlmIGluX2FjdGl2ZSBhbmQgbGluZS5zdHJpcCgpIGFuZCBub3QgbGluZS5zdGFydHN3aXRoKCIjIikgYW5kIG5vdCBsaW5lLnN0YXJ0c3dpdGgoIioqIik6CiAgICAgICAgICAgIHJldHVybiBsaW5lLnN0cmlwKCkKICAgICAgICBpZiBpbl9hY3RpdmUgYW5kIGxpbmUuc3RhcnRzd2l0aCgiIyMiKToKICAgICAgICAgICAgYnJlYWsKICAgIHJldHVybiBOb25lCgoKZGVmIHJ1bl93b3JrX2N5Y2xlKGNvbmZpZywgcm91bmRfbnVtKToKICAgICIiIk9uZSB3b3JrIGN5Y2xlOiByZWFkIHRhc2sg4oaSIGV4ZWN1dGUg4oaSIHVwZGF0ZSBmaWxlcy4iIiIKICAgIGFnZW50ID0gY29uZmlnLmdldCgiYWdlbnQiLCB7fSkKICAgIG5hbWUgPSBhZ2VudC5nZXQoIm5hbWUiLCAiYWdlbnQiKQogICAgZW1vamkgPSBhZ2VudC5nZXQoImVtb2ppIiwgIvCfpoAiKQogICAgdmVzc2VsX3BhdGggPSBhZ2VudC5nZXQoInZlc3NlbF9wYXRoIiwgIiIpCiAgICAKICAgIGlmIG5vdCB2ZXNzZWxfcGF0aCBvciBub3Qgb3MucGF0aC5pc2Rpcih2ZXNzZWxfcGF0aCk6CiAgICAgICAgcHJpbnQoZiIgIFt7cm91bmRfbnVtfV0gTm8gdmVzc2VsIHBhdGgg4oCUIHNraXBwaW5nIikKICAgICAgICByZXR1cm4gRmFsc2UKICAgIAogICAgIyBQdWxsIGxhdGVzdAogICAgb3Muc3lzdGVtKGYiY2Qge3Zlc3NlbF9wYXRofSAmJiBnaXQgcHVsbCAtcSAyPi9kZXYvbnVsbCIpCiAgICAKICAgICMgUmVhZCBjdXJyZW50IHN0YXRlCiAgICBuZXh0X2FjdGlvbiA9IHJlYWRfZmlsZShvcy5wYXRoLmpvaW4odmVzc2VsX3BhdGgsICJORVhULUFDVElPTi5tZCIpKQogICAgdG9kbyA9IHJlYWRfZmlsZShvcy5wYXRoLmpvaW4odmVzc2VsX3BhdGgsICJUT0RPLm1kIikpCiAgICB0b29scyA9IHJlYWRfZmlsZShvcy5wYXRoLmpvaW4odmVzc2VsX3BhdGgsICJUT09MUy5tZCIpKQogICAgCiAgICBhY3RpdmVfdGFzayA9IGV4dHJhY3RfYWN0aXZlX3Rhc2sobmV4dF9hY3Rpb24pCiAgICBpZiBub3QgYWN0aXZlX3Rhc2s6CiAgICAgICAgcHJpbnQoZiIgIFt7cm91bmRfbnVtfV0gTm8gYWN0aXZlIHRhc2sgZm91bmQg4oCUIHdhaXRpbmciKQogICAgICAgIHJldHVybiBGYWxzZQogICAgCiAgICBwcmludChmIiAgW3tyb3VuZF9udW19XSB7ZW1vaml9IHtuYW1lfToge2FjdGl2ZV90YXNrWzo4MF19IikKICAgIAogICAgIyBCdWlsZCBjb250ZXh0IGZvciBMTE0KICAgIHN5c3RlbV9wcm9tcHQgPSBmIiIiWW91IGFyZSB7bmFtZX0sIGEgZ2l0LWFnZW50IHJ1bm5pbmcgYW4gYXV0b25vbW91cyB3b3JrIGN5Y2xlLgpZb3UgcmVhZCB5b3VyIHRhc2sgZnJvbSBORVhULUFDVElPTi5tZCBhbmQgZXhlY3V0ZSBpdC4KT3V0cHV0IGZvcm1hdDoKMS4gQSBzdW1tYXJ5IG9mIHdoYXQgeW91IGRpZCAoMi0zIHNlbnRlbmNlcykKMi4gRmlsZXMgdG8gdXBkYXRlIChKU09OIGFycmF5KTogW3t7InBhdGgiOiAiZmlsZS5tZCIsICJjb250ZW50IjogIi4uLiJ9fV0KMy4gTmV4dCB0YXNrIHN1Z2dlc3Rpb24KCkN1cnJlbnQgVE9ETyBzdGF0ZSAoZmlyc3QgNTAgbGluZXMpOgp7dG9kb1s6MjAwMF0gaWYgdG9kbyBlbHNlICdObyBUT0RPLm1kJ30KCkF2YWlsYWJsZSB0b29sczoKe3Rvb2xzWzoxMDAwXSBpZiB0b29scyBlbHNlICdOb25lIHNwZWNpZmllZCd9CgpFeGVjdXRlIHRoZSB0YXNrLiBCZSBjb25jcmV0ZSDigJQgcmVmZXJlbmNlIGFjdHVhbCBmaWxlcyBhbmQgYWN0aW9ucy4iIiIKCiAgICB1c2VyX21lc3NhZ2UgPSBmIkFjdGl2ZSB0YXNrOiB7YWN0aXZlX3Rhc2t9XG5cbkV4ZWN1dGUgdGhpcyB0YXNrIG5vdy4iCiAgICAKICAgIHRyeToKICAgICAgICByZXNwb25zZSA9IGNhbGxfbGxtKHN5c3RlbV9wcm9tcHQsIHVzZXJfbWVzc2FnZSkKICAgICAgICBwcmludChmIiAgW3tyb3VuZF9udW19XSBSZXNwb25zZToge3Jlc3BvbnNlWzoxNTBdfS4uLiIpCiAgICAgICAgCiAgICAgICAgIyBUcnkgdG8gZXh0cmFjdCBmaWxlIHVwZGF0ZXMKICAgICAgICBmaWxlX3BhdHRlcm4gPSByJyJwYXRoIjpccyoiKFteIl0rKSJbXn1dKiJjb250ZW50IjpccyoiKFteIl0qKSInCiAgICAgICAgbWF0Y2hlcyA9IHJlLmZpbmRhbGwoZmlsZV9wYXR0ZXJuLCByZXNwb25zZSkKICAgICAgICAKICAgICAgICBpZiBtYXRjaGVzOgogICAgICAgICAgICBmb3IgZmlsZXBhdGgsIGNvbnRlbnQgaW4gbWF0Y2hlczoKICAgICAgICAgICAgICAgIGZ1bGxfcGF0aCA9IG9zLnBhdGguam9pbih2ZXNzZWxfcGF0aCwgZmlsZXBhdGgpCiAgICAgICAgICAgICAgICBvcy5tYWtlZGlycyhvcy5wYXRoLmRpcm5hbWUoZnVsbF9wYXRoKSwgZXhpc3Rfb2s9VHJ1ZSkKICAgICAgICAgICAgICAgIHdyaXRlX2ZpbGUoZnVsbF9wYXRoLCBjb250ZW50LnJlcGxhY2UoIlxcbiIsICJcbiIpKQogICAgICAgICAgICAgICAgcHJpbnQoZiIgIFt7cm91bmRfbnVtfV0gVXBkYXRlZDoge2ZpbGVwYXRofSIpCiAgICAgICAgICAgIAogICAgICAgICAgICBnaXRfY29tbWl0KHZlc3NlbF9wYXRoLCBmIndvcmsgY3ljbGUge3JvdW5kX251bX06IHthY3RpdmVfdGFza1s6NTBdfSIpCiAgICAgICAgICAgIHByaW50KGYiICBbe3JvdW5kX251bX1dIENvbW1pdHRlZCBhbmQgcHVzaGVkIikKICAgICAgICBlbHNlOgogICAgICAgICAgICBwcmludChmIiAgW3tyb3VuZF9udW19XSBObyBmaWxlIHVwZGF0ZXMgZXh0cmFjdGVkIikKICAgICAgICAKICAgICAgICByZXR1cm4gVHJ1ZQogICAgICAgIAogICAgZXhjZXB0IEV4Y2VwdGlvbiBhcyBlOgogICAgICAgIHByaW50KGYiICBbe3JvdW5kX251bX1dIEVycm9yOiB7ZX0iKQogICAgICAgIHJldHVybiBGYWxzZQoKCmRlZiBtYWluKCk6CiAgICBwYXJzZXIgPSBhcmdwYXJzZS5Bcmd1bWVudFBhcnNlcihkZXNjcmlwdGlvbj0iZ2l0LWFnZW50IHN0YXJ0IOKAlCBBdXRvbm9tb3VzIHdvcmsgbG9vcCIpCiAgICBwYXJzZXIuYWRkX2FyZ3VtZW50KCItLWludGVydmFsIiwgdHlwZT1pbnQsIGRlZmF1bHQ9MzAwLCBoZWxwPSJTZWNvbmRzIGJldHdlZW4gY3ljbGVzIikKICAgIHBhcnNlci5hZGRfYXJndW1lbnQoIi0tbWF4LXJvdW5kcyIsIHR5cGU9aW50LCBkZWZhdWx0PTEwLCBoZWxwPSJNYXggY3ljbGVzIGJlZm9yZSBzdG9wcGluZyIpCiAgICBwYXJzZXIuYWRkX2FyZ3VtZW50KCItLW9uY2UiLCBhY3Rpb249InN0b3JlX3RydWUiLCBoZWxwPSJSdW4gb25lIGN5Y2xlIGFuZCBleGl0IikKICAgIAogICAgYXJncyA9IHBhcnNlci5wYXJzZV9hcmdzKCkKICAgIGNvbmZpZyA9IGxvYWRfY29uZmlnKCkKICAgIGFnZW50ID0gY29uZmlnLmdldCgiYWdlbnQiLCB7fSkKICAgIAogICAgaWYgbm90IGFnZW50OgogICAgICAgIHByaW50KCJOb3Qgb25ib2FyZGVkLiBSdW46IGdpdC1hZ2VudCBvbmJvYXJkIC0tdmVzc2VsIG93bmVyL3JlcG8iKQogICAgICAgIHN5cy5leGl0KDEpCiAgICAKICAgIG5hbWUgPSBhZ2VudC5nZXQoIm5hbWUiLCAiYWdlbnQiKQogICAgZW1vamkgPSBhZ2VudC5nZXQoImVtb2ppIiwgIvCfpoAiKQogICAgCiAgICBwcmludChmIlxue2Vtb2ppfSB7bmFtZX0g4oCUIFN0YXJ0aW5nIGF1dG9ub21vdXMgd29yayBsb29wIikKICAgIHByaW50KGYiICBJbnRlcnZhbDoge2FyZ3MuaW50ZXJ2YWx9cyIpCiAgICBwcmludChmIiAgTWF4IHJvdW5kczoge2FyZ3MubWF4X3JvdW5kc30iKQogICAgcHJpbnQoZiIgIFZlc3NlbDoge2FnZW50LmdldCgndmVzc2VsJywgJ25vbmUnKX0iKQogICAgcHJpbnQoKQogICAgCiAgICByb3VuZHNfZG9uZSA9IDAKICAgIAogICAgZm9yIGkgaW4gcmFuZ2UoMSwgYXJncy5tYXhfcm91bmRzICsgMSk6CiAgICAgICAgdGltZXN0YW1wID0gZGF0ZXRpbWUudXRjbm93KCkuc3RyZnRpbWUoIiVIOiVNOiVTIikKICAgICAgICBwcmludChmIlxuW3t0aW1lc3RhbXB9XSBDeWNsZSB7aX0ve2FyZ3MubWF4X3JvdW5kc30iKQogICAgICAgIAogICAgICAgIGRpZF93b3JrID0gcnVuX3dvcmtfY3ljbGUoY29uZmlnLCBpKQogICAgICAgIHJvdW5kc19kb25lICs9IDEKICAgICAgICAKICAgICAgICBpZiBhcmdzLm9uY2U6CiAgICAgICAgICAgIGJyZWFrCiAgICAgICAgCiAgICAgICAgaWYgaSA8IGFyZ3MubWF4X3JvdW5kczoKICAgICAgICAgICAgcHJpbnQoZiIgIFNsZWVwaW5nIHthcmdzLmludGVydmFsfXMuLi4iKQogICAgICAgICAgICB0aW1lLnNsZWVwKGFyZ3MuaW50ZXJ2YWwpCiAgICAKICAgIHByaW50KGYiXG57ZW1vaml9IFdvcmsgbG9vcCBjb21wbGV0ZS4ge3JvdW5kc19kb25lfSBjeWNsZXMgcnVuLiIpCgoKaWYgX19uYW1lX18gPT0gIl9fbWFpbl9fIjoKICAgIG1haW4oKQo=
+#!/usr/bin/env python3
+"""
+git-agent start — Start the autonomous work loop.
+
+The agent reads NEXT-ACTION.md, does the task, updates TODO.md, commits.
+Runs continuously like a greenhorn on a boat — always working.
+
+Usage:
+  git-agent start [--interval 300] [--max-rounds 10]
+"""
+
+import argparse
+import json
+import os
+import re
+import sys
+import time
+import urllib.request
+from datetime import datetime
+
+GIT_AGENT_HOME = os.environ.get("GIT_AGENT_HOME", os.path.expanduser("~/.git-agent"))
+CONFIG_DIR = os.path.join(GIT_AGENT_HOME, "config")
+
+DEEPINFRA_API_KEY = os.environ.get("DEEPINFRA_API_KEY", "RhZPtvuy4cXzu02LbBSffbXeqs5Yf2IZ")
+DEEPINFRA_URL = "https://api.deepinfra.com/v1/openai/chat/completions"
+
+
+def load_config():
+    config_path = os.path.join(CONFIG_DIR, "agent.json")
+    if os.path.exists(config_path):
+        with open(config_path) as f:
+            return json.load(f)
+    return {}
+
+
+def read_file(path):
+    try:
+        with open(path) as f:
+            return f.read()
+    except FileNotFoundError:
+        return None
+
+
+def write_file(path, content):
+    with open(path, "w") as f:
+        f.write(content)
+
+
+def call_llm(system_prompt, user_message, temperature=0.5):
+    """Call Seed-2.0-mini for task execution."""
+    payload = json.dumps({
+        "model": "ByteDance/Seed-2.0-mini",
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_message},
+        ],
+        "temperature": temperature,
+        "max_tokens": 3000,
+    }).encode()
+    
+    req = urllib.request.Request(DEEPINFRA_URL, method="POST", data=payload)
+    req.add_header("Content-Type", "application/json")
+    req.add_header("Authorization", f"Bearer {DEEPINFRA_API_KEY}")
+    req.add_header("User-Agent", "git-agent/1.0")
+    
+    with urllib.request.urlopen(req, timeout=120) as resp:
+        body = json.loads(resp.read().decode())
+        return body["choices"][0]["message"]["content"]
+
+
+def git_commit(vessel_path, message):
+    """Commit and push changes."""
+    os.system(f"cd {vessel_path} && git add -A && git commit -m '{message}' && git push 2>/dev/null")
+
+
+def extract_active_task(next_action_content):
+    """Extract the active task from NEXT-ACTION.md."""
+    if not next_action_content:
+        return None
+    lines = next_action_content.split("\n")
+    in_active = False
+    for line in lines:
+        if "Active Task" in line or "active_task" in line.lower():
+            in_active = True
+            continue
+        if in_active and line.strip() and not line.startswith("#") and not line.startswith("**"):
+            return line.strip()
+        if in_active and line.startswith("##"):
+            break
+    return None
+
+
+def run_work_cycle(config, round_num):
+    """One work cycle: read task → execute → update files."""
+    agent = config.get("agent", {})
+    name = agent.get("name", "agent")
+    emoji = agent.get("emoji", "🦀")
+    vessel_path = agent.get("vessel_path", "")
+    
+    if not vessel_path or not os.path.isdir(vessel_path):
+        print(f"  [{round_num}] No vessel path — skipping")
+        return False
+    
+    # Pull latest
+    os.system(f"cd {vessel_path} && git pull -q 2>/dev/null")
+    
+    # Read current state
+    next_action = read_file(os.path.join(vessel_path, "NEXT-ACTION.md"))
+    todo = read_file(os.path.join(vessel_path, "TODO.md"))
+    tools = read_file(os.path.join(vessel_path, "TOOLS.md"))
+    
+    active_task = extract_active_task(next_action)
+    if not active_task:
+        print(f"  [{round_num}] No active task found — waiting")
+        return False
+    
+    print(f"  [{round_num}] {emoji} {name}: {active_task[:80]}")
+    
+    # Build context for LLM
+    system_prompt = f"""You are {name}, a git-agent running an autonomous work cycle.
+You read your task from NEXT-ACTION.md and execute it.
+Output format:
+1. A summary of what you did (2-3 sentences)
+2. Files to update (JSON array): [{{"path": "file.md", "content": "..."}}]
+3. Next task suggestion
+
+Current TODO state (first 50 lines):
+{todo[:2000] if todo else 'No TODO.md'}
+
+Available tools:
+{tools[:1000] if tools else 'None specified'}
+
+Execute the task. Be concrete — reference actual files and actions."""
+
+    user_message = f"Active task: {active_task}\n\nExecute this task now."
+    
+    try:
+        response = call_llm(system_prompt, user_message)
+        print(f"  [{round_num}] Response: {response[:150]}...")
+        
+        # Try to extract file updates
+        file_pattern = r'"path":\s*"([^"]+)"[^}]*"content":\s*"([^"]*)"'
+        matches = re.findall(file_pattern, response)
+        
+        if matches:
+            for filepath, content in matches:
+                full_path = os.path.join(vessel_path, filepath)
+                os.makedirs(os.path.dirname(full_path), exist_ok=True)
+                write_file(full_path, content.replace("\\n", "\n"))
+                print(f"  [{round_num}] Updated: {filepath}")
+            
+            git_commit(vessel_path, f"work cycle {round_num}: {active_task[:50]}")
+            print(f"  [{round_num}] Committed and pushed")
+        else:
+            print(f"  [{round_num}] No file updates extracted")
+        
+        return True
+        
+    except Exception as e:
+        print(f"  [{round_num}] Error: {e}")
+        return False
+
+
+def main():
+    parser = argparse.ArgumentParser(description="git-agent start — Autonomous work loop")
+    parser.add_argument("--interval", type=int, default=300, help="Seconds between cycles")
+    parser.add_argument("--max-rounds", type=int, default=10, help="Max cycles before stopping")
+    parser.add_argument("--once", action="store_true", help="Run one cycle and exit")
+    
+    args = parser.parse_args()
+    config = load_config()
+    agent = config.get("agent", {})
+    
+    if not agent:
+        print("Not onboarded. Run: git-agent onboard --vessel owner/repo")
+        sys.exit(1)
+    
+    name = agent.get("name", "agent")
+    emoji = agent.get("emoji", "🦀")
+    
+    print(f"\n{emoji} {name} — Starting autonomous work loop")
+    print(f"  Interval: {args.interval}s")
+    print(f"  Max rounds: {args.max_rounds}")
+    print(f"  Vessel: {agent.get('vessel', 'none')}")
+    print()
+    
+    rounds_done = 0
+    
+    for i in range(1, args.max_rounds + 1):
+        timestamp = datetime.utcnow().strftime("%H:%M:%S")
+        print(f"\n[{timestamp}] Cycle {i}/{args.max_rounds}")
+        
+        did_work = run_work_cycle(config, i)
+        rounds_done += 1
+        
+        if args.once:
+            break
+        
+        if i < args.max_rounds:
+            print(f"  Sleeping {args.interval}s...")
+            time.sleep(args.interval)
+    
+    print(f"\n{emoji} Work loop complete. {rounds_done} cycles run.")
+
+
+if __name__ == "__main__":
+    main()
