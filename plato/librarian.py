@@ -1,1 +1,237 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiIKUExBVE8gTGlicmFyaWFuIOKAlCBUaWxlIHF1YWxpdHkgY29udHJvbCwgZGVkdXBsaWNhdGlvbiwgYW5kIGNyb3NzLXJlZmVyZW5jaW5nLgoKU2NhbnMgUExBVE8gcm9vbXMgZm9yOgoxLiBEdXBsaWNhdGUgdGlsZXMgKHNhbWUgcXVlc3Rpb24vYW5zd2VyKQoyLiBMb3ctcXVhbGl0eSB0aWxlcyAoc2hvcnQgYW5zd2VycywgbG93IGNvbmZpZGVuY2UpCjMuIENyb3NzLXJlZmVyZW5jZXMgYmV0d2VlbiByb29tcwo0LiBSb29tIHN0YXRpc3RpY3MgYW5kIGhlYWx0aCBtZXRyaWNzCgpVc2FnZToKICBweXRob24zIHBsYXRvX2xpYnJhcmlhbi5weSBhdWRpdAogIHB5dGhvbjMgcGxhdG9fbGlicmFyaWFuLnB5IGF1ZGl0IC0tcm9vbSBncHUtb3B0aW1pemF0aW9uCiAgcHl0aG9uMyBwbGF0b19saWJyYXJpYW4ucHkgZGVkdXAgLS1yb29tIGFyY2hpdGVjdHVyZQogIHB5dGhvbjMgcGxhdG9fbGlicmFyaWFuLnB5IHN0YXRzCiAgcHl0aG9uMyBwbGF0b19saWJyYXJpYW4ucHkgY3Jvc3MtcmVmZXJlbmNlCiIiIgoKaW1wb3J0IGpzb24sIHVybGxpYi5yZXF1ZXN0LCBzeXMsIG9zLCByZSwgYXJncGFyc2UsIGhhc2hsaWIKZnJvbSBjb2xsZWN0aW9ucyBpbXBvcnQgZGVmYXVsdGRpY3QKZnJvbSB0eXBpbmcgaW1wb3J0IERpY3QsIExpc3QKClBMQVRPX1VSTCA9ICJodHRwOi8vbG9jYWxob3N0Ojg4NDciCgpkZWYgcGxhdG9fZ2V0KHBhdGgpOgogICAgcmVxID0gdXJsbGliLnJlcXVlc3QuUmVxdWVzdChmIntQTEFUT19VUkx9e3BhdGh9IikKICAgIHdpdGggdXJsbGliLnJlcXVlc3QudXJsb3BlbihyZXEsIHRpbWVvdXQ9MzApIGFzIHJlc3A6CiAgICAgICAgcmV0dXJuIGpzb24ubG9hZHMocmVzcC5yZWFkKCkuZGVjb2RlKCkpCgpkZWYgcGxhdG9fcG9zdChwYXRoLCBkYXRhKToKICAgIHJlcSA9IHVybGxpYi5yZXF1ZXN0LlJlcXVlc3QoZiJ7UExBVE9fVVJMfXtwYXRofSIsIG1ldGhvZD0iUE9TVCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhPWpzb24uZHVtcHMoZGF0YSkuZW5jb2RlKCksCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZWFkZXJzPXsiQ29udGVudC1UeXBlIjogImFwcGxpY2F0aW9uL2pzb24ifSkKICAgIHdpdGggdXJsbGliLnJlcXVlc3QudXJsb3BlbihyZXEsIHRpbWVvdXQ9MTApIGFzIHJlc3A6CiAgICAgICAgcmV0dXJuIGpzb24ubG9hZHMocmVzcC5yZWFkKCkuZGVjb2RlKCkpCgpkZWYgZ2V0X2FsbF9yb29tcygpOgogICAgZGF0YSA9IHBsYXRvX2dldCgiL3N0YXR1cyIpCiAgICByZXR1cm4gbGlzdChkYXRhLmdldCgicm9vbXMiLCB7fSkua2V5cygpKQoKZGVmIGdldF9yb29tX3RpbGVzKHJvb20pOgogICAgdHJ5OgogICAgICAgIGRhdGEgPSBwbGF0b19nZXQoZiIvcm9vbS97cm9vbX0iKQogICAgICAgIHJldHVybiBkYXRhLmdldCgidGlsZXMiLCBbXSkKICAgIGV4Y2VwdDoKICAgICAgICByZXR1cm4gW10KCmRlZiB0aWxlX2hhc2godGlsZSk6CiAgICAiIiJHZW5lcmF0ZSBhIGhhc2ggZm9yIGRlZHVwIGJhc2VkIG9uIHF1ZXN0aW9uICsgYW5zd2VyLiIiIgogICAgcSA9IHRpbGUuZ2V0KCJxdWVzdGlvbiIsICIiKS5zdHJpcCgpLmxvd2VyKCkKICAgIGEgPSB0aWxlLmdldCgiYW5zd2VyIiwgIiIpLnN0cmlwKCkubG93ZXIoKVs6MjAwXQogICAgcmV0dXJuIGhhc2hsaWIubWQ1KGYie3F9Ojp7YX0iLmVuY29kZSgpKS5oZXhkaWdlc3QoKQoKZGVmIGF1ZGl0X3Jvb20ocm9vbSk6CiAgICAiIiJBdWRpdCBhIHNpbmdsZSByb29tIGZvciBxdWFsaXR5LiIiIgogICAgdGlsZXMgPSBnZXRfcm9vbV90aWxlcyhyb29tKQogICAgaWYgbm90IHRpbGVzOgogICAgICAgIHJldHVybiB7InJvb20iOiByb29tLCAidGlsZXMiOiAwLCAiaXNzdWVzIjogW119CgogICAgaXNzdWVzID0gW10KICAgIGhhc2hlcyA9IHt9CiAgICAKICAgIGZvciB0aWxlIGluIHRpbGVzOgogICAgICAgIGggPSB0aWxlX2hhc2godGlsZSkKICAgICAgICAKICAgICAgICAjIENoZWNrIGZvciBkdXBsaWNhdGVzCiAgICAgICAgaWYgaCBpbiBoYXNoZXM6CiAgICAgICAgICAgIGlzc3Vlcy5hcHBlbmQoewogICAgICAgICAgICAgICAgInR5cGUiOiAiZHVwbGljYXRlIiwKICAgICAgICAgICAgICAgICJ0aWxlIjogdGlsZS5nZXQoInF1ZXN0aW9uIiwgIiIpWzo2MF0sCiAgICAgICAgICAgICAgICAiZHVwbGljYXRlX29mIjogaGFzaGVzW2hdWzo2MF0KICAgICAgICAgICAgfSkKICAgICAgICBoYXNoZXNbaF0gPSB0aWxlLmdldCgicXVlc3Rpb24iLCAiIikKICAgICAgICAKICAgICAgICAjIENoZWNrIHF1YWxpdHkKICAgICAgICBhbnN3ZXIgPSB0aWxlLmdldCgiYW5zd2VyIiwgIiIpCiAgICAgICAgaWYgbGVuKGFuc3dlcikgPCAyMDoKICAgICAgICAgICAgaXNzdWVzLmFwcGVuZCh7CiAgICAgICAgICAgICAgICAidHlwZSI6ICJzaG9ydF9hbnN3ZXIiLAogICAgICAgICAgICAgICAgInRpbGUiOiB0aWxlLmdldCgicXVlc3Rpb24iLCAiIilbOjYwXSwKICAgICAgICAgICAgICAgICJhbnN3ZXJfbGVuZ3RoIjogbGVuKGFuc3dlcikKICAgICAgICAgICAgfSkKICAgICAgICAKICAgICAgICBjb25mID0gdGlsZS5nZXQoImNvbmZpZGVuY2UiLCAwKQogICAgICAgIGlmIGNvbmYgPCAwLjM6CiAgICAgICAgICAgIGlzc3Vlcy5hcHBlbmQoewogICAgICAgICAgICAgICAgInR5cGUiOiAibG93X2NvbmZpZGVuY2UiLAogICAgICAgICAgICAgICAgInRpbGUiOiB0aWxlLmdldCgicXVlc3Rpb24iLCAiIilbOjYwXSwKICAgICAgICAgICAgICAgICJjb25maWRlbmNlIjogY29uZgogICAgICAgICAgICB9KQogICAgICAgIAogICAgICAgICMgQ2hlY2sgZm9yIGFic29sdXRlIGNsYWltcyAoZGVhZGJhbmQgcHJvdG9jb2wpCiAgICAgICAgdGV4dCA9IGYie3RpbGUuZ2V0KCdxdWVzdGlvbicsICcnKX0ge2Fuc3dlcn0iCiAgICAgICAgYWJzb2x1dGVzID0gcmUuZmluZGFsbChyJ1xiKGFsd2F5c3xuZXZlcnxhbGx8bm9uZXxldmVyeXxubyBvbmV8aW1wb3NzaWJsZSlcYicsIHRleHQsIHJlLklHTk9SRUNBU0UpCiAgICAgICAgaWYgYWJzb2x1dGVzOgogICAgICAgICAgICBpc3N1ZXMuYXBwZW5kKHsKICAgICAgICAgICAgICAgICJ0eXBlIjogImFic29sdXRlX2NsYWltIiwKICAgICAgICAgICAgICAgICJ0aWxlIjogdGlsZS5nZXQoInF1ZXN0aW9uIiwgIiIpWzo2MF0sCiAgICAgICAgICAgICAgICAid29yZHMiOiBhYnNvbHV0ZXNbOjNdCiAgICAgICAgICAgIH0pCiAgICAKICAgIHJldHVybiB7CiAgICAgICAgInJvb20iOiByb29tLAogICAgICAgICJ0aWxlcyI6IGxlbih0aWxlcyksCiAgICAgICAgImlzc3VlcyI6IGxlbihpc3N1ZXMpLAogICAgICAgICJpc3N1ZV90eXBlcyI6IGRlZmF1bHRkaWN0KGludCwge2lbInR5cGUiXTogc3VtKDEgZm9yIGogaW4gaXNzdWVzIGlmIGpbInR5cGUiXSA9PSBpWyJ0eXBlIl0pIGZvciBpIGluIGlzc3Vlc30pLAogICAgICAgICJkZXRhaWxzIjogaXNzdWVzWzoxMF0KICAgIH0KCmRlZiBkZWR1cF9yb29tKHJvb20pOgogICAgIiIiRmluZCBhbmQgcmVwb3J0IGR1cGxpY2F0ZXMgaW4gYSByb29tLiIiIgogICAgdGlsZXMgPSBnZXRfcm9vbV90aWxlcyhyb29tKQogICAgaWYgbm90IHRpbGVzOgogICAgICAgIHJldHVybiB7InJvb20iOiByb29tLCAiZHVwbGljYXRlcyI6IDB9CiAgICAKICAgIHNlZW4gPSB7fQogICAgZHVwbGljYXRlcyA9IFtdCiAgICAKICAgIGZvciB0aWxlIGluIHRpbGVzOgogICAgICAgIGggPSB0aWxlX2hhc2godGlsZSkKICAgICAgICBpZiBoIGluIHNlZW46CiAgICAgICAgICAgIGR1cGxpY2F0ZXMuYXBwZW5kKHsKICAgICAgICAgICAgICAgICJxdWVzdGlvbiI6IHRpbGUuZ2V0KCJxdWVzdGlvbiIsICIiKVs6ODBdLAogICAgICAgICAgICAgICAgIm9yaWdpbmFsIjogc2VlbltoXVs6ODBdCiAgICAgICAgICAgIH0pCiAgICAgICAgZWxzZToKICAgICAgICAgICAgc2VlbltoXSA9IHRpbGUuZ2V0KCJxdWVzdGlvbiIsICIiKQogICAgCiAgICByZXR1cm4geyJyb29tIjogcm9vbSwgInRvdGFsIjogbGVuKHRpbGVzKSwgImR1cGxpY2F0ZXMiOiBsZW4oZHVwbGljYXRlcyksICJkZXRhaWxzIjogZHVwbGljYXRlc30KCmRlZiBjcm9zc19yZWZlcmVuY2UoKToKICAgICIiIkZpbmQgdGlsZXMgdGhhdCByZWZlcmVuY2UgY29uY2VwdHMgYWNyb3NzIHJvb21zLiIiIgogICAgcm9vbXMgPSBnZXRfYWxsX3Jvb21zKCkKICAgICMgT25seSBjaGVjayByb29tcyB3aXRoIHJlYXNvbmFibGUgdGlsZSBjb3VudHMKICAgIHJvb21fdGlsZXMgPSB7fQogICAgZm9yIHJvb20gaW4gcm9vbXM6CiAgICAgICAgdGlsZXMgPSBnZXRfcm9vbV90aWxlcyhyb29tKQogICAgICAgIGlmIHRpbGVzOgogICAgICAgICAgICByb29tX3RpbGVzW3Jvb21dID0gdGlsZXMKICAgIAogICAgIyBGaW5kIHNoYXJlZCBrZXl3b3JkcwogICAga2V5d29yZF9yb29tcyA9IGRlZmF1bHRkaWN0KHNldCkKICAgIGZvciByb29tLCB0aWxlcyBpbiByb29tX3RpbGVzLml0ZW1zKCk6CiAgICAgICAgZm9yIHRpbGUgaW4gdGlsZXM6CiAgICAgICAgICAgIHRleHQgPSBmInt0aWxlLmdldCgncXVlc3Rpb24nLCAnJyl9IHt0aWxlLmdldCgnYW5zd2VyJywgJycpfSIKICAgICAgICAgICAgd29yZHMgPSBzZXQocmUuZmluZGFsbChyJ1xiW2Etel17NCx9XGInLCB0ZXh0Lmxvd2VyKCkpKQogICAgICAgICAgICBmb3IgdyBpbiB3b3JkcyAtIHsndGhhdCcsICd0aGlzJywgJ3dpdGgnLCAnZnJvbScsICdoYXZlJywgJ2JlZW4nLCAndGhleScsICd0aGVpcicsICd3aGljaCcsICd3b3VsZCcsICdhYm91dCcsICdjb3VsZCcsICdvdGhlcicsICd0aGFuJ306CiAgICAgICAgICAgICAgICBrZXl3b3JkX3Jvb21zW3ddLmFkZChyb29tKQogICAgCiAgICAjIEZpbmQga2V5d29yZHMgdGhhdCBhcHBlYXIgaW4gMysgcm9vbXMKICAgIGNyb3NzX3JlZnMgPSBbXQogICAgZm9yIGtleXdvcmQsIHJtcyBpbiBzb3J0ZWQoa2V5d29yZF9yb29tcy5pdGVtcygpLCBrZXk9bGFtYmRhIHg6IC1sZW4oeFsxXSkpOgogICAgICAgIGlmIGxlbihybXMpID49IDM6CiAgICAgICAgICAgIGNyb3NzX3JlZnMuYXBwZW5kKHsKICAgICAgICAgICAgICAgICJrZXl3b3JkIjoga2V5d29yZCwKICAgICAgICAgICAgICAgICJyb29tcyI6IHNvcnRlZChybXMpLAogICAgICAgICAgICAgICAgInJvb21fY291bnQiOiBsZW4ocm1zKQogICAgICAgICAgICB9KQogICAgCiAgICByZXR1cm4geyJjcm9zc19yZWZlcmVuY2VzIjogY3Jvc3NfcmVmc1s6MjBdLCAicm9vbXNfYW5hbHl6ZWQiOiBsZW4ocm9vbV90aWxlcyl9CgpkZWYgbWFpbigpOgogICAgcGFyc2VyID0gYXJncGFyc2UuQXJndW1lbnRQYXJzZXIoZGVzY3JpcHRpb249IlBMQVRPIExpYnJhcmlhbiDigJQgVGlsZSBxdWFsaXR5IGNvbnRyb2wiKQogICAgc3ViID0gcGFyc2VyLmFkZF9zdWJwYXJzZXJzKGRlc3Q9ImNvbW1hbmQiKQoKICAgIHN1Yi5hZGRfcGFyc2VyKCJzdGF0cyIsIGhlbHA9Ik92ZXJhbGwgUExBVE8gc3RhdGlzdGljcyIpCiAgICAKICAgIGF1ZGl0X3AgPSBzdWIuYWRkX3BhcnNlcigiYXVkaXQiLCBoZWxwPSJBdWRpdCB0aWxlIHF1YWxpdHkiKQogICAgYXVkaXRfcC5hZGRfYXJndW1lbnQoIi0tcm9vbSIsIGhlbHA9IlNwZWNpZmljIHJvb20gdG8gYXVkaXQiKQoKICAgIGRlZHVwX3AgPSBzdWIuYWRkX3BhcnNlcigiZGVkdXAiLCBoZWxwPSJGaW5kIGR1cGxpY2F0ZSB0aWxlcyIpCiAgICBkZWR1cF9wLmFkZF9hcmd1bWVudCgiLS1yb29tIiwgaGVscD0iU3BlY2lmaWMgcm9vbSB0byBkZWR1cCIpCiAgICAKICAgIHN1Yi5hZGRfcGFyc2VyKCJjcm9zcy1yZWZlcmVuY2UiLCBoZWxwPSJGaW5kIGNyb3NzLXJvb20gY29ubmVjdGlvbnMiKQoKICAgIGFyZ3MgPSBwYXJzZXIucGFyc2VfYXJncygpCgogICAgaWYgYXJncy5jb21tYW5kID09ICJzdGF0cyI6CiAgICAgICAgcm9vbXMgPSBnZXRfYWxsX3Jvb21zKCkKICAgICAgICB0b3RhbF90aWxlcyA9IDAKICAgICAgICByb29tX3N0YXRzID0ge30KICAgICAgICBmb3Igcm9vbSBpbiByb29tczoKICAgICAgICAgICAgdGlsZXMgPSBnZXRfcm9vbV90aWxlcyhyb29tKQogICAgICAgICAgICB0b3RhbF90aWxlcyArPSBsZW4odGlsZXMpCiAgICAgICAgICAgIGlmIHRpbGVzOgogICAgICAgICAgICAgICAgcm9vbV9zdGF0c1tyb29tXSA9IGxlbih0aWxlcykKICAgICAgICAKICAgICAgICBwcmludChmIvCfk5ogUExBVE8gTGlicmFyeSBTdGF0aXN0aWNzIikKICAgICAgICBwcmludChmIiAgIFJvb21zOiB7bGVuKHJvb21zKX0iKQogICAgICAgIHByaW50KGYiICAgVG90YWwgdGlsZXM6IHt0b3RhbF90aWxlc30iKQogICAgICAgIHByaW50KGYiICAgUm9vbXMgd2l0aCB0aWxlczoge2xlbihyb29tX3N0YXRzKX0iKQogICAgICAgIHByaW50KGYiXG4gICBUb3AgMTAgcm9vbXMgYnkgdGlsZXM6IikKICAgICAgICBmb3Igcm9vbSwgY291bnQgaW4gc29ydGVkKHJvb21fc3RhdHMuaXRlbXMoKSwga2V5PWxhbWJkYSB4OiAteFsxXSlbOjEwXToKICAgICAgICAgICAgcHJpbnQoZiIgICAgIHtyb29tfToge2NvdW50fSIpCgogICAgZWxpZiBhcmdzLmNvbW1hbmQgPT0gImF1ZGl0IjoKICAgICAgICBpZiBhcmdzLnJvb206CiAgICAgICAgICAgIHJlc3VsdCA9IGF1ZGl0X3Jvb20oYXJncy5yb29tKQogICAgICAgICAgICBwcmludChqc29uLmR1bXBzKHJlc3VsdCwgaW5kZW50PTIsIGRlZmF1bHQ9c3RyKSkKICAgICAgICBlbHNlOgogICAgICAgICAgICByb29tcyA9IGdldF9hbGxfcm9vbXMoKQogICAgICAgICAgICB0b3RhbF9pc3N1ZXMgPSAwCiAgICAgICAgICAgIGZvciByb29tIGluIHNvcnRlZChyb29tcyk6CiAgICAgICAgICAgICAgICByZXN1bHQgPSBhdWRpdF9yb29tKHJvb20pCiAgICAgICAgICAgICAgICBpZiByZXN1bHRbImlzc3VlcyJdID4gMDoKICAgICAgICAgICAgICAgICAgICB0b3RhbF9pc3N1ZXMgKz0gcmVzdWx0WyJpc3N1ZXMiXQogICAgICAgICAgICAgICAgICAgIHByaW50KGYiICB7cm9vbX06IHtyZXN1bHRbJ3RpbGVzJ119IHRpbGVzLCB7cmVzdWx0Wydpc3N1ZXMnXX0gaXNzdWVzIikKICAgICAgICAgICAgICAgICAgICBmb3IgaXNzdWUgaW4gcmVzdWx0LmdldCgiZGV0YWlscyIsIFtdKVs6M106CiAgICAgICAgICAgICAgICAgICAgICAgIHByaW50KGYiICAgIOKaoO+4jyAge2lzc3VlWyd0eXBlJ119OiB7aXNzdWUuZ2V0KCd0aWxlJywgJycpWzo2MF19IikKICAgICAgICAgICAgcHJpbnQoZiJcblRvdGFsIGlzc3VlcyBmb3VuZDoge3RvdGFsX2lzc3Vlc30iKQoKICAgIGVsaWYgYXJncy5jb21tYW5kID09ICJkZWR1cCI6CiAgICAgICAgaWYgYXJncy5yb29tOgogICAgICAgICAgICByZXN1bHQgPSBkZWR1cF9yb29tKGFyZ3Mucm9vbSkKICAgICAgICAgICAgcHJpbnQoanNvbi5kdW1wcyhyZXN1bHQsIGluZGVudD0yKSkKICAgICAgICBlbHNlOgogICAgICAgICAgICByb29tcyA9IGdldF9hbGxfcm9vbXMoKQogICAgICAgICAgICB0b3RhbF9kdXBzID0gMAogICAgICAgICAgICBmb3Igcm9vbSBpbiByb29tczoKICAgICAgICAgICAgICAgIHJlc3VsdCA9IGRlZHVwX3Jvb20ocm9vbSkKICAgICAgICAgICAgICAgIGlmIHJlc3VsdFsiZHVwbGljYXRlcyJdID4gMDoKICAgICAgICAgICAgICAgICAgICB0b3RhbF9kdXBzICs9IHJlc3VsdFsiZHVwbGljYXRlcyJdCiAgICAgICAgICAgICAgICAgICAgcHJpbnQoZiIgIHtyb29tfToge3Jlc3VsdFsnZHVwbGljYXRlcyddfSBkdXBsaWNhdGVzIikKICAgICAgICAgICAgcHJpbnQoZiJcblRvdGFsIGR1cGxpY2F0ZXM6IHt0b3RhbF9kdXBzfSIpCgogICAgZWxpZiBhcmdzLmNvbW1hbmQgPT0gImNyb3NzLXJlZmVyZW5jZSI6CiAgICAgICAgcmVzdWx0ID0gY3Jvc3NfcmVmZXJlbmNlKCkKICAgICAgICBwcmludChmIvCflJcgQ3Jvc3MtUmVmZXJlbmNlIEFuYWx5c2lzICh7cmVzdWx0Wydyb29tc19hbmFseXplZCddfSByb29tcykiKQogICAgICAgIGZvciByZWYgaW4gcmVzdWx0WyJjcm9zc19yZWZlcmVuY2VzIl06CiAgICAgICAgICAgIHJvb21zX3N0ciA9ICIsICIuam9pbihyZWZbInJvb21zIl1bOjVdKQogICAgICAgICAgICBwcmludChmIiAgJ3tyZWZbJ2tleXdvcmQnXX0nIOKGkiB7cmVmWydyb29tX2NvdW50J119IHJvb21zOiB7cm9vbXNfc3RyfSIpCgogICAgZWxzZToKICAgICAgICBwYXJzZXIucHJpbnRfaGVscCgpCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgbWFpbigpCg==
+#!/usr/bin/env python3
+"""
+PLATO Librarian — Tile quality control, deduplication, and cross-referencing.
+
+Scans PLATO rooms for:
+1. Duplicate tiles (same question/answer)
+2. Low-quality tiles (short answers, low confidence)
+3. Cross-references between rooms
+4. Room statistics and health metrics
+
+Usage:
+  python3 plato_librarian.py audit
+  python3 plato_librarian.py audit --room gpu-optimization
+  python3 plato_librarian.py dedup --room architecture
+  python3 plato_librarian.py stats
+  python3 plato_librarian.py cross-reference
+"""
+
+import json, urllib.request, sys, os, re, argparse, hashlib
+from collections import defaultdict
+from typing import Dict, List
+
+PLATO_URL = "http://localhost:8847"
+
+def plato_get(path):
+    req = urllib.request.Request(f"{PLATO_URL}{path}")
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.loads(resp.read().decode())
+
+def plato_post(path, data):
+    req = urllib.request.Request(f"{PLATO_URL}{path}", method="POST",
+                                  data=json.dumps(data).encode(),
+                                  headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=10) as resp:
+        return json.loads(resp.read().decode())
+
+def get_all_rooms():
+    data = plato_get("/status")
+    return list(data.get("rooms", {}).keys())
+
+def get_room_tiles(room):
+    try:
+        data = plato_get(f"/room/{room}")
+        return data.get("tiles", [])
+    except:
+        return []
+
+def tile_hash(tile):
+    """Generate a hash for dedup based on question + answer."""
+    q = tile.get("question", "").strip().lower()
+    a = tile.get("answer", "").strip().lower()[:200]
+    return hashlib.md5(f"{q}::{a}".encode()).hexdigest()
+
+def audit_room(room):
+    """Audit a single room for quality."""
+    tiles = get_room_tiles(room)
+    if not tiles:
+        return {"room": room, "tiles": 0, "issues": []}
+
+    issues = []
+    hashes = {}
+    
+    for tile in tiles:
+        h = tile_hash(tile)
+        
+        # Check for duplicates
+        if h in hashes:
+            issues.append({
+                "type": "duplicate",
+                "tile": tile.get("question", "")[:60],
+                "duplicate_of": hashes[h][:60]
+            })
+        hashes[h] = tile.get("question", "")
+        
+        # Check quality
+        answer = tile.get("answer", "")
+        if len(answer) < 20:
+            issues.append({
+                "type": "short_answer",
+                "tile": tile.get("question", "")[:60],
+                "answer_length": len(answer)
+            })
+        
+        conf = tile.get("confidence", 0)
+        if conf < 0.3:
+            issues.append({
+                "type": "low_confidence",
+                "tile": tile.get("question", "")[:60],
+                "confidence": conf
+            })
+        
+        # Check for absolute claims (deadband protocol)
+        text = f"{tile.get('question', '')} {answer}"
+        absolutes = re.findall(r'\b(always|never|all|none|every|no one|impossible)\b', text, re.IGNORECASE)
+        if absolutes:
+            issues.append({
+                "type": "absolute_claim",
+                "tile": tile.get("question", "")[:60],
+                "words": absolutes[:3]
+            })
+    
+    return {
+        "room": room,
+        "tiles": len(tiles),
+        "issues": len(issues),
+        "issue_types": defaultdict(int, {i["type"]: sum(1 for j in issues if j["type"] == i["type"]) for i in issues}),
+        "details": issues[:10]
+    }
+
+def dedup_room(room):
+    """Find and report duplicates in a room."""
+    tiles = get_room_tiles(room)
+    if not tiles:
+        return {"room": room, "duplicates": 0}
+    
+    seen = {}
+    duplicates = []
+    
+    for tile in tiles:
+        h = tile_hash(tile)
+        if h in seen:
+            duplicates.append({
+                "question": tile.get("question", "")[:80],
+                "original": seen[h][:80]
+            })
+        else:
+            seen[h] = tile.get("question", "")
+    
+    return {"room": room, "total": len(tiles), "duplicates": len(duplicates), "details": duplicates}
+
+def cross_reference():
+    """Find tiles that reference concepts across rooms."""
+    rooms = get_all_rooms()
+    # Only check rooms with reasonable tile counts
+    room_tiles = {}
+    for room in rooms:
+        tiles = get_room_tiles(room)
+        if tiles:
+            room_tiles[room] = tiles
+    
+    # Find shared keywords
+    keyword_rooms = defaultdict(set)
+    for room, tiles in room_tiles.items():
+        for tile in tiles:
+            text = f"{tile.get('question', '')} {tile.get('answer', '')}"
+            words = set(re.findall(r'\b[a-z]{4,}\b', text.lower()))
+            for w in words - {'that', 'this', 'with', 'from', 'have', 'been', 'they', 'their', 'which', 'would', 'about', 'could', 'other', 'than'}:
+                keyword_rooms[w].add(room)
+    
+    # Find keywords that appear in 3+ rooms
+    cross_refs = []
+    for keyword, rms in sorted(keyword_rooms.items(), key=lambda x: -len(x[1])):
+        if len(rms) >= 3:
+            cross_refs.append({
+                "keyword": keyword,
+                "rooms": sorted(rms),
+                "room_count": len(rms)
+            })
+    
+    return {"cross_references": cross_refs[:20], "rooms_analyzed": len(room_tiles)}
+
+def main():
+    parser = argparse.ArgumentParser(description="PLATO Librarian — Tile quality control")
+    sub = parser.add_subparsers(dest="command")
+
+    sub.add_parser("stats", help="Overall PLATO statistics")
+    
+    audit_p = sub.add_parser("audit", help="Audit tile quality")
+    audit_p.add_argument("--room", help="Specific room to audit")
+
+    dedup_p = sub.add_parser("dedup", help="Find duplicate tiles")
+    dedup_p.add_argument("--room", help="Specific room to dedup")
+    
+    sub.add_parser("cross-reference", help="Find cross-room connections")
+
+    args = parser.parse_args()
+
+    if args.command == "stats":
+        rooms = get_all_rooms()
+        total_tiles = 0
+        room_stats = {}
+        for room in rooms:
+            tiles = get_room_tiles(room)
+            total_tiles += len(tiles)
+            if tiles:
+                room_stats[room] = len(tiles)
+        
+        print(f"📚 PLATO Library Statistics")
+        print(f"   Rooms: {len(rooms)}")
+        print(f"   Total tiles: {total_tiles}")
+        print(f"   Rooms with tiles: {len(room_stats)}")
+        print(f"\n   Top 10 rooms by tiles:")
+        for room, count in sorted(room_stats.items(), key=lambda x: -x[1])[:10]:
+            print(f"     {room}: {count}")
+
+    elif args.command == "audit":
+        if args.room:
+            result = audit_room(args.room)
+            print(json.dumps(result, indent=2, default=str))
+        else:
+            rooms = get_all_rooms()
+            total_issues = 0
+            for room in sorted(rooms):
+                result = audit_room(room)
+                if result["issues"] > 0:
+                    total_issues += result["issues"]
+                    print(f"  {room}: {result['tiles']} tiles, {result['issues']} issues")
+                    for issue in result.get("details", [])[:3]:
+                        print(f"    ⚠️  {issue['type']}: {issue.get('tile', '')[:60]}")
+            print(f"\nTotal issues found: {total_issues}")
+
+    elif args.command == "dedup":
+        if args.room:
+            result = dedup_room(args.room)
+            print(json.dumps(result, indent=2))
+        else:
+            rooms = get_all_rooms()
+            total_dups = 0
+            for room in rooms:
+                result = dedup_room(room)
+                if result["duplicates"] > 0:
+                    total_dups += result["duplicates"]
+                    print(f"  {room}: {result['duplicates']} duplicates")
+            print(f"\nTotal duplicates: {total_dups}")
+
+    elif args.command == "cross-reference":
+        result = cross_reference()
+        print(f"🔗 Cross-Reference Analysis ({result['rooms_analyzed']} rooms)")
+        for ref in result["cross_references"]:
+            rooms_str = ", ".join(ref["rooms"][:5])
+            print(f"  '{ref['keyword']}' → {ref['room_count']} rooms: {rooms_str}")
+
+    else:
+        parser.print_help()
+
+if __name__ == "__main__":
+    main()
