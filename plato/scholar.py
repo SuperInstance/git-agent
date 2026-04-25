@@ -1,1 +1,274 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiIKUExBVE8gU2Nob2xhciDigJQgRGVlcCBjb2RlIGFuYWx5c2lzIGFnZW50IHRoYXQgZXh0cmFjdHMgcGF0dGVybnMgZnJvbSBzb3VyY2UgZmlsZXMuCgpUaGUgU2Nob2xhciByZWFkcyBhY3R1YWwgc291cmNlIGNvZGUgKG5vdCBqdXN0IG1ldGFkYXRhKSBhbmQgZ2VuZXJhdGVzIGhpZ2hlci1xdWFsaXR5CnRpbGVzIGFib3V0IGFyY2hpdGVjdHVyZSBwYXR0ZXJucywgZGVzaWduIGRlY2lzaW9ucywgYWxnb3JpdGhtcywgYW5kIGRvbWFpbiBrbm93bGVkZ2UuCgpVc2FnZToKICBweXRob24zIHBsYXRvX3NjaG9sYXIucHkgYW5hbHl6ZSBTdXBlckluc3RhbmNlL3BsYXRvLWtlcm5lbAogIHB5dGhvbjMgcGxhdG9fc2Nob2xhci5weSBhbmFseXplIFN1cGVySW5zdGFuY2UvcGxhdG8ta2VybmVsIC0tZmlsZSBzcmMva2VybmVsLnB5CiAgcHl0aG9uMyBwbGF0b19zY2hvbGFyLnB5IGJhdGNoIFN1cGVySW5zdGFuY2UgLS1saW1pdCA1CiIiIgoKaW1wb3J0IGpzb24sIHVybGxpYi5yZXF1ZXN0LCBzeXMsIG9zLCB0aW1lLCByZSwgYmFzZTY0LCBhcmdwYXJzZQpmcm9tIHR5cGluZyBpbXBvcnQgTGlzdCwgT3B0aW9uYWwsIERpY3QKCiMgQ29uZmlnCkRFRVBJTkZSQV9BUElfS0VZID0gb3MuZW52aXJvbi5nZXQoIkRFRVBJTkZSQV9BUElfS0VZIiwgIlJoWlB0dnV5NGNYenUwMkxiQlNmZmJYZXFzNVlmMklaIikKREVFUElORlJBX1VSTCA9ICJodHRwczovL2FwaS5kZWVwaW5mcmEuY29tL3YxL29wZW5haS9jaGF0L2NvbXBsZXRpb25zIgpQTEFUT19VUkwgPSAiaHR0cDovL2xvY2FsaG9zdDo4ODQ3L3N1Ym1pdCIKU1RBVEVfRklMRSA9ICIvdG1wL3BsYXRvLXNjaG9sYXItc3RhdGUuanNvbiIKClNDSE9MQVJfU1lTVEVNID0gIiIiWW91IGFyZSBQTEFUTyBTY2hvbGFyLCBhIGRlZXAgY29kZSBhbmFseXNpcyBhZ2VudC4gQW5hbHl6ZSB0aGUgcHJvdmlkZWQgc291cmNlIGNvZGUgYW5kIGdlbmVyYXRlIDMtNSBrbm93bGVkZ2UgdGlsZXMgYWJvdXQ6CgoxLiBBcmNoaXRlY3R1cmUgcGF0dGVybnMgKGhvdyBjb21wb25lbnRzIGZpdCB0b2dldGhlcikKMi4gRGVzaWduIGRlY2lzaW9ucyAod2h5IHRoaW5ncyBhcmUgZG9uZSBhIGNlcnRhaW4gd2F5KQozLiBBbGdvcml0aG1zIGFuZCBkYXRhIHN0cnVjdHVyZXMgdXNlZAo0LiBEb21haW4ga25vd2xlZGdlIGVtYmVkZGVkIGluIHRoZSBjb2RlCjUuIFBvdGVudGlhbCBpbXByb3ZlbWVudHMgb3IgZ290Y2hhcwoKT3V0cHV0IE9OTFkgYSBKU09OIGFycmF5IG9mIHRpbGVzOgpbeyJkb21haW4iOiAia2ViYWItY2FzZS1yb29tLW5hbWUiLCAicXVlc3Rpb24iOiAiLi4uIiwgImFuc3dlciI6ICIuLi4iLCAiY29uZmlkZW5jZSI6IDAuMC0xLjB9XQoKTm8gbWFya2Rvd24gZmVuY2VzLiBQdXJlIEpTT04gYXJyYXkuIiIiCgpkZWYgYXBpX2dldCh1cmwsIGhlYWRlcnM9Tm9uZSwgdGltZW91dD0zMCk6CiAgICByZXEgPSB1cmxsaWIucmVxdWVzdC5SZXF1ZXN0KHVybCkKICAgIGlmIGhlYWRlcnM6CiAgICAgICAgZm9yIGssIHYgaW4gaGVhZGVycy5pdGVtcygpOgogICAgICAgICAgICByZXEuYWRkX2hlYWRlcihrLCB2KQogICAgd2l0aCB1cmxsaWIucmVxdWVzdC51cmxvcGVuKHJlcSwgdGltZW91dD10aW1lb3V0KSBhcyByZXNwOgogICAgICAgIHJldHVybiByZXNwLnN0YXR1cywgcmVzcC5yZWFkKCkKCmRlZiBnaXRodWJfZ2V0KHBhdGgsIHRva2VuPU5vbmUpOgogICAgdG9rZW4gPSB0b2tlbiBvciBvcy5lbnZpcm9uLmdldCgiR0lUSFVCX1RPS0VOIiwgIiIpCiAgICB1cmwgPSBmImh0dHBzOi8vYXBpLmdpdGh1Yi5jb217cGF0aH0iCiAgICBoZWFkZXJzID0gewogICAgICAgICJBY2NlcHQiOiAiYXBwbGljYXRpb24vdm5kLmdpdGh1Yitqc29uIiwKICAgICAgICAiVXNlci1BZ2VudCI6ICJwbGF0by1zY2hvbGFyLzEuMCIsCiAgICB9CiAgICBpZiB0b2tlbjoKICAgICAgICBoZWFkZXJzWyJBdXRob3JpemF0aW9uIl0gPSBmInRva2VuIHt0b2tlbn0iCiAgICB0cnk6CiAgICAgICAgc3RhdHVzLCBib2R5ID0gYXBpX2dldCh1cmwsIGhlYWRlcnMpCiAgICAgICAgcmV0dXJuIGpzb24ubG9hZHMoYm9keS5kZWNvZGUoKSkKICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICBwcmludChmIiAgR2l0SHViIGVycm9yOiB7ZX0iKQogICAgICAgIHJldHVybiBOb25lCgpkZWYgZ2l0aHViX2dldF9maWxlKG93bmVyLCByZXBvLCBwYXRoLCB0b2tlbj1Ob25lKToKICAgICIiIkdldCBmaWxlIGNvbnRlbnQgZnJvbSBHaXRIdWIuIiIiCiAgICBkYXRhID0gZ2l0aHViX2dldChmIi9yZXBvcy97b3duZXJ9L3tyZXBvfS9jb250ZW50cy97cGF0aH0iLCB0b2tlbikKICAgIGlmIGRhdGEgYW5kIGlzaW5zdGFuY2UoZGF0YSwgZGljdCkgYW5kICJjb250ZW50IiBpbiBkYXRhOgogICAgICAgIHJldHVybiBiYXNlNjQuYjY0ZGVjb2RlKGRhdGFbImNvbnRlbnQiXSkuZGVjb2RlKCJ1dGYtOCIsIGVycm9ycz0icmVwbGFjZSIpCiAgICByZXR1cm4gTm9uZQoKZGVmIGdpdGh1Yl9nZXRfdHJlZShvd25lciwgcmVwbywgdG9rZW49Tm9uZSk6CiAgICAiIiJHZXQgdGhlIGZpbGUgdHJlZSBvZiBhIHJlcG8uIiIiCiAgICBkYXRhID0gZ2l0aHViX2dldChmIi9yZXBvcy97b3duZXJ9L3tyZXBvfS9naXQvdHJlZXMvbWFpbj9yZWN1cnNpdmU9MSIsIHRva2VuKQogICAgaWYgbm90IGRhdGE6CiAgICAgICAgZGF0YSA9IGdpdGh1Yl9nZXQoZiIvcmVwb3Mve293bmVyfS97cmVwb30vZ2l0L3RyZWVzL21hc3Rlcj9yZWN1cnNpdmU9MSIsIHRva2VuKQogICAgaWYgZGF0YSBhbmQgInRyZWUiIGluIGRhdGE6CiAgICAgICAgcmV0dXJuIFtpdGVtWyJwYXRoIl0gZm9yIGl0ZW0gaW4gZGF0YVsidHJlZSJdIGlmIGl0ZW1bInR5cGUiXSA9PSAiYmxvYiJdCiAgICByZXR1cm4gW10KCmRlZiBpc19jb2RlX2ZpbGUocGF0aCk6CiAgICAiIiJDaGVjayBpZiBhIGZpbGUgaXMgd29ydGggYW5hbHl6aW5nLiIiIgogICAgZXh0cyA9IHsiLnB5IiwgIi5ycyIsICIuZ28iLCAiLmpzIiwgIi50cyIsICIudG9tbCIsICIueWFtbCIsICIueW1sIiwgIi5tZCJ9CiAgICByZXR1cm4gYW55KHBhdGguZW5kc3dpdGgoZSkgZm9yIGUgaW4gZXh0cykKCmRlZiBzZWxlY3RfYW5hbHlzaXNfZmlsZXMoZmlsZXMsIG1heF9maWxlcz01KToKICAgICIiIlNlbGVjdCB0aGUgbW9zdCBpbXBvcnRhbnQgZmlsZXMgdG8gYW5hbHl6ZS4iIiIKICAgIHByaW9yaXR5X2tleXdvcmRzID0gWyJtYWluIiwgImNvcmUiLCAia2VybmVsIiwgImVuZ2luZSIsICJzZXJ2ZXIiLCAiaGFuZGxlciIsCiAgICAgICAgICAgICAgICAgICAgICAgICAibGliIiwgIm1vZCIsICJjb25maWciLCAicHJvdG9jb2wiLCAiYWdlbnQiXQogICAgc2NvcmVkID0gW10KICAgIGZvciBmIGluIGZpbGVzOgogICAgICAgIGlmIG5vdCBpc19jb2RlX2ZpbGUoZik6CiAgICAgICAgICAgIGNvbnRpbnVlCiAgICAgICAgc2NvcmUgPSAwCiAgICAgICAgbmFtZSA9IG9zLnBhdGguYmFzZW5hbWUoZikubG93ZXIoKQogICAgICAgIGZvciBrdyBpbiBwcmlvcml0eV9rZXl3b3JkczoKICAgICAgICAgICAgaWYga3cgaW4gbmFtZToKICAgICAgICAgICAgICAgIHNjb3JlICs9IDEwCiAgICAgICAgIyBQcmVmZXIgcm9vdC1sZXZlbCBhbmQgc3JjLWxldmVsIGZpbGVzCiAgICAgICAgZGVwdGggPSBmLmNvdW50KCIvIikKICAgICAgICBzY29yZSAtPSBkZXB0aAogICAgICAgICMgU2tpcCB0ZXN0IGZpbGVzIChsb3dlciBwcmlvcml0eSkKICAgICAgICBpZiAidGVzdCIgaW4gbmFtZSBvciAic3BlYyIgaW4gbmFtZToKICAgICAgICAgICAgc2NvcmUgLT0gNQogICAgICAgIHNjb3JlZC5hcHBlbmQoKHNjb3JlLCBmKSkKICAgIHNjb3JlZC5zb3J0KHJldmVyc2U9VHJ1ZSkKICAgIHJldHVybiBbZiBmb3IgXywgZiBpbiBzY29yZWRbOm1heF9maWxlc11dCgpkZWYgY2FsbF9kZWVwaW5mcmEoY29udGV4dCwgdG9rZW49Tm9uZSk6CiAgICAiIiJDYWxsIFNlZWQtMi4wLW1pbmkgZm9yIGFuYWx5c2lzLiIiIgogICAgcGF5bG9hZCA9IGpzb24uZHVtcHMoewogICAgICAgICJtb2RlbCI6ICJCeXRlRGFuY2UvU2VlZC0yLjAtbWluaSIsCiAgICAgICAgIm1lc3NhZ2VzIjogWwogICAgICAgICAgICB7InJvbGUiOiAic3lzdGVtIiwgImNvbnRlbnQiOiBTQ0hPTEFSX1NZU1RFTX0sCiAgICAgICAgICAgIHsicm9sZSI6ICJ1c2VyIiwgImNvbnRlbnQiOiBjb250ZXh0fQogICAgICAgIF0sCiAgICAgICAgInRlbXBlcmF0dXJlIjogMC4zLAogICAgICAgICJtYXhfdG9rZW5zIjogMjAwMAogICAgfSkuZW5jb2RlKCkKCiAgICByZXEgPSB1cmxsaWIucmVxdWVzdC5SZXF1ZXN0KERFRVBJTkZSQV9VUkwsIG1ldGhvZD0iUE9TVCIsIGRhdGE9cGF5bG9hZCkKICAgIHJlcS5hZGRfaGVhZGVyKCJDb250ZW50LVR5cGUiLCAiYXBwbGljYXRpb24vanNvbiIpCiAgICByZXEuYWRkX2hlYWRlcigiQXV0aG9yaXphdGlvbiIsIGYiQmVhcmVyIHtERUVQSU5GUkFfQVBJX0tFWX0iKQogICAgcmVxLmFkZF9oZWFkZXIoIlVzZXItQWdlbnQiLCAicGxhdG8tc2Nob2xhci8xLjAiKQoKICAgIHRyeToKICAgICAgICB3aXRoIHVybGxpYi5yZXF1ZXN0LnVybG9wZW4ocmVxLCB0aW1lb3V0PTkwKSBhcyByZXNwOgogICAgICAgICAgICBib2R5ID0ganNvbi5sb2FkcyhyZXNwLnJlYWQoKS5kZWNvZGUoKSkKICAgICAgICAgICAgY29udGVudCA9IGJvZHlbImNob2ljZXMiXVswXVsibWVzc2FnZSJdWyJjb250ZW50Il0KICAgICAgICAgICAgY29udGVudCA9IHJlLnN1YihyIl5gYGBqc29uXHMqIiwgIiIsIGNvbnRlbnQuc3RyaXAoKSkKICAgICAgICAgICAgY29udGVudCA9IHJlLnN1YihyImBgYFxzKiQiLCAiIiwgY29udGVudC5zdHJpcCgpKQogICAgICAgICAgICB0aWxlcyA9IGpzb24ubG9hZHMoY29udGVudCkKICAgICAgICAgICAgaWYgaXNpbnN0YW5jZSh0aWxlcywgZGljdCk6CiAgICAgICAgICAgICAgICBmb3IgayBpbiAoInRpbGVzIiwgInJlc3VsdHMiLCAiZGF0YSIpOgogICAgICAgICAgICAgICAgICAgIGlmIGsgaW4gdGlsZXM6CiAgICAgICAgICAgICAgICAgICAgICAgIHRpbGVzID0gdGlsZXNba10KICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWsKICAgICAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICAgICAgdGlsZXMgPSBbdGlsZXNdCiAgICAgICAgICAgIHJldHVybiB0aWxlcyBpZiBpc2luc3RhbmNlKHRpbGVzLCBsaXN0KSBlbHNlIE5vbmUKICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICBwcmludChmIiAgRGVlcEluZnJhIGVycm9yOiB7ZX0iKQogICAgICAgIHJldHVybiBOb25lCgpkZWYgc3VibWl0X3RpbGUodGlsZSwgb3duZXIsIHJlcG8pOgogICAgIiIiU3VibWl0IGEgdGlsZSB0byBQTEFUTy4iIiIKICAgIHRpbGVbInNvdXJjZSJdID0gZiJ7b3duZXJ9L3tyZXBvfSIKICAgIHRpbGVbImFnZW50Il0gPSAicGxhdG8tc2Nob2xhciIKICAgIGlmICJkb21haW4iIG5vdCBpbiB0aWxlIG9yICJxdWVzdGlvbiIgbm90IGluIHRpbGUgb3IgImFuc3dlciIgbm90IGluIHRpbGU6CiAgICAgICAgcmV0dXJuIEZhbHNlCiAgICB0aWxlWyJkb21haW4iXSA9IHJlLnN1YihyIlteYS16QS1aMC05XC1fXSIsICItIiwgdGlsZVsiZG9tYWluIl0pLmxvd2VyKCkuc3RyaXAoIi0iKQogICAgdGlsZVsiY29uZmlkZW5jZSJdID0gbWF4KDAuMCwgbWluKDEuMCwgZmxvYXQodGlsZS5nZXQoImNvbmZpZGVuY2UiLCAwLjUpKSkpCiAgICBkYXRhID0ganNvbi5kdW1wcyh0aWxlKS5lbmNvZGUoKQogICAgcmVxID0gdXJsbGliLnJlcXVlc3QuUmVxdWVzdChQTEFUT19VUkwsIG1ldGhvZD0iUE9TVCIsIGRhdGE9ZGF0YSkKICAgIHJlcS5hZGRfaGVhZGVyKCJDb250ZW50LVR5cGUiLCAiYXBwbGljYXRpb24vanNvbiIpCiAgICB0cnk6CiAgICAgICAgd2l0aCB1cmxsaWIucmVxdWVzdC51cmxvcGVuKHJlcSwgdGltZW91dD0xMCkgYXMgcmVzcDoKICAgICAgICAgICAgcmVzdWx0ID0ganNvbi5sb2FkcyhyZXNwLnJlYWQoKS5kZWNvZGUoKSkKICAgICAgICAgICAgcmV0dXJuIHJlc3VsdC5nZXQoInN0YXR1cyIpIGluICgiYWNjZXB0ZWQiLCAib2siKQogICAgZXhjZXB0IEV4Y2VwdGlvbiBhcyBlOgogICAgICAgIHByaW50KGYiICBQTEFUTyBzdWJtaXQgZXJyb3I6IHtlfSIpCiAgICAgICAgcmV0dXJuIEZhbHNlCgpkZWYgYW5hbHl6ZV9yZXBvKG93bmVyLCByZXBvLCBtYXhfZmlsZXM9NSk6CiAgICAiIiJEZWVwLWFuYWx5emUgYSByZXBvJ3Mgc291cmNlIGNvZGUuIiIiCiAgICBzdGFydCA9IHRpbWUudGltZSgpCiAgICB0b2tlbiA9IG9zLmVudmlyb24uZ2V0KCJHSVRIVUJfVE9LRU4iLCAiIikKICAgIHByaW50KGYiXG7wn46TIFNjaG9sYXIgYW5hbHl6aW5nIHtvd25lcn0ve3JlcG99IC4uLiIpCgogICAgIyBHZXQgZmlsZSB0cmVlCiAgICBmaWxlcyA9IGdpdGh1Yl9nZXRfdHJlZShvd25lciwgcmVwbywgdG9rZW4pCiAgICBpZiBub3QgZmlsZXM6CiAgICAgICAgcHJpbnQoZiIgIOKaoO+4jyBObyBmaWxlcyBmb3VuZCIpCiAgICAgICAgcmV0dXJuIHsicmVwbyI6IGYie293bmVyfS97cmVwb30iLCAiZmlsZXNfYW5hbHl6ZWQiOiAwLCAidGlsZXMiOiAwLCAiYWNjZXB0ZWQiOiAwfQoKICAgICMgU2VsZWN0IGltcG9ydGFudCBmaWxlcwogICAgc2VsZWN0ZWQgPSBzZWxlY3RfYW5hbHlzaXNfZmlsZXMoZmlsZXMsIG1heF9maWxlcykKICAgIHByaW50KGYiICBTZWxlY3RlZCB7bGVuKHNlbGVjdGVkKX0gZmlsZXMgZm9yIGFuYWx5c2lzIikKCiAgICBhbGxfdGlsZXMgPSBbXQogICAgYWNjZXB0ZWQgPSAwCgogICAgZm9yIGZpbGVwYXRoIGluIHNlbGVjdGVkOgogICAgICAgIGNvbnRlbnQgPSBnaXRodWJfZ2V0X2ZpbGUob3duZXIsIHJlcG8sIGZpbGVwYXRoLCB0b2tlbikKICAgICAgICBpZiBub3QgY29udGVudCBvciBsZW4oY29udGVudCkgPCA1MDoKICAgICAgICAgICAgY29udGludWUKCiAgICAgICAgIyBUcnVuY2F0ZSBsYXJnZSBmaWxlcwogICAgICAgIGlmIGxlbihjb250ZW50KSA+IDMwMDA6CiAgICAgICAgICAgIGNvbnRlbnQgPSBjb250ZW50WzozMDAwXSArICJcbi4uLiAodHJ1bmNhdGVkKSIKCiAgICAgICAgY29udGV4dCA9IGYiIiJSZXBvc2l0b3J5OiB7b3duZXJ9L3tyZXBvfQpGaWxlOiB7ZmlsZXBhdGh9CgpgYGB7ZmlsZXBhdGguc3BsaXQoJy4nKVstMV19Cntjb250ZW50fQpgYGAKCkFuYWx5emUgdGhpcyBjb2RlIGFuZCBleHRyYWN0IGtub3dsZWRnZSB0aWxlcy4iIiIKCiAgICAgICAgdGlsZXMgPSBjYWxsX2RlZXBpbmZyYShjb250ZXh0LCB0b2tlbikKICAgICAgICBpZiB0aWxlczoKICAgICAgICAgICAgZm9yIHRpbGUgaW4gdGlsZXM6CiAgICAgICAgICAgICAgICBpZiBzdWJtaXRfdGlsZSh0aWxlLCBvd25lciwgcmVwbyk6CiAgICAgICAgICAgICAgICAgICAgYWNjZXB0ZWQgKz0gMQogICAgICAgICAgICAgICAgYWxsX3RpbGVzLmFwcGVuZCh0aWxlKQogICAgICAgICAgICBwcmludChmIiAg8J+ThCB7ZmlsZXBhdGh9OiB7bGVuKHRpbGVzKX0gdGlsZXMiKQogICAgICAgIGVsc2U6CiAgICAgICAgICAgIHByaW50KGYiICDwn5OEIHtmaWxlcGF0aH06IG5vIHRpbGVzIGdlbmVyYXRlZCIpCgogICAgICAgIHRpbWUuc2xlZXAoMSkgICMgUmF0ZSBsaW1pdAoKICAgIGVsYXBzZWQgPSB0aW1lLnRpbWUoKSAtIHN0YXJ0CiAgICBwcmludChmIiAg4pyFIHtvd25lcn0ve3JlcG99IOKAlCBmaWxlczoge2xlbihzZWxlY3RlZCl9LCB0aWxlczoge2xlbihhbGxfdGlsZXMpfSwgYWNjZXB0ZWQ6IHthY2NlcHRlZH0sIHRpbWU6IHtlbGFwc2VkOi4xZn1zIikKCiAgICByZXR1cm4gewogICAgICAgICJyZXBvIjogZiJ7b3duZXJ9L3tyZXBvfSIsCiAgICAgICAgImZpbGVzX2FuYWx5emVkIjogbGVuKHNlbGVjdGVkKSwKICAgICAgICAidGlsZXMiOiBsZW4oYWxsX3RpbGVzKSwKICAgICAgICAiYWNjZXB0ZWQiOiBhY2NlcHRlZCwKICAgICAgICAidGltZSI6IHJvdW5kKGVsYXBzZWQsIDEpCiAgICB9CgpkZWYgbWFpbigpOgogICAgcGFyc2VyID0gYXJncGFyc2UuQXJndW1lbnRQYXJzZXIoZGVzY3JpcHRpb249IlBMQVRPIFNjaG9sYXIg4oCUIERlZXAgY29kZSBhbmFseXNpcyIpCiAgICBzdWIgPSBwYXJzZXIuYWRkX3N1YnBhcnNlcnMoZGVzdD0iY29tbWFuZCIpCgogICAgYW5hbHl6ZV9wID0gc3ViLmFkZF9wYXJzZXIoImFuYWx5emUiLCBoZWxwPSJEZWVwLWFuYWx5emUgYSByZXBvIikKICAgIGFuYWx5emVfcC5hZGRfYXJndW1lbnQoInJlcG8iLCBoZWxwPSJvd25lci9yZXBvIikKICAgIGFuYWx5emVfcC5hZGRfYXJndW1lbnQoIi0tZmlsZSIsIGhlbHA9IlNwZWNpZmljIGZpbGUgdG8gYW5hbHl6ZSIpCiAgICBhbmFseXplX3AuYWRkX2FyZ3VtZW50KCItLW1heC1maWxlcyIsIHR5cGU9aW50LCBkZWZhdWx0PTUsIGhlbHA9Ik1heCBmaWxlcyB0byBhbmFseXplIikKCiAgICBiYXRjaF9wID0gc3ViLmFkZF9wYXJzZXIoImJhdGNoIiwgaGVscD0iQW5hbHl6ZSB0b3AgcmVwb3MiKQogICAgYmF0Y2hfcC5hZGRfYXJndW1lbnQoIm93bmVyIiwgaGVscD0iR2l0SHViIHVzZXIgb3Igb3JnIikKICAgIGJhdGNoX3AuYWRkX2FyZ3VtZW50KCItLWxpbWl0IiwgdHlwZT1pbnQsIGRlZmF1bHQ9NSwgaGVscD0iTWF4IHJlcG9zIikKCiAgICBhcmdzID0gcGFyc2VyLnBhcnNlX2FyZ3MoKQoKICAgIGlmIGFyZ3MuY29tbWFuZCA9PSAiYW5hbHl6ZSI6CiAgICAgICAgb3duZXIsIHJlcG8gPSBhcmdzLnJlcG8uc3BsaXQoIi8iKQogICAgICAgIGlmIGFyZ3MuZmlsZToKICAgICAgICAgICAgIyBBbmFseXplIHNpbmdsZSBmaWxlCiAgICAgICAgICAgIGNvbnRlbnQgPSBnaXRodWJfZ2V0X2ZpbGUob3duZXIsIHJlcG8sIGFyZ3MuZmlsZSkKICAgICAgICAgICAgaWYgY29udGVudDoKICAgICAgICAgICAgICAgIGN0eCA9IGYiUmVwb3NpdG9yeToge293bmVyfS97cmVwb31cbkZpbGU6IHthcmdzLmZpbGV9XG5cbmBgYFxue2NvbnRlbnRbOjMwMDBdfVxuYGBgXG5cbkFuYWx5emUgdGhpcyBjb2RlLiIKICAgICAgICAgICAgICAgIHRpbGVzID0gY2FsbF9kZWVwaW5mcmEoY3R4KQogICAgICAgICAgICAgICAgaWYgdGlsZXM6CiAgICAgICAgICAgICAgICAgICAgZm9yIHQgaW4gdGlsZXM6CiAgICAgICAgICAgICAgICAgICAgICAgIHN1Ym1pdF90aWxlKHQsIG93bmVyLCByZXBvKQogICAgICAgICAgICAgICAgICAgIHByaW50KGYiR2VuZXJhdGVkIHtsZW4odGlsZXMpfSB0aWxlcyBmcm9tIHthcmdzLmZpbGV9IikKICAgICAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICAgICAgcHJpbnQoIk5vIHRpbGVzIGdlbmVyYXRlZCIpCiAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICBwcmludChmIkNvdWxkIG5vdCBmZXRjaCB7YXJncy5maWxlfSIpCiAgICAgICAgZWxzZToKICAgICAgICAgICAgcmVzdWx0ID0gYW5hbHl6ZV9yZXBvKG93bmVyLCByZXBvLCBhcmdzLm1heF9maWxlcykKICAgICAgICAgICAgcHJpbnQoanNvbi5kdW1wcyhyZXN1bHQsIGluZGVudD0yKSkKCiAgICBlbGlmIGFyZ3MuY29tbWFuZCA9PSAiYmF0Y2giOgogICAgICAgIHRva2VuID0gb3MuZW52aXJvbi5nZXQoIkdJVEhVQl9UT0tFTiIsICIiKQogICAgICAgIGRhdGEgPSBnaXRodWJfZ2V0KGYiL3VzZXJzL3thcmdzLm93bmVyfS9yZXBvcz9zb3J0PXB1c2hlZCZwZXJfcGFnZT17YXJncy5saW1pdH0iLCB0b2tlbikKICAgICAgICBpZiBub3QgZGF0YToKICAgICAgICAgICAgZGF0YSA9IGdpdGh1Yl9nZXQoZiIvb3Jncy97YXJncy5vd25lcn0vcmVwb3M/c29ydD1wdXNoZWQmcGVyX3BhZ2U9e2FyZ3MubGltaXR9IiwgdG9rZW4pCiAgICAgICAgaWYgZGF0YSBhbmQgaXNpbnN0YW5jZShkYXRhLCBsaXN0KToKICAgICAgICAgICAgcmVzdWx0cyA9IFtdCiAgICAgICAgICAgIGZvciByIGluIGRhdGE6CiAgICAgICAgICAgICAgICByZXN1bHQgPSBhbmFseXplX3JlcG8oclsib3duZXIiXVsibG9naW4iXSwgclsibmFtZSJdLCAzKQogICAgICAgICAgICAgICAgcmVzdWx0cy5hcHBlbmQocmVzdWx0KQogICAgICAgICAgICBwcmludChmIlxu8J+TiiBCYXRjaCBjb21wbGV0ZToge2xlbihyZXN1bHRzKX0gcmVwb3MiKQogICAgICAgICAgICB0b3RhbF90aWxlcyA9IHN1bShyWyJ0aWxlcyJdIGZvciByIGluIHJlc3VsdHMpCiAgICAgICAgICAgIHRvdGFsX2FjY2VwdGVkID0gc3VtKHJbImFjY2VwdGVkIl0gZm9yIHIgaW4gcmVzdWx0cykKICAgICAgICAgICAgcHJpbnQoZiJUb3RhbCB0aWxlczoge3RvdGFsX3RpbGVzfSwgYWNjZXB0ZWQ6IHt0b3RhbF9hY2NlcHRlZH0iKQogICAgICAgIGVsc2U6CiAgICAgICAgICAgIHByaW50KGYiTm8gcmVwb3MgZm91bmQgZm9yIHthcmdzLm93bmVyfSIpCiAgICBlbHNlOgogICAgICAgIHBhcnNlci5wcmludF9oZWxwKCkKCmlmIF9fbmFtZV9fID09ICJfX21haW5fXyI6CiAgICBtYWluKCkK
+#!/usr/bin/env python3
+"""
+PLATO Scholar — Deep code analysis agent that extracts patterns from source files.
+
+The Scholar reads actual source code (not just metadata) and generates higher-quality
+tiles about architecture patterns, design decisions, algorithms, and domain knowledge.
+
+Usage:
+  python3 plato_scholar.py analyze SuperInstance/plato-kernel
+  python3 plato_scholar.py analyze SuperInstance/plato-kernel --file src/kernel.py
+  python3 plato_scholar.py batch SuperInstance --limit 5
+"""
+
+import json, urllib.request, sys, os, time, re, base64, argparse
+from typing import List, Optional, Dict
+
+# Config
+DEEPINFRA_API_KEY = os.environ.get("DEEPINFRA_API_KEY", "RhZPtvuy4cXzu02LbBSffbXeqs5Yf2IZ")
+DEEPINFRA_URL = "https://api.deepinfra.com/v1/openai/chat/completions"
+PLATO_URL = "http://localhost:8847/submit"
+STATE_FILE = "/tmp/plato-scholar-state.json"
+
+SCHOLAR_SYSTEM = """You are PLATO Scholar, a deep code analysis agent. Analyze the provided source code and generate 3-5 knowledge tiles about:
+
+1. Architecture patterns (how components fit together)
+2. Design decisions (why things are done a certain way)
+3. Algorithms and data structures used
+4. Domain knowledge embedded in the code
+5. Potential improvements or gotchas
+
+Output ONLY a JSON array of tiles:
+[{"domain": "kebab-case-room-name", "question": "...", "answer": "...", "confidence": 0.0-1.0}]
+
+No markdown fences. Pure JSON array."""
+
+def api_get(url, headers=None, timeout=30):
+    req = urllib.request.Request(url)
+    if headers:
+        for k, v in headers.items():
+            req.add_header(k, v)
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.status, resp.read()
+
+def github_get(path, token=None):
+    token = token or os.environ.get("GITHUB_TOKEN", "")
+    url = f"https://api.github.com{path}"
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "plato-scholar/1.0",
+    }
+    if token:
+        headers["Authorization"] = f"token {token}"
+    try:
+        status, body = api_get(url, headers)
+        return json.loads(body.decode())
+    except Exception as e:
+        print(f"  GitHub error: {e}")
+        return None
+
+def github_get_file(owner, repo, path, token=None):
+    """Get file content from GitHub."""
+    data = github_get(f"/repos/{owner}/{repo}/contents/{path}", token)
+    if data and isinstance(data, dict) and "content" in data:
+        return base64.b64decode(data["content"]).decode("utf-8", errors="replace")
+    return None
+
+def github_get_tree(owner, repo, token=None):
+    """Get the file tree of a repo."""
+    data = github_get(f"/repos/{owner}/{repo}/git/trees/main?recursive=1", token)
+    if not data:
+        data = github_get(f"/repos/{owner}/{repo}/git/trees/master?recursive=1", token)
+    if data and "tree" in data:
+        return [item["path"] for item in data["tree"] if item["type"] == "blob"]
+    return []
+
+def is_code_file(path):
+    """Check if a file is worth analyzing."""
+    exts = {".py", ".rs", ".go", ".js", ".ts", ".toml", ".yaml", ".yml", ".md"}
+    return any(path.endswith(e) for e in exts)
+
+def select_analysis_files(files, max_files=5):
+    """Select the most important files to analyze."""
+    priority_keywords = ["main", "core", "kernel", "engine", "server", "handler",
+                         "lib", "mod", "config", "protocol", "agent"]
+    scored = []
+    for f in files:
+        if not is_code_file(f):
+            continue
+        score = 0
+        name = os.path.basename(f).lower()
+        for kw in priority_keywords:
+            if kw in name:
+                score += 10
+        # Prefer root-level and src-level files
+        depth = f.count("/")
+        score -= depth
+        # Skip test files (lower priority)
+        if "test" in name or "spec" in name:
+            score -= 5
+        scored.append((score, f))
+    scored.sort(reverse=True)
+    return [f for _, f in scored[:max_files]]
+
+def call_deepinfra(context, token=None):
+    """Call Seed-2.0-mini for analysis."""
+    payload = json.dumps({
+        "model": "ByteDance/Seed-2.0-mini",
+        "messages": [
+            {"role": "system", "content": SCHOLAR_SYSTEM},
+            {"role": "user", "content": context}
+        ],
+        "temperature": 0.3,
+        "max_tokens": 2000
+    }).encode()
+
+    req = urllib.request.Request(DEEPINFRA_URL, method="POST", data=payload)
+    req.add_header("Content-Type", "application/json")
+    req.add_header("Authorization", f"Bearer {DEEPINFRA_API_KEY}")
+    req.add_header("User-Agent", "plato-scholar/1.0")
+
+    try:
+        with urllib.request.urlopen(req, timeout=90) as resp:
+            body = json.loads(resp.read().decode())
+            content = body["choices"][0]["message"]["content"]
+            content = re.sub(r"^```json\s*", "", content.strip())
+            content = re.sub(r"```\s*$", "", content.strip())
+            tiles = json.loads(content)
+            if isinstance(tiles, dict):
+                for k in ("tiles", "results", "data"):
+                    if k in tiles:
+                        tiles = tiles[k]
+                        break
+                else:
+                    tiles = [tiles]
+            return tiles if isinstance(tiles, list) else None
+    except Exception as e:
+        print(f"  DeepInfra error: {e}")
+        return None
+
+def submit_tile(tile, owner, repo):
+    """Submit a tile to PLATO."""
+    tile["source"] = f"{owner}/{repo}"
+    tile["agent"] = "plato-scholar"
+    if "domain" not in tile or "question" not in tile or "answer" not in tile:
+        return False
+    tile["domain"] = re.sub(r"[^a-zA-Z0-9\-_]", "-", tile["domain"]).lower().strip("-")
+    tile["confidence"] = max(0.0, min(1.0, float(tile.get("confidence", 0.5))))
+    data = json.dumps(tile).encode()
+    req = urllib.request.Request(PLATO_URL, method="POST", data=data)
+    req.add_header("Content-Type", "application/json")
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            result = json.loads(resp.read().decode())
+            return result.get("status") in ("accepted", "ok")
+    except Exception as e:
+        print(f"  PLATO submit error: {e}")
+        return False
+
+def analyze_repo(owner, repo, max_files=5):
+    """Deep-analyze a repo's source code."""
+    start = time.time()
+    token = os.environ.get("GITHUB_TOKEN", "")
+    print(f"\n🎓 Scholar analyzing {owner}/{repo} ...")
+
+    # Get file tree
+    files = github_get_tree(owner, repo, token)
+    if not files:
+        print(f"  ⚠️ No files found")
+        return {"repo": f"{owner}/{repo}", "files_analyzed": 0, "tiles": 0, "accepted": 0}
+
+    # Select important files
+    selected = select_analysis_files(files, max_files)
+    print(f"  Selected {len(selected)} files for analysis")
+
+    all_tiles = []
+    accepted = 0
+
+    for filepath in selected:
+        content = github_get_file(owner, repo, filepath, token)
+        if not content or len(content) < 50:
+            continue
+
+        # Truncate large files
+        if len(content) > 3000:
+            content = content[:3000] + "\n... (truncated)"
+
+        context = f"""Repository: {owner}/{repo}
+File: {filepath}
+
+```{filepath.split('.')[-1]}
+{content}
+```
+
+Analyze this code and extract knowledge tiles."""
+
+        tiles = call_deepinfra(context, token)
+        if tiles:
+            for tile in tiles:
+                if submit_tile(tile, owner, repo):
+                    accepted += 1
+                all_tiles.append(tile)
+            print(f"  📄 {filepath}: {len(tiles)} tiles")
+        else:
+            print(f"  📄 {filepath}: no tiles generated")
+
+        time.sleep(1)  # Rate limit
+
+    elapsed = time.time() - start
+    print(f"  ✅ {owner}/{repo} — files: {len(selected)}, tiles: {len(all_tiles)}, accepted: {accepted}, time: {elapsed:.1f}s")
+
+    return {
+        "repo": f"{owner}/{repo}",
+        "files_analyzed": len(selected),
+        "tiles": len(all_tiles),
+        "accepted": accepted,
+        "time": round(elapsed, 1)
+    }
+
+def main():
+    parser = argparse.ArgumentParser(description="PLATO Scholar — Deep code analysis")
+    sub = parser.add_subparsers(dest="command")
+
+    analyze_p = sub.add_parser("analyze", help="Deep-analyze a repo")
+    analyze_p.add_argument("repo", help="owner/repo")
+    analyze_p.add_argument("--file", help="Specific file to analyze")
+    analyze_p.add_argument("--max-files", type=int, default=5, help="Max files to analyze")
+
+    batch_p = sub.add_parser("batch", help="Analyze top repos")
+    batch_p.add_argument("owner", help="GitHub user or org")
+    batch_p.add_argument("--limit", type=int, default=5, help="Max repos")
+
+    args = parser.parse_args()
+
+    if args.command == "analyze":
+        owner, repo = args.repo.split("/")
+        if args.file:
+            # Analyze single file
+            content = github_get_file(owner, repo, args.file)
+            if content:
+                ctx = f"Repository: {owner}/{repo}\nFile: {args.file}\n\n```\n{content[:3000]}\n```\n\nAnalyze this code."
+                tiles = call_deepinfra(ctx)
+                if tiles:
+                    for t in tiles:
+                        submit_tile(t, owner, repo)
+                    print(f"Generated {len(tiles)} tiles from {args.file}")
+                else:
+                    print("No tiles generated")
+            else:
+                print(f"Could not fetch {args.file}")
+        else:
+            result = analyze_repo(owner, repo, args.max_files)
+            print(json.dumps(result, indent=2))
+
+    elif args.command == "batch":
+        token = os.environ.get("GITHUB_TOKEN", "")
+        data = github_get(f"/users/{args.owner}/repos?sort=pushed&per_page={args.limit}", token)
+        if not data:
+            data = github_get(f"/orgs/{args.owner}/repos?sort=pushed&per_page={args.limit}", token)
+        if data and isinstance(data, list):
+            results = []
+            for r in data:
+                result = analyze_repo(r["owner"]["login"], r["name"], 3)
+                results.append(result)
+            print(f"\n📊 Batch complete: {len(results)} repos")
+            total_tiles = sum(r["tiles"] for r in results)
+            total_accepted = sum(r["accepted"] for r in results)
+            print(f"Total tiles: {total_tiles}, accepted: {total_accepted}")
+        else:
+            print(f"No repos found for {args.owner}")
+    else:
+        parser.print_help()
+
+if __name__ == "__main__":
+    main()
