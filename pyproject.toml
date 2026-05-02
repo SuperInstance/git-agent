@@ -3,8 +3,8 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "git-agent"
-version = "0.1.0"
+name = "cocapn-git-agent"
+version = "0.1.1"
 description = "FLUX Fleet Greenhorn Git-Agent — API-agnostic autonomous Git-native agent"
 readme = "README.md"
 license = "MIT"
@@ -16,7 +16,6 @@ keywords = ["agent", "autonomous", "git", "github", "fleet", "llm", "ai"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -60,7 +59,6 @@ docker = [
 git-agent = "git_agent.__main__:main"
 
 [tool.setuptools.packages.find]
-where = ["src"]
 
 [tool.setuptools.package-data]
 git_agent = ["prompts/*", "onboarding/*"]
