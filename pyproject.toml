@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cocapn-git-agent"
-version = "0.1.1"
+version = "0.1.2"
 description = "FLUX Fleet Greenhorn Git-Agent — API-agnostic autonomous Git-native agent"
 readme = "README.md"
 license = "MIT"
