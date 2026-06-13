@@ -1,32 +1,108 @@
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
-build-backend = "setuptools.backends._legacy:_Backend"
+build-backend = "setuptools.build_meta"
 
 [project]
-name = "git-agent"
-version = "0.1.0"
-description = "Git Agent — co-captain liaison for the SuperInstance fleet"
+name = "cocapn-git-agent"
+version = "0.1.2"
+description = "FLUX Fleet Greenhorn Git-Agent — API-agnostic autonomous Git-native agent"
 readme = "README.md"
-license = {text = "MIT"}
-requires-python = ">=3.10"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "Super Z", email = "superz@flux.fleet" },
+]
+keywords = ["agent", "autonomous", "git", "github", "fleet", "llm", "ai"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Version Control :: Git",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
 dependencies = [
     "pyyaml>=6.0",
+    "requests>=2.28",
 ]
 
 [project.optional-dependencies]
+all = [
+    "git-agent[openai,anthropic,ollama,dev]",
+]
+openai = [
+    "openai>=1.0",
+]
+anthropic = [
+    "anthropic>=0.18",
+]
+ollama = [
+    "httpx>=0.25",
+]
 dev = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "pytest-asyncio>=0.21",
+    "ruff>=0.1",
+    "mypy>=1.5",
+    "types-pyyaml>=6.0",
+    "types-requests>=2.28",
+]
+docker = [
+    "docker>=6.0",
 ]
 
 [project.scripts]
-git-agent = "cli:main"
+git-agent = "git_agent.__main__:main"
 
 [tool.setuptools.packages.find]
-include = ["*"]
+
+[tool.setuptools.package-data]
+git_agent = ["prompts/*", "onboarding/*"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "RUF", # ruff-specific rules
+]
+ignore = [
+    "E501", # line too long (handled by formatter)
+    "B008", # do not perform function calls in argument defaults
+]
+
+[tool.ruff.isort]
+known-first-party = ["git_agent"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["src/git_agent"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 80

@@ -1,14 +1,8 @@
 """
-Tests for the Git Agent package.
+Comprehensive tests for the git_agent core engine.
 
-Tests cover:
-- Commit narrative generation (with mock git logs)
-- Workshop creation (using temp dirs)
-- Bootcamp exercises and rank progression
-- Dojo techniques and spaced repetition
-- Timeline generation
-- Lesson extraction
-- Stuck pattern detection
+Covers config (loading, validation, env overrides), vessel (state management,
+serialization, promotion logic), and agent (lifecycle, task execution, planning).
 """
 
 from __future__ import annotations
@@ -16,819 +10,789 @@ from __future__ import annotations
 import json
 import os
 import tempfile
-import shutil
+from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any, Dict, List, Optional
+from unittest import mock
 
 import pytest
 
-from narrator import (
-    Commit,
-    CommitNarrator,
-    CommitType,
-    FileChange,
-    NarrativeStyle,
+# Ensure src is importable
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+from git_agent.config import (
+    AgentConfig,
+    ConfigError,
+    LLMProviderConfig,
+    from_dict,
+    load_config,
+    load_config_file,
 )
-from workshop_template import WorkshopTemplate, LanguageStack
-from bootcamp import Bootcamp, Dojo, Exercise, ExerciseType, Rank, Technique
-from git_agent import GitAgent
-from cli import build_parser, main
+from git_agent.vessel import (
+    CareerState,
+    Domain,
+    GrowthStage,
+    Identity,
+    VesselManager,
+    VesselState,
+    WorklogEntry,
+    check_promotion,
+    next_stage,
+    STAGE_ORDER,
+    STAGE_THRESHOLDS,
+)
+from git_agent.agent import (
+    Agent,
+    GitHubClient,
+    LLMProvider,
+    Observation,
+    Plan,
+    Task,
+    TaskPriority,
+)
 
 
-# ---------------------------------------------------------------------------
-# Mock data helpers
-# ---------------------------------------------------------------------------
+# ===================================================================
+# Fixtures
+# ===================================================================
 
-def _make_mock_commit(
-    subject: str,
-    body: str = "",
-    author: str = "test-agent",
-    days_ago: int = 0,
-    commit_type: CommitType = CommitType.UNKNOWN,
-) -> Commit:
-    """Create a mock Commit for testing."""
-    from datetime import datetime, timedelta, timezone
-    date = datetime.now(timezone.utc) - timedelta(days=days_ago)
-    return Commit(
-        hash="a" * 40,
-        short_hash="a" * 7,
-        author=author,
-        date=date,
-        message=f"{subject}\n{body}".strip(),
-        subject=subject,
-        body=body,
-        commit_type=commit_type,
-    )
+@pytest.fixture
+def tmp_dir(tmp_path):
+    """Provide a temporary directory."""
+    return tmp_path
 
 
-def _make_mock_git_log(commits: list[Commit]) -> str:
-    """Generate a mock git log string from Commit objects."""
-    blocks: list[str] = []
-    for c in commits:
-        date_str = c.date.strftime("%Y-%m-%dT%H:%M:%S%z")
-        block = (
-            f"COMMIT_START\n"
-            f"Hash: {c.hash}\n"
-            f"Short: {c.short_hash}\n"
-            f"Author: {c.author}\n"
-            f"Date: {date_str}\n"
-            f"Subject: {c.subject}\n"
+@pytest.fixture
+def vessel_dir(tmp_dir):
+    """Provide a temporary vessel directory."""
+    d = tmp_dir / "vessel"
+    d.mkdir()
+    return d
+
+
+@pytest.fixture
+def base_config_dict():
+    """Minimal valid config dict."""
+    return {
+        "github_token": "ghp_test123",
+        "llm_provider": "openai",
+        "llm_api_key": "sk-test",
+    }
+
+
+@pytest.fixture
+def agent_config(base_config_dict):
+    """AgentConfig instance from minimal dict."""
+    return from_dict(base_config_dict)
+
+
+@pytest.fixture
+def minimal_vessel(vessel_dir):
+    """VesselManager with local path override."""
+    return VesselManager(local_path=vessel_dir)
+
+
+# ===================================================================
+# Dummy implementations for testing
+# ===================================================================
+
+class DummyLLM:
+    """A minimal LLM provider for testing."""
+
+    def __init__(self, response: str = "test response"):
+        self._response = response
+        self.call_count = 0
+        self.last_messages: Optional[List[Dict[str, str]]] = None
+
+    def complete(self, messages, temperature=None, max_tokens=None, **kwargs):
+        self.call_count += 1
+        self.last_messages = messages
+        return self._response
+
+    async def acomplete(self, messages, **kwargs):
+        self.call_count += 1
+        self.last_messages = messages
+        return self._response
+
+
+class DummyGitHub:
+    """A minimal GitHub client for testing."""
+
+    def __init__(self):
+        self.forks: List[str] = []
+        self.branches: List[str] = []
+        self.prs: List[Dict[str, Any]] = []
+        self.commits: List[Dict[str, Any]] = []
+        self.files: Dict[str, str] = {}
+        self.bottles: List[Dict[str, Any]] = []
+        self.cloned: List[str] = []
+
+    def get_repo(self, owner, repo):
+        return {"full_name": f"{owner}/{repo}", "private": False}
+
+    def fork_repo(self, owner, repo):
+        key = f"{owner}/{repo}"
+        self.forks.append(key)
+        return {"full_name": f"{owner}/{repo}", "fork": True}
+
+    def create_branch(self, owner, repo, branch, from_branch="main"):
+        self.branches.append(f"{owner}/{repo}/{branch}")
+        return {"name": branch, "ref": f"refs/heads/{branch}"}
+
+    def create_pull_request(self, owner, repo, title, body, head, base="main"):
+        pr = {"number": len(self.prs) + 1, "title": title, "html_url": f"https://github.com/{owner}/{repo}/pull/{len(self.prs) + 1}"}
+        self.prs.append(pr)
+        return pr
+
+    def create_or_update_file(self, owner, repo, path, content, message, branch, sha=None):
+        self.files[path] = content
+        return {"content": {"path": path}, "commit": {"sha": "abc123"}}
+
+    def get_file(self, owner, repo, path, ref=None):
+        key = f"{owner}/{repo}/{path}"
+        if key in self.files:
+            return {"content": self.files[key], "encoding": "utf-8"}
+        raise FileNotFoundError(f"File not found: {key}")
+
+    def get_file_contents(self, owner, repo, path):
+        key = f"{owner}/{repo}/{path}"
+        return self.files.get(key)
+
+    def list_issues(self, owner, repo, state="open"):
+        return []
+
+    def list_commits(self, owner, repo, per_page=10):
+        return self.commits
+
+    def push_files(self, owner, repo, branch, files, message):
+        for f in files:
+            self.files[f["path"]] = f["content"]
+        return {"commit": {"sha": "def456"}, "files": len(files)}
+
+    def clone(self, url, path, branch=None):
+        self.cloned.append(url)
+        path.mkdir(parents=True, exist_ok=True)
+        (path / ".git").mkdir(exist_ok=True)
+        return path
+
+    def get_bottles(self, owner, repo):
+        return self.bottles
+
+    def push_bottle(self, owner, repo, content, title=""):
+        bottle = {"title": title, "content": content}
+        self.bottles.append(bottle)
+        return {"status": "created", "bottle": bottle}
+
+
+# ===================================================================
+# TESTS: config.py (15 tests)
+# ===================================================================
+
+class TestConfigLoading:
+    """Test configuration loading from various sources."""
+
+    def test_from_dict_minimal(self, base_config_dict):
+        """Minimal dict should produce valid config."""
+        cfg = from_dict(base_config_dict)
+        assert cfg.github_token == "ghp_test123"
+        assert cfg.llm_provider == "openai"
+        assert cfg.llm_api_key == "sk-test"
+        assert cfg.llm_proxy_url is None
+        assert cfg.max_parallel_agents == 4
+
+    def test_from_dict_all_fields(self):
+        """All fields should be parsed correctly."""
+        raw = {
+            "github_token": "ghp_x",
+            "llm_provider": "anthropic",
+            "llm_api_key": "sk-ant",
+            "llm_proxy_url": "https://proxy.example.com",
+            "llm_api_base": "https://api.example.com",
+            "llm_model": "claude-3",
+            "llm_temperature": 0.5,
+            "llm_max_tokens": 8192,
+            "fleet_org": "my-org",
+            "vessel_repo": "my-org/vessel",
+            "max_parallel_agents": 8,
+            "work_hours": "9-17",
+        }
+        cfg = from_dict(raw)
+        assert cfg.llm_provider == "anthropic"
+        assert cfg.llm_proxy_url == "https://proxy.example.com"
+        assert cfg.llm_model == "claude-3"
+        assert cfg.llm_temperature == 0.5
+        assert cfg.llm_max_tokens == 8192
+        assert cfg.fleet_org == "my-org"
+        assert cfg.vessel_repo == "my-org/vessel"
+        assert cfg.max_parallel_agents == 8
+        assert cfg.work_hours == "9-17"
+
+    def test_from_dict_missing_github_token_raises(self):
+        """Missing github_token should raise ConfigError."""
+        with pytest.raises(ConfigError, match="github_token"):
+            from_dict({"llm_provider": "openai", "llm_api_key": "sk-x"})
+
+    def test_from_dict_missing_llm_provider_raises(self):
+        """Missing llm_provider should raise ConfigError."""
+        with pytest.raises(ConfigError, match="llm_provider"):
+            from_dict({"github_token": "ghp_x", "llm_api_key": "sk-x"})
+
+    def test_from_dict_missing_api_key_and_proxy_raises(self):
+        """Missing both api_key and proxy_url should raise ConfigError."""
+        with pytest.raises(ConfigError, match="one of"):
+            from_dict({"github_token": "ghp_x", "llm_provider": "openai"})
+
+    def test_from_dict_proxy_url_satisfies_auth(self):
+        """llm_proxy_url alone should satisfy auth requirement."""
+        cfg = from_dict({"github_token": "ghp_x", "llm_provider": "openai", "llm_proxy_url": "https://proxy"})
+        assert cfg.llm_proxy_url == "https://proxy"
+
+    def test_env_override_github_token(self, base_config_dict, monkeypatch):
+        """Environment variable should override config file value."""
+        monkeypatch.setenv("GITHUB_TOKEN", "ghp_override")
+        cfg = from_dict(base_config_dict)
+        assert cfg.github_token == "ghp_override"
+        monkeypatch.delenv("GITHUB_TOKEN")
+
+    def test_env_override_llm_provider(self, base_config_dict, monkeypatch):
+        """Environment variable should override llm_provider."""
+        monkeypatch.setenv("LLM_PROVIDER", "anthropic")
+        cfg = from_dict(base_config_dict)
+        assert cfg.llm_provider == "anthropic"
+        monkeypatch.delenv("LLM_PROVIDER")
+
+    def test_env_override_git_agent_prefix(self, base_config_dict, monkeypatch):
+        """GIT_AGENT_ prefixed env vars should also work."""
+        monkeypatch.setenv("GIT_AGENT_FLEET_ORG", "test-org")
+        cfg = from_dict(base_config_dict)
+        assert cfg.fleet_org == "test-org"
+        monkeypatch.delenv("GIT_AGENT_FLEET_ORG")
+
+    def test_load_config_yaml(self, tmp_dir):
+        """Loading from a YAML file should work."""
+        cfg_path = tmp_dir / "config.yaml"
+        cfg_path.write_text(
+            "github_token: ghp_yaml\n"
+            "llm_provider: ollama\n"
+            "llm_api_key: ignored\n"
         )
-        if c.body:
-            block += f"{c.body}\n"
-        block += "COMMIT_END"
-        blocks.append(block)
-    return "\n".join(blocks)
+        cfg = load_config(str(cfg_path))
+        assert cfg.github_token == "ghp_yaml"
+        assert cfg.llm_provider == "ollama"
+
+    def test_load_config_json(self, tmp_dir):
+        """Loading from a JSON file should work."""
+        cfg_path = tmp_dir / "config.json"
+        cfg_path.write_text(json.dumps({
+            "github_token": "ghp_json",
+            "llm_provider": "custom",
+            "llm_proxy_url": "https://proxy",
+        }))
+        cfg = load_config(str(cfg_path))
+        assert cfg.github_token == "ghp_json"
+        assert cfg.llm_proxy_url == "https://proxy"
+
+    def test_load_config_file_not_found(self):
+        """Non-existent config file should raise ConfigError."""
+        with pytest.raises(ConfigError, match="not found"):
+            load_config_file("/nonexistent/path/config.yaml")
+
+    def test_load_config_unsupported_format(self, tmp_dir):
+        """Unsupported file format should raise ConfigError."""
+        cfg_path = tmp_dir / "config.xml"
+        cfg_path.write_text("<config/>")
+        with pytest.raises(ConfigError, match="Unsupported"):
+            load_config_file(str(cfg_path))
+
+    def test_extra_llm_providers(self):
+        """Extra LLM providers should be parsed into LLMProviderConfig objects."""
+        raw = {
+            "github_token": "ghp_x",
+            "llm_provider": "openai",
+            "llm_api_key": "sk-x",
+            "llm_providers": {
+                "reviewer": {
+                    "api_key": "sk-review",
+                    "model": "gpt-4",
+                    "temperature": 0.2,
+                },
+                "local": {
+                    "api_base": "http://localhost:11434",
+                    "model": "codellama",
+                },
+            },
+        }
+        cfg = from_dict(raw)
+        assert "reviewer" in cfg.extra_llm_providers
+        assert cfg.extra_llm_providers["reviewer"].model == "gpt-4"
+        assert cfg.extra_llm_providers["reviewer"].temperature == 0.2
+        assert cfg.extra_llm_providers["local"].api_base == "http://localhost:11434"
+
+    def test_primary_llm_property(self, base_config_dict):
+        """primary_llm should return a LLMProviderConfig from top-level settings."""
+        cfg = from_dict(base_config_dict)
+        llm = cfg.primary_llm
+        assert isinstance(llm, LLMProviderConfig)
+        assert llm.name == "openai"
+        assert llm.api_key == "sk-test"
+        assert llm.temperature == 0.7
+        assert llm.max_tokens == 4096
+
+    def test_numeric_type_coercion(self):
+        """String numbers in config should be coerced to proper types."""
+        raw = {
+            "github_token": "ghp_x",
+            "llm_provider": "openai",
+            "llm_api_key": "sk-x",
+            "max_parallel_agents": "8",
+            "llm_max_tokens": "2048",
+            "llm_temperature": "0.3",
+        }
+        cfg = from_dict(raw)
+        assert isinstance(cfg.max_parallel_agents, int)
+        assert isinstance(cfg.llm_max_tokens, int)
+        assert isinstance(cfg.llm_temperature, float)
+        assert cfg.max_parallel_agents == 8
+        assert cfg.llm_max_tokens == 2048
+        assert cfg.llm_temperature == 0.3
 
 
-# ---------------------------------------------------------------------------
-# Test: CommitNarrator
-# ---------------------------------------------------------------------------
+# ===================================================================
+# TESTS: vessel.py (13 tests)
+# ===================================================================
 
-class TestCommitNarrator:
-    """Tests for the commit narrative engine."""
+class TestVesselState:
+    """Test vessel state model basics."""
 
-    def setup_method(self) -> None:
-        self.narrator = CommitNarrator()
+    def test_default_state(self):
+        """Default VesselState should have sensible defaults."""
+        state = VesselState()
+        assert state.identity.name == "Super Z"
+        assert state.career.current_stage == GrowthStage.INITIATE
+        assert state.career.total_tasks_completed == 0
+        assert state.worklog == []
+        assert state.goals == []
 
-    def test_parse_log_basic(self) -> None:
-        """Test basic git log parsing."""
-        commit = _make_mock_commit("feat: add user authentication")
-        log_output = _make_mock_git_log([commit])
+    def test_identity_defaults(self):
+        """Identity should have defaults."""
+        ident = Identity()
+        assert ident.name == "Super Z"
+        assert ident.designation == "Git-Native Agent"
+        assert ident.version == "0.1.0"
+        assert Domain.GENERAL in ident.domains
 
-        commits = self.narrator.parse_log(log_output)
-        assert len(commits) == 1
-        assert commits[0].subject == "feat: add user authentication"
-        assert commits[0].author == "test-agent"
-        assert commits[0].commit_type == CommitType.FEATURE
+    def test_career_state_defaults(self):
+        """CareerState should start at INITIATE with zero counts."""
+        career = CareerState()
+        assert career.current_stage == GrowthStage.INITIATE
+        assert career.total_tasks_completed == 0
+        assert career.total_tasks_failed == 0
+        assert career.fences_completed == []
+        assert career.skills_acquired == []
 
-    def test_parse_log_multiple_commits(self) -> None:
-        """Test parsing multiple commits."""
-        commits = [
-            _make_mock_commit("fix: resolve null pointer", days_ago=2),
-            _make_mock_commit("docs: update README", days_ago=1),
-            _make_mock_commit("refactor: clean up utils", days_ago=0),
-        ]
-        log_output = _make_mock_git_log(commits)
 
-        parsed = self.narrator.parse_log(log_output)
-        assert len(parsed) == 3
-        # Parsed in same order as the log output
-        assert parsed[0].commit_type == CommitType.FIX
-        assert parsed[1].commit_type == CommitType.DOCS
-        assert parsed[2].commit_type == CommitType.REFACTOR
+class TestGrowthStages:
+    """Test growth stage progression logic."""
 
-    def test_classify_commit_conventional(self) -> None:
-        """Test commit classification with conventional prefixes."""
-        assert self.narrator.classify_commit("feat: new feature") == CommitType.FEATURE
-        assert self.narrator.classify_commit("fix: bug fix") == CommitType.FIX
-        assert self.narrator.classify_commit("refactor: cleanup") == CommitType.REFACTOR
-        assert self.narrator.classify_commit("test: add tests") == CommitType.TEST
-        assert self.narrator.classify_commit("docs: update docs") == CommitType.DOCS
-        assert self.narrator.classify_commit("chore: deps") == CommitType.CHORE
-
-    def test_classify_commit_experiment(self) -> None:
-        """Test experiment keyword detection."""
-        assert self.narrator.classify_commit("experiment: try new approach") == CommitType.EXPERIMENT
-        assert self.narrator.classify_commit("poc: prototype cache layer") == CommitType.EXPERIMENT
-        assert self.narrator.classify_commit("exploring: what if we use redis") == CommitType.EXPERIMENT
-
-    def test_classify_commit_with_files(self) -> None:
-        """Test classification using file changes."""
-        files = [FileChange(path="test_foo.py", status="A")]
-        result = self.narrator.classify_commit("some message", files)
-        assert result == CommitType.TEST
-
-    def test_detect_experiment_pattern(self) -> None:
-        """Test experiment detection (try → fail → succeed)."""
-        commits = [
-            _make_mock_commit("experiment: try caching responses", days_ago=3),
-            _make_mock_commit("fix: cache invalidation bug", days_ago=2),
-            _make_mock_commit("fix: cache stampede issue", days_ago=1),
-            _make_mock_commit("feat: working cache layer", days_ago=0),
-        ]
-
-        experiment = self.narrator.detect_experiment(commits)
-        assert experiment is not None
-        assert experiment.resolved is True
-        assert len(experiment.commits) == 4
-
-    def test_detect_experiment_unresolved(self) -> None:
-        """Test detection of unresolved experiments."""
-        commits = [
-            _make_mock_commit("experiment: try async approach", days_ago=2),
-            _make_mock_commit("fix: race condition", days_ago=1),
-            _make_mock_commit("fix: deadlock issue", days_ago=0),
-        ]
-
-        experiment = self.narrator.detect_experiment(commits)
-        assert experiment is not None
-        assert experiment.resolved is False
-
-    def test_detect_experiment_too_short(self) -> None:
-        """Test that single commits don't count as experiments."""
-        commits = [_make_mock_commit("experiment: quick try")]
-        assert self.narrator.detect_experiment(commits) is None
-
-    def test_detect_refactor(self) -> None:
-        """Test refactoring pattern detection."""
-        commits = [
-            _make_mock_commit("refactor: extract utils module"),
-            _make_mock_commit("refactor: rename functions for clarity"),
-            _make_mock_commit("refactor: reorganize directory structure"),
-        ]
-
-        assert self.narrator.detect_refactor(commits) is True
-
-    def test_detect_refactor_with_features(self) -> None:
-        """Test that features mixed with refactors are not detected as pure refactors."""
-        commits = [
-            _make_mock_commit("refactor: clean up utils"),
-            _make_mock_commit("feat: add new endpoint"),
-            _make_mock_commit("refactor: extract module"),
-        ]
-
-        assert self.narrator.detect_refactor(commits) is False
-
-    def test_detect_stuck_patterns_duplicates(self) -> None:
-        """Test detection of stuck patterns via duplicate commit subjects."""
-        commits = [
-            _make_mock_commit("fix: authentication error v1"),
-            _make_mock_commit("fix: authentication error v2"),
-            _make_mock_commit("fix: authentication error v3"),
-            _make_mock_commit("fix: authentication error again"),
-            _make_mock_commit("fix: authentication error take 2"),
-        ]
-
-        stuck = self.narrator.detect_stuck_patterns(commits)
-        assert len(stuck) > 0
-
-    def test_detect_stuck_patterns_reverts(self) -> None:
-        """Test detection of stuck patterns via revert cycles."""
-        commits = [
-            _make_mock_commit("fix: try approach A", commit_type=CommitType.FIX),
-            _make_mock_commit("revert: undo approach A", commit_type=CommitType.REVERT),
-            _make_mock_commit("fix: try approach A again", commit_type=CommitType.FIX),
-            _make_mock_commit("revert: undo again", commit_type=CommitType.REVERT),
-            _make_mock_commit("fix: approach A v3", commit_type=CommitType.FIX),
+    def test_stage_order(self):
+        """Stages should be in the correct order."""
+        assert STAGE_ORDER == [
+            GrowthStage.INITIATE,
+            GrowthStage.APPRENTICE,
+            GrowthStage.JOURNEYMAN,
+            GrowthStage.EXPERT,
+            GrowthStage.ARCHITECT,
+            GrowthStage.COMMANDER,
         ]
 
-        stuck = self.narrator.detect_stuck_patterns(commits)
-        assert len(stuck) > 0
+    def test_next_stage_initiate(self):
+        assert next_stage(GrowthStage.INITIATE) == GrowthStage.APPRENTICE
 
-    def test_generate_narrative_story(self) -> None:
-        """Test story-style narrative generation."""
-        commits = [
-            _make_mock_commit("feat: add user dashboard", commit_type=CommitType.FEATURE, days_ago=2),
-            _make_mock_commit("fix: dashboard layout bug", commit_type=CommitType.FIX, days_ago=1),
-            _make_mock_commit("test: add dashboard tests", commit_type=CommitType.TEST, days_ago=0),
-        ]
+    def test_next_stage_commander_is_none(self):
+        assert next_stage(GrowthStage.COMMANDER) is None
 
-        narrative = self.narrator.generate_narrative(commits, NarrativeStyle.STORY)
-        assert narrative.text
-        assert narrative.commits_covered == 3
-        assert "feature" in narrative.text.lower() or "dashboard" in narrative.text.lower()
+    def test_check_promotion_no_promotion(self):
+        """0 completed tasks should not promote from INITIATE."""
+        assert check_promotion(GrowthStage.INITIATE, 0) is None
 
-    def test_generate_narrative_brief(self) -> None:
-        """Test brief-style narrative."""
-        commits = [
-            _make_mock_commit("feat: add API", commit_type=CommitType.FEATURE),
-        ]
+    def test_check_promotion_apprentice(self):
+        """3 completed tasks should promote to APPRENTICE."""
+        assert check_promotion(GrowthStage.INITIATE, 3) == GrowthStage.APPRENTICE
 
-        narrative = self.narrator.generate_narrative(commits, NarrativeStyle.BRIEF)
-        assert "FEATURE" in narrative.text
+    def test_check_promotion_not_enough(self):
+        """2 completed tasks should not promote to APPRENTICE (needs 3)."""
+        assert check_promotion(GrowthStage.INITIATE, 2) is None
 
-    def test_generate_narrative_technical(self) -> None:
-        """Test technical-style narrative."""
-        commits = [
-            _make_mock_commit("feat: add module", commit_type=CommitType.FEATURE),
-            _make_mock_commit("test: add tests", commit_type=CommitType.TEST),
-        ]
+    def test_check_promotion_journeyman(self):
+        """15 tasks should promote to JOURNEYMAN."""
+        assert check_promotion(GrowthStage.APPRENTICE, 15) == GrowthStage.JOURNEYMAN
 
-        narrative = self.narrator.generate_narrative(commits, NarrativeStyle.TECHNICAL)
-        assert "TECHNICAL REPORT" in narrative.text
-        assert "BREAKDOWN" in narrative.text
-
-    def test_generate_narrative_empty(self) -> None:
-        """Test narrative generation with no commits."""
-        narrative = self.narrator.generate_narrative([])
-        assert narrative.commits_covered == 0
-
-    def test_generate_timeline(self) -> None:
-        """Test timeline generation."""
-        commits = [
-            _make_mock_commit("feat: step one", days_ago=2),
-            _make_mock_commit("fix: step two", days_ago=1),
-            _make_mock_commit("test: step three", days_ago=0),
-        ]
-
-        timeline = self.narrator.generate_timeline(commits)
-        assert "Timeline:" in timeline
-        assert "feat: step one" in timeline
-
-    def test_compare_timelines(self) -> None:
-        """Test comparing two agents' timelines."""
-        agent_a = [
-            _make_mock_commit("feat: feature A", days_ago=1),
-            _make_mock_commit("fix: fix A", days_ago=0),
-        ]
-        agent_b = [
-            _make_mock_commit("refactor: refactor B", days_ago=1),
-            _make_mock_commit("test: test B", days_ago=0),
-        ]
-
-        comparison = self.narrator.compare_timelines(agent_a, agent_b)
-        assert "Agent A" in comparison
-        assert "Agent B" in comparison
-        assert "COMMIT TYPE BREAKDOWN" in comparison
-
-    def test_summarize_week(self) -> None:
-        """Test weekly summary generation."""
-        commits = [
-            _make_mock_commit("feat: new feature", days_ago=10),
-            _make_mock_commit("fix: bug fix", days_ago=8),
-            _make_mock_commit("chore: cleanup", days_ago=1),
-        ]
-
-        summary = self.narrator.summarize_week(commits)
-        assert "WEEKLY SUMMARY" in summary
-
-    def test_extract_lessons(self) -> None:
-        """Test lesson extraction from trial-and-error patterns."""
-        commits = [
-            _make_mock_commit("experiment: try cache", days_ago=4),
-            _make_mock_commit("fix: cache bug", days_ago=3),
-            _make_mock_commit("fix: cache regression", days_ago=2),
-            _make_mock_commit("feat: working cache implementation", days_ago=1),
-        ]
-
-        lessons = self.narrator.extract_lessons(commits)
-        assert len(lessons) > 0
-        assert any("cache" in lesson.lower() for lesson in lessons)
-
-    def test_export_markdown(self) -> None:
-        """Test markdown export."""
-        commits = [_make_mock_commit("feat: test feature")]
-        narrative = self.narrator.generate_narrative(commits)
-
-        md = self.narrator.export_markdown(narrative)
-        assert "# Git Agent Narrative Report" in md
-        assert "## Narrative" in md
+    def test_check_promotion_max_stage(self):
+        """COMMANDER cannot be promoted further."""
+        assert check_promotion(GrowthStage.COMMANDER, 10000) is None
 
 
-# ---------------------------------------------------------------------------
-# Test: WorkshopTemplate
-# ---------------------------------------------------------------------------
+class TestVesselManager:
+    """Test vessel manager read/write operations."""
 
-class TestWorkshopTemplate:
-    """Tests for the workshop structure generator."""
+    def test_save_creates_files(self, minimal_vessel):
+        """Saving should create all four Markdown files."""
+        minimal_vessel.save()
+        for fname in ("IDENTITY.md", "CAREER.md", "WORKLOG.md", "STATE.md"):
+            assert (minimal_vessel.vessel_dir / fname).exists()
 
-    def setup_method(self) -> None:
-        self.temp_dir = tempfile.mkdtemp()
-        self.template = WorkshopTemplate()
+    def test_save_and_load_roundtrip(self, minimal_vessel):
+        """State should survive a save → load cycle."""
+        state = minimal_vessel.state
+        state.identity.name = "Test Agent"
+        state.career.total_tasks_completed = 42
+        state.goals = ["Build the thing", "Ship it"]
+        minimal_vessel.save()
 
-    def teardown_method(self) -> None:
-        shutil.rmtree(self.temp_dir, ignore_errors=True)
+        # Fresh manager loading from same dir
+        manager2 = VesselManager(local_path=minimal_vessel.vessel_dir)
+        loaded = manager2.load()
+        assert loaded.identity.name == "Test Agent"
+        assert loaded.career.total_tasks_completed == 42
+        assert "Build the thing" in loaded.goals
+        assert "Ship it" in loaded.goals
 
-    def test_create_workshop_full_stack(self) -> None:
-        """Test creating a workshop with the full language stack."""
-        path = os.path.join(self.temp_dir, "test-workshop")
-        config = self.template.create_workshop(path, "Test Agent", LanguageStack.FULL)
-
-        assert config.agent_name == "test"
-        assert config.language_stack == LanguageStack.FULL
-        assert os.path.isdir(path)
-
-        # Check required directories
-        for d in ["recipes/hot", "recipes/med", "recipes/cold", "scripts",
-                   "bootcamp", "dojo", "tests", "lib", "docs", ".superinstance"]:
-            assert os.path.isdir(os.path.join(path, d)), f"Missing dir: {d}"
-
-        # Check template files
-        assert os.path.isfile(os.path.join(path, "README.md"))
-        assert os.path.isfile(os.path.join(path, "CHARTER.md"))
-        assert os.path.isfile(os.path.join(path, ".superinstance", "agent.yaml"))
-        assert os.path.isfile(os.path.join(path, ".superinstance", "workshop.json"))
-        assert os.path.isfile(os.path.join(path, "bootcamp", "progress.json"))
-        assert os.path.isfile(os.path.join(path, "dojo", "patterns.json"))
-
-    def test_create_workshop_systems_stack(self) -> None:
-        """Test creating a workshop with the systems stack."""
-        path = os.path.join(self.temp_dir, "sys-workshop")
-        config = self.template.create_workshop(path, "Systems Agent", LanguageStack.SYSTEMS)
-
-        assert config.language_stack == LanguageStack.SYSTEMS
-        assert os.path.isdir(os.path.join(path, "src", "c"))
-        assert os.path.isdir(os.path.join(path, "src", "rust"))
-
-    def test_create_workshop_automation_stack(self) -> None:
-        """Test creating a workshop with the automation stack."""
-        path = os.path.join(self.temp_dir, "auto-workshop")
-        config = self.template.create_workshop(path, "Auto Agent", LanguageStack.AUTOMATION)
-
-        assert config.language_stack == LanguageStack.AUTOMATION
-        assert os.path.isdir(os.path.join(path, "src", "python"))
-        assert os.path.isdir(os.path.join(path, "src", "bash"))
-
-    def test_add_recipe(self) -> None:
-        """Test adding a recipe to a workshop."""
-        path = os.path.join(self.temp_dir, "recipe-workshop")
-        self.template.create_workshop(path, "Recipe Agent")
-
-        meta = self.template.add_recipe(
-            workshop_path=path,
-            name="hello",
-            content="print('hello')",
-            tier="cold",
-            language="python",
-            description="A hello world recipe",
+    def test_add_worklog_entry(self, minimal_vessel):
+        """Worklog entries should be persistable."""
+        entry = WorklogEntry(
+            timestamp="2025-01-01T00:00:00+00:00",
+            action="forked",
+            target="owner/repo",
+            summary="Forked the main repo",
         )
+        minimal_vessel.add_worklog_entry(entry)
+        minimal_vessel.save()
 
-        assert meta.name == "hello"
-        assert meta.tier == "cold"
-        assert os.path.isfile(os.path.join(path, "recipes", "cold", "hello.py"))
+        manager2 = VesselManager(local_path=minimal_vessel.vessel_dir)
+        loaded = manager2.load()
+        assert len(loaded.worklog) == 1
+        assert loaded.worklog[0].action == "forked"
 
-    def test_add_recipe_invalid_tier(self) -> None:
-        """Test that invalid tiers raise an error."""
-        path = os.path.join(self.temp_dir, "tier-workshop")
-        self.template.create_workshop(path, "Tier Agent")
+    def test_record_task_completion_success(self, minimal_vessel):
+        """Successful completion should increment counter."""
+        minimal_vessel.record_task_completion(success=True)
+        minimal_vessel.save()
 
-        with pytest.raises(ValueError, match="Invalid tier"):
-            self.template.add_recipe(path, "test", "content", tier="invalid")
+        manager2 = VesselManager(local_path=minimal_vessel.vessel_dir)
+        loaded = manager2.load()
+        assert loaded.career.total_tasks_completed == 1
+        assert loaded.career.total_tasks_failed == 0
 
-    def test_promote_recipe(self) -> None:
-        """Test promoting a recipe between tiers."""
-        path = os.path.join(self.temp_dir, "promote-workshop")
-        self.template.create_workshop(path, "Promote Agent")
-        self.template.add_recipe(path, "tool", "#!/bin/bash\necho hi", tier="cold", language="bash")
+    def test_record_task_completion_failure(self, minimal_vessel):
+        """Failed task should increment failure counter."""
+        minimal_vessel.record_task_completion(success=False)
+        minimal_vessel.save()
 
-        result = self.template.promote_recipe(path, "tool", "cold", "med")
+        manager2 = VesselManager(local_path=minimal_vessel.vessel_dir)
+        loaded = manager2.load()
+        assert loaded.career.total_tasks_completed == 0
+        assert loaded.career.total_tasks_failed == 1
 
-        assert "med" in str(result)
-        assert not os.path.exists(os.path.join(path, "recipes", "cold", "tool.sh"))
-        assert os.path.isfile(os.path.join(path, "recipes", "med", "tool.sh"))
+    def test_auto_promotion_on_task_completion(self, minimal_vessel):
+        """Completing enough tasks should auto-promote."""
+        for _ in range(3):
+            minimal_vessel.record_task_completion(success=True)
+        assert minimal_vessel.state.career.current_stage == GrowthStage.APPRENTICE
+        assert minimal_vessel.state.career.last_promoted is not None
 
-    def test_promote_recipe_wrong_direction(self) -> None:
-        """Test that promoting in the wrong direction raises an error."""
-        path = os.path.join(self.temp_dir, "promdir-workshop")
-        self.template.create_workshop(path, "Dir Agent")
-        self.template.add_recipe(path, "tool", "code", tier="hot")
+    def test_complete_fence(self, minimal_vessel):
+        """Fences should be recorded without duplicates."""
+        minimal_vessel.complete_fence("gate-1")
+        minimal_vessel.complete_fence("gate-1")  # duplicate
+        minimal_vessel.complete_fence("gate-2")
+        assert minimal_vessel.state.career.fences_completed == ["gate-1", "gate-2"]
 
-        with pytest.raises(ValueError, match="Cannot promote"):
-            self.template.promote_recipe(path, "tool", "hot", "cold")
+    def test_acquire_skill(self, minimal_vessel):
+        """Skills should be recorded without duplicates."""
+        minimal_vessel.acquire_skill("Python")
+        minimal_vessel.acquire_skill("Python")
+        minimal_vessel.acquire_skill("Rust")
+        assert minimal_vessel.state.career.skills_acquired == ["Python", "Rust"]
 
-    def test_freeze_recipe(self) -> None:
-        """Test freezing a recipe."""
-        path = os.path.join(self.temp_dir, "freeze-workshop")
-        self.template.create_workshop(path, "Freeze Agent")
-        self.template.add_recipe(path, "locked", "code", tier="hot")
+    def test_staleness_fresh_state(self, minimal_vessel):
+        """Fresh state (no last_updated) should be stale."""
+        assert minimal_vessel.is_stale() is True
 
-        self.template.freeze_recipe(path, "locked", tier="hot")
+    def test_staleness_recent_state(self, minimal_vessel):
+        """State updated recently should not be stale."""
+        import datetime as _dt
+        now = _dt.datetime.now(_dt.timezone.utc).isoformat()
+        minimal_vessel.state.last_updated = now
+        assert minimal_vessel.is_stale() is False
 
-        assert os.path.isfile(os.path.join(path, "recipes", "hot", "locked.frozen"))
+    def test_reset_clears_files(self, minimal_vessel):
+        """Reset should remove all persisted files."""
+        minimal_vessel.save()
+        assert (minimal_vessel.vessel_dir / "IDENTITY.md").exists()
+
+        minimal_vessel.reset()
+        assert not (minimal_vessel.vessel_dir / "IDENTITY.md").exists()
+        assert minimal_vessel.state.career.total_tasks_completed == 0
 
 
-# ---------------------------------------------------------------------------
-# Test: Bootcamp
-# ---------------------------------------------------------------------------
+# ===================================================================
+# TESTS: agent.py (13 tests)
+# ===================================================================
 
-class TestBootcamp:
-    """Tests for the bootcamp framework."""
+class TestTaskModel:
+    """Test Task data model and scoring."""
 
-    def setup_method(self) -> None:
-        self.temp_dir = tempfile.mkdtemp()
-        self.bootcamp = Bootcamp(self.temp_dir)
+    def test_default_task(self):
+        t = Task(id="t1", description="Do something")
+        assert t.priority == TaskPriority.MEDIUM
+        assert t.status == "pending"
+        assert t.score > 0
 
-    def teardown_method(self) -> None:
-        shutil.rmtree(self.temp_dir, ignore_errors=True)
+    def task_score_priorities(self):
+        """Critical tasks should score higher than info tasks."""
+        critical = Task(id="t1", description="x", priority=TaskPriority.CRITICAL)
+        info = Task(id="t2", description="x", priority=TaskPriority.INFO)
+        assert critical.score > info.score
 
-    def test_enroll_agent(self) -> None:
-        """Test agent enrollment."""
-        progress = self.bootcamp.enroll("test-agent")
+    def test_task_score_impact(self):
+        """High-impact tasks should score higher."""
+        high = Task(id="t1", description="x", impact_estimate="high")
+        low = Task(id="t2", description="x", impact_estimate="low")
+        assert high.score > low.score
 
-        assert progress.agent_name == "test-agent"
-        assert progress.enrolled is True
-        assert progress.rank == Rank.NOVICE
-        assert progress.xp == 0
+    def test_task_score_effort(self):
+        """Low-effort tasks should score higher than high-effort."""
+        low = Task(id="t1", description="x", effort_estimate="low")
+        high = Task(id="t2", description="x", effort_estimate="high")
+        assert low.score > high.score
 
-    def test_enroll_duplicate(self) -> None:
-        """Test that enrolling the same agent returns existing progress."""
-        p1 = self.bootcamp.enroll("dup-agent")
-        p2 = self.bootcamp.enroll("dup-agent")
-        assert p1 is p2
 
-    def test_get_available_exercises(self) -> None:
-        """Test available exercise listing for a novice."""
-        self.bootcamp.enroll("novice-agent")
+class TestPlan:
+    """Test Plan sorting."""
 
-        available = self.bootcamp.get_available_exercises("novice-agent")
-        assert len(available) > 0
-        # Novice should only see novice-level exercises
-        for ex in available:
-            assert ex.required_rank <= Rank.NOVICE
+    def test_sort_by_score(self):
+        plan = Plan(tasks=[
+            Task(id="t1", description="low", priority=TaskPriority.INFO),
+            Task(id="t2", description="critical", priority=TaskPriority.CRITICAL),
+            Task(id="t3", description="medium", priority=TaskPriority.MEDIUM),
+        ])
+        plan.sort_by_score()
+        assert plan.tasks[0].id == "t2"
+        assert plan.tasks[-1].id == "t1"
 
-    def test_complete_exercise(self) -> None:
-        """Test completing an exercise and earning XP."""
-        self.bootcamp.enroll("xp-agent")
 
-        result = self.bootcamp.complete_exercise("xp-agent", "hello_workshop")
-        assert result.completed is True
-        assert result.xp_earned > 0
+class TestAgent:
+    """Test Agent lifecycle methods."""
 
-        progress = self.bootcamp.get_progress("xp-agent")
-        assert progress.xp > 0
-        assert "hello_workshop" in progress.exercises_completed
+    def _make_agent(self, vessel_dir, llm_response="test"):
+        config = from_dict({
+            "github_token": "ghp_test",
+            "llm_provider": "openai",
+            "llm_api_key": "sk-test",
+            "vessel_repo": "test/vessel",
+            "fleet_org": "test-org",
+        })
+        llm = DummyLLM(response=llm_response)
+        github = DummyGitHub()
+        vessel = VesselManager(local_path=vessel_dir, config=config)
+        return Agent(config=config, llm=llm, github=github, vessel=vessel), github, llm
 
-    def test_complete_with_hints_penalty(self) -> None:
-        """Test that using hints reduces XP."""
-        self.bootcamp.enroll("hint-agent")
+    def test_bootstrap_creates_vessel(self, vessel_dir):
+        """Bootstrap should ensure vessel directory exists."""
+        agent, _, _ = self._make_agent(vessel_dir)
+        agent.bootstrap()
+        assert vessel_dir.exists()
 
-        full_xp = self.bootcamp.complete_exercise("hint-agent", "parse_config")
-        self.bootcamp.fail_exercise("hint-agent", "parse_config")
-        self.bootcamp.enroll("hint-agent-2")
-        partial_xp = self.bootcamp.complete_exercise(
-            "hint-agent-2", "parse_config", hints_used=5
+    def test_bootstrap_records_intro(self, vessel_dir):
+        """Bootstrap should log an introduction worklog entry."""
+        agent, _, _ = self._make_agent(vessel_dir)
+        agent.bootstrap()
+        assert len(agent.vessel.state.worklog) >= 1
+        assert agent.vessel.state.worklog[0].action == "bootstrapped"
+
+    def test_observe_empty(self, vessel_dir):
+        """Observe with no fleet data should return empty observation."""
+        agent, github, _ = self._make_agent(vessel_dir)
+        agent.bootstrap()
+        obs = agent.observe()
+        assert isinstance(obs, Observation)
+        assert obs.vessel_state is not None
+
+    def test_observe_reads_bottles(self, vessel_dir):
+        """Observe should read bottles from fleet repo."""
+        agent, github, _ = self._make_agent(vessel_dir)
+        github.bottles = [{"title": "hello", "content": "world"}]
+        agent.bootstrap()
+        obs = agent.observe()
+        assert len(obs.bottles) == 1
+
+    def test_observe_reads_tasks_md(self, vessel_dir):
+        """Observe should parse TASKS.md from repos."""
+        agent, github, _ = self._make_agent(vessel_dir)
+        github.files["test/vessel/TASKS.md"] = (
+            "- [ ] Fix the bug | priority:high | effort:low\n"
+            "- [ ] Add feature | priority:medium\n"
+            "- [x] Already done\n"
         )
+        agent.bootstrap()
+        obs = agent.observe()
+        # The vessel_repo is "test/vessel" — it should observe its own TASKS.md
+        assert len(obs.open_tasks) >= 2
+        assert any("Fix the bug" in t.description for t in obs.open_tasks)
 
-        assert full_xp.xp_earned > partial_xp.xp_earned
+    def test_plan_generates_plan(self, vessel_dir):
+        """Plan should produce a Plan object."""
+        agent, _, llm = self._make_agent(vessel_dir)
+        agent.bootstrap()
+        agent.observe()
+        plan = agent.plan()
+        assert isinstance(plan, Plan)
+        assert isinstance(plan.created_at, str)
+        assert len(plan.created_at) > 0
 
-    def test_rank_advancement(self) -> None:
-        """Test that enough XP triggers rank advancement."""
-        self.bootcamp.enroll("rank-agent")
+    def test_push_bottle_no_fleet(self, vessel_dir):
+        """Push bottle without fleet_org should return skipped."""
+        config = from_dict({
+            "github_token": "ghp_test",
+            "llm_provider": "openai",
+            "llm_api_key": "sk-test",
+        })
+        llm = DummyLLM()
+        github = DummyGitHub()
+        vessel = VesselManager(local_path=vessel_dir, config=config)
+        agent = Agent(config=config, llm=llm, github=github, vessel=vessel)
+        result = agent.push_bottle("hello")
+        assert result["status"] == "skipped"
 
-        # Complete enough exercises to advance
-        exercises = self.bootcamp.get_available_exercises("rank-agent")
-        for ex in exercises[:10]:  # Complete first 10
-            try:
-                self.bootcamp.complete_exercise("rank-agent", ex.name)
-            except ValueError:
-                break  # No more exercises available at this rank
+    def test_push_bottle_with_fleet(self, vessel_dir):
+        """Push bottle with fleet_org should call github client."""
+        agent, github, _ = self._make_agent(vessel_dir)
+        agent.bootstrap()
+        result = agent.push_bottle("Hello fleet!", title="Test")
+        assert result["status"] == "created"
+        assert len(github.bottles) == 1
 
-        progress = self.bootcamp.get_progress("rank-agent")
-        # Should have advanced past NOVICE after enough exercises
-        # (This depends on exercise XP totals vs threshold)
+    def test_update_vessel_persists(self, vessel_dir):
+        """update_vessel should write files to disk."""
+        agent, _, _ = self._make_agent(vessel_dir)
+        agent.bootstrap()
+        agent.vessel.state.identity.name = "Updated Name"
+        agent.update_vessel()
 
-    def test_fail_exercise(self) -> None:
-        """Test recording a failed exercise."""
-        self.bootcamp.enroll("fail-agent")
+        # Re-load and verify
+        mgr = VesselManager(local_path=vessel_dir)
+        loaded = mgr.load()
+        assert loaded.identity.name == "Updated Name"
 
-        self.bootcamp.fail_exercise("fail-agent", "hard_exercise")
+    def test_reflect_updates_career(self, vessel_dir):
+        """Reflect should increment session count and save."""
+        agent, _, _ = self._make_agent(vessel_dir)
+        agent.bootstrap()
+        agent.observe()
+        agent.plan()
 
-        progress = self.bootcamp.get_progress("fail-agent")
-        assert "hard_exercise" in progress.exercises_failed
+        reflection = agent.reflect()
+        assert "Session Reflection" in reflection
+        assert agent.vessel.state.career.sessions_completed == 1
 
-    def test_unenrolled_agent(self) -> None:
-        """Test operations on unenrolled agents."""
-        assert self.bootcamp.get_progress("ghost") is None
-        assert self.bootcamp.get_available_exercises("ghost") == []
-        assert self.bootcamp.get_rank("ghost") == Rank.NOVICE
+    def test_run_full_cycle(self, vessel_dir):
+        """Run should complete the full observe→plan→execute→communicate→reflect cycle."""
+        agent, github, llm = self._make_agent(vessel_dir, llm_response="No tasks to suggest.")
+        agent.bootstrap()
 
-    def test_persistence(self) -> None:
-        """Test that progress is persisted to disk."""
-        self.bootcamp.enroll("persist-agent")
-        self.bootcamp.complete_exercise("persist-agent", "hello_workshop")
-
-        # Load in a new Bootcamp instance
-        new_bootcamp = Bootcamp(self.temp_dir)
-        loaded = new_bootcamp.load_progress("persist-agent")
-
-        assert loaded is not None
-        assert loaded.xp > 0
-        assert "hello_workshop" in loaded.exercises_completed
-
-
-# ---------------------------------------------------------------------------
-# Test: Dojo
-# ---------------------------------------------------------------------------
-
-class TestDojo:
-    """Tests for the dojo technique library."""
-
-    def setup_method(self) -> None:
-        self.temp_dir = tempfile.mkdtemp()
-        self.dojo = Dojo(self.temp_dir)
-
-    def teardown_method(self) -> None:
-        shutil.rmtree(self.temp_dir, ignore_errors=True)
-
-    def test_learn_technique(self) -> None:
-        """Test learning a new technique."""
-        technique = self.dojo.learn_technique(
-            name="error-boundary",
-            code="try: ... except: ...",
-            description="Wrap operations in error boundaries",
-            category="error-handling",
-        )
-
-        assert technique.name == "error-boundary"
-        assert technique.mastery_level == 0.0
-        assert technique.mastered is False
-
-    def test_practice_technique(self) -> None:
-        """Test practicing a technique increases mastery."""
-        self.dojo.learn_technique(
-            name="retry-loop",
-            code="for attempt in range(3): ...",
-            description="Retry failed operations",
-        )
-
-        t1 = self.dojo.practice_technique("retry-loop", "handling network errors")
-        assert t1.mastery_level > 0.0
-        assert t1.times_practiced == 1
-
-        t2 = self.dojo.practice_technique("retry-loop")
-        assert t2.mastery_level >= t1.mastery_level  # Diminishing returns
-        assert t2.times_practiced == 2
-
-    def test_master_technique(self) -> None:
-        """Test manual mastery marking."""
-        self.dojo.learn_technique("pattern", "code", "desc")
-
-        technique = self.dojo.master_technique("pattern")
-        assert technique.mastered is True
-        assert technique.mastery_level == 1.0
-
-    def test_list_techniques(self) -> None:
-        """Test technique listing and filtering."""
-        self.dojo.learn_technique("t1", "c1", "d1", category="cat-a")
-        self.dojo.learn_technique("t2", "c2", "d2", category="cat-b")
-        self.dojo.learn_technique("t3", "c3", "d3", category="cat-a")
-        self.dojo.master_technique("t1")
-
-        all_techniques = self.dojo.list_techniques()
-        assert len(all_techniques) == 3
-
-        cat_a = self.dojo.list_techniques(category="cat-a")
-        assert len(cat_a) == 2
-
-        mastered = self.dojo.list_techniques(mastered_only=True)
-        assert len(mastered) == 1
-        assert mastered[0].name == "t1"
-
-    def test_get_stats(self) -> None:
-        """Test dojo statistics."""
-        self.dojo.learn_technique("t1", "c", "d", category="a")
-        self.dojo.learn_technique("t2", "c", "d", category="b")
-        self.dojo.learn_technique("shared", "c", "d", shared_from="other-agent")
-        self.dojo.master_technique("t1")
-
-        stats = self.dojo.get_stats()
-        assert stats["total_techniques"] == 3
-        assert stats["mastered"] == 1
-        assert stats["shared_from_fleet"] == 1
-        assert stats["categories"]["a"] == 1
-        assert stats["categories"]["b"] == 1
-
-    def test_unknown_technique(self) -> None:
-        """Test operations on non-existent techniques."""
-        assert self.dojo.get_technique("nonexistent") is None
-
-        with pytest.raises(ValueError):
-            self.dojo.practice_technique("nonexistent")
-
-        with pytest.raises(ValueError):
-            self.dojo.master_technique("nonexistent")
-
-
-# ---------------------------------------------------------------------------
-# Test: GitAgent (integration)
-# ---------------------------------------------------------------------------
-
-class TestGitAgent:
-    """Integration tests for the core Git Agent."""
-
-    def setup_method(self) -> None:
-        self.temp_dir = tempfile.mkdtemp()
-        self.agent = GitAgent(fleet_root=self.temp_dir)
-
-    def teardown_method(self) -> None:
-        shutil.rmtree(self.temp_dir, ignore_errors=True)
-
-    def test_register_workshop(self) -> None:
-        """Test registering a workshop (without git repo)."""
-        reg = self.agent.register_workshop(
-            agent_id="test-agent",
-            repo_path=self.temp_dir,
-            metadata={"role": "tester"},
-        )
-
-        assert reg.agent_id == "test-agent"
-        assert reg.status == "active"
-
-    def test_create_pr(self) -> None:
-        """Test creating a pull request."""
-        pr = self.agent.create_pr(
-            source="feature/login",
-            target="main",
-            title="feat: add login page",
-            body="This PR adds the login page with OAuth support.",
-            author="test-agent",
-        )
-
-        assert pr.number == 1
-        assert pr.source_branch == "feature/login"
-        assert pr.status == "open"
-
-    def test_review_pr(self) -> None:
-        """Test automated PR review."""
-        self.agent.create_pr(
-            source="feature/x",
-            target="main",
-            title="feat: add feature",
-            body="Adding a new feature to the system.",
-        )
-
-        comments = self.agent.review_pr(1)
-        assert len(comments) > 0
-
-    def test_review_nonexistent_pr(self) -> None:
-        """Test reviewing a PR that doesn't exist."""
-        comments = self.agent.review_pr(999)
-        assert any("not found" in c for c in comments)
-
-    def test_fleet_status_empty(self) -> None:
-        """Test fleet status with no workshops."""
-        status = self.agent.fleet_status()
-        assert "No workshops" in status
-
-    def test_fleet_status_with_workshops(self) -> None:
-        """Test fleet status with registered workshops."""
-        self.agent.register_workshop("agent-a", self.temp_dir)
-        self.agent.register_workshop("agent-b", self.temp_dir)
-
-        status = self.agent.fleet_status()
-        assert "agent-a" in status
-        assert "agent-b" in status
-
-    def test_daily_report(self) -> None:
-        """Test daily report generation."""
-        report = self.agent.daily_report()
-
-        assert report.total_agents == 0
-        assert report.date
-        assert isinstance(report.commit_breakdown, dict)
-
-    def test_format_daily_report(self) -> None:
-        """Test daily report formatting."""
-        report = self.agent.daily_report()
-        formatted = self.agent.format_daily_report(report)
-
-        assert "DAILY FLEET REPORT" in formatted
-
-    def test_track_build(self) -> None:
-        """Test build tracking."""
-        build = self.agent.track_build(
-            commit_hash="abc123",
-            agent_id="test-agent",
-            status="passed",
+        # Provide a TASKS.md for observation
+        github.files["test/vessel/TASKS.md"] = (
+            "- [ ] Simple task | priority:high | effort:low\n"
         )
 
-        assert build.status == "passed"
-        assert build.agent_id == "test-agent"
+        reflection = agent.run(max_tasks=1)
+        assert "Session Reflection" in reflection
+        assert agent.vessel.state.career.sessions_completed == 1
+        assert llm.call_count > 0
 
-    def test_spawn_git_agent(self) -> None:
-        """Test spawning a git-agent for a workshop."""
-        workshop_path = os.path.join(self.temp_dir, "spawned-workshop")
-        config = self.agent.spawn_git_agent(
-            agent_id="spawned-agent",
-            workshop_path=workshop_path,
-            config={"role": "Spawned test agent"},
+    def test_execute_task_success(self, vessel_dir):
+        """Executing a valid task should create a branch and PR."""
+        agent, github, llm = self._make_agent(vessel_dir, llm_response=json.dumps({
+            "files": [{"path": "src/hello.py", "content": "print('hello')"}],
+            "summary": "Added hello",
+        }))
+        agent.bootstrap()
+
+        task = Task(
+            id="t1",
+            description="Add hello world",
+            repo="test/vessel",
+            priority=TaskPriority.HIGH,
         )
+        success = agent.execute_task(task)
+        assert success is True
+        assert task.status == "completed"
+        assert len(github.branches) == 1
+        assert len(github.prs) == 1
+        assert agent.vessel.state.career.total_tasks_completed == 1
 
-        # agent_name is derived from the directory name (stripping "-workshop")
-        assert config.agent_name == "spawned"
-        assert os.path.isdir(workshop_path)
-        assert "spawned-agent" in self.agent._workshops
+    def test_execute_task_no_repo(self, vessel_dir):
+        """Executing a task without a repo should fail gracefully."""
+        agent, _, _ = self._make_agent(vessel_dir)
+        agent.bootstrap()
 
-    def test_narrate_unregistered_agent(self) -> None:
-        """Test narrating an unregistered agent."""
-        narrative = self.agent.narrate_history("ghost-agent")
-        assert "not registered" in narrative
+        task = Task(id="t2", description="No repo task", repo=None)
+        success = agent.execute_task(task)
+        assert success is False
+        assert task.status == "failed"
 
-    def test_deploy_workshop(self) -> None:
-        """Test deploying a workshop."""
-        self.agent.register_workshop("deploy-agent", self.temp_dir)
+    def test_parse_tasks_md(self, vessel_dir):
+        """TASKS.md parsing should extract tasks with correct metadata."""
+        agent, _, _ = self._make_agent(vessel_dir)
+        agent.bootstrap()
 
-        result = self.agent.deploy_workshop("deploy-agent", "production")
-        assert result["status"] == "deployed"
-        assert result["target"] == "production"
+        tasks_md = (
+            "- [ ] Critical fix | priority:critical | effort:low | impact:high\n"
+            "- [ ] Normal task | priority:medium\n"
+            "- [ ] Info item | priority:info | effort:high\n"
+            "- [x] Completed task | priority:high\n"
+            "- Regular text line\n"
+        )
+        tasks = agent._parse_tasks_md(tasks_md, "owner/repo")
 
-    def test_deploy_unregistered(self) -> None:
-        """Test deploying an unregistered agent."""
-        result = self.agent.deploy_workshop("ghost")
-        assert result["status"] == "error"
+        assert len(tasks) == 3  # 3 unchecked tasks
+        assert tasks[0].priority == TaskPriority.CRITICAL
+        assert tasks[0].effort_estimate == "low"
+        assert tasks[0].impact_estimate == "high"
+        assert tasks[1].priority == TaskPriority.MEDIUM
+        assert tasks[2].priority == TaskPriority.INFO
+        assert tasks[2].effort_estimate == "high"
+
+    def test_parallel_execution(self, vessel_dir):
+        """execute_parallel should run multiple tasks and return results."""
+        agent, github, llm = self._make_agent(vessel_dir, llm_response=json.dumps({
+            "files": [{"path": "f.txt", "content": "data"}],
+            "summary": "done",
+        }))
+        agent.bootstrap()
+
+        tasks = [
+            Task(id=f"p{i}", description=f"Parallel task {i}", repo="test/vessel")
+            for i in range(3)
+        ]
+        results = agent.execute_parallel(tasks, max_workers=2)
+        assert len(results) == 2  # capped by workers
+        assert all(isinstance(v, bool) for v in results.values())
+
+    def test_generate_branch_name(self, vessel_dir):
+        """Branch names should be safe git refs."""
+        agent, _, _ = self._make_agent(vessel_dir)
+        task = Task(id="t1", description="Fix bug in user auth flow!")
+        name = agent._generate_branch_name(task)
+        assert name.startswith("agent/")
+        assert "!" not in name
+        assert len(name) <= 60
 
 
-# ---------------------------------------------------------------------------
-# Test: CLI
-# ---------------------------------------------------------------------------
+# ===================================================================
+# Run tests
+# ===================================================================
 
-class TestCLI:
-    """Tests for the CLI argument parsing."""
-
-    def test_parse_no_args(self) -> None:
-        """Test parser with no arguments."""
-        parser = build_parser()
-        args = parser.parse_args([])
-        assert args.command is None
-
-    def test_parse_serve(self) -> None:
-        """Test serve command."""
-        parser = build_parser()
-        args = parser.parse_args(["serve", "--watch"])
-        assert args.command == "serve"
-        assert args.watch is True
-
-    def test_parse_narrate(self) -> None:
-        """Test narrate command."""
-        parser = build_parser()
-        args = parser.parse_args(["narrate", "test-agent", "--style", "brief", "--since", "1 week ago"])
-        assert args.command == "narrate"
-        assert args.agent == "test-agent"
-        assert args.style == "brief"
-        assert args.since == "1 week ago"
-
-    def test_parse_workshop_create(self) -> None:
-        """Test workshop create command."""
-        parser = build_parser()
-        args = parser.parse_args(["workshop", "create", "my-agent", "--role", "Tester", "--stack", "systems"])
-        assert args.command == "workshop"
-        assert args.workshop_cmd == "create"
-        assert args.name == "my-agent"
-        assert args.role == "Tester"
-        assert args.stack == "systems"
-
-    def test_parse_workshop_status(self) -> None:
-        """Test workshop status command."""
-        parser = build_parser()
-        args = parser.parse_args(["workshop", "status"])
-        assert args.command == "workshop"
-        assert args.workshop_cmd == "status"
-
-    def test_parse_bootcamp_enroll(self) -> None:
-        """Test bootcamp enroll command."""
-        parser = build_parser()
-        args = parser.parse_args(["bootcamp", "enroll", "test-agent"])
-        assert args.command == "bootcamp"
-        assert args.bootcamp_cmd == "enroll"
-        assert args.agent == "test-agent"
-
-    def test_parse_fleet_report(self) -> None:
-        """Test fleet-report command."""
-        parser = build_parser()
-        args = parser.parse_args(["fleet-report"])
-        assert args.command == "fleet-report"
-
-    def test_parse_lessons(self) -> None:
-        """Test lessons command."""
-        parser = build_parser()
-        args = parser.parse_args(["lessons", "test-agent", "--since", "2 weeks ago"])
-        assert args.command == "lessons"
-        assert args.agent == "test-agent"
-
-    def test_parse_spawn(self) -> None:
-        """Test spawn command."""
-        parser = build_parser()
-        args = parser.parse_args(["spawn", "test-agent", "/tmp/workshop", "--stack", "web"])
-        assert args.command == "spawn"
-        assert args.agent == "test-agent"
-        assert args.workshop == "/tmp/workshop"
+if __name__ == "__main__":
+    pytest.main([__file__, "-v", "--tb=short"])

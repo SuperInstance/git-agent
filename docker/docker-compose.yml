@@ -1,0 +1,70 @@
+# ==========================================================================
+# git-agent Docker Compose
+# ==========================================================================
+# Usage:
+#   docker compose up -d          # Start agent + optional Ollama
+#   docker compose logs agent     # View agent logs
+#   docker compose down           # Stop all services
+# ==========================================================================
+
+version: "3.9"
+
+services:
+  # ------------------------------------------------------------------
+  # Primary: git-agent service
+  # ------------------------------------------------------------------
+  agent:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: git-agent
+    restart: unless-stopped
+    env_file:
+      - ../.env  # Optional: environment variables override config
+    volumes:
+      # Agent configuration (GitHub PAT, LLM keys)
+      - ${HOME}/.git-agent:/home/agent/.git-agent:ro
+      # Workspace for cloned repos and vessel data
+      - git-agent-workspace:/home/agent/workspace
+      # SSH keys for git operations (optional)
+      - ${HOME}/.ssh:/home/agent/.ssh:ro
+    networks:
+      - fleet-network
+    depends_on:
+      - ollama
+    environment:
+      # Override these in .env or the compose environment section
+      - GIT_AGENT_CONFIG_PATH=/home/agent/.git-agent/config.yaml
+      - PYTHONUNBUFFERED=1
+
+  # ------------------------------------------------------------------
+  # Optional: Ollama sidecar for local LLM inference
+  # ------------------------------------------------------------------
+  ollama:
+    image: ollama/ollama:latest
+    container_name: git-agent-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - fleet-network
+    profiles:
+      - with-ollama  # Only start with: docker compose --profile with-ollama up
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 2G
+
+volumes:
+  git-agent-workspace:
+    driver: local
+  ollama-data:
+    driver: local
+
+networks:
+  fleet-network:
+    driver: bridge
