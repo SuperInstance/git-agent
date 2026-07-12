@@ -1,26 +1,22 @@
 # git-agent
 
-**The repo IS the agent. Git IS the nervous system.** A framework for building autonomous software agents that operate natively on GitHub through Git workflows — self-directed, fleet-coordinating, career-progressing.
+[![CI](https://github.com/SuperInstance/git-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/SuperInstance/git-agent/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 
-## Brand Line
+> **The repo IS the agent. Git IS the nervous system.**
 
-> git-agent is the foundational concept for the Cocapn fleet's agent paradigm — repos are identities, commits are work, branches are explorations.
+A framework for building autonomous software agents that operate natively on GitHub through Git workflows — self-directed, fleet-coordinating, career-progressing.
 
-## Installation
+---
+
+## Quick Start
 
 ```bash
 git clone https://github.com/SuperInstance/git-agent.git
 cd git-agent
-pip install -e ".[all]"  # or: python3 -m venv .venv && source .venv/bin/activate && pip install -e "."
+pip install -e ".[all]"
 ```
-
-Or one-command bootstrap:
-
-```bash
-curl -sL https://raw.githubusercontent.com/SuperInstance/git-agent/main/onboarding/setup.sh | bash
-```
-
-## Usage
 
 ```bash
 # Configure (interactive wizard)
@@ -30,7 +26,17 @@ python onboarding/config_wizard.py
 python -m git_agent
 ```
 
-The agent will bootstrap, observe fleet state, plan tasks, execute in parallel, push status bottles, and reflect on the session.
+The agent bootstraps, observes fleet state, plans tasks, executes in parallel, pushes status bottles, and reflects on the session.
+
+---
+
+## What It Does
+
+git-agent turns a Git repository into a living agent. Instead of a chatbot with git installed, it's an autonomous lifecycle that uses the repository itself as its persistent state: commits are work, branches are explorations, issues are task boards, and PRs are communication. The agent observes its environment, plans tasks, executes them in parallel, communicates with other agents via Git-native "bottles" (status messages pushed as commits), and reflects on its performance.
+
+The framework supports fleet coordination — multiple agents can collaborate decentralized through standardized TASKS.md boards and I2I (iron-to-iron) commit-based messaging. Agents progress through six career stages from Initiate to Commander, tracking skills and accomplishments along the way. It works with any LLM backend: OpenAI, Anthropic, Ollama (local), or any OpenAI-compatible proxy.
+
+---
 
 ## Architecture
 
@@ -53,7 +59,9 @@ The agent will bootstrap, observe fleet state, plan tasks, execute in parallel, 
         └──────────────┴──────────────┘
 ```
 
-## Key Features
+git-agent is the **agent framework** of the SuperInstance ecosystem. Agents use [FLUX](https://github.com/SuperInstance/flux-runtime) bytecode for deterministic computation, communicate via [I2I](https://github.com/SuperInstance/iron-to-iron) git-native protocol, and coordinate through [PLATO](https://github.com/SuperInstance/plato-server) knowledge systems.
+
+### Key Features
 
 - **Autonomous lifecycle**: Observe → Plan → Execute → Communicate → Reflect
 - **Fleet coordination**: Decentralized multi-agent collaboration through Git-native bottles
@@ -63,7 +71,11 @@ The agent will bootstrap, observe fleet state, plan tasks, execute in parallel, 
 - **Git-native state**: All state stored as human-readable Markdown in Git repositories
 - **TASKS.md driven**: Discover and claim work from standardized task boards
 
-## Supported LLM Backends
+---
+
+## API / Usage
+
+### Supported LLM Backends
 
 | Provider | Config Key | Notes |
 |----------|------------|-------|
@@ -72,17 +84,36 @@ The agent will bootstrap, observe fleet state, plan tasks, execute in parallel, 
 | Ollama | `llm_provider: "ollama"` | Local, private, zero cost |
 | Custom Proxy | `llm_provider: "proxy"` | ZeroClaw, Pi Agent, vLLM, any OpenAI-compatible |
 
-## Fleet Context
+### One-Command Bootstrap
 
-Part of the Cocapn fleet. Related repos:
+```bash
+curl -sL https://raw.githubusercontent.com/SuperInstance/git-agent/main/onboarding/setup.sh | bash
+```
 
-- [iron-to-iron](https://github.com/SuperInstance/iron-to-iron) — I2I git-native agent-to-agent communication protocol (commit-based proposals, no API calls)
-- [flux-runtime](https://github.com/SuperInstance/flux-runtime) — C11 micro-VM execution engine for agent bytecode
-- [holodeck-core](https://github.com/SuperInstance/holodeck-core) — Standalone MUD engine for room-based agent simulation
-- [plato-sdk](https://github.com/SuperInstance/plato-sdk) — SDK for PLATO room-based agent coordination
+### Agent Lifecycle
+
+1. **Observe** — Read fleet state, TASKS.md boards, recent commits
+2. **Plan** — Identify available tasks, select based on skills and priority
+3. **Execute** — Run tasks in parallel with worker pools
+4. **Communicate** — Push status bottles via Git-native protocol
+5. **Reflect** — Log accomplishments, update career progression
 
 ---
-🦐 Cocapn fleet — lighthouse keeper architecture
+
+## Testing
+
+```bash
+pip install -e ".[dev]"
+pytest tests/ -v
+```
+
+---
+
+## Contributing
+
+Contributions are welcome! See the [SuperInstance Contributing Guide](https://github.com/SuperInstance/SuperInstance/blob/main/CONTRIBUTING.md).
+
+---
 
 ## Ecosystem
 
@@ -136,9 +167,15 @@ This repo is part of the **SuperInstance** flagship ecosystem — agent-first co
 |----------|---------|---------|
 | **PyPI** | `flux-vm` | `pip install flux-vm` |
 | **crates.io** | `fluxvm` | `cargo add fluxvm` |
-| **npm** | `flux-js` | `npm install flux-js` *(coming soon)* |
+| **npm** | `flux-js` | `npm install flux-js` |
 
 ### Philosophy & Architecture
 
 - 📖 [AI-Writings](https://github.com/SuperInstance/AI-Writings) — Philosophy, essays, and design rationale
 - 📦 [PACKAGES.md](https://github.com/SuperInstance/SuperInstance/blob/main/PACKAGES.md) — Full package index
+
+---
+
+## License
+
+MIT
