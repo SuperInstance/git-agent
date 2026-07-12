@@ -15,7 +15,7 @@ import json, urllib.request, sys, os, time, re, base64, argparse
 from typing import List, Optional, Dict
 
 # Config
-DEEPINFRA_API_KEY = os.environ.get("DEEPINFRA_API_KEY", "RhZPtvuy4cXzu02LbBSffbXeqs5Yf2IZ")
+DEEPINFRA_API_KEY = os.environ.get("DEEPINFRA_API_KEY", "")
 DEEPINFRA_URL = "https://api.deepinfra.com/v1/openai/chat/completions"
 PLATO_URL = "http://localhost:8847/submit"
 STATE_FILE = "/tmp/plato-scholar-state.json"

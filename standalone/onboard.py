@@ -26,6 +26,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 import urllib.request
@@ -138,7 +139,7 @@ def clone_vessel(vessel_spec, token=None):
     
     if os.path.isdir(vessel_dir):
         log(f"Updating existing vessel at {vessel_dir}")
-        os.system(f"cd {vessel_dir} && git pull -q 2>/dev/null")
+        subprocess.run(["git", "pull", "-q"], cwd=vessel_dir, capture_output=True)
         return vessel_dir
     
     os.makedirs(VESSELS_DIR, exist_ok=True)
@@ -149,11 +150,11 @@ def clone_vessel(vessel_spec, token=None):
         url = f"https://github.com/{vessel_spec}.git"
     
     log(f"Cloning vessel {vessel_spec}...")
-    ret = os.system(f"git clone -q {url} {vessel_dir} 2>/dev/null")
-    if ret != 0:
+    result = subprocess.run(["git", "clone", "-q", url, vessel_dir], capture_output=True)
+    if result.returncode != 0:
         log(f"Clone failed, trying without token...", "warn")
-        ret = os.system(f"git clone -q https://github.com/{vessel_spec}.git {vessel_dir} 2>/dev/null")
-        if ret != 0:
+        result = subprocess.run(["git", "clone", "-q", f"https://github.com/{vessel_spec}.git", vessel_dir], capture_output=True)
+        if result.returncode != 0:
             log(f"Could not clone vessel — working offline", "warn")
             os.makedirs(vessel_dir, exist_ok=True)
     

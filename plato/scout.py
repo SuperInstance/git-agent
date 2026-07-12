@@ -27,7 +27,7 @@ from typing import Any, Dict, List, Optional
 # ---------------------------------------------------------------------------
 
 GITHUB_API = "https://api.github.com"
-DEEPINFRA_API_KEY = "RhZPtvuy4cXzu02LbBSffbXeqs5Yf2IZ"
+DEEPINFRA_API_KEY = os.environ.get("DEEPINFRA_API_KEY", "")
 DEEPINFRA_BASE = "https://api.deepinfra.com/v1/openai"
 DEEPINFRA_MODEL = "ByteDance/Seed-2.0-mini"
 PLATO_SUBMIT_URL = "http://localhost:8847/submit"

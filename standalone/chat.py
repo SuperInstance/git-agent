@@ -16,6 +16,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 import urllib.request
@@ -167,7 +168,7 @@ def start_chat(config, vessel_context, provider, model, one_shot=None):
         if user_input.lower() == "status":
             vessel_path = config.get("agent", {}).get("vessel_path", "")
             if vessel_path:
-                os.system(f"cd {vessel_path} && git status --short 2>/dev/null")
+                subprocess.run(["git", "status", "--short"], cwd=vessel_path, capture_output=True)
             continue
         
         messages.append({"role": "user", "content": user_input})

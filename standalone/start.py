@@ -13,6 +13,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 import urllib.request
@@ -21,7 +22,7 @@ from datetime import datetime
 GIT_AGENT_HOME = os.environ.get("GIT_AGENT_HOME", os.path.expanduser("~/.git-agent"))
 CONFIG_DIR = os.path.join(GIT_AGENT_HOME, "config")
 
-DEEPINFRA_API_KEY = os.environ.get("DEEPINFRA_API_KEY", "RhZPtvuy4cXzu02LbBSffbXeqs5Yf2IZ")
+DEEPINFRA_API_KEY = os.environ.get("DEEPINFRA_API_KEY", "")
 DEEPINFRA_URL = "https://api.deepinfra.com/v1/openai/chat/completions"
 
 
@@ -70,7 +71,9 @@ def call_llm(system_prompt, user_message, temperature=0.5):
 
 def git_commit(vessel_path, message):
     """Commit and push changes."""
-    os.system(f"cd {vessel_path} && git add -A && git commit -m '{message}' && git push 2>/dev/null")
+    subprocess.run(["git", "add", "-A"], cwd=vessel_path, capture_output=True)
+    subprocess.run(["git", "commit", "-m", message], cwd=vessel_path, capture_output=True)
+    subprocess.run(["git", "push"], cwd=vessel_path, capture_output=True)
 
 
 def extract_active_task(next_action_content):
@@ -102,7 +105,7 @@ def run_work_cycle(config, round_num):
         return False
     
     # Pull latest
-    os.system(f"cd {vessel_path} && git pull -q 2>/dev/null")
+    subprocess.run(["git", "pull", "-q"], cwd=vessel_path, capture_output=True)
     
     # Read current state
     next_action = read_file(os.path.join(vessel_path, "NEXT-ACTION.md"))
