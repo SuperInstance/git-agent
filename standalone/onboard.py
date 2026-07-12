@@ -134,6 +134,9 @@ def parse_agents_orders(content):
 
 def clone_vessel(vessel_spec, token=None):
     """Clone or update a vessel repo."""
+    # Validate vessel_spec format (owner/repo — alphanumeric, dash, underscore, dot, slash)
+    if not re.match(r'^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$', vessel_spec):
+        raise ValueError(f"Invalid vessel spec: {vessel_spec}")
     owner, name = vessel_spec.split("/")
     vessel_dir = os.path.join(VESSELS_DIR, name)
     
@@ -144,16 +147,27 @@ def clone_vessel(vessel_spec, token=None):
     
     os.makedirs(VESSELS_DIR, exist_ok=True)
     
-    if token:
-        url = f"https://{token}@github.com/{vessel_spec}.git"
-    else:
-        url = f"https://github.com/{vessel_spec}.git"
+    base_url = f"https://github.com/{vessel_spec}.git"
     
     log(f"Cloning vessel {vessel_spec}...")
-    result = subprocess.run(["git", "clone", "-q", url, vessel_dir], capture_output=True)
-    if result.returncode != 0:
-        log(f"Clone failed, trying without token...", "warn")
-        result = subprocess.run(["git", "clone", "-q", f"https://github.com/{vessel_spec}.git", vessel_dir], capture_output=True)
+    if token:
+        # Use git credential helper via env, not URL embedding
+        env = dict(os.environ, GIT_ASKPASS="/bin/echo")
+        result = subprocess.run(
+            ["git", "clone", "-q", base_url, vessel_dir],
+            capture_output=True,
+            env={**os.environ, "GIT_TERMINAL_PROMPT": "0"}
+        )
+        # If clone fails, try with token via git config
+        if result.returncode != 0:
+            result = subprocess.run(
+                ["git", "clone", "-q",
+                 f"https://x-access-token:{token}@github.com/{vessel_spec}.git",
+                 vessel_dir],
+                capture_output=True
+            )
+    else:
+        result = subprocess.run(["git", "clone", "-q", base_url, vessel_dir], capture_output=True)
         if result.returncode != 0:
             log(f"Could not clone vessel — working offline", "warn")
             os.makedirs(vessel_dir, exist_ok=True)
@@ -338,7 +352,8 @@ def show_status():
     vessel_dir = agent.get("vessel_path", "")
     if vessel_dir and os.path.isdir(vessel_dir):
         print(f"\n  Vessel path: {vessel_dir}")
-        dirty = os.popen(f"cd {vessel_dir} && git status --short 2>/dev/null").read().strip()
+        result = subprocess.run(["git", "status", "--short"], cwd=vessel_dir, capture_output=True, text=True)
+        dirty = result.stdout.strip()
         if dirty:
             print(f"    Uncommitted changes: {len(dirty.split(chr(10)))} files")
         else:
