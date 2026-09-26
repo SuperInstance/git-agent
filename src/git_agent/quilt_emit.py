@@ -168,17 +168,16 @@ class QuiltEmitter:
     def wal(self) -> List[Dict[str, Any]]:
         return self._read_lines()
 
-    def ingest(self, event: Dict[str, Any]) -> Dict[str, Any]:
-        _validate(event)
-        if event["event_id"] in self._seen:
-            for line in self._read_lines():  # idempotent no-op: return the existing line
-                if line["event_id"] == event["event_id"]:
-                    return line
-            raise QuiltValidationError(  # pragma: no cover
-                f"event_id {event['event_id']!r} seen but absent from WAL")
-        line = _map(event)
-        line["event_id"] = event["event_id"]
-        line["timestamp"] = event["timestamp"]
+    def append_line(self, op: str, cell: str, args: Dict[str, Any],
+                    event_id: str, timestamp: str,
+                    extra: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """Append a pre-formed opcode line to the WAL (chain-sealed) and fold
+        it into the reducer state. Public so companion layers (e.g. the Jev
+        gate writing flag lines) share the exact same persistence path."""
+        line = {"op": op, "cell": cell, "args": args,
+                "event_id": event_id, "timestamp": timestamp}
+        if extra:
+            line.update(extra)
         prev = self._read_lines()
         line["seq"] = len(prev)
         line["prev_hash"] = prev[-1]["hash"] if prev else "0" * 16
@@ -186,9 +185,24 @@ class QuiltEmitter:
         self.wal_path.parent.mkdir(parents=True, exist_ok=True)
         with open(self.wal_path, "a", encoding="utf-8") as f:
             f.write(json.dumps(line, sort_keys=True) + "\n")
-        self._seen.add(event["event_id"])
+        self._seen.add(event_id)
         self._fold(line, self._state)
         return line
+
+    def ingest(self, event: Dict[str, Any],
+               extra: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """Validate + map + append one event. ``extra`` rides the line
+        (e.g. gate receipts) and is covered by the hash seal."""
+        _validate(event)
+        if event["event_id"] in self._seen:
+            for line in self._read_lines():  # idempotent no-op: return the existing line
+                if line["event_id"] == event["event_id"]:
+                    return line
+            raise QuiltValidationError(  # pragma: no cover
+                f"event_id {event['event_id']!r} seen but absent from WAL")
+        mapped = _map(event)
+        return self.append_line(mapped["op"], mapped["cell"], mapped["args"],
+                                event["event_id"], event["timestamp"], extra=extra)
 
     @staticmethod
     def _fold(line: Dict[str, Any], st: Dict[str, Any]) -> None:
