@@ -193,3 +193,23 @@ def test_fnv1a_is_stable_and_seedless():
     assert fnv1a("hello") == fnv1a("hello")
     assert fnv1a("hello") != fnv1a("hellp")
     assert len(fnv1a("anything")) == 16  # 64-bit → 16 hex chars
+
+
+# ── regression: presence is not enough, strings must be non-empty ────────
+# (found by JEV session 16 — a "target": "" worklog passed the validator
+# while Jev scored its verifiability 0.04. Schema presence checks alone
+# let empty claims through.)
+
+def test_empty_string_field_rejected(emitter):
+    ev = load("worklog")
+    ev["target"] = ""
+    with pytest.raises(QuiltValidationError) as exc:
+        emitter.ingest(ev)
+    assert "non-empty" in str(exc.value)
+
+
+def test_whitespace_only_event_id_rejected(emitter):
+    ev = load("heartbeat")
+    ev["event_id"] = "   "
+    with pytest.raises(QuiltValidationError):
+        emitter.ingest(ev)
