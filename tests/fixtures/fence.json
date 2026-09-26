@@ -1,0 +1,6 @@
+{
+  "event_id": "evt-0005-captured",
+  "type": "fence",
+  "timestamp": "2026-09-26T00:22:43.521442+00:00",
+  "fence_name": "first-pr"
+}
