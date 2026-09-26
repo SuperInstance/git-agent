@@ -1,0 +1,6 @@
+{
+  "event_id": "evt-0003-captured",
+  "type": "task_completion",
+  "timestamp": "2026-09-26T00:22:43.521420+00:00",
+  "success": true
+}

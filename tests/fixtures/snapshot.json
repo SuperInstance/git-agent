@@ -1,0 +1,9 @@
+{
+  "event_id": "evt-0007-captured",
+  "type": "snapshot",
+  "timestamp": "2026-09-26T00:22:43.521470+00:00",
+  "stage": "initiate",
+  "total_tasks_completed": 1,
+  "total_tasks_failed": 0,
+  "worklog_len": 1
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "git-agent vessel lifecycle event",
+  "description": "Schema for events ingested by git_agent.quilt_emit. Lives with the producer (git-agent), per fleet doctrine: schemas belong with the producer, not the linter.",
+  "type": "object",
+  "required": ["event_id", "type", "timestamp"],
+  "additionalProperties": true,
+  "definitions": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "type": { "const": "session_start" } } },
+      "then": {
+        "required": ["event_id", "type", "timestamp", "name", "designation", "version"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "designation": { "type": "string", "minLength": 1 },
+          "version": { "type": "string", "minLength": 1 },
+          "domains": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "worklog" } } },
+      "then": {
+        "required": ["event_id", "type", "timestamp", "action", "target", "summary", "outcome"],
+        "properties": {
+          "action": { "type": "string", "minLength": 1 },
+          "target": { "type": "string", "minLength": 1 },
+          "summary": { "type": "string", "minLength": 1 },
+          "outcome": { "type": "string", "enum": ["success", "failure", "partial"] }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "task_completion" } } },
+      "then": {
+        "required": ["event_id", "type", "timestamp", "success"],
+        "properties": { "success": { "type": "boolean" } }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "promotion" } } },
+      "then": {
+        "required": ["event_id", "type", "timestamp", "from_stage", "to_stage"],
+        "properties": {
+          "from_stage": { "type": "string", "minLength": 1 },
+          "to_stage": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "fence" } } },
+      "then": {
+        "required": ["event_id", "type", "timestamp", "fence_name"],
+        "properties": { "fence_name": { "type": "string", "minLength": 1 } }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "skill" } } },
+      "then": {
+        "required": ["event_id", "type", "timestamp", "skill"],
+        "properties": { "skill": { "type": "string", "minLength": 1 } }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "snapshot" } } },
+      "then": {
+        "required": ["event_id", "type", "timestamp", "stage"],
+        "properties": { "stage": { "type": "string", "minLength": 1 } }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "session_end" } } },
+      "then": {
+        "required": ["event_id", "type", "timestamp"],
+        "properties": { "archived": { "type": "boolean" } }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "heartbeat" } } },
+      "then": { "required": ["event_id", "type", "timestamp"] }
+    }
+  ],
+  "properties": {
+    "event_id": { "type": "string", "minLength": 1 },
+    "type": {
+      "type": "string",
+      "enum": [
+        "session_start", "worklog", "task_completion", "promotion",
+        "fence", "skill", "snapshot", "heartbeat", "session_end"
+      ]
+    },
+    "timestamp": { "$ref": "#/definitions/timestamp" }
+  }
+}

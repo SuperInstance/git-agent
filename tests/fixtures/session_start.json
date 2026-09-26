@@ -1,0 +1,11 @@
+{
+  "event_id": "evt-0001-captured",
+  "type": "session_start",
+  "timestamp": "2026-09-26T00:22:43.521309+00:00",
+  "name": "Super Z",
+  "designation": "Git-Native Agent",
+  "version": "0.1.0",
+  "domains": [
+    "general"
+  ]
+}

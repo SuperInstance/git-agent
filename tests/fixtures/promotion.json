@@ -1,0 +1,7 @@
+{
+  "event_id": "evt-0004-captured",
+  "type": "promotion",
+  "timestamp": "2026-09-26T00:22:43.521427+00:00",
+  "from_stage": "initiate",
+  "to_stage": "apprentice"
+}
