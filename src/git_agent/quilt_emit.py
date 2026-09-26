@@ -78,6 +78,8 @@ def _validate(event: Dict[str, Any]) -> None:
     for field in ("event_id", "type", "timestamp"):
         if field not in event:
             raise QuiltValidationError(f"missing required field: {field!r}")
+        if field != "type" and (not isinstance(event[field], str) or not event[field].strip()):
+            raise QuiltValidationError(f"{field!r} must be a non-empty string")
     if not isinstance(event["event_id"], str) or not event["event_id"]:
         raise QuiltValidationError("event_id must be a non-empty string")
     if event["type"] not in EVENT_TYPES:
@@ -90,6 +92,9 @@ def _validate(event: Dict[str, Any]) -> None:
         if field not in event:
             raise QuiltValidationError(
                 f"{event['type']} event missing required field: {field!r}")
+        if isinstance(event[field], str) and not event[field].strip():
+            raise QuiltValidationError(
+                f"{event['type']} field {field!r} must be non-empty if present as a string")
     if event["type"] == "worklog":
         if event["outcome"] not in OUTCOMES:
             raise QuiltValidationError(
