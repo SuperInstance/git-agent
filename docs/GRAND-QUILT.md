@@ -27,6 +27,15 @@ The fleet's quilt kernel speaks six opcodes: **BIND / LINK / EFFECT / VIEW /
 TICK / FORGET**. Git has spoken them for twenty years — it just never said
 so out loud.
 
+> **Provenance.** The opcode doctrine is not native to git-agent. Its canonical
+> source is [AI-Writings/algebra.md](https://github.com/SuperInstance/AI-Writings/blob/main/algebra.md)
+> — the fleet's algebra of cells; git-agent's contribution is the isomorphism
+> below (git primitives as an existing, unbroken speaker of the same opcodes).
+> This in-repo citation exists so the referral edge
+> `aw-quint-opcode → ga-quilt-emit` is verifiable where the code lives, per the
+> quilt-tools referral-graph weight law (VERIFIED requires a merged PR in the
+> TARGET repo citing the source).
+
 | Quilt opcode | Git primitive | What it actually does |
 |---|---|---|
 | **BIND** | `git commit` | Declares a cell: identity (hash), content (tree), authorship, timestamp. A commit is a node entering the quilt with a permanent name. |
