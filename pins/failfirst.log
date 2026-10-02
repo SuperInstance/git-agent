@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0
+rootdir: /root/.openclaw/workspace/lanes/laneG/clone
+configfile: pyproject.toml
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_______________ ERROR collecting tests/test_equivalence_seed.py ________________
+ImportError while importing test module '/root/.openclaw/workspace/lanes/laneG/clone/tests/test_equivalence_seed.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_equivalence_seed.py:18: in <module>
+    from git_agent.cogs.verifiable_work import judge_verifiable_work
+E   ModuleNotFoundError: No module named 'git_agent.cogs'; 'git_agent' is not a package
+=========================== short test summary info ============================
+ERROR tests/test_equivalence_seed.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.21s ===============================
