@@ -1,6 +1,6 @@
 # git-agent
 
-[![CI](https://github.com/SuperInstance/git-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/SuperInstance/git-agent/actions/workflows/ci.yml)
+[![CI](https://github.com/SuperInstance/git-agent/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/SuperInstance/git-agent/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 
