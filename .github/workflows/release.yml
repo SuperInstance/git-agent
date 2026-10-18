@@ -14,12 +14,33 @@ jobs:
           python-version: "3.12"
       - run: python -m pip install --upgrade pip build twine
       - run: python -m build
-      - run: python -m twine upload dist/*
+      - name: Publish to PyPI
+        id: publish
+        run: python -m twine upload dist/*
         env:
           TWINE_API_USERNAME: __token__
           TWINE_API_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        continue-on-error: true  # Token may not be configured yet
+      - name: Confirm the artefact is actually on PyPI
+        # `twine upload` exiting 0 is a claim, not a receipt. This asserts the artefact
+        # EXISTS before anything downstream points a tag at it.
+        run: |
+          name=$(python -c "import tomllib;print(tomllib.load(open('pyproject.toml','rb'))['project']['name'])")
+          version=$(python -c "import tomllib;print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+          for attempt in $(seq 1 10); do
+            if curl -fsS "https://pypi.org/pypi/$name/$version/json" >/dev/null; then
+              echo "$name $version is on PyPI"
+              exit 0
+            fi
+            echo "not visible yet (attempt $attempt/10)"
+            sleep 15
+          done
+          echo "::error::$name $version is not on PyPI after a successful upload"
+          exit 1
       - name: Create GitHub Release
+        # Gated on the upload step's OUTCOME. This was unconditional, so a missing or wrong
+        # PYPI_API_TOKEN produced a green job, no upload, and a GitHub Release pointing at a
+        # version that was never distributed.
+        if: steps.publish.outcome == 'success'
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
